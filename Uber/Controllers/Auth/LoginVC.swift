@@ -30,7 +30,7 @@ class LoginVC: UIViewController {
     }()
     let logoImage : UIImageView = {
         var iv = UIImageView()
-        let img = UIImage(named: "logo")?.withRenderingMode(.alwaysOriginal)
+        let img = UIImage(named: "uber-logo")?.withRenderingMode(.alwaysOriginal)
         iv.image = img
         iv.contentMode = .scaleAspectFill
         iv.translatesAutoresizingMaskIntoConstraints = false
@@ -54,28 +54,24 @@ class LoginVC: UIViewController {
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
-    
-    let getStartedButton: UberButton = {
-        var btn = UberButton()
-        btn.setTitle("Get started", for: .normal)
-        btn.tintColor = .white
-        btn.adjustsImageWhenHighlighted = false
-        btn.semanticContentAttribute = .forceRightToLeft
-        btn.addTarget(self, action: #selector(didTapGetStarted), for: .touchUpInside)
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        return btn
+   
+    lazy var getStartedView: UberImageButton = {
+        let v = UberImageButton(frame: .zero)
+        v.controller = self
+        v.textLabel.text = "Get Started"
+        v.translatesAutoresizingMaskIntoConstraints = false
+        return v
     }()
-    
-    
+
     @objc func didTapGetStarted(){
-        
+        print("tap")
     }
     func setupViews(){
         view.addSubview(stackView)
         [logoImage,driveSafelyImage,sloganLabel].forEach{
             stackView.addArrangedSubview($0)
         }
-        view.addSubview(getStartedButton)
+        view.addSubview(getStartedView)
     }
     
     func setupContraints(){
@@ -83,20 +79,19 @@ class LoginVC: UIViewController {
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 70),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            stackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.6),
-//            stackView.bottomAnchor.constraint(equalTo: getStartedButton.topAnchor, constant: -120),
+            stackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.55),
             
-            logoImage.widthAnchor.constraint(equalToConstant: 100),
-            logoImage.heightAnchor.constraint(equalToConstant: 50),
+            logoImage.widthAnchor.constraint(equalToConstant: 80),
+            logoImage.heightAnchor.constraint(equalToConstant: 30),
             
             driveSafelyImage.widthAnchor.constraint(equalToConstant: 250),
             driveSafelyImage.heightAnchor.constraint(equalToConstant: 250),
             
+            getStartedView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            getStartedView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            getStartedView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            getStartedView.heightAnchor.constraint(equalToConstant: 58),
             
-            getStartedButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            getStartedButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            getStartedButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            getStartedButton.heightAnchor.constraint(equalToConstant: 58),
             
         ])
     }
