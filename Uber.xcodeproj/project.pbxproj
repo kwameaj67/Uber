@@ -12,6 +12,11 @@
 		98E9015B2924E3A0003F8ABF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E9015A2924E3A0003F8ABF /* ViewController.swift */; };
 		98E901602924E3A5003F8ABF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98E9015F2924E3A5003F8ABF /* Assets.xcassets */; };
 		98E901632924E3A5003F8ABF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98E901612924E3A5003F8ABF /* LaunchScreen.storyboard */; };
+		98E901782924E9BD003F8ABF /* UberMove-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98E901742924E9BD003F8ABF /* UberMove-Light.ttf */; };
+		98E901792924E9BD003F8ABF /* UberMove-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98E901752924E9BD003F8ABF /* UberMove-Medium.ttf */; };
+		98E9017A2924E9BD003F8ABF /* UberMove-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98E901762924E9BD003F8ABF /* UberMove-Bold.ttf */; };
+		98E9017B2924E9BD003F8ABF /* UberMove-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98E901772924E9BD003F8ABF /* UberMove-Regular.ttf */; };
+		98E9017D2924E9DF003F8ABF /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E9017C2924E9DF003F8ABF /* Font.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		98E9015F2924E3A5003F8ABF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98E901622924E3A5003F8ABF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		98E901642924E3A5003F8ABF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98E901742924E9BD003F8ABF /* UberMove-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UberMove-Light.ttf"; sourceTree = "<group>"; };
+		98E901752924E9BD003F8ABF /* UberMove-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UberMove-Medium.ttf"; sourceTree = "<group>"; };
+		98E901762924E9BD003F8ABF /* UberMove-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UberMove-Bold.ttf"; sourceTree = "<group>"; };
+		98E901772924E9BD003F8ABF /* UberMove-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UberMove-Regular.ttf"; sourceTree = "<group>"; };
+		98E9017C2924E9DF003F8ABF /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +111,10 @@
 		98E9016E2924E412003F8ABF /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				98E901762924E9BD003F8ABF /* UberMove-Bold.ttf */,
+				98E901742924E9BD003F8ABF /* UberMove-Light.ttf */,
+				98E901752924E9BD003F8ABF /* UberMove-Medium.ttf */,
+				98E901772924E9BD003F8ABF /* UberMove-Regular.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -108,6 +122,7 @@
 		98E9016F2924E418003F8ABF /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				98E9017C2924E9DF003F8ABF /* Font.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -170,6 +185,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				98E901632924E3A5003F8ABF /* LaunchScreen.storyboard in Resources */,
+				98E9017A2924E9BD003F8ABF /* UberMove-Bold.ttf in Resources */,
+				98E901782924E9BD003F8ABF /* UberMove-Light.ttf in Resources */,
+				98E901792924E9BD003F8ABF /* UberMove-Medium.ttf in Resources */,
+				98E9017B2924E9BD003F8ABF /* UberMove-Regular.ttf in Resources */,
 				98E901602924E3A5003F8ABF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -181,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98E9017D2924E9DF003F8ABF /* Font.swift in Sources */,
 				98E9015B2924E3A0003F8ABF /* ViewController.swift in Sources */,
 				98E901572924E3A0003F8ABF /* AppDelegate.swift in Sources */,
 				98E901592924E3A0003F8ABF /* SceneDelegate.swift in Sources */,
