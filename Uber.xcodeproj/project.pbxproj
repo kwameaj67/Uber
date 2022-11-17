@@ -11,9 +11,12 @@
 		98C97A1929253DB90078608A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C97A1829253DB90078608A /* Color.swift */; };
 		98C97A1B2925446A0078608A /* UberButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C97A1A292544690078608A /* UberButton.swift */; };
 		98C97A1E29255ECB0078608A /* UberImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C97A1D29255ECB0078608A /* UberImageButton.swift */; };
+		98E1453E2926EBA200B965F2 /* UberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E1453D2926EBA200B965F2 /* UberTextField.swift */; };
+		98E145402926ED0500B965F2 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E1453F2926ED0500B965F2 /* LoginVC.swift */; };
+		98E145422926FB2D00B965F2 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E145412926FB2D00B965F2 /* RegisterVC.swift */; };
 		98E901572924E3A0003F8ABF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E901562924E3A0003F8ABF /* AppDelegate.swift */; };
 		98E901592924E3A0003F8ABF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E901582924E3A0003F8ABF /* SceneDelegate.swift */; };
-		98E9015B2924E3A0003F8ABF /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E9015A2924E3A0003F8ABF /* LoginVC.swift */; };
+		98E9015B2924E3A0003F8ABF /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E9015A2924E3A0003F8ABF /* WelcomeVC.swift */; };
 		98E901602924E3A5003F8ABF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98E9015F2924E3A5003F8ABF /* Assets.xcassets */; };
 		98E901632924E3A5003F8ABF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98E901612924E3A5003F8ABF /* LaunchScreen.storyboard */; };
 		98E901782924E9BD003F8ABF /* UberMove-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98E901742924E9BD003F8ABF /* UberMove-Light.ttf */; };
@@ -28,10 +31,13 @@
 		98C97A1829253DB90078608A /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		98C97A1A292544690078608A /* UberButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberButton.swift; sourceTree = "<group>"; };
 		98C97A1D29255ECB0078608A /* UberImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberImageButton.swift; sourceTree = "<group>"; };
+		98E1453D2926EBA200B965F2 /* UberTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberTextField.swift; sourceTree = "<group>"; };
+		98E1453F2926ED0500B965F2 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		98E145412926FB2D00B965F2 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		98E901532924E3A0003F8ABF /* Uber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uber.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98E901562924E3A0003F8ABF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98E901582924E3A0003F8ABF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		98E9015A2924E3A0003F8ABF /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		98E9015A2924E3A0003F8ABF /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		98E9015F2924E3A5003F8ABF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98E901622924E3A5003F8ABF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		98E901642924E3A5003F8ABF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,7 +62,9 @@
 		98C97A1429253D2D0078608A /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				98E9015A2924E3A0003F8ABF /* LoginVC.swift */,
+				98E9015A2924E3A0003F8ABF /* WelcomeVC.swift */,
+				98E1453F2926ED0500B965F2 /* LoginVC.swift */,
+				98E145412926FB2D00B965F2 /* RegisterVC.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -124,6 +132,7 @@
 			children = (
 				98C97A1A292544690078608A /* UberButton.swift */,
 				98C97A1D29255ECB0078608A /* UberImageButton.swift */,
+				98E1453D2926EBA200B965F2 /* UberTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -229,13 +238,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				98E9017D2924E9DF003F8ABF /* Font.swift in Sources */,
-				98E9015B2924E3A0003F8ABF /* LoginVC.swift in Sources */,
+				98E9015B2924E3A0003F8ABF /* WelcomeVC.swift in Sources */,
 				98C97A1729253D640078608A /* UIView+Ext.swift in Sources */,
 				98E901572924E3A0003F8ABF /* AppDelegate.swift in Sources */,
+				98E145422926FB2D00B965F2 /* RegisterVC.swift in Sources */,
+				98E145402926ED0500B965F2 /* LoginVC.swift in Sources */,
 				98C97A1B2925446A0078608A /* UberButton.swift in Sources */,
 				98C97A1E29255ECB0078608A /* UberImageButton.swift in Sources */,
 				98E901592924E3A0003F8ABF /* SceneDelegate.swift in Sources */,
 				98C97A1929253DB90078608A /* Color.swift in Sources */,
+				98E1453E2926EBA200B965F2 /* UberTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

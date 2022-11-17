@@ -7,18 +7,15 @@
 
 import UIKit
 
+
 class UberImageButton: UIView {
     
-    var controller: LoginVC? {
-        didSet{
-            self.addGestureRecognizer(UITapGestureRecognizer(target: controller, action: #selector(LoginVC.didTapGetStarted)))
-        }
-    }
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
         setupConstraints()
         backgroundColor = .black
+        translatesAutoresizingMaskIntoConstraints = false
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -49,7 +46,7 @@ class UberImageButton: UIView {
             textLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
             forwardIcon.centerYAnchor.constraint(equalTo: centerYAnchor),
-            forwardIcon.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
+            forwardIcon.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             forwardIcon.widthAnchor.constraint(equalToConstant: 20),
             forwardIcon.heightAnchor.constraint(equalToConstant: 20),
         ])
