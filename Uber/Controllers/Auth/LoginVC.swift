@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
+//  LoginVC.swift
 //  Uber
 //
-//  Created by Kwame Agyenim - Boateng on 16/11/2022.
+//  Created by Kwame Agyenim - Boateng on 17/11/2022.
 //
 
 import UIKit
@@ -11,90 +11,127 @@ class LoginVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Color.blue
+        view.backgroundColor  = .white
+        title = "Log in"
         setupViews()
         setupContraints()
+        configureNavBar()
+        configureBackButton()
+        navigationController?.navigationBar.isHidden = false
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.isHidden = true
-    }
-    // MARK: Properties -
-    let stackView: UIStackView = {
-        let sv = UIStackView()
-        sv.axis = .vertical
-        sv.alignment = .center
-        sv.spacing = 50
-        sv.translatesAutoresizingMaskIntoConstraints = false
-        return sv
+    //MARK: Properties -
+    var scrollView : UIScrollView = {
+        var sb = UIScrollView()
+        sb.showsVerticalScrollIndicator = false
+        sb.bounces = true
+        sb.alwaysBounceVertical = true
+        sb.translatesAutoresizingMaskIntoConstraints = false
+        return sb
     }()
-    let logoImage : UIImageView = {
-        var iv = UIImageView()
-        let img = UIImage(named: "uber-logo")?.withRenderingMode(.alwaysOriginal)
-        iv.image = img
-        iv.contentMode = .scaleAspectFill
-        iv.translatesAutoresizingMaskIntoConstraints = false
-        return iv
-    }()
-    let driveSafelyImage : UIImageView = {
-        var iv = UIImageView()
-        let img = UIImage(named: "drive")?.withRenderingMode(.alwaysOriginal)
-        iv.image = img
-        iv.backgroundColor = .red
-        iv.contentMode = .scaleAspectFill
-        iv.translatesAutoresizingMaskIntoConstraints = false
-        return iv
-    }()
-    let sloganLabel: UILabel = {
-        let lb = UILabel()
-        lb.text = "Move around safely"
-        lb.textColor = .white
-        lb.textAlignment = .center
-        lb.font = UIFont(name: Font.bold.rawValue, size: 30)
-        lb.translatesAutoresizingMaskIntoConstraints = false
-        return lb
-    }()
-   
-    lazy var getStartedView: UberImageButton = {
-        let v = UberImageButton(frame: .zero)
-        v.controller = self
-        v.textLabel.text = "Get Started"
+    let container: UIView = {
+        let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
-
-    @objc func didTapGetStarted(){
-        print("tap")
+    let stackView: UIStackView = {
+        let sv = UIStackView()
+        sv.axis = .vertical
+        sv.spacing = 20
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        return sv
+    }()
+    lazy var loginButton: UberImageButton = {
+        let v = UberImageButton(frame: .zero)
+        v.forwardIcon.isHidden = true
+        v.forwardIcon.alpha = 0
+        v.textLabel.text = "Sign in"
+        return v
+    }()
+    let emailTextField: UberTextField = {
+        var tf = UberTextField()
+        tf.placeholder = "Email"
+        return tf
+    }()
+    let passwordTextField: UberTextField = {
+        var tf = UberTextField()
+        tf.placeholder = "Password"
+        tf.isSecureTextEntry = true
+        return tf
+    }()
+    let signupButton: UIButton = {
+        var btn = UIButton()
+        btn.setTitle("Don't have an account? Sign up", for: .normal)
+        btn.setTitleColor(Color.text_grey, for: .normal)
+        btn.titleLabel?.font = UIFont(name: Font.medium.rawValue, size: 16)
+        btn.backgroundColor = .none
+        btn.addTarget(self, action: #selector(didTapSignup), for: .touchUpInside)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    @objc func didTapSignup(){
+        navigationController?.pushViewController(RegisterVC(), animated: true)
     }
     func setupViews(){
-        view.addSubview(stackView)
-        [logoImage,driveSafelyImage,sloganLabel].forEach{
-            stackView.addArrangedSubview($0)
-        }
-        view.addSubview(getStartedView)
+        view.addSubview(scrollView)
+        scrollView.addSubview(container)
+        container.addSubview(stackView)
+        container.addSubview(loginButton)
+        stackView.addArrangedSubview(emailTextField)
+        stackView.addArrangedSubview(passwordTextField)
+        container.addSubview(signupButton)
     }
-    
     func setupContraints(){
+        scrollView.pin(to: view)
+        container.pinToEdges(to: scrollView)
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 70),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            stackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.55),
+            container.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            container.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
             
-            logoImage.widthAnchor.constraint(equalToConstant: 80),
-            logoImage.heightAnchor.constraint(equalToConstant: 30),
-            
-            driveSafelyImage.widthAnchor.constraint(equalToConstant: 250),
-            driveSafelyImage.heightAnchor.constraint(equalToConstant: 250),
-            
-            getStartedView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            getStartedView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            getStartedView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            getStartedView.heightAnchor.constraint(equalToConstant: 58),
-            
-            
+            stackView.topAnchor.constraint(equalTo: container.topAnchor, constant: 40),
+            stackView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 30),
+            stackView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -30),
+          
+            emailTextField.heightAnchor.constraint(equalToConstant: 58),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 58),
+           
+            signupButton.centerXAnchor.constraint(equalTo: container.centerXAnchor),
+            signupButton.bottomAnchor.constraint(equalTo: loginButton.topAnchor, constant: -20),
+            signupButton.heightAnchor.constraint(equalToConstant: 20),
+           
+            loginButton.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 30),
+            loginButton.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -30),
+            loginButton.bottomAnchor.constraint(equalTo: container.bottomAnchor),
+            loginButton.heightAnchor.constraint(equalToConstant: 58),
         ])
+       
     }
-
 }
 
+extension LoginVC {
+    func configureNavBar(){
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: Font.bold.rawValue, size: 18.0)!,NSAttributedString.Key.foregroundColor: UIColor.black]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: Font.bold.rawValue, size: 32.0)!,NSAttributedString.Key.foregroundColor: UIColor.black]
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.largeContentTitle = "Login"
+        navigationController?.navigationItem.title = "Log in"
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+    }
+    func configureBackButton(){
+        let backImage =  UIImage(named: "uber-back")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 20, weight: .medium))
+        navigationController?.navigationBar.backIndicatorImage = backImage
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImage
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: .none, action: .none)
+        navigationController?.navigationBar.topItem?.backBarButtonItem?.imageInsets = UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 40)
+        navigationController?.navigationBar.tintColor = .black
+    }
+    
+    @objc func closeVC(){
+        navigationController?.popViewController(animated: true)
+    }
+}
