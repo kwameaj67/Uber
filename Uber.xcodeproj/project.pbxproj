@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		98450BA82928230C0065C260 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98450BA72928230C0065C260 /* TabBarVC.swift */; };
 		98450BAA2928FA4E0065C260 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98450BA92928FA4E0065C260 /* UIViewController+Ext.swift */; };
+		98450BAD2929303F0065C260 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98450BAC2929303F0065C260 /* HomeVC.swift */; };
+		98450BAF292930540065C260 /* ActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98450BAE292930540065C260 /* ActivityVC.swift */; };
+		98450BB1292930660065C260 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98450BB0292930660065C260 /* AccountVC.swift */; };
+		98450BB9292935B70065C260 /* SafetyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98450BB8292935B70065C260 /* SafetyVC.swift */; };
+		98450BBB292936510065C260 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98450BBA292936510065C260 /* WelcomeVC.swift */; };
 		98C97A1729253D640078608A /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C97A1629253D640078608A /* UIView+Ext.swift */; };
 		98C97A1929253DB90078608A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C97A1829253DB90078608A /* Color.swift */; };
 		98C97A1B2925446A0078608A /* UberButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C97A1A292544690078608A /* UberButton.swift */; };
@@ -18,7 +23,7 @@
 		98E145422926FB2D00B965F2 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E145412926FB2D00B965F2 /* RegisterVC.swift */; };
 		98E901572924E3A0003F8ABF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E901562924E3A0003F8ABF /* AppDelegate.swift */; };
 		98E901592924E3A0003F8ABF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E901582924E3A0003F8ABF /* SceneDelegate.swift */; };
-		98E9015B2924E3A0003F8ABF /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E9015A2924E3A0003F8ABF /* WelcomeVC.swift */; };
+		98E9015B2924E3A0003F8ABF /* OnboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E9015A2924E3A0003F8ABF /* OnboardVC.swift */; };
 		98E901602924E3A5003F8ABF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98E9015F2924E3A5003F8ABF /* Assets.xcassets */; };
 		98E901632924E3A5003F8ABF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98E901612924E3A5003F8ABF /* LaunchScreen.storyboard */; };
 		98E901782924E9BD003F8ABF /* UberMove-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98E901742924E9BD003F8ABF /* UberMove-Light.ttf */; };
@@ -31,6 +36,11 @@
 /* Begin PBXFileReference section */
 		98450BA72928230C0065C260 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		98450BA92928FA4E0065C260 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		98450BAC2929303F0065C260 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		98450BAE292930540065C260 /* ActivityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityVC.swift; sourceTree = "<group>"; };
+		98450BB0292930660065C260 /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
+		98450BB8292935B70065C260 /* SafetyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyVC.swift; sourceTree = "<group>"; };
+		98450BBA292936510065C260 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		98C97A1629253D640078608A /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		98C97A1829253DB90078608A /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		98C97A1A292544690078608A /* UberButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberButton.swift; sourceTree = "<group>"; };
@@ -41,7 +51,7 @@
 		98E901532924E3A0003F8ABF /* Uber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Uber.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98E901562924E3A0003F8ABF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98E901582924E3A0003F8ABF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		98E9015A2924E3A0003F8ABF /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
+		98E9015A2924E3A0003F8ABF /* OnboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardVC.swift; sourceTree = "<group>"; };
 		98E9015F2924E3A5003F8ABF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98E901622924E3A5003F8ABF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		98E901642924E3A5003F8ABF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,12 +73,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		98450BAB292930240065C260 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				98450BA72928230C0065C260 /* TabBarVC.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		98450BB22929306A0065C260 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				98450BAC2929303F0065C260 /* HomeVC.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		98450BB32929307B0065C260 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				98450BAE292930540065C260 /* ActivityVC.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		98450BB4292930870065C260 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				98450BB0292930660065C260 /* AccountVC.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		98450BB5292932F30065C260 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		98450BB6292932FB0065C260 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		98450BB7292933040065C260 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
 		98C97A1429253D2D0078608A /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				98E9015A2924E3A0003F8ABF /* WelcomeVC.swift */,
+				98E9015A2924E3A0003F8ABF /* OnboardVC.swift */,
 				98E1453F2926ED0500B965F2 /* LoginVC.swift */,
 				98E145412926FB2D00B965F2 /* RegisterVC.swift */,
+				98450BB8292935B70065C260 /* SafetyVC.swift */,
+				98450BBA292936510065C260 /* WelcomeVC.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -76,7 +141,9 @@
 		98C97A1529253D320078608A /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				98450BA72928230C0065C260 /* TabBarVC.swift */,
+				98450BB22929306A0065C260 /* Home */,
+				98450BB4292930870065C260 /* Account */,
+				98450BB32929307B0065C260 /* Activity */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -118,6 +185,7 @@
 		98E9016A2924E3C1003F8ABF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				98450BAB292930240065C260 /* TabBar */,
 				98C97A1529253D320078608A /* Main */,
 				98C97A1429253D2D0078608A /* Auth */,
 			);
@@ -136,6 +204,9 @@
 		98E9016C2924E3CE003F8ABF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				98450BB7292933040065C260 /* Account */,
+				98450BB6292932FB0065C260 /* Activity */,
+				98450BB5292932F30065C260 /* Home */,
 				98C97A1A292544690078608A /* UberButton.swift */,
 				98C97A1D29255ECB0078608A /* UberImageButton.swift */,
 				98E1453D2926EBA200B965F2 /* UberTextField.swift */,
@@ -243,17 +314,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98450BB1292930660065C260 /* AccountVC.swift in Sources */,
 				98E9017D2924E9DF003F8ABF /* Font.swift in Sources */,
+				98450BAD2929303F0065C260 /* HomeVC.swift in Sources */,
 				98450BAA2928FA4E0065C260 /* UIViewController+Ext.swift in Sources */,
-				98E9015B2924E3A0003F8ABF /* WelcomeVC.swift in Sources */,
+				98450BB9292935B70065C260 /* SafetyVC.swift in Sources */,
+				98E9015B2924E3A0003F8ABF /* OnboardVC.swift in Sources */,
 				98C97A1729253D640078608A /* UIView+Ext.swift in Sources */,
 				98E901572924E3A0003F8ABF /* AppDelegate.swift in Sources */,
+				98450BAF292930540065C260 /* ActivityVC.swift in Sources */,
 				98E145422926FB2D00B965F2 /* RegisterVC.swift in Sources */,
 				98E145402926ED0500B965F2 /* LoginVC.swift in Sources */,
 				98C97A1B2925446A0078608A /* UberButton.swift in Sources */,
 				98C97A1E29255ECB0078608A /* UberImageButton.swift in Sources */,
 				98E901592924E3A0003F8ABF /* SceneDelegate.swift in Sources */,
 				98C97A1929253DB90078608A /* Color.swift in Sources */,
+				98450BBB292936510065C260 /* WelcomeVC.swift in Sources */,
 				98450BA82928230C0065C260 /* TabBarVC.swift in Sources */,
 				98E1453E2926EBA200B965F2 /* UberTextField.swift in Sources */,
 			);
