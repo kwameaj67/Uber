@@ -25,7 +25,7 @@ class UberImageButton: UIView {
     let textLabel: UILabel = {
         let lb = UILabel()
         lb.textColor = .white
-        lb.font = UIFont(name: Font.bold.rawValue, size: 18)
+        lb.font = UIFont(name: Font.medium.rawValue, size: 18)
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()

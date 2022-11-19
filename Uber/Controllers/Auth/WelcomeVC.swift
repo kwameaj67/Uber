@@ -94,6 +94,6 @@ class WelcomeVC: UIViewController {
 
 extension WelcomeVC{
     @objc func didTapGetStarted(){
-        navigationController?.pushViewController(LoginVC(), animated: true)
+        navigationController?.pushViewController(RegisterVC(), animated: true)
     }
 }

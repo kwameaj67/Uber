@@ -15,7 +15,7 @@ class UberButton: UIButton {
         //MARK:  properties -
         backgroundColor = .black
         setTitleColor(.white, for: .normal)
-        titleLabel?.font = UIFont(name: Font.bold.rawValue, size: 18)
+        titleLabel?.font = UIFont(name: Font.medium.rawValue, size: 18)
     }
     
     required init?(coder: NSCoder) {

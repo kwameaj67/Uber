@@ -9,13 +9,13 @@ import UIKit
 
 class UberTextField: UITextField {
 
+   
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        backgroundColor = Color.grey_bg
+        backgroundColor = Color.textField_bg
         autocapitalizationType = .none
         autocorrectionType = .no
-        font = UIFont(name: Font.regular.rawValue, size: 16)
+        font = UIFont(name: Font.medium.rawValue, size: 18)
         attributedPlaceholder = NSAttributedString(string: "", attributes: [.foregroundColor: UIColor.systemGray3,.font: UIFont(name: Font.regular.rawValue, size: 16)!])
         borderStyle = .none
         textColor = .black
