@@ -1,5 +1,5 @@
 //
-//  WelcomeVC.swift
+//  HomeVC.swift
 //  Uber
 //
 //  Created by Kwame Agyenim - Boateng on 19/11/2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WelcomeVC: UIViewController {
+class HomeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,6 @@ class WelcomeVC: UIViewController {
         
         ])
     }
-    
 
-   
+  
 }

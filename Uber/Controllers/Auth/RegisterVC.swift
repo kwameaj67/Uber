@@ -51,12 +51,13 @@ class RegisterVC: UIViewController {
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
-    lazy var signupButton: UberImageButton = {
-        let v = UberImageButton(frame: .zero)
-        v.forwardIcon.isHidden = true
-        v.forwardIcon.alpha = 0
-        v.textLabel.text = "Sign up"
-        return v
+    lazy var registerButton: UberImageButton = {
+        let ub = UberImageButton(frame: .zero)
+        ub.forwardIcon.isHidden = true
+        ub.forwardIcon.alpha = 0
+        ub.textLabel.text = "Sign up"
+        ub.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapRegisterButton)))
+        return ub
     }()
     let emailTextField: UberTextField = {
         var tf = UberTextField()
@@ -88,11 +89,18 @@ class RegisterVC: UIViewController {
         emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
     }
+    @objc func didTapRegisterButton(){
+        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,
+           let window = sceneDelegate.window {
+            window.rootViewController = TabBarVC()
+            UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: nil, completion: nil)
+        }
+    }
     func setupViews(){
         view.addSubview(scrollView)
         scrollView.addSubview(container)
         container.addSubview(stackView)
-        container.addSubview(signupButton)
+        container.addSubview(registerButton)
         stackView.addArrangedSubview(emailTextField)
         stackView.addArrangedSubview(passwordTextField)
         container.addSubview(loginButton)
@@ -100,7 +108,7 @@ class RegisterVC: UIViewController {
     func setupContraints(){
         scrollView.pin(to: view)
         container.pinToEdges(to: scrollView)
-        bottomButtonConstraint =  signupButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
+        bottomButtonConstraint =  registerButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
         bottomButtonConstraint.isActive = true
         NSLayoutConstraint.activate([
             container.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
@@ -114,12 +122,12 @@ class RegisterVC: UIViewController {
             passwordTextField.heightAnchor.constraint(equalToConstant: 58),
             
             loginButton.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-            loginButton.bottomAnchor.constraint(equalTo: signupButton.topAnchor, constant: -20),
+            loginButton.bottomAnchor.constraint(equalTo: registerButton.topAnchor, constant: -20),
             loginButton.heightAnchor.constraint(equalToConstant: 20),
             
-            signupButton.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 30),
-            signupButton.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -30),
-            signupButton.heightAnchor.constraint(equalToConstant: 58),
+            registerButton.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 30),
+            registerButton.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -30),
+            registerButton.heightAnchor.constraint(equalToConstant: 58),
         ])
     }
 }
