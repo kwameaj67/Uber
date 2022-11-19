@@ -8,7 +8,10 @@
 import UIKit
 
 class LoginVC: UIViewController {
-
+    
+    private var isShowingKeyboard:Bool = false
+    private var bottomButtonConstraint = NSLayoutConstraint()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor  = .white
@@ -17,7 +20,14 @@ class LoginVC: UIViewController {
         setupContraints()
         configureNavBar()
         configureBackButton()
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
         navigationController?.navigationBar.isHidden = false
+        
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard(gesture:))))
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     //MARK: Properties -
@@ -71,7 +81,12 @@ class LoginVC: UIViewController {
     }()
     
     @objc func didTapSignup(){
-        navigationController?.pushViewController(RegisterVC(), animated: true)
+        navigationController?.popViewController(animated: true)
+    }
+    @objc func hideKeyboard(gesture : UITapGestureRecognizer){
+        view.endEditing(true)
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
     }
     func setupViews(){
         view.addSubview(scrollView)
@@ -85,6 +100,8 @@ class LoginVC: UIViewController {
     func setupContraints(){
         scrollView.pin(to: view)
         container.pinToEdges(to: scrollView)
+        bottomButtonConstraint =  loginButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
+        bottomButtonConstraint.isActive = true
         NSLayoutConstraint.activate([
             container.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             container.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
@@ -102,7 +119,6 @@ class LoginVC: UIViewController {
            
             loginButton.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 30),
             loginButton.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -30),
-            loginButton.bottomAnchor.constraint(equalTo: container.bottomAnchor),
             loginButton.heightAnchor.constraint(equalToConstant: 58),
         ])
        
@@ -111,8 +127,8 @@ class LoginVC: UIViewController {
 
 extension LoginVC {
     func configureNavBar(){
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: Font.bold.rawValue, size: 18.0)!,NSAttributedString.Key.foregroundColor: UIColor.black]
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: Font.bold.rawValue, size: 32.0)!,NSAttributedString.Key.foregroundColor: UIColor.black]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: Font.medium.rawValue, size: 18.0)!,NSAttributedString.Key.foregroundColor: UIColor.black]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: Font.bold.rawValue, size: 36.0)!,NSAttributedString.Key.foregroundColor: UIColor.black]
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.largeContentTitle = "Login"
@@ -133,5 +149,32 @@ extension LoginVC {
     
     @objc func closeVC(){
         navigationController?.popViewController(animated: true)
+    }
+}
+
+extension LoginVC: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        isShowingKeyboard = true
+    }
+    @objc private func keyboardWillShow(notification: Notification){
+        if let _ = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if isShowingKeyboard{
+                self.bottomButtonConstraint.constant = -280
+            }
+            UIView.animate(withDuration: 0.8) {
+                self.view.layoutIfNeeded()
+            }
+        }
+
+    }
+    @objc private func keyboardWillHide(notification: Notification){
+        if let _ = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if isShowingKeyboard{
+                self.bottomButtonConstraint.constant = 0
+            }
+            UIView.animate(withDuration: 0.4) {
+                self.view.layoutIfNeeded()
+            }
+        }
     }
 }
