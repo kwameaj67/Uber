@@ -53,20 +53,20 @@ class WelcomeVC: UIViewController {
             
             locationImage.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 90),
             locationImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            locationImage.heightAnchor.constraint(equalToConstant: 100),
-            locationImage.widthAnchor.constraint(equalToConstant: 100),
+            locationImage.heightAnchor.constraint(equalToConstant: 130),
+            locationImage.widthAnchor.constraint(equalToConstant: 130),
             
         ])
     }
     
     func animateImage(){
-        UIView.animate(withDuration: 0.8) {
+        UIView.animate(withDuration: 0.4) {
             self.locationImage.transform = CGAffineTransform(rotationAngle: .pi)
         } completion: { _ in
             UIView.animate(
-                withDuration: 0.5,
+                withDuration: 1.2,
                 delay: 0,
-                options: .repeat
+                options: [.repeat, .curveLinear]
             ) {
                 self.locationImage.transform = CGAffineTransform(rotationAngle: 2 * .pi)
             }
