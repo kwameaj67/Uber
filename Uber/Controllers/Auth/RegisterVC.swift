@@ -82,6 +82,16 @@ class RegisterVC: UIViewController {
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
+    let userSegmentedContol: UISegmentedControl = {
+        let sc = UISegmentedControl(items: ["Rider","Driver"])
+        sc.isSelected = true
+        sc.backgroundColor = Color.textField_bg
+        sc.selectedSegmentIndex = 0
+        sc.selectedSegmentTintColor = .white
+        sc.setTitleTextAttributes([.font: UIFont(name: Font.medium.rawValue, size: 15)!], for: .normal)
+        sc.translatesAutoresizingMaskIntoConstraints = false
+        return sc
+    }()
     
     @objc func didTapLogin(){
         navigationController?.pushViewController(LoginVC(), animated: true)
@@ -101,6 +111,7 @@ class RegisterVC: UIViewController {
     func setupViews(){
         view.addSubview(scrollView)
         scrollView.addSubview(container)
+        container.addSubview(userSegmentedContol)
         container.addSubview(stackView)
         container.addSubview(registerButton)
         stackView.addArrangedSubview(emailTextField)
@@ -116,7 +127,11 @@ class RegisterVC: UIViewController {
             container.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             container.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
             
-            stackView.topAnchor.constraint(equalTo: container.topAnchor, constant: 40),
+            userSegmentedContol.topAnchor.constraint(equalTo: container.topAnchor, constant: 40),
+            userSegmentedContol.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 30),
+            userSegmentedContol.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -30),
+            
+            stackView.topAnchor.constraint(equalTo: userSegmentedContol.bottomAnchor, constant: 40),
             stackView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 30),
             stackView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -30),
           
