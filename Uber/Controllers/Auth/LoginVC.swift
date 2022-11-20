@@ -23,6 +23,8 @@ class LoginVC: UIViewController {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.largeContentTitle = "Sign in"
+        self.navigationItem.title = "Sign in"
         
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard(gesture:))))
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -55,7 +57,7 @@ class LoginVC: UIViewController {
         let v = UberImageButton(frame: .zero)
         v.forwardIcon.isHidden = true
         v.forwardIcon.alpha = 0
-        v.textLabel.text = "Sign in"
+        v.textLabel.text = "Login"
         return v
     }()
     let emailTextField: UberTextField = {
@@ -122,33 +124,6 @@ class LoginVC: UIViewController {
             loginButton.heightAnchor.constraint(equalToConstant: 58),
         ])
        
-    }
-}
-
-extension LoginVC {
-    func configureNavBar(){
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: Font.medium.rawValue, size: 18.0)!,NSAttributedString.Key.foregroundColor: UIColor.black]
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: Font.bold.rawValue, size: 36.0)!,NSAttributedString.Key.foregroundColor: UIColor.black]
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationItem.largeTitleDisplayMode = .always
-        navigationController?.navigationBar.largeContentTitle = "Login"
-        navigationController?.navigationItem.title = "Log in"
-        
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
-    }
-    func configureBackButton(){
-        let backImage =  UIImage(named: "uber-back")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 20, weight: .medium))
-        navigationController?.navigationBar.backIndicatorImage = backImage
-        navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImage
-        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: .none, action: .none)
-        navigationController?.navigationBar.topItem?.backBarButtonItem?.imageInsets = UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 40)
-        navigationController?.navigationBar.tintColor = .black
-    }
-    
-    @objc func closeVC(){
-        navigationController?.popViewController(animated: true)
     }
 }
 
