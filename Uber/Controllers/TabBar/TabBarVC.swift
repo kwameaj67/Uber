@@ -19,7 +19,7 @@ class TabBarVC: UITabBarController {
         let ActivityVC = UINavigationController(rootViewController: ActivityVC())
         let AccountVC = UINavigationController(rootViewController: AccountVC())
         
-        viewControllers = [HomeVC, ActivityVC, AccountVC]
+        viewControllers = [HomeVC   , ActivityVC, AccountVC]
         setupTabBar()
         
         // tabs
@@ -47,7 +47,6 @@ class TabBarVC: UITabBarController {
         tabBarAppearance.unselectedItemTintColor = .systemGray2
         
         additionalSafeAreaInsets.top = 20
-       
     }
     
     func setupTabItem(_ activeImage: String, _ inactiveImage: String, _ index: Int,_ tabTitle: String){
