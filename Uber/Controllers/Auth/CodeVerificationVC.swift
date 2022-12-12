@@ -8,7 +8,9 @@
 import UIKit
 import CHIOTPField
 
+
 class CodeVerificationVC: UIViewController, UITextFieldDelegate {
+    
     private var phoneNumber: String? = "020 895 6935"
     private var isShowingKeyboard:Bool = false
     private var backButtonbottomConstraint = NSLayoutConstraint()
@@ -112,6 +114,7 @@ class CodeVerificationVC: UIViewController, UITextFieldDelegate {
         nextButtonbottomConstraint.isActive = true
 
         NSLayoutConstraint.activate([
+            
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
@@ -140,14 +143,17 @@ class CodeVerificationVC: UIViewController, UITextFieldDelegate {
 }
 
 extension CodeVerificationVC {
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         isShowingKeyboard = true
     }
+    
     func observeKeyboard(){
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
     @objc private func keyboardWillShow(notification: Notification){
         if let _ = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             if isShowingKeyboard{
@@ -160,6 +166,7 @@ extension CodeVerificationVC {
         }
 
     }
+    
     @objc private func keyboardWillHide(notification: Notification){
         if let _ = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             if isShowingKeyboard{
@@ -171,4 +178,5 @@ extension CodeVerificationVC {
             }
         }
     }
+    
 }
