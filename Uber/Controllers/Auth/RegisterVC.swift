@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RegisterVC: UIViewController {
 
@@ -61,6 +62,11 @@ class RegisterVC: UIViewController {
         ub.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapRegisterButton)))
         return ub
     }()
+    let fullNameTextField: UberTextField = {
+        var tf = UberTextField()
+        tf.placeholder = "Fullname"
+        return tf
+    }()
     let emailTextField: UberTextField = {
         var tf = UberTextField()
         tf.placeholder = "Email"
@@ -98,14 +104,48 @@ class RegisterVC: UIViewController {
     }
     @objc func hideKeyboard(gesture : UITapGestureRecognizer){
         view.endEditing(true)
+        fullNameTextField.resignFirstResponder()
         emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
     }
     @objc func didTapRegisterButton(){
+        guard let fullname = fullNameTextField.text, let email = emailTextField.text, let password = passwordTextField.text else { return }
+        let accountTypeIndex = userSegmentedContol.selectedSegmentIndex
+        
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+            if let err = error {
+                self.presentAlertError(title: "Error", message: err.localizedDescription)
+                return
+            }
+            guard let uid = result?.user.uid else { return }
+            
+            let values:[String: Any] = ["email": email, "fullname": fullname, "accountType": self.resolveAccountType(index: accountTypeIndex)]
+            
+            // store user in db
+            Database.database().reference().child("users").child(uid).updateChildValues(values) { error, ref in
+                if let err = error {
+                    self.presentAlertError(title: "Something went wrong!", message: err.localizedDescription)
+                    return
+                }
+                print("User Did Save")
+            }
+        }
+    }
+    func didShowTabBar(){
         if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,
            let window = sceneDelegate.window {
             window.rootViewController = TabBarVC()
             UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: nil, completion: nil)
+        }
+    }
+    func resolveAccountType(index: Int) -> String{
+        switch index {
+        case 0:
+            return "rider"
+        case 1:
+            return "driver"
+        default:
+            return "rider"
         }
     }
     func setupViews(){
@@ -114,6 +154,7 @@ class RegisterVC: UIViewController {
         container.addSubview(userSegmentedContol)
         container.addSubview(stackView)
         container.addSubview(registerButton)
+        stackView.addArrangedSubview(fullNameTextField)
         stackView.addArrangedSubview(emailTextField)
         stackView.addArrangedSubview(passwordTextField)
         container.addSubview(loginButton)
@@ -135,6 +176,7 @@ class RegisterVC: UIViewController {
             stackView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 30),
             stackView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -30),
           
+            fullNameTextField.heightAnchor.constraint(equalToConstant: 58),
             emailTextField.heightAnchor.constraint(equalToConstant: 58),
             passwordTextField.heightAnchor.constraint(equalToConstant: 58),
             
