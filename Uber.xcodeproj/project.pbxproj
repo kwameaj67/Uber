@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		98395D0D2947A5BB0071D5DF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98395D0C2947A5BA0071D5DF /* GoogleService-Info.plist */; };
-		98395D102947AA630071D5DF /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98395D0F2947AA630071D5DF /* AuthManager.swift */; };
+		98395D102947AA630071D5DF /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98395D0F2947AA630071D5DF /* FirebaseAuthManager.swift */; };
+		98395D13294CE74D0071D5DF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98395D12294CE74D0071D5DF /* User.swift */; };
 		9842F0312932BA6A00AD73D8 /* PhoneVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9842F0302932BA6A00AD73D8 /* PhoneVerificationVC.swift */; };
 		9842F0332932BA7B00AD73D8 /* CodeVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9842F0322932BA7B00AD73D8 /* CodeVerificationVC.swift */; };
 		9842F0362932C78000AD73D8 /* CHIOTPField in Frameworks */ = {isa = PBXBuildFile; productRef = 9842F0352932C78000AD73D8 /* CHIOTPField */; };
@@ -48,7 +49,8 @@
 
 /* Begin PBXFileReference section */
 		98395D0C2947A5BA0071D5DF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		98395D0F2947AA630071D5DF /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		98395D0F2947AA630071D5DF /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
+		98395D12294CE74D0071D5DF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9842F0302932BA6A00AD73D8 /* PhoneVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerificationVC.swift; sourceTree = "<group>"; };
 		9842F0322932BA7B00AD73D8 /* CodeVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerificationVC.swift; sourceTree = "<group>"; };
 		98450BA72928230C0065C260 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
@@ -102,9 +104,17 @@
 		98395D0E2947AA530071D5DF /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				98395D0F2947AA630071D5DF /* AuthManager.swift */,
+				98395D0F2947AA630071D5DF /* FirebaseAuthManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		98395D11294CE73F0071D5DF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				98395D12294CE74D0071D5DF /* User.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		98450BAB292930240065C260 /* TabBar */ = {
@@ -210,6 +220,7 @@
 		98E901552924E3A0003F8ABF /* Uber */ = {
 			isa = PBXGroup;
 			children = (
+				98395D11294CE73F0071D5DF /* Models */,
 				98395D0E2947AA530071D5DF /* Manager */,
 				98CAC43D293A0D8900B54E04 /* ViewModels */,
 				98E9016F2924E418003F8ABF /* Constants */,
@@ -378,7 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98450BB1292930660065C260 /* AccountVC.swift in Sources */,
-				98395D102947AA630071D5DF /* AuthManager.swift in Sources */,
+				98395D102947AA630071D5DF /* FirebaseAuthManager.swift in Sources */,
 				98450BBD292AEDE10065C260 /* Helpers.swift in Sources */,
 				98E9017D2924E9DF003F8ABF /* Font.swift in Sources */,
 				98450BAD2929303F0065C260 /* HomeVC.swift in Sources */,
@@ -397,6 +408,7 @@
 				98E901592924E3A0003F8ABF /* SceneDelegate.swift in Sources */,
 				98C97A1929253DB90078608A /* Color.swift in Sources */,
 				98450BBB292936510065C260 /* WelcomeVC.swift in Sources */,
+				98395D13294CE74D0071D5DF /* User.swift in Sources */,
 				98450BA82928230C0065C260 /* TabBarVC.swift in Sources */,
 				98E1453E2926EBA200B965F2 /* UberTextField.swift in Sources */,
 				9842F0312932BA6A00AD73D8 /* PhoneVerificationVC.swift in Sources */,

@@ -9,7 +9,9 @@ import UIKit
 import Firebase
 
 class RegisterVC: UIViewController {
-
+    
+    let authManager = FirebaseAuthManager.shared
+    
     private var isShowingKeyboard:Bool = false
     private var bottomButtonConstraint = NSLayoutConstraint()
     
@@ -111,22 +113,13 @@ class RegisterVC: UIViewController {
     @objc func didTapRegisterButton(){
         guard let fullname = fullNameTextField.text, let email = emailTextField.text, let password = passwordTextField.text else { return }
         let accountTypeIndex = userSegmentedContol.selectedSegmentIndex
-        
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+       
+        authManager.createUserAccount(emailAddress: email, password: password, fullname: fullname, accountType: accountTypeIndex) { uid, error in
             if let err = error {
                 self.presentAlertError(title: "Error", message: err.localizedDescription)
                 return
             }
-            guard let uid = result?.user.uid else { return }
-            
-            let values:[String: Any] = ["email": email, "fullname": fullname, "accountType": self.resolveAccountType(index: accountTypeIndex)]
-            
-            // store user in db
-            Database.database().reference().child("users").child(uid).updateChildValues(values) { error, ref in
-                if let err = error {
-                    self.presentAlertError(title: "Something went wrong!", message: err.localizedDescription)
-                    return
-                }
+            if let _ = uid {
                 print("User Did Save")
             }
         }

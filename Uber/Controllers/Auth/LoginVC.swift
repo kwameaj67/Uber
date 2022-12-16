@@ -10,6 +10,7 @@ import Firebase
 
 class LoginVC: UIViewController {
     
+    let authManager = FirebaseAuthManager.shared
     private var isShowingKeyboard:Bool = false
     private var bottomButtonConstraint = NSLayoutConstraint()
     
@@ -86,12 +87,14 @@ class LoginVC: UIViewController {
     @objc func didTapLoginButton(){
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         
-        Auth.auth().signIn(withEmail: email, password: password) { results, error in
+        authManager.signInUserAccount(emailAddress: email, password: password) { uid, error in
             if let err = error {
                 self.presentAlertError(title: "Error", message: err.localizedDescription)
-                return 
+                return
             }
-            print("Successfully Logged User")
+            if let _ = uid {
+                print("Successfully Logged User")
+            }
         }
     }
     @objc func didTapSignup(){
