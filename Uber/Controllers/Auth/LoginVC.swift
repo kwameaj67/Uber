@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginVC: UIViewController {
     
@@ -58,6 +59,7 @@ class LoginVC: UIViewController {
         v.forwardIcon.isHidden = true
         v.forwardIcon.alpha = 0
         v.textLabel.text = "Login"
+        v.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapLoginButton)))
         return v
     }()
     let emailTextField: UberTextField = {
@@ -81,7 +83,17 @@ class LoginVC: UIViewController {
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
-    
+    @objc func didTapLoginButton(){
+        guard let email = emailTextField.text, let password = passwordTextField.text else { return }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { results, error in
+            if let err = error {
+                self.presentAlertError(title: "Error", message: err.localizedDescription)
+                return 
+            }
+            print("Successfully Logged User")
+        }
+    }
     @objc func didTapSignup(){
         navigationController?.popViewController(animated: true)
     }
