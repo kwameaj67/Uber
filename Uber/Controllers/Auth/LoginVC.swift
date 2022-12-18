@@ -115,7 +115,7 @@ class LoginVC: UIViewController {
         container.addSubview(signupButton)
     }
     func setupContraints(){
-        scrollView.pin(to: view)
+        scrollView.pinToSafeArea(to: view)
         container.pinToEdges(to: scrollView)
         bottomButtonConstraint =  loginButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
         bottomButtonConstraint.isActive = true

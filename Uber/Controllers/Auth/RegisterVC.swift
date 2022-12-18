@@ -153,7 +153,7 @@ class RegisterVC: UIViewController {
         container.addSubview(loginButton)
     }
     func setupContraints(){
-        scrollView.pin(to: view)
+        scrollView.pinToSafeArea(to: view)
         container.pinToEdges(to: scrollView)
         bottomButtonConstraint =  registerButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
         bottomButtonConstraint.isActive = true
