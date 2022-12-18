@@ -8,7 +8,9 @@
 import UIKit
 
 class HomeVC: UIViewController {
-
+    
+    let places = RecentLocation.data
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -18,15 +20,29 @@ class HomeVC: UIViewController {
     }
     
     // MARK: Properties -
-    
+    lazy var locationTableView: UITableView = {
+        let tv = UITableView(frame: .zero, style: .grouped)
+        tv.register(RecentLocationCell.self, forCellReuseIdentifier: RecentLocationCell.reusableID)
+        tv.register(HomeHeaderView.self, forHeaderFooterViewReuseIdentifier: HomeHeaderView.reuseableID)
+        tv.delegate = self
+        tv.dataSource = self
+        tv.showsVerticalScrollIndicator = false
+        tv.backgroundColor = .clear
+        tv.separatorColor = .clear
+        tv.tableHeaderView = UIView()
+        tv.tableFooterView = UIView()
+        tv.rowHeight = UITableView.automaticDimension
+        tv.estimatedRowHeight = 80
+        tv.allowsMultipleSelection = true
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        return tv
+    }()
     func setupViews(){
-        
+        view.addSubview(locationTableView)
     }
     
     func setupContraints(){
-        NSLayoutConstraint.activate([
-        
-        ])
+        locationTableView.pinToSafeArea(to: view)
     }
 
   
