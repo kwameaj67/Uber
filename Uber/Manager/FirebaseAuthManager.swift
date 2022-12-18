@@ -8,10 +8,6 @@
 import Foundation
 import Firebase
 
-enum AuthError:Error {
-    case databaseError
-    case createUserError
-}
 
 struct FirebaseAuthManager {
     
@@ -19,7 +15,18 @@ struct FirebaseAuthManager {
     private let auth =  Auth.auth()
     private init() {}
     
+    // check user is logged in
+    var isLoggedIn: Bool {
+        return auth.currentUser != nil
+    }
     
+    // get current user signed in
+    var currentUser : String? {
+        if let uid = auth.currentUser?.uid {
+            return uid
+        }
+        return nil
+    }
     // create user
     func createUserAccount(emailAddress: String, password: String, fullname: String, accountType: Int, completion: @escaping (String?,Error?) -> Void){
         auth.createUser(withEmail: emailAddress, password: password) { results, error in
@@ -76,4 +83,7 @@ struct FirebaseAuthManager {
             return "rider"
         }
     }
+    
+  
+       
 }
