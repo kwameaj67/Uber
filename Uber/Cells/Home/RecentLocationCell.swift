@@ -29,18 +29,18 @@ class RecentLocationCell: UITableViewCell {
     // MARK: Properties
     let nameTitle: UILabel = {
         let lb = UILabel()
-        lb.textColor = .black
+        lb.textColor = Color.black
         lb.font = UIFont(name: Font.medium.rawValue, size: 18)
-        lb.letterSpacing(value: 10.0)
+//        lb.letterSpacing(value: 10.0)
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
     let locationTitle: UILabel = {
         let lb = UILabel()
         lb.numberOfLines = 0
-        lb.textColor = Color.text_grey
+        lb.textColor = Color.black.withAlphaComponent(0.9)
         lb.font = UIFont(name: Font.regular.rawValue, size: 17)
-        lb.letterSpacing(value: 10.0)
+//        lb.letterSpacing(value: 10.0)
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()

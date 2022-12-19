@@ -28,3 +28,15 @@ struct RecentLocation {
         RecentLocation(name: "Labone", location: "Accra", icon: .random),
     ]
 }
+
+struct UberFeatureOption {
+    var name: String
+    var icon: String
+    
+    
+    static let data: [UberFeatureOption] = [
+        UberFeatureOption(name: "Ride", icon: "uber-car"),
+        UberFeatureOption(name: "Package", icon: "package"),
+        UberFeatureOption(name: "Reserve", icon: "uber-reserve")
+    ]
+}
