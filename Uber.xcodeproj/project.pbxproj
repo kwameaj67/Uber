@@ -13,9 +13,16 @@
 		98395D15294F15E90071D5DF /* LoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98395D14294F15E90071D5DF /* LoadingVC.swift */; };
 		98395D18294F24D40071D5DF /* HomeVC+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98395D17294F24D40071D5DF /* HomeVC+Delegates.swift */; };
 		98395D1A294F25530071D5DF /* RecentLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98395D19294F25530071D5DF /* RecentLocationCell.swift */; };
-		98395D1C294F9F260071D5DF /* HomeViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98395D1B294F9F260071D5DF /* HomeViewHeader.swift */; };
+		98395D1C294F9F260071D5DF /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98395D1B294F9F260071D5DF /* HomeHeaderView.swift */; };
 		98395D1E294FA28C0071D5DF /* PromoAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98395D1D294FA28C0071D5DF /* PromoAdView.swift */; };
 		98395D20294FDC6D0071D5DF /* UberOptionCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98395D1F294FDC6D0071D5DF /* UberOptionCollectionCell.swift */; };
+		98395D222950F21F0071D5DF /* SearchLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98395D212950F21E0071D5DF /* SearchLocationView.swift */; };
+		98395D242950F4120071D5DF /* ReserveRideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98395D232950F4120071D5DF /* ReserveRideView.swift */; };
+		98395D262950FC360071D5DF /* HomeFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98395D252950FC360071D5DF /* HomeFooterView.swift */; };
+		98395D2B2950FFCB0071D5DF /* UberMoveTextBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 98395D282950FF5E0071D5DF /* UberMoveTextBold.otf */; };
+		98395D2C2950FFCB0071D5DF /* UberMoveTextLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 98395D292950FF5E0071D5DF /* UberMoveTextLight.otf */; };
+		98395D2D2950FFCB0071D5DF /* UberMoveTextMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 98395D2A2950FF5F0071D5DF /* UberMoveTextMedium.otf */; };
+		98395D2E2950FFCB0071D5DF /* UberMoveTextRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 98395D272950FF5E0071D5DF /* UberMoveTextRegular.otf */; };
 		9842F0312932BA6A00AD73D8 /* PhoneVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9842F0302932BA6A00AD73D8 /* PhoneVerificationVC.swift */; };
 		9842F0332932BA7B00AD73D8 /* CodeVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9842F0322932BA7B00AD73D8 /* CodeVerificationVC.swift */; };
 		9842F0362932C78000AD73D8 /* CHIOTPField in Frameworks */ = {isa = PBXBuildFile; productRef = 9842F0352932C78000AD73D8 /* CHIOTPField */; };
@@ -45,10 +52,6 @@
 		98E9015B2924E3A0003F8ABF /* OnboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E9015A2924E3A0003F8ABF /* OnboardVC.swift */; };
 		98E901602924E3A5003F8ABF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98E9015F2924E3A5003F8ABF /* Assets.xcassets */; };
 		98E901632924E3A5003F8ABF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98E901612924E3A5003F8ABF /* LaunchScreen.storyboard */; };
-		98E901782924E9BD003F8ABF /* UberMove-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98E901742924E9BD003F8ABF /* UberMove-Light.ttf */; };
-		98E901792924E9BD003F8ABF /* UberMove-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98E901752924E9BD003F8ABF /* UberMove-Medium.ttf */; };
-		98E9017A2924E9BD003F8ABF /* UberMove-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98E901762924E9BD003F8ABF /* UberMove-Bold.ttf */; };
-		98E9017B2924E9BD003F8ABF /* UberMove-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98E901772924E9BD003F8ABF /* UberMove-Regular.ttf */; };
 		98E9017D2924E9DF003F8ABF /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E9017C2924E9DF003F8ABF /* Font.swift */; };
 		98FCCDCD29365444008AAF61 /* GeoFire in Frameworks */ = {isa = PBXBuildFile; productRef = 98FCCDCC29365444008AAF61 /* GeoFire */; };
 /* End PBXBuildFile section */
@@ -60,9 +63,16 @@
 		98395D14294F15E90071D5DF /* LoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingVC.swift; sourceTree = "<group>"; };
 		98395D17294F24D40071D5DF /* HomeVC+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+Delegates.swift"; sourceTree = "<group>"; };
 		98395D19294F25530071D5DF /* RecentLocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentLocationCell.swift; sourceTree = "<group>"; };
-		98395D1B294F9F260071D5DF /* HomeViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewHeader.swift; sourceTree = "<group>"; };
+		98395D1B294F9F260071D5DF /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		98395D1D294FA28C0071D5DF /* PromoAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoAdView.swift; sourceTree = "<group>"; };
 		98395D1F294FDC6D0071D5DF /* UberOptionCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberOptionCollectionCell.swift; sourceTree = "<group>"; };
+		98395D212950F21E0071D5DF /* SearchLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationView.swift; sourceTree = "<group>"; };
+		98395D232950F4120071D5DF /* ReserveRideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveRideView.swift; sourceTree = "<group>"; };
+		98395D252950FC360071D5DF /* HomeFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFooterView.swift; sourceTree = "<group>"; };
+		98395D272950FF5E0071D5DF /* UberMoveTextRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UberMoveTextRegular.otf; sourceTree = "<group>"; };
+		98395D282950FF5E0071D5DF /* UberMoveTextBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UberMoveTextBold.otf; sourceTree = "<group>"; };
+		98395D292950FF5E0071D5DF /* UberMoveTextLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UberMoveTextLight.otf; sourceTree = "<group>"; };
+		98395D2A2950FF5F0071D5DF /* UberMoveTextMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UberMoveTextMedium.otf; sourceTree = "<group>"; };
 		9842F0302932BA6A00AD73D8 /* PhoneVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerificationVC.swift; sourceTree = "<group>"; };
 		9842F0322932BA7B00AD73D8 /* CodeVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerificationVC.swift; sourceTree = "<group>"; };
 		98450BA72928230C0065C260 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
@@ -88,10 +98,6 @@
 		98E9015F2924E3A5003F8ABF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98E901622924E3A5003F8ABF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		98E901642924E3A5003F8ABF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		98E901742924E9BD003F8ABF /* UberMove-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UberMove-Light.ttf"; sourceTree = "<group>"; };
-		98E901752924E9BD003F8ABF /* UberMove-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UberMove-Medium.ttf"; sourceTree = "<group>"; };
-		98E901762924E9BD003F8ABF /* UberMove-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UberMove-Bold.ttf"; sourceTree = "<group>"; };
-		98E901772924E9BD003F8ABF /* UberMove-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UberMove-Regular.ttf"; sourceTree = "<group>"; };
 		98E9017C2924E9DF003F8ABF /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,7 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				98395D19294F25530071D5DF /* RecentLocationCell.swift */,
-				98395D1B294F9F260071D5DF /* HomeViewHeader.swift */,
 				98395D1F294FDC6D0071D5DF /* UberOptionCollectionCell.swift */,
 			);
 			path = Home;
@@ -176,6 +181,10 @@
 			isa = PBXGroup;
 			children = (
 				98395D1D294FA28C0071D5DF /* PromoAdView.swift */,
+				98395D212950F21E0071D5DF /* SearchLocationView.swift */,
+				98395D1B294F9F260071D5DF /* HomeHeaderView.swift */,
+				98395D252950FC360071D5DF /* HomeFooterView.swift */,
+				98395D232950F4120071D5DF /* ReserveRideView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -308,10 +317,10 @@
 		98E9016E2924E412003F8ABF /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				98E901762924E9BD003F8ABF /* UberMove-Bold.ttf */,
-				98E901742924E9BD003F8ABF /* UberMove-Light.ttf */,
-				98E901752924E9BD003F8ABF /* UberMove-Medium.ttf */,
-				98E901772924E9BD003F8ABF /* UberMove-Regular.ttf */,
+				98395D282950FF5E0071D5DF /* UberMoveTextBold.otf */,
+				98395D292950FF5E0071D5DF /* UberMoveTextLight.otf */,
+				98395D2A2950FF5F0071D5DF /* UberMoveTextMedium.otf */,
+				98395D272950FF5E0071D5DF /* UberMoveTextRegular.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -397,11 +406,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98395D2B2950FFCB0071D5DF /* UberMoveTextBold.otf in Resources */,
+				98395D2C2950FFCB0071D5DF /* UberMoveTextLight.otf in Resources */,
+				98395D2D2950FFCB0071D5DF /* UberMoveTextMedium.otf in Resources */,
+				98395D2E2950FFCB0071D5DF /* UberMoveTextRegular.otf in Resources */,
 				98E901632924E3A5003F8ABF /* LaunchScreen.storyboard in Resources */,
-				98E9017A2924E9BD003F8ABF /* UberMove-Bold.ttf in Resources */,
-				98E901782924E9BD003F8ABF /* UberMove-Light.ttf in Resources */,
-				98E901792924E9BD003F8ABF /* UberMove-Medium.ttf in Resources */,
-				98E9017B2924E9BD003F8ABF /* UberMove-Regular.ttf in Resources */,
 				98E901602924E3A5003F8ABF /* Assets.xcassets in Resources */,
 				98395D0D2947A5BB0071D5DF /* GoogleService-Info.plist in Resources */,
 			);
@@ -414,7 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98395D1C294F9F260071D5DF /* HomeViewHeader.swift in Sources */,
+				98395D1C294F9F260071D5DF /* HomeHeaderView.swift in Sources */,
 				98450BB1292930660065C260 /* AccountVC.swift in Sources */,
 				98395D1A294F25530071D5DF /* RecentLocationCell.swift in Sources */,
 				98395D102947AA630071D5DF /* FirebaseAuthManager.swift in Sources */,
@@ -425,6 +434,8 @@
 				98450BB9292935B70065C260 /* SafetyVC.swift in Sources */,
 				98E9015B2924E3A0003F8ABF /* OnboardVC.swift in Sources */,
 				98C97A1729253D640078608A /* UIView+Ext.swift in Sources */,
+				98395D242950F4120071D5DF /* ReserveRideView.swift in Sources */,
+				98395D262950FC360071D5DF /* HomeFooterView.swift in Sources */,
 				98E901572924E3A0003F8ABF /* AppDelegate.swift in Sources */,
 				98450BAF292930540065C260 /* ActivityVC.swift in Sources */,
 				98E145422926FB2D00B965F2 /* RegisterVC.swift in Sources */,
@@ -442,6 +453,7 @@
 				98395D13294CE74D0071D5DF /* MockData.swift in Sources */,
 				98450BA82928230C0065C260 /* TabBarVC.swift in Sources */,
 				98E1453E2926EBA200B965F2 /* UberTextField.swift in Sources */,
+				98395D222950F21F0071D5DF /* SearchLocationView.swift in Sources */,
 				9842F0312932BA6A00AD73D8 /* PhoneVerificationVC.swift in Sources */,
 				98395D15294F15E90071D5DF /* LoadingVC.swift in Sources */,
 			);
