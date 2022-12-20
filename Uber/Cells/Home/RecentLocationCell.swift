@@ -31,7 +31,6 @@ class RecentLocationCell: UITableViewCell {
         let lb = UILabel()
         lb.textColor = Color.black
         lb.font = UIFont(name: Font.medium.rawValue, size: 18)
-//        lb.letterSpacing(value: 10.0)
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
@@ -39,8 +38,7 @@ class RecentLocationCell: UITableViewCell {
         let lb = UILabel()
         lb.numberOfLines = 0
         lb.textColor = Color.black.withAlphaComponent(0.9)
-        lb.font = UIFont(name: Font.regular.rawValue, size: 17)
-//        lb.letterSpacing(value: 10.0)
+        lb.font = UIFont(name: Font.light.rawValue, size: 16)
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
@@ -80,7 +78,7 @@ class RecentLocationCell: UITableViewCell {
             iconImage.heightAnchor.constraint(equalToConstant: 26),
             iconImage.widthAnchor.constraint(equalToConstant: 26),
             
-            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
+            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
             stackView.leadingAnchor.constraint(equalTo: iconImage.trailingAnchor, constant: 20),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30),
             stackView.bottomAnchor.constraint(equalTo: border.topAnchor, constant: -15),
@@ -105,7 +103,7 @@ class RecentLocationCell: UITableViewCell {
                 iconImage.image =  UIImage(systemName: "clock.fill")?.withRenderingMode(.alwaysTemplate)
                 iconImage.tintColor = .black.withAlphaComponent(0.7)
         }
-       
+//
     }
     
     func setupAttributedText (_ name: String,_ location: String) -> NSAttributedString {

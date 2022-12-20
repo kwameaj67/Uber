@@ -9,8 +9,8 @@ import Foundation
 
 
 enum Font: String {
-    case bold = "UberMove-Bold"
-    case medium = "UberMove-Medium"
-    case light = "UberMove-Light"
-    case regular = "UberMove-Regular"
+    case bold = "UberMoveText-Bold"
+    case medium = "UberMoveText-Medium"
+    case light = "UberMoveText-Light"
+    case regular = "UberMoveText-Regular"
 }

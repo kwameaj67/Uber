@@ -83,7 +83,7 @@ class PromoAdView: UIView {
             stackView.topAnchor.constraint(equalTo: headingLabel.bottomAnchor,constant: 12),
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             stackView.heightAnchor.constraint(equalToConstant: 20),
-            stackView.widthAnchor.constraint(equalToConstant: 110),
+            stackView.widthAnchor.constraint(equalToConstant: 115),
             
             bgImage.topAnchor.constraint(equalTo: topAnchor),
             bgImage.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -2),
@@ -91,7 +91,7 @@ class PromoAdView: UIView {
             bgImage.widthAnchor.constraint(equalToConstant: 111),
             
             arrowImage.widthAnchor.constraint(equalToConstant: 14),
-            arrowImage.heightAnchor.constraint(equalToConstant: 14),
+//            arrowImage.heightAnchor.constraint(equalToConstant: 14),
             
         ])
     }

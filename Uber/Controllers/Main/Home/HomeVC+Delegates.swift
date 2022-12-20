@@ -16,6 +16,10 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: HomeHeaderView.reuseableID) as! HomeHeaderView
         return view
     }
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: HomeFooterView.reuseableID) as! HomeFooterView
+        return view
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: RecentLocationCell.reusableID, for: indexPath) as!  RecentLocationCell
         cell.data = places[indexPath.row]
@@ -35,6 +39,9 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 370.0
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 200.0
     }
 }

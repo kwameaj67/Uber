@@ -24,10 +24,10 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>UberMove-Bold.ttf</string>
-		<string>UberMove-Medium.ttf</string>
-		<string>UberMove-Regular.ttf</string>
-		<string>UberMove-Light.ttf</string>
+		<string>UberMoveTextBold.otf</string>
+		<string>UberMoveTextLight.otf</string>
+		<string>UberMoveTextMedium.otf</string>
+		<string>UberMoveTextRegular.otf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

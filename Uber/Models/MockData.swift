@@ -36,7 +36,7 @@ struct UberFeatureOption {
     
     static let data: [UberFeatureOption] = [
         UberFeatureOption(name: "Ride", icon: "uber-car"),
-        UberFeatureOption(name: "Package", icon: "package"),
+        UberFeatureOption(name: "Package", icon: "uber-package"),
         UberFeatureOption(name: "Reserve", icon: "uber-reserve")
     ]
 }
