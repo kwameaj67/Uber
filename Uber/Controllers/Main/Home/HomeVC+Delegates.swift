@@ -18,6 +18,9 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: HomeFooterView.reuseableID) as! HomeFooterView
+        view.mapView.addAnnotation(annotation)
+        view.mapView.setRegion(region, animated:true)
+        view.mapView.userTrackingMode = .follow
         return view
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -42,6 +45,6 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         return 370.0
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 200.0
+        return 300.0
     }
 }

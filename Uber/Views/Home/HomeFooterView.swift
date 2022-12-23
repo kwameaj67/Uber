@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 
 class HomeFooterView: UITableViewHeaderFooterView {
 
@@ -31,14 +32,25 @@ class HomeFooterView: UITableViewHeaderFooterView {
         return lb
     }()
     
+    let mapView: UberMapView = {
+        let mp = UberMapView()
+        return mp
+    }()
+    
     func setupViews(){
         addSubview(titleLabel)
+        addSubview(mapView)
     }
     
     func setupContraints(){
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            
+            mapView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+            mapView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            mapView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            mapView.heightAnchor.constraint(equalToConstant: 185)
         ])
     }
 }

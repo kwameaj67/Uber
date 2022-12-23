@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import MapKit
 
-class HomeVC: UIViewController {
+class HomeVC: UIViewController, CLLocationManagerDelegate {
     
     let places = RecentLocation.data
-    
+    let locationManager = CLLocationManager()
+    let annotation = MKPointAnnotation()
+    var region = MKCoordinateRegion()
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -18,8 +22,20 @@ class HomeVC: UIViewController {
         setupContraints()
         navigationController?.navigationBar.isHidden = true
        
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.startUpdatingLocation()
+        }
     }
-    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        print(location.coordinate)
+        region = .init(center: location.coordinate, latitudinalMeters: 0.01, longitudinalMeters: 0.01)
+        annotation.coordinate = location.coordinate
+    }
     // MARK: Properties -
     lazy var locationTableView: UITableView = {
         let tv = UITableView(frame: .zero, style: .grouped)
@@ -35,7 +51,8 @@ class HomeVC: UIViewController {
         tv.tableFooterView = UIView()
         tv.rowHeight = UITableView.automaticDimension
         tv.estimatedRowHeight = 75
-        tv.allowsMultipleSelection = true
+        tv.allowsMultipleSelection = false
+        tv.allowsSelection = true
         tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
     }()

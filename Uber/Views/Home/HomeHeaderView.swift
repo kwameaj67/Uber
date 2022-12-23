@@ -33,8 +33,6 @@ class HomeHeaderView: UITableViewHeaderFooterView {
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.itemSize = CGSize(width: 115, height: 95)
-//        layout.minimumInteritemSpacing = 20
-//        layout.minimumLineSpacing = 0
         let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout.init())
         cv.setCollectionViewLayout(layout, animated: true)
         cv.delegate = self
