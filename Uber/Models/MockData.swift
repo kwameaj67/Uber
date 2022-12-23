@@ -40,3 +40,40 @@ struct UberFeatureOption {
         UberFeatureOption(name: "Reserve", icon: "uber-reserve")
     ]
 }
+
+enum TripStatus{
+    case cancelled
+    case booked
+}
+struct Trip{
+    var location: String
+    var date: String
+    var price: Double
+    var status: TripStatus
+    
+    
+    static var data: [Trip] = [
+        Trip(location: "International Community School (Preschool)", date: "Dec 23 · 8:14 AM", price: 12.00, status: .cancelled),
+        Trip(location: "30 Gulf St", date: "Mar 28 · 7:46 AM", price: 30.00, status: .booked),
+        Trip(location: "Dolla ventures", date: "Mar 28 · 7:47 AM", price: 0.00, status: .cancelled),
+        Trip(location: "Unnamed Road", date: "Feb 21 · 9:42 AM", price: 20.00, status: .booked),
+        Trip(location: "25 Labone Cres", date: "Nov 10 · 11:18 AM", price: 15.00, status: .booked),
+        Trip(location: "Unnamed Road", date: "Mar 10 · 6:10 PM", price: 5.00, status: .booked),
+        Trip(location: "UberX", date: "Oct 12 · 8:45 AM", price: 0.00, status: .cancelled),
+        Trip(location: "Unnamed Road", date: "Sept 24 · 4:09 PM", price: 8.00, status: .booked),
+        Trip(location: "Unnamed Road", date: "Sept 16 · 12:01 PM", price: 12.00, status: .booked),
+        Trip(location: "Accra - Tema Motoway", date: "Aug 9 · 7:46 AM", price: 18.00, status: .booked),
+        Trip(location: "30 Gulf St", date: "Nov 21 · 7:36 AM", price: 0.00, status: .cancelled),
+        Trip(location: "Akilagpa Sawyerr Road", date: "Nov 3 · 8:56 AM", price: 0.00, status: .booked),
+    ]
+}
+
+class UserLocation {
+    var lat: Double
+    var lng: Double
+    
+    init(lat: Double,lng:Double){
+        self.lat = lat
+        self.lng = lng
+    }
+}

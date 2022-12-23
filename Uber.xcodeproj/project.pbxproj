@@ -34,6 +34,11 @@
 		98450BB9292935B70065C260 /* SafetyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98450BB8292935B70065C260 /* SafetyVC.swift */; };
 		98450BBB292936510065C260 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98450BBA292936510065C260 /* WelcomeVC.swift */; };
 		98450BBD292AEDE10065C260 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98450BBC292AEDE10065C260 /* Helpers.swift */; };
+		984D939B29547FAB00225E0E /* ActivityVC+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984D939A29547FAB00225E0E /* ActivityVC+Delegates.swift */; };
+		984D939E2954801B00225E0E /* PastTripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984D939D2954801B00225E0E /* PastTripCell.swift */; };
+		984D93A0295484D200225E0E /* Types + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984D939F295484D200225E0E /* Types + Ext.swift */; };
+		987236EB2955CABB003364B8 /* ActivityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987236EA2955CABB003364B8 /* ActivityHeaderView.swift */; };
+		987236ED2955CD4A003364B8 /* UberMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987236EC2955CD4A003364B8 /* UberMapView.swift */; };
 		9896EFD6292B7A3C00A7248D /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9896EFD5292B7A3C00A7248D /* UILabel+Ext.swift */; };
 		98C97A1729253D640078608A /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C97A1629253D640078608A /* UIView+Ext.swift */; };
 		98C97A1929253DB90078608A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C97A1829253DB90078608A /* Color.swift */; };
@@ -83,6 +88,11 @@
 		98450BB8292935B70065C260 /* SafetyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyVC.swift; sourceTree = "<group>"; };
 		98450BBA292936510065C260 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		98450BBC292AEDE10065C260 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		984D939A29547FAB00225E0E /* ActivityVC+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityVC+Delegates.swift"; sourceTree = "<group>"; };
+		984D939D2954801B00225E0E /* PastTripCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastTripCell.swift; sourceTree = "<group>"; };
+		984D939F295484D200225E0E /* Types + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Types + Ext.swift"; sourceTree = "<group>"; };
+		987236EA2955CABB003364B8 /* ActivityHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHeaderView.swift; sourceTree = "<group>"; };
+		987236EC2955CD4A003364B8 /* UberMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberMapView.swift; sourceTree = "<group>"; };
 		9896EFD5292B7A3C00A7248D /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		98C97A1629253D640078608A /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		98C97A1829253DB90078608A /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -165,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				98450BAE292930540065C260 /* ActivityVC.swift */,
+				984D939A29547FAB00225E0E /* ActivityVC+Delegates.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -192,6 +203,7 @@
 		98450BB6292932FB0065C260 /* Activity */ = {
 			isa = PBXGroup;
 			children = (
+				987236EA2955CABB003364B8 /* ActivityHeaderView.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -201,6 +213,14 @@
 			children = (
 			);
 			path = Account;
+			sourceTree = "<group>";
+		};
+		984D939C29547FF600225E0E /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				984D939D2954801B00225E0E /* PastTripCell.swift */,
+			);
+			path = Activity;
 			sourceTree = "<group>";
 		};
 		98C97A1429253D2D0078608A /* Auth */ = {
@@ -289,6 +309,7 @@
 				98C97A1629253D640078608A /* UIView+Ext.swift */,
 				98450BA92928FA4E0065C260 /* UIViewController+Ext.swift */,
 				9896EFD5292B7A3C00A7248D /* UILabel+Ext.swift */,
+				984D939F295484D200225E0E /* Types + Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -302,6 +323,7 @@
 				98C97A1A292544690078608A /* UberButton.swift */,
 				98C97A1D29255ECB0078608A /* UberImageButton.swift */,
 				98E1453D2926EBA200B965F2 /* UberTextField.swift */,
+				987236EC2955CD4A003364B8 /* UberMapView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -309,6 +331,7 @@
 		98E9016D2924E3D4003F8ABF /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				984D939C29547FF600225E0E /* Activity */,
 				98395D16294F24650071D5DF /* Home */,
 			);
 			path = Cells;
@@ -424,6 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98395D1C294F9F260071D5DF /* HomeHeaderView.swift in Sources */,
+				987236ED2955CD4A003364B8 /* UberMapView.swift in Sources */,
 				98450BB1292930660065C260 /* AccountVC.swift in Sources */,
 				98395D1A294F25530071D5DF /* RecentLocationCell.swift in Sources */,
 				98395D102947AA630071D5DF /* FirebaseAuthManager.swift in Sources */,
@@ -440,12 +464,16 @@
 				98450BAF292930540065C260 /* ActivityVC.swift in Sources */,
 				98E145422926FB2D00B965F2 /* RegisterVC.swift in Sources */,
 				98E145402926ED0500B965F2 /* LoginVC.swift in Sources */,
+				984D939E2954801B00225E0E /* PastTripCell.swift in Sources */,
 				98C97A1B2925446A0078608A /* UberButton.swift in Sources */,
+				984D939B29547FAB00225E0E /* ActivityVC+Delegates.swift in Sources */,
+				987236EB2955CABB003364B8 /* ActivityHeaderView.swift in Sources */,
 				98C97A1E29255ECB0078608A /* UberImageButton.swift in Sources */,
 				9842F0332932BA7B00AD73D8 /* CodeVerificationVC.swift in Sources */,
 				9896EFD6292B7A3C00A7248D /* UILabel+Ext.swift in Sources */,
 				98E901592924E3A0003F8ABF /* SceneDelegate.swift in Sources */,
 				98C97A1929253DB90078608A /* Color.swift in Sources */,
+				984D93A0295484D200225E0E /* Types + Ext.swift in Sources */,
 				98395D1E294FA28C0071D5DF /* PromoAdView.swift in Sources */,
 				98395D20294FDC6D0071D5DF /* UberOptionCollectionCell.swift in Sources */,
 				98450BBB292936510065C260 /* WelcomeVC.swift in Sources */,
