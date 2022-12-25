@@ -25,7 +25,7 @@ class UberOptionCollectionCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Properties
+    // MARK: Properties -
     let titleLabel: UILabel = {
         let lb = UILabel()
         lb.textColor = Color.black

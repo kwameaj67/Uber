@@ -36,6 +36,7 @@ class HomeVC: UIViewController, CLLocationManagerDelegate {
         region = .init(center: location.coordinate, latitudinalMeters: 0.01, longitudinalMeters: 0.01)
         annotation.coordinate = location.coordinate
     }
+    
     // MARK: Properties -
     lazy var locationTableView: UITableView = {
         let tv = UITableView(frame: .zero, style: .grouped)
@@ -64,5 +65,7 @@ class HomeVC: UIViewController, CLLocationManagerDelegate {
         locationTableView.pinToSafeArea(to: view)
     }
 
-  
+    @objc func didSelectLocationView(){
+        print("did tap me")
+    }
 }

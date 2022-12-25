@@ -77,3 +77,39 @@ class UserLocation {
         self.lng = lng
     }
 }
+
+enum ActionOptionIconType{
+    case messages
+    case settings
+    case earning
+    case legal
+}
+struct AccountOption{
+    var iconType: ActionOptionIconType
+    var name: String
+    
+    
+    static let data: [AccountOption] = [
+        AccountOption(iconType: .messages, name: "Messages"),
+        AccountOption(iconType: .settings, name: "Settings"),
+        AccountOption(iconType: .earning, name: "Earn by driving or delivering"),
+        AccountOption(iconType: .legal, name: "Legal"),
+    ]
+}
+
+enum AccountActionType{
+    case help
+    case wallet
+    case trips
+}
+struct AccountActionOption {
+    var name: String
+    var icon: String?
+    var type: AccountActionType
+    
+    static let data: [AccountActionOption] = [
+        AccountActionOption(name: "Help", icon: "uber-help",type: .help),
+        AccountActionOption(name: "Wallet", icon: "uber-wallet",type: .wallet),
+        AccountActionOption(name: "Trips", icon: nil,type: .trips)
+    ]
+}

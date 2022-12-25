@@ -9,6 +9,11 @@ import UIKit
 
 class SearchLocationView: UIView {
 
+    var controller: HomeVC? {
+        didSet{
+            locationBtn.addTarget(controller, action: #selector(HomeVC.didSelectLocationView), for: .touchUpInside)
+        }
+    }
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -30,14 +35,15 @@ class SearchLocationView: UIView {
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
-    
-    let locationLabel: UILabel = {
-        let lb = UILabel()
-        lb.text = "Where to?"
-        lb.textColor = .gray
-        lb.font = UIFont(name: Font.medium.rawValue, size: 20)
-        lb.translatesAutoresizingMaskIntoConstraints = false
-        return lb
+   
+    let locationBtn: UIButton = {
+        var btn = UIButton()
+        btn.setTitle("Where to?", for: .normal)
+        btn.setTitleColor(.gray, for: .normal)
+        btn.titleLabel?.font = UIFont(name:  Font.medium.rawValue, size: 20)
+        btn.backgroundColor = .none
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
     }()
     
     let timerView: UIView = {
@@ -49,7 +55,7 @@ class SearchLocationView: UIView {
     
     func setupViews(){
         addSubview(searchIcon)
-        addSubview(locationLabel)
+        addSubview(locationBtn)
         addSubview(timerView)
     }
     
@@ -60,8 +66,9 @@ class SearchLocationView: UIView {
             searchIcon.widthAnchor.constraint(equalToConstant: 22),
             searchIcon.heightAnchor.constraint(equalToConstant: 22),
             
-            locationLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            locationLabel.leadingAnchor.constraint(equalTo: searchIcon.trailingAnchor, constant: 15),
+            locationBtn.centerYAnchor.constraint(equalTo: centerYAnchor),
+            locationBtn.leadingAnchor.constraint(equalTo: searchIcon.trailingAnchor, constant: 15),
+            locationBtn.heightAnchor.constraint(equalTo: heightAnchor),
             
             timerView.centerYAnchor.constraint(equalTo: centerYAnchor),
             timerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),

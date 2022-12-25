@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "profile-bold.png",
+      "filename" : "account-bold.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "profile-bold@2x.png",
+      "filename" : "account-bold@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "profile-bold@3x.png",
+      "filename" : "account-bold@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

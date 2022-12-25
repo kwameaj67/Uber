@@ -1,19 +1,19 @@
 //
-//  HomeViewHeader.swift
+//  AccountActionsCell.swift
 //  Uber
 //
-//  Created by Kwame Agyenim - Boateng on 18/12/2022.
+//  Created by Kwame Agyenim - Boateng on 25/12/2022.
 //
 
 import UIKit
 
-class HomeHeaderView: UITableViewHeaderFooterView {
-    
-    private let options = UberFeatureOption.data
-    static let reuseableID = "HomeHeaderView"
+class AccountActionHeader: UITableViewHeaderFooterView {
+
+    private let options = AccountActionOption.data
+    static let reuseableID = "AccountActionsCell"
     
     override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: HomeHeaderView.reuseableID)
+        super.init(reuseIdentifier: AccountActionHeader.reuseableID)
         setupViews()
         setupContraints()
     }
@@ -23,11 +23,7 @@ class HomeHeaderView: UITableViewHeaderFooterView {
     }
     
     // MARK: Properties -
-    let promoView: UIView = {
-        let v = PromoAdView()
-        return v
-    }()
-    // shortcut buttons
+
     lazy var imageCollectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -38,7 +34,7 @@ class HomeHeaderView: UITableViewHeaderFooterView {
         cv.delegate = self
         cv.dataSource = self
         cv.backgroundColor = .red
-        cv.register(UberOptionCollectionCell.self, forCellWithReuseIdentifier: UberOptionCollectionCell.reusableID)
+        cv.register(AccountActionCollectionCell.self, forCellWithReuseIdentifier: AccountActionCollectionCell.reusableID)
         cv.allowsSelection = true
         cv.isScrollEnabled = false
         cv.backgroundColor = .white
@@ -48,44 +44,36 @@ class HomeHeaderView: UITableViewHeaderFooterView {
         return cv
     }()
     
-    lazy var searchView: SearchLocationView = {
-        let v = SearchLocationView()
-        v.layer.cornerRadius = 65/2
+    let border: UIView = {
+        let v = UIView()
+        v.backgroundColor = UIColor(red: 0.933, green: 0.933, blue: 0.933, alpha: 1)
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
     func setupViews(){
-        addSubview(promoView)
         addSubview(imageCollectionView)
-        addSubview(searchView)
+        addSubview(border)
     }
     func setupContraints(){
         NSLayoutConstraint.activate([
-            promoView.topAnchor.constraint(equalTo: topAnchor),
-            promoView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            promoView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            promoView.heightAnchor.constraint(equalToConstant: 148),
-            
-            imageCollectionView.topAnchor.constraint(equalTo: promoView.bottomAnchor, constant: 25),
+            imageCollectionView.topAnchor.constraint(equalTo: topAnchor, constant: 15),
             imageCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 20),
             imageCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -20),
-            imageCollectionView.heightAnchor.constraint(equalToConstant: 140),
+            imageCollectionView.heightAnchor.constraint(equalToConstant: 110),
             
-            searchView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
-            searchView.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 20),
-            searchView.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -20),
-            searchView.heightAnchor.constraint(equalToConstant: 65)
-            
+            border.topAnchor.constraint(equalTo: bottomAnchor, constant: -5),
+            border.leadingAnchor.constraint(equalTo: leadingAnchor),
+            border.trailingAnchor.constraint(equalTo: trailingAnchor),
+            border.heightAnchor.constraint(equalToConstant: 8),
         ])
     }
 }
-
-extension HomeHeaderView: UICollectionViewDataSource, UICollectionViewDelegate {
+extension AccountActionHeader: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return options.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UberOptionCollectionCell.reusableID, for: indexPath) as! UberOptionCollectionCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AccountActionCollectionCell.reusableID, for: indexPath) as! AccountActionCollectionCell
         cell.data = options[indexPath.row]
         
         let bgView = UIView(frame: cell.bounds)

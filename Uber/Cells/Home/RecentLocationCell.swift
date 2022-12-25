@@ -56,7 +56,6 @@ class RecentLocationCell: UITableViewCell {
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
-    
     let border: UIView = {
         let v = UIView()
         v.backgroundColor = UIColor.systemGray5

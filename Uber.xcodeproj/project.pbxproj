@@ -37,6 +37,11 @@
 		984D939B29547FAB00225E0E /* ActivityVC+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984D939A29547FAB00225E0E /* ActivityVC+Delegates.swift */; };
 		984D939E2954801B00225E0E /* PastTripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984D939D2954801B00225E0E /* PastTripCell.swift */; };
 		984D93A0295484D200225E0E /* Types + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984D939F295484D200225E0E /* Types + Ext.swift */; };
+		984F85092958D503003D53C3 /* AccountVC+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F85082958D503003D53C3 /* AccountVC+Delegates.swift */; };
+		984F850B2958D63D003D53C3 /* AccountOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F850A2958D63D003D53C3 /* AccountOptionCell.swift */; };
+		984F850D2958D7D4003D53C3 /* AccountHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F850C2958D7D4003D53C3 /* AccountHeaderView.swift */; };
+		984F850F2958E823003D53C3 /* AccountActionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F850E2958E823003D53C3 /* AccountActionHeader.swift */; };
+		984F85112958E911003D53C3 /* AccountActionCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F85102958E911003D53C3 /* AccountActionCollectionCell.swift */; };
 		987236EB2955CABB003364B8 /* ActivityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987236EA2955CABB003364B8 /* ActivityHeaderView.swift */; };
 		987236ED2955CD4A003364B8 /* UberMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987236EC2955CD4A003364B8 /* UberMapView.swift */; };
 		9896EFD6292B7A3C00A7248D /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9896EFD5292B7A3C00A7248D /* UILabel+Ext.swift */; };
@@ -91,6 +96,11 @@
 		984D939A29547FAB00225E0E /* ActivityVC+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityVC+Delegates.swift"; sourceTree = "<group>"; };
 		984D939D2954801B00225E0E /* PastTripCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastTripCell.swift; sourceTree = "<group>"; };
 		984D939F295484D200225E0E /* Types + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Types + Ext.swift"; sourceTree = "<group>"; };
+		984F85082958D503003D53C3 /* AccountVC+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountVC+Delegates.swift"; sourceTree = "<group>"; };
+		984F850A2958D63D003D53C3 /* AccountOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountOptionCell.swift; sourceTree = "<group>"; };
+		984F850C2958D7D4003D53C3 /* AccountHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHeaderView.swift; sourceTree = "<group>"; };
+		984F850E2958E823003D53C3 /* AccountActionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountActionHeader.swift; sourceTree = "<group>"; };
+		984F85102958E911003D53C3 /* AccountActionCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountActionCollectionCell.swift; sourceTree = "<group>"; };
 		987236EA2955CABB003364B8 /* ActivityHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHeaderView.swift; sourceTree = "<group>"; };
 		987236EC2955CD4A003364B8 /* UberMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberMapView.swift; sourceTree = "<group>"; };
 		9896EFD5292B7A3C00A7248D /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
@@ -184,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				98450BB0292930660065C260 /* AccountVC.swift */,
+				984F85082958D503003D53C3 /* AccountVC+Delegates.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -211,6 +222,8 @@
 		98450BB7292933040065C260 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				984F850E2958E823003D53C3 /* AccountActionHeader.swift */,
+				984F850C2958D7D4003D53C3 /* AccountHeaderView.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -221,6 +234,16 @@
 				984D939D2954801B00225E0E /* PastTripCell.swift */,
 			);
 			path = Activity;
+			sourceTree = "<group>";
+		};
+		984F8507259EA32B003D53C3 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				984F850A2958D63D003D53C3 /* AccountOptionCell.swift */,
+				984F85102958E911003D53C3 /* AccountActionCollectionCell.swift */,
+			);
+			name = Account;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		98C97A1429253D2D0078608A /* Auth */ = {
@@ -331,6 +354,7 @@
 		98E9016D2924E3D4003F8ABF /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				984F8507259EA32B003D53C3 /* Account */,
 				984D939C29547FF600225E0E /* Activity */,
 				98395D16294F24650071D5DF /* Home */,
 			);
@@ -454,7 +478,9 @@
 				98450BBD292AEDE10065C260 /* Helpers.swift in Sources */,
 				98E9017D2924E9DF003F8ABF /* Font.swift in Sources */,
 				98450BAD2929303F0065C260 /* HomeVC.swift in Sources */,
+				984F850B2958D63D003D53C3 /* AccountOptionCell.swift in Sources */,
 				98450BAA2928FA4E0065C260 /* UIViewController+Ext.swift in Sources */,
+				984F85092958D503003D53C3 /* AccountVC+Delegates.swift in Sources */,
 				98450BB9292935B70065C260 /* SafetyVC.swift in Sources */,
 				98E9015B2924E3A0003F8ABF /* OnboardVC.swift in Sources */,
 				98C97A1729253D640078608A /* UIView+Ext.swift in Sources */,
@@ -476,12 +502,15 @@
 				984D93A0295484D200225E0E /* Types + Ext.swift in Sources */,
 				98395D1E294FA28C0071D5DF /* PromoAdView.swift in Sources */,
 				98395D20294FDC6D0071D5DF /* UberOptionCollectionCell.swift in Sources */,
+				984F85112958E911003D53C3 /* AccountActionCollectionCell.swift in Sources */,
+				984F850D2958D7D4003D53C3 /* AccountHeaderView.swift in Sources */,
 				98450BBB292936510065C260 /* WelcomeVC.swift in Sources */,
 				98395D18294F24D40071D5DF /* HomeVC+Delegates.swift in Sources */,
 				98395D13294CE74D0071D5DF /* MockData.swift in Sources */,
 				98450BA82928230C0065C260 /* TabBarVC.swift in Sources */,
 				98E1453E2926EBA200B965F2 /* UberTextField.swift in Sources */,
 				98395D222950F21F0071D5DF /* SearchLocationView.swift in Sources */,
+				984F850F2958E823003D53C3 /* AccountActionHeader.swift in Sources */,
 				9842F0312932BA6A00AD73D8 /* PhoneVerificationVC.swift in Sources */,
 				98395D15294F15E90071D5DF /* LoadingVC.swift in Sources */,
 			);

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "account-outline.png",
+      "filename" : "uber-message.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "account-outline@2x.png",
+      "filename" : "uber-message@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "account-outline@3x.png",
+      "filename" : "uber-message@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -14,6 +14,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: HomeHeaderView.reuseableID) as! HomeHeaderView
+        view.searchView.controller = self
         return view
     }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
