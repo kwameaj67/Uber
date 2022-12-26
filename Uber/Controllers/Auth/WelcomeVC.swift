@@ -51,16 +51,17 @@ class WelcomeVC: UIViewController {
             textLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             textLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             
-            locationImage.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 90),
+//            locationImage.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 90),
             locationImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            locationImage.heightAnchor.constraint(equalToConstant: 130),
-            locationImage.widthAnchor.constraint(equalToConstant: 130),
+            locationImage.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            locationImage.heightAnchor.constraint(equalToConstant: 140),
+            locationImage.widthAnchor.constraint(equalToConstant: 140),
             
         ])
     }
     
     func animateImage(){
-        UIView.animate(withDuration: 0.4) {
+        UIView.animate(withDuration: 0.2) {
             self.locationImage.transform = CGAffineTransform(rotationAngle: .pi)
         } completion: { _ in
             UIView.animate(
@@ -74,7 +75,7 @@ class WelcomeVC: UIViewController {
     }
     
     func setupAttributedText(_ title: String, _ subTitle: String) -> NSAttributedString {
-        let text = NSMutableAttributedString(attributedString: NSAttributedString(string: title, attributes: [.foregroundColor: UIColor.black,.font: UIFont(name: Font.bold.rawValue, size: 45)!]))
+        let text = NSMutableAttributedString(attributedString: NSAttributedString(string: title, attributes: [.foregroundColor: UIColor.black,.font: UIFont(name: Font.medium.rawValue, size: 40)!]))
         text.append(NSAttributedString(string: "\n\n\(subTitle)", attributes: [.foregroundColor: UIColor.black,.font: UIFont(name: Font.regular.rawValue, size: 20)!]))
         return text
     }
