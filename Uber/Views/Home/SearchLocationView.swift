@@ -7,13 +7,18 @@
 
 import UIKit
 
+protocol SearchLocationDelegate: AnyObject{
+    func presentLocationInputView()
+}
 class SearchLocationView: UIView {
 
-    var controller: HomeVC? {
-        didSet{
-            locationBtn.addTarget(controller, action: #selector(HomeVC.didSelectLocationView), for: .touchUpInside)
-        }
-    }
+//    var controller: HomeVC? {
+//        didSet{
+//            locationBtn.addTarget(controller, action: #selector(HomeVC.didSelectLocationView), for: .touchUpInside)
+//        }
+//    }
+    weak var delegate: SearchLocationDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -42,6 +47,7 @@ class SearchLocationView: UIView {
         btn.setTitleColor(.gray, for: .normal)
         btn.titleLabel?.font = UIFont(name:  Font.medium.rawValue, size: 20)
         btn.backgroundColor = .none
+        btn.addTarget(self, action: #selector(presentLocationInputView), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
@@ -53,6 +59,9 @@ class SearchLocationView: UIView {
         return v
     }()
     
+    @objc func presentLocationInputView(){
+        delegate?.presentLocationInputView()
+    }
     func setupViews(){
         addSubview(searchIcon)
         addSubview(locationBtn)

@@ -32,7 +32,6 @@ class HomeVC: UIViewController, CLLocationManagerDelegate {
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
-        print(location.coordinate)
         region = .init(center: location.coordinate, latitudinalMeters: 0.01, longitudinalMeters: 0.01)
         annotation.coordinate = location.coordinate
     }
@@ -64,8 +63,11 @@ class HomeVC: UIViewController, CLLocationManagerDelegate {
     func setupContraints(){
         locationTableView.pinToSafeArea(to: view)
     }
+}
 
-    @objc func didSelectLocationView(){
-        print("did tap me")
+extension HomeVC: SearchLocationDelegate{
+    func presentLocationInputView() {
+        print("DEBUG: Handling present location view")
     }
+    
 }
