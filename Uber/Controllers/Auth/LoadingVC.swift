@@ -15,7 +15,7 @@ class LoadingVC: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupContraints()
-        delay(duration: 2.0) {
+        delay(duration: 1.0) {
             self.checkIfUserIsLoggedIn()
         }
         
