@@ -7,18 +7,8 @@
 
 import UIKit
 
-protocol SearchLocationDelegate: AnyObject{
-    func presentLocationInputView()
-}
 class SearchLocationView: UIView {
 
-//    var controller: HomeVC? {
-//        didSet{
-//            locationBtn.addTarget(controller, action: #selector(HomeVC.didSelectLocationView), for: .touchUpInside)
-//        }
-//    }
-    weak var delegate: SearchLocationDelegate?
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -33,25 +23,11 @@ class SearchLocationView: UIView {
     }
     
     // MARK: Properties -
-    let searchIcon : UIImageView = {
-        var iv = UIImageView()
-        iv.image =  UIImage(named: "uber-search")?.withRenderingMode(.alwaysOriginal)
-        iv.contentMode = .scaleAspectFill
-        iv.translatesAutoresizingMaskIntoConstraints = false
-        return iv
+    lazy var locationActivationView: LocationActivationView = {
+        let v = LocationActivationView()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        return v
     }()
-   
-    let locationBtn: UIButton = {
-        var btn = UIButton()
-        btn.setTitle("Where to?", for: .normal)
-        btn.setTitleColor(.gray, for: .normal)
-        btn.titleLabel?.font = UIFont(name:  Font.medium.rawValue, size: 20)
-        btn.backgroundColor = .none
-        btn.addTarget(self, action: #selector(presentLocationInputView), for: .touchUpInside)
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        return btn
-    }()
-    
     let timerView: UIView = {
         let v = ReserveRideView()
         v.layer.cornerRadius = 40/2
@@ -59,25 +35,17 @@ class SearchLocationView: UIView {
         return v
     }()
     
-    @objc func presentLocationInputView(){
-        delegate?.presentLocationInputView()
-    }
     func setupViews(){
-        addSubview(searchIcon)
-        addSubview(locationBtn)
+        addSubview(locationActivationView)
         addSubview(timerView)
     }
     
     func setupContraints(){
         NSLayoutConstraint.activate([
-            searchIcon.centerYAnchor.constraint(equalTo: centerYAnchor),
-            searchIcon.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-            searchIcon.widthAnchor.constraint(equalToConstant: 22),
-            searchIcon.heightAnchor.constraint(equalToConstant: 22),
-            
-            locationBtn.centerYAnchor.constraint(equalTo: centerYAnchor),
-            locationBtn.leadingAnchor.constraint(equalTo: searchIcon.trailingAnchor, constant: 15),
-            locationBtn.heightAnchor.constraint(equalTo: heightAnchor),
+            locationActivationView.topAnchor.constraint(equalTo: topAnchor),
+            locationActivationView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            locationActivationView.trailingAnchor.constraint(equalTo: timerView.leadingAnchor),
+            locationActivationView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
             timerView.centerYAnchor.constraint(equalTo: centerYAnchor),
             timerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),

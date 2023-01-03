@@ -64,4 +64,11 @@ extension UIView {
     func centerY(in view: UIView){
         centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
+    func addBottomShadowsToView(){
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowRadius = 3.0
+        layer.shadowOffset =  CGSize(width: 0, height: 3)
+        layer.shadowOpacity = 0.6
+        layer.masksToBounds = false
+    }
 }
