@@ -75,7 +75,7 @@ class WelcomeVC: UIViewController {
     }
     
     func setupAttributedText(_ title: String, _ subTitle: String) -> NSAttributedString {
-        let text = NSMutableAttributedString(attributedString: NSAttributedString(string: title, attributes: [.foregroundColor: UIColor.black,.font: UIFont(name: Font.medium.rawValue, size: 40)!]))
+        let text = NSMutableAttributedString(attributedString: NSAttributedString(string: title, attributes: [.foregroundColor: UIColor.black,.font: UIFont(name: Font.medium2.rawValue, size: 40)!]))
         text.append(NSAttributedString(string: "\n\n\(subTitle)", attributes: [.foregroundColor: UIColor.black,.font: UIFont(name: Font.regular.rawValue, size: 20)!]))
         return text
     }

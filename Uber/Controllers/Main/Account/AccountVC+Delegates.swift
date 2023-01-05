@@ -34,7 +34,7 @@ extension AccountVC: UITableViewDelegate,UITableViewDataSource{
         return 150
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(80.0)
+        return CGFloat(70.0)
     }
     
 }

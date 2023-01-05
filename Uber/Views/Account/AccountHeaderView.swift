@@ -24,8 +24,7 @@ class AccountHeaderView: UIView {
     // MARK: Properties -
     let profileLbl: UILabel = {
         let lb = UILabel()
-        lb.text = "Kwame Boateng"
-        lb.font = UIFont(name: Font.medium.rawValue, size: 36.0)
+        lb.font = UIFont(name: Font.medium2.rawValue, size: 36.0)
         lb.textColor = Color.black
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb

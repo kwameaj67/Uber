@@ -27,14 +27,14 @@ class RecentLocationCell: UITableViewCell {
     }
     
     // MARK: Properties
-    let nameTitle: UILabel = {
+    let nameLbl: UILabel = {
         let lb = UILabel()
         lb.textColor = Color.black
         lb.font = UIFont(name: Font.medium.rawValue, size: 18)
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
-    let locationTitle: UILabel = {
+    let locationLbl: UILabel = {
         let lb = UILabel()
         lb.numberOfLines = 0
         lb.textColor = Color.black.withAlphaComponent(0.9)
@@ -52,6 +52,7 @@ class RecentLocationCell: UITableViewCell {
     let iconImage : UIImageView = {
         var iv = UIImageView()
         iv.contentMode = .scaleAspectFill
+        iv.tintColor = .black.withAlphaComponent(0.7)
         iv.clipsToBounds = true
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
@@ -64,8 +65,8 @@ class RecentLocationCell: UITableViewCell {
     }()
     func setupViews(){
         contentView.addSubview(stackView)
-        stackView.addArrangedSubview(nameTitle)
-        stackView.addArrangedSubview(locationTitle)
+        stackView.addArrangedSubview(nameLbl)
+        stackView.addArrangedSubview(locationLbl)
         contentView.addSubview(iconImage)
         contentView.addSubview(border)
     }
@@ -91,18 +92,14 @@ class RecentLocationCell: UITableViewCell {
     
     func manageData(){
         guard let item = data else { return }
-        nameTitle.text = item.name
-        locationTitle.text = item.location
-//        locationTitle.attributedText = setupAttributedText(item.name, item.location)
+        nameLbl.text = item.name
+        locationLbl.text = item.location
         switch item.icon{
             case .work:
                 iconImage.image = UIImage(systemName: "star.fill")?.withRenderingMode(.alwaysTemplate)
-                iconImage.tintColor = .black.withAlphaComponent(0.7)
             case .random:
                 iconImage.image =  UIImage(systemName: "clock.fill")?.withRenderingMode(.alwaysTemplate)
-                iconImage.tintColor = .black.withAlphaComponent(0.7)
         }
-//
     }
     
     func setupAttributedText (_ name: String,_ location: String) -> NSAttributedString {

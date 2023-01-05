@@ -25,7 +25,7 @@ class ActivityHeaderView: UITableViewHeaderFooterView {
     let headingLbl: UILabel = {
         let lb = UILabel()
         lb.text = "Activity"
-        lb.font = UIFont(name: Font.medium.rawValue, size: 36.0)
+        lb.font = UIFont(name: Font.medium2.rawValue, size: 36.0)
         lb.textColor = Color.black
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb

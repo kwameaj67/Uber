@@ -13,6 +13,8 @@ struct FirebaseAuthManager {
     
     static let shared = FirebaseAuthManager()
     private let auth =  Auth.auth()
+    private let ref = Database.database().reference()
+
     private init() {}
     
     // check user is logged in
@@ -35,10 +37,14 @@ struct FirebaseAuthManager {
                 return
             }
             if let user = results?.user {
-                let values:[String: Any] = ["email": emailAddress, "fullname": fullname, "accountType": self.resolveAccountType(index: accountType)]
+                let values:[String: Any] = [
+                    "email": emailAddress,
+                    "fullname": fullname,
+                    "accountType": self.resolveAccountType(index: accountType)
+                ]
                 
                 // store user in db
-                Database.database().reference().child("users").child(user.uid).updateChildValues(values) { error, ref in
+                ref.child("users").child(user.uid).updateChildValues(values) { error, ref in
                     if let err = error {
                         completion(nil,err)
                         return

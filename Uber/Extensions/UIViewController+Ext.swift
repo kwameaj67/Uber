@@ -15,8 +15,8 @@ extension UIViewController{
     }
     // navbar edits
     func configureNavBar(){
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: Font.medium.rawValue, size: 15.0)!,NSAttributedString.Key.foregroundColor: UIColor.black]
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: Font.medium.rawValue, size: 36.0)!,NSAttributedString.Key.foregroundColor: UIColor.black]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: Font.medium2.rawValue, size: 15.0)!,NSAttributedString.Key.foregroundColor: UIColor.black]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: Font.medium2.rawValue, size: 36.0)!,NSAttributedString.Key.foregroundColor: UIColor.black]
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
     
