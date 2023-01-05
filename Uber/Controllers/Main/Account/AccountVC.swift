@@ -9,15 +9,25 @@ import UIKit
 
 class AccountVC: UIViewController {
     
+    private let userDefaultManager = UserDefaultsManager.shared
     let options = AccountOption.data
+    private var fullname: String? {
+        didSet{
+            accountHeaderView.profileLbl.text = fullname
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupViews()
         setupContraints()
         navigationController?.navigationBar.isHidden = true
+        fetchUserName()
     }
-    
+    // MARK: API -
+    func fetchUserName(){
+         fullname = userDefaultManager.getUserFullName()
+    }
     // MARK: Properties -
     let accountHeaderView: AccountHeaderView = {
         let v = AccountHeaderView()
@@ -40,6 +50,8 @@ class AccountVC: UIViewController {
         tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
     }()
+    
+    
     func setupViews(){
         view.addSubview(accountHeaderView)
         view.addSubview(accountTableView)
