@@ -23,10 +23,11 @@ class UserService {
         let currentUserId = authManager.currentUser!
         let users = ref.child("users")
         users.child(currentUserId).observeSingleEvent(of: .value) { snapshot in
-            guard let res = snapshot.value as? [String: Any] else { return }
-            guard let fullname = res["fullname"] as? String else { return }
-            print("DEBUG: Fullname: \(fullname)")
-            self.userDefaultManager.setUserFullName(fullName: fullname)
+            guard let response = snapshot.value as? [String: Any] else { return }
+            let user = User(dictionary: response)
+//            guard let fullname = res["fullname"] as? String else { return }
+            print("DEBUG: Fullname: \(user.fullname)")
+            self.userDefaultManager.setUserFullName(fullName: user.fullname)
         } withCancel: { error in
             print("DEBUG: \(error.localizedDescription)")
         }

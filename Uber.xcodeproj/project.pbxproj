@@ -42,6 +42,15 @@
 		984F850D2958D7D4003D53C3 /* AccountHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F850C2958D7D4003D53C3 /* AccountHeaderView.swift */; };
 		984F850F2958E823003D53C3 /* AccountActionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F850E2958E823003D53C3 /* AccountActionHeader.swift */; };
 		984F85112958E911003D53C3 /* AccountActionCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F85102958E911003D53C3 /* AccountActionCollectionCell.swift */; };
+		986A87B82963094E00A460AA /* OverlayLocationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986A87B72963094E00A460AA /* OverlayLocationInputView.swift */; };
+		986A87BA296313DE00A460AA /* LocationActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986A87B9296313DE00A460AA /* LocationActivationView.swift */; };
+		986A87BC29633D0700A460AA /* LocationIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986A87BB29633D0700A460AA /* LocationIndicatorView.swift */; };
+		986A87BE296457CE00A460AA /* OverlayLocationTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986A87BD296457CE00A460AA /* OverlayLocationTableView.swift */; };
+		986A87C129645E9300A460AA /* LocationInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986A87C029645E9300A460AA /* LocationInputCell.swift */; };
+		986A87C429660BC700A460AA /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986A87C329660BC700A460AA /* UserService.swift */; };
+		986A87C6296790B300A460AA /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986A87C5296790B300A460AA /* UserDefaultsManager.swift */; };
+		986A87CC2967941600A460AA /* UberMove-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 986A87C82967941500A460AA /* UberMove-Medium.ttf */; };
+		986A87CD2967941600A460AA /* UberMove-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 986A87C92967941600A460AA /* UberMove-Bold.ttf */; };
 		987236EB2955CABB003364B8 /* ActivityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987236EA2955CABB003364B8 /* ActivityHeaderView.swift */; };
 		987236ED2955CD4A003364B8 /* UberMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987236EC2955CD4A003364B8 /* UberMapView.swift */; };
 		9896EFD6292B7A3C00A7248D /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9896EFD5292B7A3C00A7248D /* UILabel+Ext.swift */; };
@@ -101,6 +110,15 @@
 		984F850C2958D7D4003D53C3 /* AccountHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHeaderView.swift; sourceTree = "<group>"; };
 		984F850E2958E823003D53C3 /* AccountActionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountActionHeader.swift; sourceTree = "<group>"; };
 		984F85102958E911003D53C3 /* AccountActionCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountActionCollectionCell.swift; sourceTree = "<group>"; };
+		986A87B72963094E00A460AA /* OverlayLocationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayLocationInputView.swift; sourceTree = "<group>"; };
+		986A87B9296313DE00A460AA /* LocationActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationActivationView.swift; sourceTree = "<group>"; };
+		986A87BB29633D0700A460AA /* LocationIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationIndicatorView.swift; sourceTree = "<group>"; };
+		986A87BD296457CE00A460AA /* OverlayLocationTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayLocationTableView.swift; sourceTree = "<group>"; };
+		986A87C029645E9300A460AA /* LocationInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInputCell.swift; sourceTree = "<group>"; };
+		986A87C329660BC700A460AA /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		986A87C5296790B300A460AA /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		986A87C82967941500A460AA /* UberMove-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UberMove-Medium.ttf"; sourceTree = "<group>"; };
+		986A87C92967941600A460AA /* UberMove-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UberMove-Bold.ttf"; sourceTree = "<group>"; };
 		987236EA2955CABB003364B8 /* ActivityHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHeaderView.swift; sourceTree = "<group>"; };
 		987236EC2955CD4A003364B8 /* UberMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberMapView.swift; sourceTree = "<group>"; };
 		9896EFD5292B7A3C00A7248D /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
@@ -143,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				98395D0F2947AA630071D5DF /* FirebaseAuthManager.swift */,
+				986A87C5296790B300A460AA /* UserDefaultsManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -160,6 +179,7 @@
 			children = (
 				98395D19294F25530071D5DF /* RecentLocationCell.swift */,
 				98395D1F294FDC6D0071D5DF /* UberOptionCollectionCell.swift */,
+				986A87C029645E9300A460AA /* LocationInputCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -202,11 +222,14 @@
 		98450BB5292932F30065C260 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				986A87BF296457DE00A460AA /* OverlayViews */,
 				98395D1D294FA28C0071D5DF /* PromoAdView.swift */,
 				98395D212950F21E0071D5DF /* SearchLocationView.swift */,
 				98395D1B294F9F260071D5DF /* HomeHeaderView.swift */,
 				98395D252950FC360071D5DF /* HomeFooterView.swift */,
 				98395D232950F4120071D5DF /* ReserveRideView.swift */,
+				986A87B9296313DE00A460AA /* LocationActivationView.swift */,
+				986A87BB29633D0700A460AA /* LocationIndicatorView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -244,6 +267,23 @@
 			);
 			name = Account;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		986A87BF296457DE00A460AA /* OverlayViews */ = {
+			isa = PBXGroup;
+			children = (
+				986A87BD296457CE00A460AA /* OverlayLocationTableView.swift */,
+				986A87B72963094E00A460AA /* OverlayLocationInputView.swift */,
+			);
+			path = OverlayViews;
+			sourceTree = "<group>";
+		};
+		986A87C229660BAF00A460AA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				986A87C329660BC700A460AA /* UserService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		98C97A1429253D2D0078608A /* Auth */ = {
@@ -297,6 +337,7 @@
 		98E901552924E3A0003F8ABF /* Uber */ = {
 			isa = PBXGroup;
 			children = (
+				986A87C229660BAF00A460AA /* Services */,
 				98395D11294CE73F0071D5DF /* Models */,
 				98395D0E2947AA530071D5DF /* Manager */,
 				98CAC43D293A0D8900B54E04 /* ViewModels */,
@@ -364,6 +405,8 @@
 		98E9016E2924E412003F8ABF /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				986A87C92967941600A460AA /* UberMove-Bold.ttf */,
+				986A87C82967941500A460AA /* UberMove-Medium.ttf */,
 				98395D282950FF5E0071D5DF /* UberMoveTextBold.otf */,
 				98395D292950FF5E0071D5DF /* UberMoveTextLight.otf */,
 				98395D2A2950FF5F0071D5DF /* UberMoveTextMedium.otf */,
@@ -453,10 +496,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				986A87CC2967941600A460AA /* UberMove-Medium.ttf in Resources */,
 				98395D2B2950FFCB0071D5DF /* UberMoveTextBold.otf in Resources */,
 				98395D2C2950FFCB0071D5DF /* UberMoveTextLight.otf in Resources */,
 				98395D2D2950FFCB0071D5DF /* UberMoveTextMedium.otf in Resources */,
 				98395D2E2950FFCB0071D5DF /* UberMoveTextRegular.otf in Resources */,
+				986A87CD2967941600A460AA /* UberMove-Bold.ttf in Resources */,
 				98E901632924E3A5003F8ABF /* LaunchScreen.storyboard in Resources */,
 				98E901602924E3A5003F8ABF /* Assets.xcassets in Resources */,
 				98395D0D2947A5BB0071D5DF /* GoogleService-Info.plist in Resources */,
@@ -475,12 +520,15 @@
 				98450BB1292930660065C260 /* AccountVC.swift in Sources */,
 				98395D1A294F25530071D5DF /* RecentLocationCell.swift in Sources */,
 				98395D102947AA630071D5DF /* FirebaseAuthManager.swift in Sources */,
+				986A87BA296313DE00A460AA /* LocationActivationView.swift in Sources */,
 				98450BBD292AEDE10065C260 /* Helpers.swift in Sources */,
 				98E9017D2924E9DF003F8ABF /* Font.swift in Sources */,
 				98450BAD2929303F0065C260 /* HomeVC.swift in Sources */,
 				984F850B2958D63D003D53C3 /* AccountOptionCell.swift in Sources */,
 				98450BAA2928FA4E0065C260 /* UIViewController+Ext.swift in Sources */,
+				986A87B82963094E00A460AA /* OverlayLocationInputView.swift in Sources */,
 				984F85092958D503003D53C3 /* AccountVC+Delegates.swift in Sources */,
+				986A87BC29633D0700A460AA /* LocationIndicatorView.swift in Sources */,
 				98450BB9292935B70065C260 /* SafetyVC.swift in Sources */,
 				98E9015B2924E3A0003F8ABF /* OnboardVC.swift in Sources */,
 				98C97A1729253D640078608A /* UIView+Ext.swift in Sources */,
@@ -494,12 +542,16 @@
 				98C97A1B2925446A0078608A /* UberButton.swift in Sources */,
 				984D939B29547FAB00225E0E /* ActivityVC+Delegates.swift in Sources */,
 				987236EB2955CABB003364B8 /* ActivityHeaderView.swift in Sources */,
+				986A87C129645E9300A460AA /* LocationInputCell.swift in Sources */,
 				98C97A1E29255ECB0078608A /* UberImageButton.swift in Sources */,
 				9842F0332932BA7B00AD73D8 /* CodeVerificationVC.swift in Sources */,
 				9896EFD6292B7A3C00A7248D /* UILabel+Ext.swift in Sources */,
+				986A87BE296457CE00A460AA /* OverlayLocationTableView.swift in Sources */,
 				98E901592924E3A0003F8ABF /* SceneDelegate.swift in Sources */,
 				98C97A1929253DB90078608A /* Color.swift in Sources */,
 				984D93A0295484D200225E0E /* Types + Ext.swift in Sources */,
+				986A87C429660BC700A460AA /* UserService.swift in Sources */,
+				986A87C6296790B300A460AA /* UserDefaultsManager.swift in Sources */,
 				98395D1E294FA28C0071D5DF /* PromoAdView.swift in Sources */,
 				98395D20294FDC6D0071D5DF /* UberOptionCollectionCell.swift in Sources */,
 				984F85112958E911003D53C3 /* AccountActionCollectionCell.swift in Sources */,
