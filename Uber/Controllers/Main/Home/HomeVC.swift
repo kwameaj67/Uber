@@ -105,23 +105,26 @@ class HomeVC: UIViewController, CLLocationManagerDelegate {
 
 extension HomeVC: SearchLocationDelegate, OverLayLocationInputViewDelegate{
     func animateOverlayViews(){
-
-        UIView.animate(withDuration: 0.5) {
-            self.overlayLocationInputView.isHidden = false
-            self.overlayLocationInputView.alpha = 1
-            self.overlayLocationInputView.transform = .identity
-           
-        } completion: { _ in
-            print("DEBUG: presents locationInputView...")
-            // animate right after inputView is shown
-            UIView.animate(withDuration: 0.3) {
-                self.overlayLocationTableView.transform = .identity
-                self.overlayLocationTableView.isHidden = false
-                self.overlayLocationTableView.alpha = 1
-            } completion: { _ in
-                print("DEBUG: presents locationTableView...")
-            }
-        }
+        let vc = MapViewVC()
+        vc.modalPresentationStyle = .custom
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true, completion: nil)
+//        UIView.animate(withDuration: 0.5) {
+//            self.overlayLocationInputView.isHidden = false
+//            self.overlayLocationInputView.alpha = 1
+//            self.overlayLocationInputView.transform = .identity
+//
+//        } completion: { _ in
+//            print("DEBUG: presents locationInputView...")
+//            // animate right after inputView is shown
+//            UIView.animate(withDuration: 0.3) {
+//                self.overlayLocationTableView.transform = .identity
+//                self.overlayLocationTableView.isHidden = false
+//                self.overlayLocationTableView.alpha = 1
+//            } completion: { _ in
+//                print("DEBUG: presents locationTableView...")
+//            }
+//        }
     }
     func hideOverlayViews(){
         UIView.animate(withDuration: 0.4) {
