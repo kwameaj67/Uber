@@ -7,8 +7,14 @@
 
 import UIKit
 
+protocol OverlayDestinationViewDelegate: AnyObject {
+    func didTapSearchButton()
+}
+
 class OverlayDestinationView: UIView {
 
+    weak var delegate: OverlayDestinationViewDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -57,7 +63,7 @@ class OverlayDestinationView: UIView {
         btn.titleLabel?.font = UIFont(name: Font.medium.rawValue, size: 16)
         btn.backgroundColor = Color.grey_bg
         btn.layer.cornerRadius = 45/2
-        //btn.addTarget(self, action: #selector(), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(hanldeSearchTapped), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
@@ -67,7 +73,7 @@ class OverlayDestinationView: UIView {
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: Font.medium.rawValue, size: 20)
         btn.backgroundColor = .black
-        //btn.addTarget(self, action: #selector(), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(handleConfirmTapped), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
@@ -103,5 +109,13 @@ class OverlayDestinationView: UIView {
             confirmBtn.heightAnchor.constraint(equalToConstant: 60),
             
         ])
+    }
+    
+    // MARK: Selectors -
+    @objc func hanldeSearchTapped(){
+        delegate?.didTapSearchButton()
+    }
+    @objc func handleConfirmTapped(){
+        
     }
 }

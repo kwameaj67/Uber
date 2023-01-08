@@ -20,8 +20,6 @@ class OverLayLocationInputView: UIView {
         setupContraints()
         addBottomShadowsToView()
         backgroundColor = .white
-        
-       
     }
     
     required init?(coder: NSCoder) {
@@ -37,6 +35,7 @@ class OverLayLocationInputView: UIView {
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
+    
     let headingLbl: UILabel = {
         let lb = UILabel()
         lb.text = "Plan your ride"
@@ -45,6 +44,7 @@ class OverLayLocationInputView: UIView {
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
+    
     lazy var pickupLocationField: UberTextField = {
         var tf = UberTextField()
         tf.attributedPlaceholder = NSAttributedString(string: "Pickup Location", attributes: [.foregroundColor: UIColor.gray,.font: UIFont(name: Font.regular.rawValue, size: 16)!])
@@ -52,6 +52,7 @@ class OverLayLocationInputView: UIView {
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
+    
     lazy var destinationLocationField: UberTextField = {
         var tf = UberTextField()
         tf.attributedPlaceholder = NSAttributedString(string: "Where to?", attributes: [.foregroundColor: UIColor.gray,.font: UIFont(name: Font.regular.rawValue, size: 16)!])
@@ -59,6 +60,7 @@ class OverLayLocationInputView: UIView {
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
+    
     let inputStackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical

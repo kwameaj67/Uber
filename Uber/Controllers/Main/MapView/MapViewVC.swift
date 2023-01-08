@@ -10,32 +10,52 @@ import MapKit
 
 class MapViewVC: UIViewController {
     
-    let locationManager = CLLocationManager()
+    private let locationViewHeight: CGFloat = 200
+    let locationManager = LocationManager.shared.locationManager
     let annotation = MKPointAnnotation()
     var region = MKCoordinateRegion()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupViews()
         setupContraints()
         configureLocationService()
-        // Do any additional setup after loading the view.
-    }
-    func configureLocationService(){
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.requestWhenInUseAuthorization()
-            locationManager.startUpdatingLocation()
-        }
+        showUserLocation()
     }
     
+    func showUserLocation(){
+        let authorizationStatus = locationManager?.authorizationStatus
+        if authorizationStatus == .authorizedWhenInUse || authorizationStatus == .authorizedAlways {
+            annotation.coordinate = (locationManager?.location!.coordinate)!
+            region = .init(center: (locationManager?.location?.coordinate)!, latitudinalMeters: 0.01, longitudinalMeters: 0.01)
+            mapView.addAnnotation(annotation)
+            mapView.setRegion(region, animated:true)
+        }
+    }
+    // MARK: Location -
+    func configureLocationService(){
+        switch locationManager?.authorizationStatus {
+            case .notDetermined:
+                locationManager?.requestWhenInUseAuthorization()
+            case .restricted, .denied:
+                break
+            case .authorizedAlways:
+                locationManager?.startUpdatingLocation()
+                locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+            case .authorizedWhenInUse:
+                locationManager?.requestAlwaysAuthorization()
+            default:
+                break
+        }
+    }
+
     // MARK: Properties -
     let mapView: UberMapView = {
-        let mp = UberMapView()
-        return mp
+        let mv = UberMapView()
+        mv.userTrackingMode = .follow
+        return mv
     }()
-    let backButton: UIButton = {
+    lazy var backButton: UIButton = {
         var btn = UIButton()
         let image = UIImage(named: "uber-back")?.withRenderingMode(.alwaysOriginal).withConfiguration(UIImage.SymbolConfiguration(pointSize: 20))
         btn.setImage(image, for: .normal)
@@ -46,8 +66,28 @@ class MapViewVC: UIViewController {
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
-    let destinationView: OverlayDestinationView = {
+    
+    lazy var overlayLocationInputView: OverLayLocationInputView = {
+        let v = OverLayLocationInputView()
+        v.isHidden = true
+        v.alpha = 0
+        v.delegate = self
+        v.transform = CGAffineTransform(translationX: 0, y: -200)
+        v.translatesAutoresizingMaskIntoConstraints = false
+        return v
+    }()
+    
+    lazy var overlayLocationTableView: OverlayLocationTableView = {
+        let v = OverlayLocationTableView()
+        v.isHidden = true
+        v.alpha = 0
+        v.transform = CGAffineTransform(translationX: 0, y: 200)
+        v.translatesAutoresizingMaskIntoConstraints = false
+        return v
+    }()
+    lazy var destinationView: OverlayDestinationView = {
         let v = OverlayDestinationView()
+        v.delegate = self
         return v
     }()
     
@@ -60,6 +100,10 @@ class MapViewVC: UIViewController {
         view.addSubview(backButton)
         backButton.bringSubviewToFront(mapView)
         view.addSubview(destinationView)
+        view.addSubview(overlayLocationInputView)
+        view.addSubview(overlayLocationTableView)
+        overlayLocationInputView.bringSubviewToFront(backButton)
+        overlayLocationTableView.bringSubviewToFront(destinationView)
     }
     
     func setupContraints(){
@@ -74,7 +118,16 @@ class MapViewVC: UIViewController {
             destinationView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             destinationView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25),
             destinationView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            overlayLocationInputView.topAnchor.constraint(equalTo: view.topAnchor),
+            overlayLocationInputView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            overlayLocationInputView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            overlayLocationInputView.heightAnchor.constraint(equalToConstant: locationViewHeight),
+            
+            overlayLocationTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            overlayLocationTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            overlayLocationTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            overlayLocationTableView.heightAnchor.constraint(equalToConstant:  view.frame.height - locationViewHeight)
         ])
     }
-
 }
