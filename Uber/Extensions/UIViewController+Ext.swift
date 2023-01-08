@@ -32,4 +32,12 @@ extension UIViewController{
         navigationController?.navigationBar.topItem?.backBarButtonItem?.imageInsets = UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 40)
         navigationController?.navigationBar.tintColor = .black
     }
+    
+    func smoothControllerTransition(for vc: UIViewController){
+        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,
+           let window = sceneDelegate.window {
+            window.rootViewController = vc
+            UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: nil, completion: nil)
+        }
+    }
 }
