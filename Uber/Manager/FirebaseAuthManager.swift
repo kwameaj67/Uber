@@ -16,6 +16,7 @@ let ref_driver_locations = db_ref.child("driver-locations")
 struct FirebaseAuthManager {
     
     static let shared = FirebaseAuthManager()
+    private let locationManager = LocationManager.shared.locationManager
     private let auth =  Auth.auth()
    
     private init() {}
@@ -46,22 +47,24 @@ struct FirebaseAuthManager {
                 "fullname": fullname,
                 "accountType": self.resolveAccountType(index: accountType)
             ]
-            if accountType == 1 { // for drivers
-                var geofire = GeoFire(firebaseRef: ref_driver_locations)
-//                geofire.setLocation(<#T##location: CLLocation##CLLocation#>, forKey: uid) { error in
-//
-//                }
-            }
-           
-            // store user in db
-            ref_users.child(uid).updateChildValues(values) { error, ref in
-                if let err = error {
-                    completion(nil,err)
-                    return
+            if accountType == 1 { // added locations for drivers to track them
+                let geofire = GeoFire(firebaseRef: ref_driver_locations)
+                guard let location = locationManager?.location else { return }
+                geofire.setLocation(location, forKey: uid) { error in
+                    self.uploadUserToDb(uid: uid, values: values, completion: completion)
                 }
-                print("User Successfully created!")
-                completion(uid,nil)
             }
+            self.uploadUserToDb(uid: uid, values: values, completion: completion)
+        }
+    }
+    func uploadUserToDb(uid: String,values: [String: Any],completion: @escaping (String?,Error?) -> Void){
+        ref_users.child(uid).updateChildValues(values) { error, ref in    // store user in db
+            if let err = error {
+                completion(nil,err)
+                return
+            }
+            print("User Successfully created!")
+            completion(uid,nil)
         }
     }
     // login user
