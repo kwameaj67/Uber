@@ -7,14 +7,17 @@
 
 import Foundation
 import Firebase
+import GeoFire
 
+private let db_ref = Database.database().reference()
+let ref_users = db_ref.child("users")
+let ref_driver_locations = db_ref.child("driver-locations")
 
 struct FirebaseAuthManager {
     
     static let shared = FirebaseAuthManager()
     private let auth =  Auth.auth()
-    private let ref = Database.database().reference()
-
+   
     private init() {}
     
     // check user is logged in
@@ -36,22 +39,28 @@ struct FirebaseAuthManager {
                 completion(nil,err)
                 return
             }
-            if let user = results?.user {
-                let values:[String: Any] = [
-                    "email": emailAddress,
-                    "fullname": fullname,
-                    "accountType": self.resolveAccountType(index: accountType)
-                ]
-                
-                // store user in db
-                ref.child("users").child(user.uid).updateChildValues(values) { error, ref in
-                    if let err = error {
-                        completion(nil,err)
-                        return
-                    }
-                    print("User Successfully created!")
-                    completion(user.uid,nil)
+            guard let uid = results?.user.uid else { return }
+            
+            let values:[String: Any] = [
+                "email": emailAddress,
+                "fullname": fullname,
+                "accountType": self.resolveAccountType(index: accountType)
+            ]
+            if accountType == 1 { // for drivers
+                var geofire = GeoFire(firebaseRef: ref_driver_locations)
+//                geofire.setLocation(<#T##location: CLLocation##CLLocation#>, forKey: uid) { error in
+//
+//                }
+            }
+           
+            // store user in db
+            ref_users.child(uid).updateChildValues(values) { error, ref in
+                if let err = error {
+                    completion(nil,err)
+                    return
                 }
+                print("User Successfully created!")
+                completion(uid,nil)
             }
         }
     }
@@ -66,15 +75,14 @@ struct FirebaseAuthManager {
         }
     }
     // log out user
-    func logOutUser() -> Result<Void,Error>{
+    func logOutUser(completion: @escaping (Result<Void,Error>)-> Void){
         do {
             try auth.signOut()
             //remove user object from userDefaults
-            
-            return .success(())
+            completion(.success(()))
         }
         catch let error {
-            return .failure(error)
+            return completion(.failure(error))
         }
     }
     
@@ -89,7 +97,4 @@ struct FirebaseAuthManager {
             return "rider"
         }
     }
-    
-  
-       
 }
