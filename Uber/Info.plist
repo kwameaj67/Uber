@@ -4,7 +4,7 @@
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Allow Location</string>
-	<key>NSLocationUsageDescription</key>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Allow Location</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
