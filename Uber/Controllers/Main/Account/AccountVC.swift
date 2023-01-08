@@ -10,6 +10,7 @@ import UIKit
 class AccountVC: UIViewController {
     
     private let userDefaultManager = UserDefaultsManager.shared
+    let authManager = FirebaseAuthManager.shared
     let options = AccountOption.data
     private var fullname: String? {
         didSet{
@@ -51,7 +52,19 @@ class AccountVC: UIViewController {
         return tv
     }()
     
-    
+    func logOutUser(){
+        delay(duration: 1.0) {
+            self.authManager.logOutUser { results in
+                switch results{
+                case .success():
+                    let onboardingVC = UINavigationController(rootViewController: OnboardVC())
+                    self.smoothControllerTransition(for: onboardingVC)
+                case .failure(let error):
+                    print("DEBUG: \(error.localizedDescription)")
+                }
+            }
+        }
+    }
     func setupViews(){
         view.addSubview(accountHeaderView)
         view.addSubview(accountTableView)
