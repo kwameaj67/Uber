@@ -18,7 +18,6 @@ class LoadingVC: UIViewController {
         delay(duration: 1.0) {
             self.checkIfUserIsLoggedIn()
         }
-        
     }
     
     func checkIfUserIsLoggedIn(){
@@ -32,13 +31,6 @@ class LoadingVC: UIViewController {
         }
     }
     
-    func smoothControllerTransition(for vc: UIViewController){
-        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,
-           let window = sceneDelegate.window {
-            window.rootViewController = vc
-            UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: nil, completion: nil)
-        }
-    }
     // MARK: Properties
     let uberLogo : UIImageView = {
         var iv = UIImageView()

@@ -42,6 +42,7 @@
 		984F850D2958D7D4003D53C3 /* AccountHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F850C2958D7D4003D53C3 /* AccountHeaderView.swift */; };
 		984F850F2958E823003D53C3 /* AccountActionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F850E2958E823003D53C3 /* AccountActionHeader.swift */; };
 		984F85112958E911003D53C3 /* AccountActionCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F85102958E911003D53C3 /* AccountActionCollectionCell.swift */; };
+		98510F21296AE96700E18533 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98510F20296AE96700E18533 /* LocationManager.swift */; };
 		986A87B82963094E00A460AA /* OverlayLocationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986A87B72963094E00A460AA /* OverlayLocationInputView.swift */; };
 		986A87BA296313DE00A460AA /* LocationActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986A87B9296313DE00A460AA /* LocationActivationView.swift */; };
 		986A87BC29633D0700A460AA /* LocationIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986A87BB29633D0700A460AA /* LocationIndicatorView.swift */; };
@@ -113,6 +114,7 @@
 		984F850C2958D7D4003D53C3 /* AccountHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHeaderView.swift; sourceTree = "<group>"; };
 		984F850E2958E823003D53C3 /* AccountActionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountActionHeader.swift; sourceTree = "<group>"; };
 		984F85102958E911003D53C3 /* AccountActionCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountActionCollectionCell.swift; sourceTree = "<group>"; };
+		98510F20296AE96700E18533 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		986A87B72963094E00A460AA /* OverlayLocationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayLocationInputView.swift; sourceTree = "<group>"; };
 		986A87B9296313DE00A460AA /* LocationActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationActivationView.swift; sourceTree = "<group>"; };
 		986A87BB29633D0700A460AA /* LocationIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationIndicatorView.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			children = (
 				98395D0F2947AA630071D5DF /* FirebaseAuthManager.swift */,
 				986A87C5296790B300A460AA /* UserDefaultsManager.swift */,
+				98510F20296AE96700E18533 /* LocationManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 				98E145402926ED0500B965F2 /* LoginVC.swift in Sources */,
 				986A87D62969008500A460AA /* OverlayDestinationView.swift in Sources */,
 				984D939E2954801B00225E0E /* PastTripCell.swift in Sources */,
+				98510F21296AE96700E18533 /* LocationManager.swift in Sources */,
 				98C97A1B2925446A0078608A /* UberButton.swift in Sources */,
 				984D939B29547FAB00225E0E /* ActivityVC+Delegates.swift in Sources */,
 				987236EB2955CABB003364B8 /* ActivityHeaderView.swift in Sources */,

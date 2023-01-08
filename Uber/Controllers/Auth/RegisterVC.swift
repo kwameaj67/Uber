@@ -101,6 +101,7 @@ class RegisterVC: UIViewController {
         return sc
     }()
     
+    // MARK: Selectors -
     @objc func didTapLogin(){
         navigationController?.pushViewController(LoginVC(), animated: true)
     }
