@@ -54,3 +54,17 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         return 300.0
     }
 }
+
+extension HomeVC: SearchLocationDelegate{
+    func presentMapViewVC(){
+        let vc = MapViewVC()
+        vc.modalPresentationStyle = .custom
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true, completion: nil)
+    }
+    
+    func presentLocationInputView() {
+        print("DEBUG: Handling present location view...")
+        presentMapViewVC()
+    }
+}
