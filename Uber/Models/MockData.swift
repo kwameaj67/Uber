@@ -5,7 +5,7 @@
 //  Created by Kwame Agyenim - Boateng on 16/12/2022.
 //
 
-import Foundation
+import CoreLocation
 
 enum AccountType: String {
     case rider = "rider"
@@ -15,7 +15,7 @@ struct User {
     var fullname: String
     var email: String
     var accountType: AccountType?
-    
+    var location: CLLocation?
     
     init(dictionary:[String: Any]) {
         self.fullname = dictionary["fullname"] as? String ?? ""

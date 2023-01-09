@@ -9,14 +9,12 @@ import Foundation
 import Firebase
 import GeoFire
 
-private let db_ref = Database.database().reference()
-let ref_users = db_ref.child("users")
-let ref_driver_locations = db_ref.child("driver-locations")
 
 struct FirebaseAuthManager {
     
     static let shared = FirebaseAuthManager()
     private let locationManager = LocationManager.shared.locationManager
+    private let userDefaultManager = UserDefaultsManager.shared
     private let auth =  Auth.auth()
    
     private init() {}
@@ -48,7 +46,7 @@ struct FirebaseAuthManager {
                 "accountType": self.resolveAccountType(index: accountType)
             ]
             if accountType == 1 { // added locations for drivers to track them
-                let geofire = GeoFire(firebaseRef: ref_driver_locations)
+                let geofire = GeoFire(firebaseRef: FirebaseDatabase.ref_driver_locations)
                 guard let location = locationManager?.location else { return }
                 geofire.setLocation(location, forKey: uid) { error in
                     self.uploadUserToDb(uid: uid, values: values, completion: completion)
@@ -58,12 +56,13 @@ struct FirebaseAuthManager {
         }
     }
     func uploadUserToDb(uid: String,values: [String: Any],completion: @escaping (String?,Error?) -> Void){
-        ref_users.child(uid).updateChildValues(values) { error, ref in    // store user in db
+        FirebaseDatabase.ref_users.child(uid).updateChildValues(values) { error, ref in    // store user in db
             if let err = error {
                 completion(nil,err)
                 return
             }
             print("User Successfully created!")
+            self.userDefaultManager.setUserFullName(fullName: values["fullname"] as! String)
             completion(uid,nil)
         }
     }

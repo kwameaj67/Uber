@@ -43,6 +43,8 @@
 		984F850F2958E823003D53C3 /* AccountActionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F850E2958E823003D53C3 /* AccountActionHeader.swift */; };
 		984F85112958E911003D53C3 /* AccountActionCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F85102958E911003D53C3 /* AccountActionCollectionCell.swift */; };
 		98510F21296AE96700E18533 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98510F20296AE96700E18533 /* LocationManager.swift */; };
+		98510F23296B837F00E18533 /* DriverService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98510F22296B837F00E18533 /* DriverService.swift */; };
+		98510F25296B8D0B00E18533 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98510F24296B8D0B00E18533 /* Firebase.swift */; };
 		986A87B82963094E00A460AA /* OverlayLocationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986A87B72963094E00A460AA /* OverlayLocationInputView.swift */; };
 		986A87BA296313DE00A460AA /* LocationActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986A87B9296313DE00A460AA /* LocationActivationView.swift */; };
 		986A87BC29633D0700A460AA /* LocationIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986A87BB29633D0700A460AA /* LocationIndicatorView.swift */; };
@@ -115,6 +117,8 @@
 		984F850E2958E823003D53C3 /* AccountActionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountActionHeader.swift; sourceTree = "<group>"; };
 		984F85102958E911003D53C3 /* AccountActionCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountActionCollectionCell.swift; sourceTree = "<group>"; };
 		98510F20296AE96700E18533 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		98510F22296B837F00E18533 /* DriverService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverService.swift; sourceTree = "<group>"; };
+		98510F24296B8D0B00E18533 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		986A87B72963094E00A460AA /* OverlayLocationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayLocationInputView.swift; sourceTree = "<group>"; };
 		986A87B9296313DE00A460AA /* LocationActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationActivationView.swift; sourceTree = "<group>"; };
 		986A87BB29633D0700A460AA /* LocationIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationIndicatorView.swift; sourceTree = "<group>"; };
@@ -291,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				986A87C329660BC700A460AA /* UserService.swift */,
+				98510F22296B837F00E18533 /* DriverService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -449,6 +454,7 @@
 				98E9017C2924E9DF003F8ABF /* Font.swift */,
 				98C97A1829253DB90078608A /* Color.swift */,
 				98450BBC292AEDE10065C260 /* Helpers.swift */,
+				98510F24296B8D0B00E18533 /* Firebase.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -563,6 +569,7 @@
 				98395D242950F4120071D5DF /* ReserveRideView.swift in Sources */,
 				98395D262950FC360071D5DF /* HomeFooterView.swift in Sources */,
 				98E901572924E3A0003F8ABF /* AppDelegate.swift in Sources */,
+				98510F23296B837F00E18533 /* DriverService.swift in Sources */,
 				98450BAF292930540065C260 /* ActivityVC.swift in Sources */,
 				98E145422926FB2D00B965F2 /* RegisterVC.swift in Sources */,
 				986A87D12968FB9000A460AA /* MapViewVC.swift in Sources */,
@@ -584,6 +591,7 @@
 				986A87C429660BC700A460AA /* UserService.swift in Sources */,
 				986A87C6296790B300A460AA /* UserDefaultsManager.swift in Sources */,
 				98395D1E294FA28C0071D5DF /* PromoAdView.swift in Sources */,
+				98510F25296B8D0B00E18533 /* Firebase.swift in Sources */,
 				986A87D32968FEDC00A460AA /* MapViewVC+Delegates.swift in Sources */,
 				98395D20294FDC6D0071D5DF /* UberOptionCollectionCell.swift in Sources */,
 				984F85112958E911003D53C3 /* AccountActionCollectionCell.swift in Sources */,

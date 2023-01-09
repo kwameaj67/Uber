@@ -12,11 +12,7 @@ class AccountVC: UIViewController {
     private let userDefaultManager = UserDefaultsManager.shared
     let authManager = FirebaseAuthManager.shared
     let options = AccountOption.data
-    private var fullname: String? {
-        didSet{
-            accountHeaderView.profileLbl.text = fullname
-        }
-    }
+    private var user: User?
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -25,9 +21,9 @@ class AccountVC: UIViewController {
         navigationController?.navigationBar.isHidden = true
         fetchUserName()
     }
-    // MARK: API -
     func fetchUserName(){
-         fullname = userDefaultManager.getUserFullName()
+        let name = userDefaultManager.getUserFullName()
+        accountHeaderView.profileLbl.text = name
     }
     // MARK: Properties -
     let accountHeaderView: AccountHeaderView = {

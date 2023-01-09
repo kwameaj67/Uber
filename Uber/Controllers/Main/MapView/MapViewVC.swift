@@ -12,6 +12,7 @@ class MapViewVC: UIViewController {
     
     private let locationViewHeight: CGFloat = 200
     let locationManager = LocationManager.shared.locationManager
+    let driverService = DriverService.shared
     let annotation = MKPointAnnotation()
     var region = MKCoordinateRegion()
     
@@ -21,6 +22,7 @@ class MapViewVC: UIViewController {
         setupContraints()
         configureLocationService()
         showUserLocation()
+        fetchDriverLocation()
     }
     
     func showUserLocation(){
@@ -30,6 +32,13 @@ class MapViewVC: UIViewController {
             region = .init(center: (locationManager?.location?.coordinate)!, latitudinalMeters: 0.01, longitudinalMeters: 0.01)
             mapView.addAnnotation(annotation)
             mapView.setRegion(region, animated:true)
+        }
+    }
+    // MARK: API's -
+    func fetchDriverLocation(){
+        guard let location = locationManager?.location else { return }
+        driverService.fetchDriversLocations(location: location) { user in
+            print("\(user.location)")
         }
     }
     // MARK: Location -

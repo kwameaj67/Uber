@@ -12,10 +12,13 @@ class HomeVC: UIViewController {
     
     private let userService = UserService.shared
     let places = RecentLocation.data
+    let firebaseManager = FirebaseAuthManager.shared
     let locationManager = LocationManager.shared.locationManager
+    let userDefaultManager = UserDefaultsManager.shared
+    let driverService = DriverService.shared
     let annotation = MKPointAnnotation()
     var region = MKCoordinateRegion()
-   
+    var user: User?
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -23,11 +26,11 @@ class HomeVC: UIViewController {
         setupViews()
         setupContraints()
         configureLocationService()
-        userService.fetchUserData()  // we fetch user data on first tab (home)
-        showUserLocation()
-        print(locationManager?.location as Any)
-    }
+        showUserLocationOnMap()
+        fetchUserData()
        
+    }
+    
     func configureLocationService(){
         switch locationManager?.authorizationStatus {
         case .notDetermined:
@@ -43,14 +46,21 @@ class HomeVC: UIViewController {
             break
         }
     }
-    func showUserLocation(){
+    func showUserLocationOnMap(){
         let authorizationStatus = locationManager?.authorizationStatus
         if authorizationStatus == .authorizedWhenInUse || authorizationStatus == .authorizedAlways {
             annotation.coordinate = (locationManager?.location!.coordinate)!
             region = .init(center: (locationManager?.location?.coordinate)!, latitudinalMeters: 0.01, longitudinalMeters: 0.01)
         }
     }
-   
+    // MARK: API -
+    func fetchUserData(){
+        guard let uid = firebaseManager.currentUser else { return }
+        userService.fetchUserData(uid: uid) { user in
+            self.user = user
+        }
+    }
+    
     // MARK: Properties -
     lazy var recentLocationTableView: UITableView = {
         let tv = UITableView(frame: .zero, style: .grouped)
