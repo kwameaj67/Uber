@@ -56,8 +56,8 @@ class HomeVC: UIViewController {
     // MARK: API -
     func fetchUserData(){
         guard let uid = firebaseManager.currentUser else { return }
-        userService.fetchUserData(uid: uid) { user in
-            self.user = user
+        userService.fetchUserData(uid: uid) { [weak self] user in
+            self?.user = user
         }
     }
     

@@ -87,9 +87,9 @@ class LoginVC: UIViewController {
     @objc func didTapLoginButton(){
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         
-        authManager.signInUserAccount(emailAddress: email, password: password) { uid, error in
+        authManager.signInUserAccount(emailAddress: email, password: password) { [weak self] uid, error in
             if let err = error {
-                self.presentAlertError(title: "Error", message: err.localizedDescription)
+                self?.presentAlertError(title: "Error", message: err.localizedDescription)
                 return
             }
             if let _ = uid {

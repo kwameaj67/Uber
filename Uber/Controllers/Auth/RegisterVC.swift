@@ -115,9 +115,9 @@ class RegisterVC: UIViewController {
         guard let fullname = fullNameTextField.text, let email = emailTextField.text, let password = passwordTextField.text else { return }
         let accountTypeIndex = userSegmentedContol.selectedSegmentIndex
        
-        authManager.createUserAccount(emailAddress: email, password: password, fullname: fullname, accountType: accountTypeIndex) { uid, error in
+        authManager.createUserAccount(emailAddress: email, password: password, fullname: fullname, accountType: accountTypeIndex) { [weak self] uid, error in
             if let err = error {
-                self.presentAlertError(title: "Error", message: err.localizedDescription)
+                self?.presentAlertError(title: "Error", message: err.localizedDescription)
                 return
             }
             if let _ = uid {
