@@ -11,6 +11,7 @@ import MapKit
 class MapViewVC: UIViewController {
     
     private let locationViewHeight: CGFloat = 200
+    let driverAnnotationIdentifier = "driverAnnotation"
     let locationManager = LocationManager.shared.locationManager
     let driverService = DriverService.shared
     let annotation = MKPointAnnotation()
@@ -37,14 +38,14 @@ class MapViewVC: UIViewController {
     // MARK: API's -
     func fetchDriverLocation(){
         guard let location = locationManager?.location else { return }
-        driverService.fetchDriversLocations(location: location) { driver in
+        driverService.fetchDriversLocations(location: location) { [weak self] driver in
             guard let coordinate = driver.location?.coordinate else { return }
             let annotation = DriverAnnotation(uid: driver.uid, coordinate: coordinate)
-            self.mapView.addAnnotation(annotation)
+            self?.mapView.addAnnotation(annotation)
             
             // region
             let region: MKCoordinateRegion = .init(center: coordinate, latitudinalMeters: 0.8, longitudinalMeters: 0.8)
-            self.mapView.setRegion(region, animated:true)
+            self?.mapView.setRegion(region, animated:true)
             print("DEBUG:name: \(driver.fullname) \(driver.email) location \(driver.location)")
         }
     }
@@ -66,9 +67,10 @@ class MapViewVC: UIViewController {
     }
 
     // MARK: Properties -
-    let mapView: UberMapView = {
+    lazy var mapView: UberMapView = {
         let map = UberMapView()
         map.userTrackingMode = .follow
+        map.delegate = self
         return map
     }()
     lazy var backButton: UIButton = {

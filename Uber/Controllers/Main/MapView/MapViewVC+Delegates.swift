@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 
 extension MapViewVC: OverLayLocationInputViewDelegate{
     func animateOverlayViews(){
@@ -46,5 +47,27 @@ extension MapViewVC: OverLayLocationInputViewDelegate{
 extension MapViewVC: OverlayDestinationViewDelegate{
     func didTapSearchButton() {
         animateOverlayViews()
+    }
+}
+
+// MARK: MKMapViewDelegate -
+extension MapViewVC: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let image = UIImage(named: "uber-map-car")?.withRenderingMode(.alwaysOriginal)
+        let resizedSize = CGSize(width: 100, height: 100)
+        
+        // resize annotation image
+        UIGraphicsBeginImageContext(resizedSize)
+        image?.draw(in: CGRect(origin: .zero, size: resizedSize))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        // return resize image
+        if let annotation = annotation as? DriverAnnotation {
+            let view = MKAnnotationView(annotation: annotation, reuseIdentifier: driverAnnotationIdentifier)
+            view.image = resizedImage
+            return view
+        }
+        return nil
     }
 }
