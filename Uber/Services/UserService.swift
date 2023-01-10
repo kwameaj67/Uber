@@ -23,7 +23,7 @@ class UserService {
         guard let currentUserId = authManager.currentUser else { return }
         FirebaseDatabase.ref_users.child(currentUserId).observeSingleEvent(of: .value) { snapshot in
             guard let response = snapshot.value as? [String: Any] else { return }
-            let user = User(dictionary: response)
+            let user = User(uid: snapshot.key, dictionary: response)
             print("DEBUG: Fullname: \(user.fullname)")
            
         } withCancel: { error in
@@ -35,7 +35,7 @@ class UserService {
     func fetchUserData(uid: String, completion: @escaping (User) -> Void){
         FirebaseDatabase.ref_users.child(uid).observeSingleEvent(of: .value) { snapshot in
             guard let response = snapshot.value as? [String: Any] else { return }
-            let user = User(dictionary: response)
+            let user = User(uid: snapshot.key, dictionary: response)
             completion(user)
         } withCancel: { error in
             print("DEBUG: \(error.localizedDescription)")

@@ -30,15 +30,22 @@ class MapViewVC: UIViewController {
         if authorizationStatus == .authorizedWhenInUse || authorizationStatus == .authorizedAlways {
             annotation.coordinate = (locationManager?.location!.coordinate)!
             region = .init(center: (locationManager?.location?.coordinate)!, latitudinalMeters: 0.01, longitudinalMeters: 0.01)
-            mapView.addAnnotation(annotation)
+//            mapView.addAnnotation(annotation)
             mapView.setRegion(region, animated:true)
         }
     }
     // MARK: API's -
     func fetchDriverLocation(){
         guard let location = locationManager?.location else { return }
-        driverService.fetchDriversLocations(location: location) { user in
-            print("\(user.location)")
+        driverService.fetchDriversLocations(location: location) { driver in
+            guard let coordinate = driver.location?.coordinate else { return }
+            let annotation = DriverAnnotation(uid: driver.uid, coordinate: coordinate)
+            self.mapView.addAnnotation(annotation)
+            
+            // region
+            let region: MKCoordinateRegion = .init(center: coordinate, latitudinalMeters: 0.8, longitudinalMeters: 0.8)
+            self.mapView.setRegion(region, animated:true)
+            print("DEBUG:name: \(driver.fullname) \(driver.email) location \(driver.location)")
         }
     }
     // MARK: Location -
@@ -60,9 +67,9 @@ class MapViewVC: UIViewController {
 
     // MARK: Properties -
     let mapView: UberMapView = {
-        let mv = UberMapView()
-        mv.userTrackingMode = .follow
-        return mv
+        let map = UberMapView()
+        map.userTrackingMode = .follow
+        return map
     }()
     lazy var backButton: UIButton = {
         var btn = UIButton()

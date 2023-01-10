@@ -24,4 +24,7 @@ class UserDefaultsManager{
         let name = manager.string(forKey: "fullname")
         return name ?? "No Name"
     }
+    func removeFullName(){
+        manager.removeObject(forKey: "fullname")
+    }
 }

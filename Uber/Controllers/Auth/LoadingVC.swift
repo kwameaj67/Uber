@@ -18,6 +18,17 @@ class LoadingVC: UIViewController {
         delay(duration: 1.0) {
             self.checkIfUserIsLoggedIn()
         }
+//        delay(duration: 1.0) {
+//            self.authManager.logOutUser { results in
+//                switch results{
+//                case .success():
+//                    let onboardingVC = UINavigationController(rootViewController: OnboardVC())
+//                    self.smoothControllerTransition(for: onboardingVC)
+//                case .failure(let error):
+//                    print("DEBUG: \(error.localizedDescription)")
+//                }
+//            }
+//        }
     }
     
     func checkIfUserIsLoggedIn(){

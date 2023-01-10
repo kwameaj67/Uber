@@ -73,6 +73,7 @@ struct FirebaseAuthManager {
                 completion(nil,err)
             }
             guard let user = results?.user else { return }
+//            self.userDefaultManager.setUserFullName(fullName: auth.currentUser. as! String)
             completion(user.uid,nil)
         }
     }
@@ -80,7 +81,7 @@ struct FirebaseAuthManager {
     func logOutUser(completion: @escaping (Result<Void,Error>)-> Void){
         do {
             try auth.signOut()
-            //remove user object from userDefaults
+            userDefaultManager.removeFullName() //remove user name from userDefaults
             completion(.success(()))
         }
         catch let error {
