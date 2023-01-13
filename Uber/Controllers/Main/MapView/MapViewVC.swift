@@ -16,7 +16,7 @@ class MapViewVC: UIViewController {
     let driverService = DriverService.shared
     let annotation = MKPointAnnotation()
     var region = MKCoordinateRegion()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -40,15 +40,33 @@ class MapViewVC: UIViewController {
         guard let location = locationManager?.location else { return }
         driverService.fetchDriversLocations(location: location) { [weak self] driver in
             guard let coordinate = driver.location?.coordinate else { return }
+            print("DEBUG: Driver location: \(coordinate)")
+            // annotation
             let annotation = DriverAnnotation(uid: driver.uid, coordinate: coordinate)
-            self?.mapView.addAnnotation(annotation)
-            
             // region
             let region: MKCoordinateRegion = .init(center: coordinate, latitudinalMeters: 0.8, longitudinalMeters: 0.8)
+            
+            // prevents location changes to adjust creating duplicate annotations
+            let driverLocation = self?.mapView.annotations.contains(where: { annotation -> Bool in
+                guard let driverAnno = annotation as? DriverAnnotation else { return false }
+                if driverAnno.uid == driver.uid{
+                    print("DEBUG: hanlde driver annotation")
+                    driverAnno.updateDriverAnnotationPosition(withCoordinate: coordinate)
+                    return true  // update position
+                }
+                return false
+            })
+            var driverVisible: Bool {
+                guard let driverLocation = driverLocation else { return false }
+                return driverLocation
+            }
+            if !driverVisible{
+                self?.mapView.addAnnotation(annotation)
+            }
             self?.mapView.setRegion(region, animated:true)
-            print("DEBUG:name: \(driver.fullname) \(driver.email) location \(driver.location)")
         }
     }
+  
     // MARK: Location -
     func configureLocationService(){
         switch locationManager?.authorizationStatus {

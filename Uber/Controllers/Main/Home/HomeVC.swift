@@ -49,8 +49,9 @@ class HomeVC: UIViewController {
     func showUserLocationOnMap(){
         let authorizationStatus = locationManager?.authorizationStatus
         if authorizationStatus == .authorizedWhenInUse || authorizationStatus == .authorizedAlways {
-            annotation.coordinate = (locationManager?.location!.coordinate)!
-            region = .init(center: (locationManager?.location?.coordinate)!, latitudinalMeters: 0.5, longitudinalMeters: 0.5)
+            guard let location = locationManager?.location else { return }
+            annotation.coordinate = location.coordinate
+            region = .init(center: location.coordinate, latitudinalMeters: 0.5, longitudinalMeters: 0.5)
         }
     }
     // MARK: API -

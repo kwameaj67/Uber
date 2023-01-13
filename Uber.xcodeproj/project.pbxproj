@@ -69,10 +69,10 @@
 		98E1453E2926EBA200B965F2 /* UberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E1453D2926EBA200B965F2 /* UberTextField.swift */; };
 		98E145402926ED0500B965F2 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E1453F2926ED0500B965F2 /* LoginVC.swift */; };
 		98E145422926FB2D00B965F2 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E145412926FB2D00B965F2 /* RegisterVC.swift */; };
-		98E6D6612936228E0056F7DA /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 98E6D6602936228E0056F7DA /* FirebaseAnalytics */; };
+		98E6D6612936228E0056F7DA /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 98E6D6602936228E0056F7DA /* FirebaseAnalytics */; settings = {ATTRIBUTES = (Weak, ); }; };
 		98E6D6632936228E0056F7DA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 98E6D6622936228E0056F7DA /* FirebaseStorage */; };
 		98E6D6652936228E0056F7DA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 98E6D6642936228E0056F7DA /* FirebaseAuth */; };
-		98E6D6672936228E0056F7DA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 98E6D6662936228E0056F7DA /* FirebaseFirestore */; };
+		98E6D6672936228E0056F7DA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 98E6D6662936228E0056F7DA /* FirebaseFirestore */; settings = {ATTRIBUTES = (Weak, ); }; };
 		98E6D6692936228E0056F7DA /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 98E6D6682936228E0056F7DA /* FirebaseDatabase */; };
 		98E901572924E3A0003F8ABF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E901562924E3A0003F8ABF /* AppDelegate.swift */; };
 		98E901592924E3A0003F8ABF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E901582924E3A0003F8ABF /* SceneDelegate.swift */; };
@@ -741,7 +741,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -761,7 +761,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.project.uber;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -780,7 +780,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.project.uber;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
