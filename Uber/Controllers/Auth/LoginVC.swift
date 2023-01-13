@@ -88,12 +88,14 @@ class LoginVC: UIViewController {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         
         authManager.signInUserAccount(emailAddress: email, password: password) { [weak self] uid, error in
+            guard let self = self else { return }
             if let err = error {
-                self?.presentAlertError(title: "Error", message: err.localizedDescription)
+                self.presentAlertError(title: "Error", message: err.localizedDescription)
                 return
             }
             if let _ = uid {
                 print("Successfully Logged User")
+                self.smoothControllerTransition(for: TabBarVC())
             }
         }
     }
