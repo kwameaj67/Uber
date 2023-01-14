@@ -8,7 +8,8 @@
 import UIKit
 import MapKit
 
-extension MapViewVC: OverLayLocationInputViewDelegate{
+extension MapViewVC{
+   
     func animateOverlayViews(){
         UIView.animate(withDuration: 0.5) {
             self.overlayLocationInputView.isHidden = false
@@ -44,9 +45,11 @@ extension MapViewVC: OverLayLocationInputViewDelegate{
         dismiss(animated: true, completion: nil)
     }
 }
+// MARK: OverlayDestinationViewDelegate -
 extension MapViewVC: OverlayDestinationViewDelegate{
     func didTapSearchButton() {
         animateOverlayViews()
+        overlayLocationTableView.locationTableView.reloadData()
     }
 }
 
@@ -71,3 +74,32 @@ extension MapViewVC: MKMapViewDelegate {
         return nil
     }
 }
+
+extension MapViewVC: OverLayLocationInputViewDelegate{
+    func executeLocationSearch(query: String) {
+        print("DEBUG:Query is: \(query)")
+        searchByLocation(query: query) { placemark in
+            print("DEBUG: \(placemark)")
+        }
+    }
+}
+
+private extension MapViewVC{
+    func searchByLocation(query: String, completion: @escaping ([MKPlacemark])-> Void){
+        let request = MKLocalSearch.Request()
+        request.region = mapView.region
+        request.naturalLanguageQuery = query
+        
+        let search = MKLocalSearch(request: request)
+        search.start { response, error in
+            guard let res = response else { return }
+            res.mapItems.forEach { item in
+                self.placeMarkLocations.append(item.placemark)
+                completion(self.placeMarkLocations)
+                
+            }
+        }
+    }
+}
+
+

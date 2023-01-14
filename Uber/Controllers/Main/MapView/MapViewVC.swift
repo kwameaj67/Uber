@@ -16,6 +16,7 @@ class MapViewVC: UIViewController {
     let driverService = DriverService.shared
     let annotation = MKPointAnnotation()
     var region = MKCoordinateRegion()
+    var placeMarkLocations = [MKPlacemark]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,6 @@ class MapViewVC: UIViewController {
         if authorizationStatus == .authorizedWhenInUse || authorizationStatus == .authorizedAlways {
             annotation.coordinate = (locationManager?.location!.coordinate)!
             region = .init(center: (locationManager?.location?.coordinate)!, latitudinalMeters: 0.01, longitudinalMeters: 0.01)
-//            mapView.addAnnotation(annotation)
             mapView.setRegion(region, animated:true)
         }
     }

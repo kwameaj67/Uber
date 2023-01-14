@@ -10,6 +10,7 @@ import UIKit
 
 protocol OverLayLocationInputViewDelegate: AnyObject {
     func dismissLocationInputView()
+    func executeLocationSearch(query: String)
 }
 class OverLayLocationInputView: UIView {
 
@@ -57,6 +58,7 @@ class OverLayLocationInputView: UIView {
         var tf = UberTextField()
         tf.attributedPlaceholder = NSAttributedString(string: "Where to?", attributes: [.foregroundColor: UIColor.gray,.font: UIFont(name: Font.regular.rawValue, size: 16)!])
         tf.returnKeyType = .search
+        tf.delegate = self
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
@@ -112,4 +114,14 @@ class OverLayLocationInputView: UIView {
        
         ])
     }
+}
+
+//MARK: UITextFieldDelegate -
+extension OverLayLocationInputView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let query = textField.text else { return false }
+        delegate?.executeLocationSearch(query: query)
+        return true
+    }
+    
 }
