@@ -20,7 +20,7 @@ class PastTripCell: UITableViewCell {
         setupViews()
         setupContraints()
         backgroundColor = .white
-        arrowImage.transform = CGAffineTransform(rotationAngle: CGFloat.pi * 3/2)
+        arrowImage.transform = CGAffineTransform(rotationAngle: CGFloat.pi * 3/2) // transform image to the right
     }
     
     required init?(coder: NSCoder) {

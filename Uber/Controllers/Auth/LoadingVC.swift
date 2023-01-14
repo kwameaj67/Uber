@@ -32,7 +32,7 @@ class LoadingVC: UIViewController {
     }
     
     func checkIfUserIsLoggedIn(){
-        print(authManager.currentUser ?? "no id")
+        print("DEBUG: Current UserID: \(authManager.currentUser ?? "no id/user")")
         if authManager.isLoggedIn {
             loadingIndicator.stopAnimating()
             smoothControllerTransition(for: TabBarVC())

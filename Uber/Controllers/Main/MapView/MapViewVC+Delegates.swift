@@ -80,6 +80,9 @@ extension MapViewVC: OverLayLocationInputViewDelegate{
         print("DEBUG:Query is: \(query)")
         searchByLocation(query: query) { placemark in
             print("DEBUG: \(placemark)")
+            self.overlayLocationTableView.placeMarkData = placemark  // pass data to tableview
+            
+            print("DEBUG: Count: \(self.overlayLocationTableView.placeMarkData.count)")
         }
     }
 }
@@ -96,7 +99,6 @@ private extension MapViewVC{
             res.mapItems.forEach { item in
                 self.placeMarkLocations.append(item.placemark)
                 completion(self.placeMarkLocations)
-                
             }
         }
     }

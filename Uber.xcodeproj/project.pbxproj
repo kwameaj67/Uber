@@ -44,6 +44,8 @@
 		984F850D2958D7D4003D53C3 /* AccountHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F850C2958D7D4003D53C3 /* AccountHeaderView.swift */; };
 		984F850F2958E823003D53C3 /* AccountActionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F850E2958E823003D53C3 /* AccountActionHeader.swift */; };
 		984F85112958E911003D53C3 /* AccountActionCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984F85102958E911003D53C3 /* AccountActionCollectionCell.swift */; };
+		9850704429731E1D00794DB9 /* PlaceMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9850704329731E1D00794DB9 /* PlaceMark.swift */; };
+		985070462973304F00794DB9 /* SavedPlacesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985070452973304F00794DB9 /* SavedPlacesCell.swift */; };
 		98510F21296AE96700E18533 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98510F20296AE96700E18533 /* LocationManager.swift */; };
 		98510F23296B837F00E18533 /* DriverService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98510F22296B837F00E18533 /* DriverService.swift */; };
 		98510F25296B8D0B00E18533 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98510F24296B8D0B00E18533 /* Firebase.swift */; };
@@ -120,6 +122,8 @@
 		984F850C2958D7D4003D53C3 /* AccountHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHeaderView.swift; sourceTree = "<group>"; };
 		984F850E2958E823003D53C3 /* AccountActionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountActionHeader.swift; sourceTree = "<group>"; };
 		984F85102958E911003D53C3 /* AccountActionCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountActionCollectionCell.swift; sourceTree = "<group>"; };
+		9850704329731E1D00794DB9 /* PlaceMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMark.swift; sourceTree = "<group>"; };
+		985070452973304F00794DB9 /* SavedPlacesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPlacesCell.swift; sourceTree = "<group>"; };
 		98510F20296AE96700E18533 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		98510F22296B837F00E18533 /* DriverService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverService.swift; sourceTree = "<group>"; };
 		98510F24296B8D0B00E18533 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 				98395D12294CE74D0071D5DF /* MockData.swift */,
 				984F146C296CDEE70074E9AF /* User.swift */,
 				984F146E296CDF020074E9AF /* DriverAnnotation.swift */,
+				9850704329731E1D00794DB9 /* PlaceMark.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -196,9 +201,9 @@
 		98395D16294F24650071D5DF /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9850704229731CE900794DB9 /* MapView */,
 				98395D19294F25530071D5DF /* RecentLocationCell.swift */,
 				98395D1F294FDC6D0071D5DF /* UberOptionCollectionCell.swift */,
-				986A87C029645E9300A460AA /* LocationInputCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -241,7 +246,6 @@
 		98450BB5292932F30065C260 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				986A87BF296457DE00A460AA /* OverlayViews */,
 				98395D1D294FA28C0071D5DF /* PromoAdView.swift */,
 				98395D212950F21E0071D5DF /* SearchLocationView.swift */,
 				98395D1B294F9F260071D5DF /* HomeHeaderView.swift */,
@@ -288,6 +292,15 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
+		9850704229731CE900794DB9 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				986A87C029645E9300A460AA /* LocationInputCell.swift */,
+				985070452973304F00794DB9 /* SavedPlacesCell.swift */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
 		986A87BF296457DE00A460AA /* OverlayViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +331,7 @@
 		986A87D42969005E00A460AA /* MapView */ = {
 			isa = PBXGroup;
 			children = (
+				986A87BF296457DE00A460AA /* OverlayViews */,
 				986A87D52969008500A460AA /* OverlayDestinationView.swift */,
 			);
 			path = MapView;
@@ -594,11 +608,13 @@
 				986A87BE296457CE00A460AA /* OverlayLocationTableView.swift in Sources */,
 				98E901592924E3A0003F8ABF /* SceneDelegate.swift in Sources */,
 				98C97A1929253DB90078608A /* Color.swift in Sources */,
+				985070462973304F00794DB9 /* SavedPlacesCell.swift in Sources */,
 				984D93A0295484D200225E0E /* Types + Ext.swift in Sources */,
 				986A87C429660BC700A460AA /* UserService.swift in Sources */,
 				986A87C6296790B300A460AA /* UserDefaultsManager.swift in Sources */,
 				98395D1E294FA28C0071D5DF /* PromoAdView.swift in Sources */,
 				98510F25296B8D0B00E18533 /* Firebase.swift in Sources */,
+				9850704429731E1D00794DB9 /* PlaceMark.swift in Sources */,
 				986A87D32968FEDC00A460AA /* MapViewVC+Delegates.swift in Sources */,
 				98395D20294FDC6D0071D5DF /* UberOptionCollectionCell.swift in Sources */,
 				984F85112958E911003D53C3 /* AccountActionCollectionCell.swift in Sources */,

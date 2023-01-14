@@ -6,9 +6,15 @@
 //
 
 import UIKit
+import MapKit
 
 class LocationInputCell: UITableViewCell {
 
+    var placemark: MKPlacemark?{
+        didSet{
+            manageData()
+        }
+    }
     static let reusableID = "LocationInputCell"
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: LocationInputCell.reusableID)
@@ -22,16 +28,32 @@ class LocationInputCell: UITableViewCell {
     }
     
     // MARK: Properties
+    let stackView: UIStackView = {
+        let sv = UIStackView()
+        sv.axis = .vertical
+        sv.distribution = .fillEqually
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        return sv
+    }()
     let locationLbl: UILabel = {
         let lb = UILabel()
-        lb.numberOfLines = 0
+        lb.font = UIFont(name: Font.medium.rawValue, size: 17)
+        lb.textColor = .black
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
+    let addressLbl: UILabel = {
+        let lb = UILabel()
+        lb.font = UIFont(name: Font.light.rawValue, size: 16)
+        lb.textColor = .gray
+        lb.translatesAutoresizingMaskIntoConstraints = false
+        return lb
+    }()
+    
     let iconContainer: UIView = {
         let v = UIView()
         v.backgroundColor = .gray
-        v.layer.cornerRadius = 48/2
+        v.layer.cornerRadius = 42/2
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
@@ -54,25 +76,27 @@ class LocationInputCell: UITableViewCell {
     func setupViews(){
         contentView.addSubview(iconContainer)
         iconContainer.addSubview(iconImage)
-        contentView.addSubview(locationLbl)
+        contentView.addSubview(stackView)
+        stackView.addArrangedSubview(locationLbl)
+        stackView.addArrangedSubview(addressLbl)
         contentView.addSubview(border)
-        locationLbl.attributedText = setupAttributedText("26 Lower Hill Dr", "Accra")
     }
     func setupContraints(){
         NSLayoutConstraint.activate([
-            iconContainer.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            iconContainer.centerYAnchor.constraint(equalTo: stackView.centerYAnchor),
             iconContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            iconContainer.heightAnchor.constraint(equalToConstant: 48),
-            iconContainer.widthAnchor.constraint(equalToConstant: 48),
+            iconContainer.heightAnchor.constraint(equalToConstant: 42),
+            iconContainer.widthAnchor.constraint(equalToConstant: 42),
             
             iconImage.centerYAnchor.constraint(equalTo: iconContainer.centerYAnchor),
             iconImage.centerXAnchor.constraint(equalTo: iconContainer.centerXAnchor),
-            iconImage.heightAnchor.constraint(equalToConstant: 20),
-            iconImage.widthAnchor.constraint(equalToConstant: 20),
+            iconImage.heightAnchor.constraint(equalToConstant: 22),
+            iconImage.widthAnchor.constraint(equalToConstant: 22),
             
-            locationLbl.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            locationLbl.leadingAnchor.constraint(equalTo: iconContainer.trailingAnchor, constant: 15),
-            locationLbl.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            stackView.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 10),
+            stackView.leadingAnchor.constraint(equalTo: iconContainer.trailingAnchor, constant: 15),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             
             border.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             border.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -80,9 +104,9 @@ class LocationInputCell: UITableViewCell {
             border.heightAnchor.constraint(equalToConstant: 0.6),
         ])
     }
-    func setupAttributedText (_ name: String,_ location: String) -> NSAttributedString {
-        let text = NSMutableAttributedString(attributedString: NSAttributedString(string: name, attributes: [.foregroundColor: UIColor.black,.font:UIFont(name: Font.medium.rawValue, size: 17)!]))
-        text.append( NSAttributedString(string: "\n\(location)", attributes: [.foregroundColor: Color.text_grey,.font:UIFont(name: Font.regular.rawValue, size: 16)!]))
-        return text
+    func manageData(){
+        guard let item = placemark else { return }
+        locationLbl.text = item.name ?? "n/a"
+        addressLbl.text = item.title ?? "n/a"
     }
 }
