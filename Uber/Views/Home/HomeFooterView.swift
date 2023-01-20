@@ -8,9 +8,15 @@
 import UIKit
 import MapKit
 
+protocol HomeFooterViewDelegate: AnyObject {
+    func didTapMapView()
+}
+
 class HomeFooterView: UITableViewHeaderFooterView {
 
     static let reuseableID = "HomeFooterView"
+    
+    weak var delegate: HomeFooterViewDelegate?
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: HomeFooterView.reuseableID)
@@ -34,9 +40,13 @@ class HomeFooterView: UITableViewHeaderFooterView {
     
     let mapView: UberMapView = {
         let mp = UberMapView()
+        mp.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDidTapMapView)))
         return mp
     }()
     
+    @objc func handleDidTapMapView(){
+        delegate?.didTapMapView()
+    }
     func setupViews(){
         addSubview(titleLabel)
         addSubview(mapView)
