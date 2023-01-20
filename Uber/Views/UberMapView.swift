@@ -15,6 +15,7 @@ class UberMapView: MKMapView, MKMapViewDelegate {
         layer.cornerRadius = 15
         isZoomEnabled = false
         showsUserLocation = true
+        isUserInteractionEnabled = true
         translatesAutoresizingMaskIntoConstraints = false
     }
     

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SearchLocationDelegate: AnyObject{
-    func presentLocationInputView()
+    func didTapLocationActivationView()
 }
 
 class LocationActivationView: UIView {
@@ -21,7 +21,7 @@ class LocationActivationView: UIView {
         setupContraints()
         backgroundColor = .none
         translatesAutoresizingMaskIntoConstraints = false
-        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentLocationInputView)))
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(presentMapVC)))
     }
     
     required init?(coder: NSCoder) {
@@ -47,8 +47,8 @@ class LocationActivationView: UIView {
     }()
     
     
-    @objc func presentLocationInputView(){
-        delegate?.presentLocationInputView()
+    @objc func presentMapVC(){
+        delegate?.didTapLocationActivationView()
     }
     func setupViews(){
         addSubview(searchIcon)

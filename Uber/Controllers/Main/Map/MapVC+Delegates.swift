@@ -92,13 +92,19 @@ extension MapVC: OverlayDestinationViewDelegate{
     }
 }
 
+// MARK: OverlaySelectLocationViewDelegate-
+extension MapVC: OverlaySelectLocationViewDelegate{
+    func didTapLocationButton() {
+        animateOverlayViews()
+    }
+}
 
 
 // MARK: MKMapViewDelegate -
 extension MapVC: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let image = UIImage(named: "uber-map-car")?.withRenderingMode(.alwaysOriginal)
-        let resizedSize = CGSize(width: 100, height: 100)
+        let resizedSize = CGSize(width: 50, height: 50)
         
         // resize annotation image
         UIGraphicsBeginImageContext(resizedSize)

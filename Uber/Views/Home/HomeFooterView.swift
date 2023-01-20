@@ -38,7 +38,7 @@ class HomeFooterView: UITableViewHeaderFooterView {
         return lb
     }()
     
-    let mapView: UberMapView = {
+    lazy var mapView: UberMapView = {
         let mp = UberMapView()
         mp.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDidTapMapView)))
         return mp

@@ -17,14 +17,17 @@ class MapVC: UIViewController {
     let selectedAnnotation = MKPointAnnotation()
     var region = MKCoordinateRegion()
     var placeMarkLocations = [MKPlacemark]()
-
+    var showLocationView: Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupContraints()
         configureLocationService()
-        showUserLocation()
-        fetchDriverLocation()
+//        showUserLocation()
+        showOverlayView()
+        if showLocationView == false{
+            fetchDriverLocation()
+        }
     }
     
     func showUserLocation(){
@@ -34,7 +37,7 @@ class MapVC: UIViewController {
             guard let location = locationManager?.location else { return }
             annotation.coordinate = location.coordinate
             region = .init(center: location.coordinate, latitudinalMeters: 0.5, longitudinalMeters: 0.5)
-            let span = MKCoordinateSpan(latitudeDelta: 0.08, longitudeDelta: 0.08) // zoom level
+            let span = MKCoordinateSpan(latitudeDelta: 0.09, longitudeDelta: 0.09) // zoom level
             region.span = span
             mapView.setRegion(region, animated:true)
         }
@@ -54,7 +57,7 @@ class MapVC: UIViewController {
             let driverLocation = self?.mapView.annotations.contains(where: { annotation -> Bool in
                 guard let driverAnno = annotation as? DriverAnnotation else { return false }
                 if driverAnno.uid == driver.uid{
-                    print("DEBUG: hanlde driver annotation")
+                    print("DEBUG: handle driver annotation")
                     driverAnno.updateDriverAnnotationPosition(withCoordinate: coordinate)
                     return true  // update position
                 }
@@ -90,6 +93,21 @@ class MapVC: UIViewController {
         }
     }
 
+    func showOverlayView(){
+        if showLocationView{ // shows "Where to?" view
+            destinationView.isHidden = true
+            destinationView.alpha = 0
+            
+            selectLocationView.isHidden = false
+            selectLocationView.alpha = 1
+        }else{
+            destinationView.isHidden = false
+            destinationView.alpha = 1
+            
+            selectLocationView.isHidden = true
+            selectLocationView.alpha = 0
+        }
+    }
     // MARK: Properties -
     lazy var mapView: UberMapView = {
         let map = UberMapView()
@@ -102,7 +120,7 @@ class MapVC: UIViewController {
         let image = UIImage(named: "uber-back")?.withRenderingMode(.alwaysOriginal).withConfiguration(UIImage.SymbolConfiguration(pointSize: 20))
         btn.setImage(image, for: .normal)
         btn.backgroundColor = .white
-        btn.layer.cornerRadius = 60/2
+        btn.layer.cornerRadius = 55/2
         btn.adjustsImageWhenHighlighted = false
         btn.addTarget(self, action: #selector(didTapBackButton), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false
@@ -132,11 +150,16 @@ class MapVC: UIViewController {
     lazy var destinationView: OverlayDestinationView = {
         let v = OverlayDestinationView()
         v.delegate = self
+        v.isHidden = true
+        v.alpha = 0
         return v
     }()
     
     lazy var selectLocationView: OverlaySelectLocationView = {
         let v = OverlaySelectLocationView()
+        v.delegate = self
+        v.isHidden = true
+        v.alpha = 0
         return v
     }()
     
@@ -163,8 +186,8 @@ class MapVC: UIViewController {
         NSLayoutConstraint.activate([
             backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 54),
             backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            backButton.heightAnchor.constraint(equalToConstant: 60),
-            backButton.widthAnchor.constraint(equalToConstant: 60),
+            backButton.heightAnchor.constraint(equalToConstant: 55),
+            backButton.widthAnchor.constraint(equalToConstant: 55),
             
             destinationView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             destinationView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -173,7 +196,7 @@ class MapVC: UIViewController {
             
             selectLocationView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             selectLocationView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            selectLocationView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.18),
+            selectLocationView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.13),
             selectLocationView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             overlayLocationInputView.topAnchor.constraint(equalTo: view.topAnchor),

@@ -59,16 +59,17 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: SearchLocationDelegate-
 extension HomeVC: SearchLocationDelegate {
-    func presentMapVC(){
+    func presentMapVC(showLocationView: Bool){
         let vc = MapVC()
+        vc.showLocationView = showLocationView
         vc.modalPresentationStyle = .custom
         vc.modalTransitionStyle = .crossDissolve
         present(vc, animated: true, completion: nil)
     }
     
-    func presentLocationInputView() {
+    func didTapLocationActivationView() {
         print("DEBUG: Handling present map view...")
-        presentMapVC()
+        presentMapVC(showLocationView: false)
     }
 }
 
@@ -76,6 +77,6 @@ extension HomeVC: SearchLocationDelegate {
 // MARK: HomeFooterViewDelegate-
 extension HomeVC: HomeFooterViewDelegate {
     func didTapMapView() {
-        presentMapVC()
+        presentMapVC(showLocationView: true)
     }
 }
