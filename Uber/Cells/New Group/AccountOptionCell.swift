@@ -58,17 +58,20 @@ class AccountOptionCell: UITableViewCell {
     }
     func manageData(){
         guard let data = data else { return }
+        
         switch data.iconType {
-        case .messages:
-            iconImage.image = UIImage(named: "uber-message")?.withRenderingMode(.alwaysOriginal)
-        case .settings:
-            iconImage.image = UIImage(named: "uber-setting")?.withRenderingMode(.alwaysOriginal)
-        case .earning:
-            iconImage.image = UIImage(named: "uber-gift")?.withRenderingMode(.alwaysOriginal)
-        case .legal:
-            iconImage.image = UIImage(systemName: "info.circle.fill")?.withRenderingMode(.alwaysOriginal)
+            case .messages:
+                iconImage.image = UIImage(named: "uber-message")?.withRenderingMode(.alwaysOriginal)
+            case .settings:
+                iconImage.image = UIImage(named: "uber-setting")?.withRenderingMode(.alwaysOriginal)
+            case .earning:
+                iconImage.image = UIImage(named: "uber-gift")?.withRenderingMode(.alwaysOriginal)
+            case .legal:
+                iconImage.image = UIImage(systemName: "info.circle.fill")?.withRenderingMode(.alwaysOriginal)
+            case .refer:
+                iconImage.image = UIImage(systemName: "person.2.fill")?.withRenderingMode(.alwaysOriginal)
         }
-       
+        
         titleLabel.text = data.name
     }
 }
