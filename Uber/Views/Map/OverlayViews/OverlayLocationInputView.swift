@@ -11,6 +11,7 @@ import UIKit
 protocol OverLayLocationInputViewDelegate: AnyObject {
     func dismissLocationInputView()
     func executeLocationSearch(query: String)
+    func textFieldShouldClearSearchResults()
 }
 class OverLayLocationInputView: UIView {
 
@@ -121,6 +122,16 @@ extension OverLayLocationInputView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let query = textField.text else { return false }
         delegate?.executeLocationSearch(query: query)
+        return true
+    }
+//    func textFieldDidChangeSelection(_ textField: UITextField) {
+//        guard let text = textField.text else { return }
+//        if text.isEmpty {
+//            delegate?.textFieldShouldClearSearchResults()
+//        }
+//    }
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        delegate?.textFieldShouldClearSearchResults()
         return true
     }
     

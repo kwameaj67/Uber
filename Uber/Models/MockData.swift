@@ -24,7 +24,7 @@ struct RecentLocation {
     
     
     static let data: [RecentLocation] = [
-        RecentLocation(name: "Work", location: "Petra Trust Company Limited", icon: .work),
+        RecentLocation(name: "Work", location: "Ghana Gas Limited", icon: .work),
         RecentLocation(name: "Accra Mall", location: "Plot C11 Tetteh Quarshie Interchange, Spintex Rd, Accra", icon: .random),
         RecentLocation(name: "Labone", location: "Accra", icon: .random),
     ]

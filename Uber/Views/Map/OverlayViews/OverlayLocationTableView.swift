@@ -8,6 +8,9 @@
 import UIKit
 import MapKit
 
+protocol OverlayLocationTableViewDelegate: AnyObject {
+    func dismissLocationTableView(coordinate: CLLocationCoordinate2D)
+}
 
 class OverlayLocationTableView: UIView {
     
@@ -16,6 +19,8 @@ class OverlayLocationTableView: UIView {
             locationTableView.reloadData()
         }
     }
+    weak var delegate: OverlayLocationTableViewDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
@@ -35,7 +40,7 @@ class OverlayLocationTableView: UIView {
         tv.delegate = self
         tv.dataSource = self
         tv.showsVerticalScrollIndicator = false
-        tv.backgroundColor = Color.grey_bg
+        tv.backgroundColor = Color.grey_bg.withAlphaComponent(0.8)
         tv.separatorStyle = .none
         tv.rowHeight = 68
         tv.tableHeaderView = UIView()
@@ -91,11 +96,16 @@ extension OverlayLocationTableView: UITableViewDelegate, UITableViewDataSource{
         else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: LocationInputCell.reusableID) as! LocationInputCell
             let bgView = UIView(frame: cell.bounds)
-            bgView.backgroundColor = Color.textField_bg.withAlphaComponent(0.6)
+            bgView.backgroundColor = Color.textField_bg
             cell.selectedBackgroundView = bgView
             cell.placemark = placeMarkData[indexPath.row]
             return cell
         }
          return UITableViewCell()
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedPlacemark = placeMarkData[indexPath.row]
+        //print("Selected Item: \(selectedPlacemark.name), \(selectedPlacemark.title), \(selectedPlacemark.coordinate)")
+        delegate?.dismissLocationTableView(coordinate: selectedPlacemark.coordinate)
     }
 }

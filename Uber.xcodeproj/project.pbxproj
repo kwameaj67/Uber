@@ -58,11 +58,12 @@
 		986A87C6296790B300A460AA /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986A87C5296790B300A460AA /* UserDefaultsManager.swift */; };
 		986A87CC2967941600A460AA /* UberMove-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 986A87C82967941500A460AA /* UberMove-Medium.ttf */; };
 		986A87CD2967941600A460AA /* UberMove-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 986A87C92967941600A460AA /* UberMove-Bold.ttf */; };
-		986A87D12968FB9000A460AA /* MapViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986A87D02968FB8F00A460AA /* MapViewVC.swift */; };
-		986A87D32968FEDC00A460AA /* MapViewVC+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986A87D22968FEDB00A460AA /* MapViewVC+Delegates.swift */; };
+		986A87D12968FB9000A460AA /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986A87D02968FB8F00A460AA /* MapVC.swift */; };
+		986A87D32968FEDC00A460AA /* MapVC+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986A87D22968FEDB00A460AA /* MapVC+Delegates.swift */; };
 		986A87D62969008500A460AA /* OverlayDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986A87D52969008500A460AA /* OverlayDestinationView.swift */; };
 		987236EB2955CABB003364B8 /* ActivityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987236EA2955CABB003364B8 /* ActivityHeaderView.swift */; };
 		987236ED2955CD4A003364B8 /* UberMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987236EC2955CD4A003364B8 /* UberMapView.swift */; };
+		988F5221297A12D600768128 /* OverlaySelectLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988F5220297A12D600768128 /* OverlaySelectLocationView.swift */; };
 		9896EFD6292B7A3C00A7248D /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9896EFD5292B7A3C00A7248D /* UILabel+Ext.swift */; };
 		98C97A1729253D640078608A /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C97A1629253D640078608A /* UIView+Ext.swift */; };
 		98C97A1929253DB90078608A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C97A1829253DB90078608A /* Color.swift */; };
@@ -136,11 +137,12 @@
 		986A87C5296790B300A460AA /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		986A87C82967941500A460AA /* UberMove-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UberMove-Medium.ttf"; sourceTree = "<group>"; };
 		986A87C92967941600A460AA /* UberMove-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UberMove-Bold.ttf"; sourceTree = "<group>"; };
-		986A87D02968FB8F00A460AA /* MapViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewVC.swift; sourceTree = "<group>"; };
-		986A87D22968FEDB00A460AA /* MapViewVC+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewVC+Delegates.swift"; sourceTree = "<group>"; };
+		986A87D02968FB8F00A460AA /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
+		986A87D22968FEDB00A460AA /* MapVC+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapVC+Delegates.swift"; sourceTree = "<group>"; };
 		986A87D52969008500A460AA /* OverlayDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayDestinationView.swift; sourceTree = "<group>"; };
 		987236EA2955CABB003364B8 /* ActivityHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityHeaderView.swift; sourceTree = "<group>"; };
 		987236EC2955CD4A003364B8 /* UberMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberMapView.swift; sourceTree = "<group>"; };
+		988F5220297A12D600768128 /* OverlaySelectLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlaySelectLocationView.swift; sourceTree = "<group>"; };
 		9896EFD5292B7A3C00A7248D /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		98C97A1629253D640078608A /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		98C97A1829253DB90078608A /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -304,8 +306,10 @@
 		986A87BF296457DE00A460AA /* OverlayViews */ = {
 			isa = PBXGroup;
 			children = (
+				986A87D52969008500A460AA /* OverlayDestinationView.swift */,
 				986A87BD296457CE00A460AA /* OverlayLocationTableView.swift */,
 				986A87B72963094E00A460AA /* OverlayLocationInputView.swift */,
+				988F5220297A12D600768128 /* OverlaySelectLocationView.swift */,
 			);
 			path = OverlayViews;
 			sourceTree = "<group>";
@@ -319,22 +323,21 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		986A87CF2968FB6A00A460AA /* MapView */ = {
+		986A87CF2968FB6A00A460AA /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				986A87D02968FB8F00A460AA /* MapViewVC.swift */,
-				986A87D22968FEDB00A460AA /* MapViewVC+Delegates.swift */,
+				986A87D02968FB8F00A460AA /* MapVC.swift */,
+				986A87D22968FEDB00A460AA /* MapVC+Delegates.swift */,
 			);
-			path = MapView;
+			path = Map;
 			sourceTree = "<group>";
 		};
-		986A87D42969005E00A460AA /* MapView */ = {
+		986A87D42969005E00A460AA /* Map */ = {
 			isa = PBXGroup;
 			children = (
 				986A87BF296457DE00A460AA /* OverlayViews */,
-				986A87D52969008500A460AA /* OverlayDestinationView.swift */,
 			);
-			path = MapView;
+			path = Map;
 			sourceTree = "<group>";
 		};
 		98C97A1429253D2D0078608A /* Auth */ = {
@@ -355,7 +358,7 @@
 		98C97A1529253D320078608A /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				986A87CF2968FB6A00A460AA /* MapView */,
+				986A87CF2968FB6A00A460AA /* Map */,
 				98450BB22929306A0065C260 /* Home */,
 				98450BB4292930870065C260 /* Account */,
 				98450BB32929307B0065C260 /* Activity */,
@@ -433,7 +436,7 @@
 		98E9016C2924E3CE003F8ABF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				986A87D42969005E00A460AA /* MapView */,
+				986A87D42969005E00A460AA /* Map */,
 				98450BB7292933040065C260 /* Account */,
 				98450BB6292932FB0065C260 /* Activity */,
 				98450BB5292932F30065C260 /* Home */,
@@ -570,6 +573,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98395D1C294F9F260071D5DF /* HomeHeaderView.swift in Sources */,
+				988F5221297A12D600768128 /* OverlaySelectLocationView.swift in Sources */,
 				987236ED2955CD4A003364B8 /* UberMapView.swift in Sources */,
 				98450BB1292930660065C260 /* AccountVC.swift in Sources */,
 				98395D1A294F25530071D5DF /* RecentLocationCell.swift in Sources */,
@@ -593,7 +597,7 @@
 				98510F23296B837F00E18533 /* DriverService.swift in Sources */,
 				98450BAF292930540065C260 /* ActivityVC.swift in Sources */,
 				98E145422926FB2D00B965F2 /* RegisterVC.swift in Sources */,
-				986A87D12968FB9000A460AA /* MapViewVC.swift in Sources */,
+				986A87D12968FB9000A460AA /* MapVC.swift in Sources */,
 				98E145402926ED0500B965F2 /* LoginVC.swift in Sources */,
 				986A87D62969008500A460AA /* OverlayDestinationView.swift in Sources */,
 				984D939E2954801B00225E0E /* PastTripCell.swift in Sources */,
@@ -615,7 +619,7 @@
 				98395D1E294FA28C0071D5DF /* PromoAdView.swift in Sources */,
 				98510F25296B8D0B00E18533 /* Firebase.swift in Sources */,
 				9850704429731E1D00794DB9 /* PlaceMark.swift in Sources */,
-				986A87D32968FEDC00A460AA /* MapViewVC+Delegates.swift in Sources */,
+				986A87D32968FEDC00A460AA /* MapVC+Delegates.swift in Sources */,
 				98395D20294FDC6D0071D5DF /* UberOptionCollectionCell.swift in Sources */,
 				984F85112958E911003D53C3 /* AccountActionCollectionCell.swift in Sources */,
 				984F850D2958D7D4003D53C3 /* AccountHeaderView.swift in Sources */,

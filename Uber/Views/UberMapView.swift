@@ -13,7 +13,7 @@ class UberMapView: MKMapView, MKMapViewDelegate {
     override init(frame: CGRect) {
         super.init(frame: frame)
         layer.cornerRadius = 15
-        isZoomEnabled = true
+        isZoomEnabled = false
         showsUserLocation = true
         translatesAutoresizingMaskIntoConstraints = false
     }

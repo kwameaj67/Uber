@@ -22,8 +22,10 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: HomeFooterView.reuseableID) as! HomeFooterView
+        view.delegate = self
         view.mapView.addAnnotation(annotation)
         view.mapView.setRegion(region, animated:true)
+        region.span = spanDelta
         view.mapView.userTrackingMode = .follow
         return view
     }
@@ -55,16 +57,25 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension HomeVC: SearchLocationDelegate{
-    func presentMapViewVC(){
-        let vc = MapViewVC()
+// MARK: SearchLocationDelegate-
+extension HomeVC: SearchLocationDelegate {
+    func presentMapVC(){
+        let vc = MapVC()
         vc.modalPresentationStyle = .custom
         vc.modalTransitionStyle = .crossDissolve
         present(vc, animated: true, completion: nil)
     }
     
     func presentLocationInputView() {
-        print("DEBUG: Handling present location view...")
-        presentMapViewVC()
+        print("DEBUG: Handling present map view...")
+        presentMapVC()
+    }
+}
+
+
+// MARK: HomeFooterViewDelegate-
+extension HomeVC: HomeFooterViewDelegate {
+    func didTapMapView() {
+        presentMapVC()
     }
 }

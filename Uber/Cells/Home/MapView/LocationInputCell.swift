@@ -37,14 +37,14 @@ class LocationInputCell: UITableViewCell {
     }()
     let locationLbl: UILabel = {
         let lb = UILabel()
-        lb.font = UIFont(name: Font.medium.rawValue, size: 17)
+        lb.font = UIFont(name: Font.medium.rawValue, size: 16)
         lb.textColor = .black
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
     let addressLbl: UILabel = {
         let lb = UILabel()
-        lb.font = UIFont(name: Font.light.rawValue, size: 16)
+        lb.font = UIFont(name: Font.light.rawValue, size: 15)
         lb.textColor = .gray
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb

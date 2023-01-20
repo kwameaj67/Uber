@@ -8,13 +8,13 @@
 import UIKit
 import MapKit
 
-class MapViewVC: UIViewController {
+class MapVC: UIViewController {
     
     private let locationViewHeight: CGFloat = 200
     let driverAnnotationIdentifier = "driverAnnotation"
     let locationManager = LocationManager.shared.locationManager
     let driverService = DriverService.shared
-    let annotation = MKPointAnnotation()
+    let selectedAnnotation = MKPointAnnotation()
     var region = MKCoordinateRegion()
     var placeMarkLocations = [MKPlacemark]()
 
@@ -28,10 +28,14 @@ class MapViewVC: UIViewController {
     }
     
     func showUserLocation(){
+        let annotation = MKPointAnnotation()
         let authorizationStatus = locationManager?.authorizationStatus
         if authorizationStatus == .authorizedWhenInUse || authorizationStatus == .authorizedAlways {
-            annotation.coordinate = (locationManager?.location!.coordinate)!
-            region = .init(center: (locationManager?.location?.coordinate)!, latitudinalMeters: 0.01, longitudinalMeters: 0.01)
+            guard let location = locationManager?.location else { return }
+            annotation.coordinate = location.coordinate
+            region = .init(center: location.coordinate, latitudinalMeters: 0.5, longitudinalMeters: 0.5)
+            let span = MKCoordinateSpan(latitudeDelta: 0.08, longitudeDelta: 0.08) // zoom level
+            region.span = span
             mapView.setRegion(region, animated:true)
         }
     }
@@ -63,6 +67,8 @@ class MapViewVC: UIViewController {
             if !driverVisible{
                 self?.mapView.addAnnotation(annotation)
             }
+            let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1) // zoom level
+            self?.mapView.region.span = span
             self?.mapView.setRegion(region, animated:true)
         }
     }
@@ -117,15 +123,23 @@ class MapViewVC: UIViewController {
         let v = OverlayLocationTableView()
         v.isHidden = true
         v.alpha = 0
+        v.delegate = self
         v.transform = CGAffineTransform(translationX: 0, y: 200)
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
+    
     lazy var destinationView: OverlayDestinationView = {
         let v = OverlayDestinationView()
         v.delegate = self
         return v
     }()
+    
+    lazy var selectLocationView: OverlaySelectLocationView = {
+        let v = OverlaySelectLocationView()
+        return v
+    }()
+    
     
     // MARK: Selectors -
     @objc func didTapBackButton(){
@@ -136,10 +150,12 @@ class MapViewVC: UIViewController {
         view.addSubview(backButton)
         backButton.bringSubviewToFront(mapView)
         view.addSubview(destinationView)
+        view.addSubview(selectLocationView)
         view.addSubview(overlayLocationInputView)
         view.addSubview(overlayLocationTableView)
         overlayLocationInputView.bringSubviewToFront(backButton)
         overlayLocationTableView.bringSubviewToFront(destinationView)
+        overlayLocationTableView.bringSubviewToFront(selectLocationView)
     }
     
     func setupContraints(){
@@ -154,6 +170,11 @@ class MapViewVC: UIViewController {
             destinationView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             destinationView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25),
             destinationView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            selectLocationView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            selectLocationView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            selectLocationView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.18),
+            selectLocationView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             overlayLocationInputView.topAnchor.constraint(equalTo: view.topAnchor),
             overlayLocationInputView.leadingAnchor.constraint(equalTo: view.leadingAnchor),

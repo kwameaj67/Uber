@@ -63,7 +63,7 @@ class OverlayDestinationView: UIView {
         btn.titleLabel?.font = UIFont(name: Font.medium.rawValue, size: 16)
         btn.backgroundColor = Color.grey_bg
         btn.layer.cornerRadius = 45/2
-        btn.addTarget(self, action: #selector(hanldeSearchTapped), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(hanldeSearchTapped), for: .primaryActionTriggered)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
