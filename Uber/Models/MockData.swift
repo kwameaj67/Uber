@@ -84,6 +84,7 @@ enum ActionOptionIconType{
     case settings
     case earning
     case legal
+    case refer
 }
 struct AccountOption{
     var iconType: ActionOptionIconType
@@ -93,6 +94,7 @@ struct AccountOption{
     static let data: [AccountOption] = [
         AccountOption(iconType: .messages, name: "Messages"),
         AccountOption(iconType: .settings, name: "Settings"),
+        AccountOption(iconType: .refer, name: "Refer frieds, unlock deals"),
         AccountOption(iconType: .earning, name: "Earn by driving or delivering"),
         AccountOption(iconType: .legal, name: "Legal"),
     ]

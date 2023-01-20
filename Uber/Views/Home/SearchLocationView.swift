@@ -13,7 +13,7 @@ class SearchLocationView: UIView {
         super.init(frame: frame)
         setupViews()
         setupContraints()
-        self.backgroundColor = UIColor(red: 0.933, green: 0.933, blue: 0.933, alpha: 1)
+        self.backgroundColor = Color.grey_bg2
         translatesAutoresizingMaskIntoConstraints = false
         layer.masksToBounds = true
     }

@@ -26,7 +26,7 @@ extension ActivityVC: UITableViewDelegate, UITableViewDataSource {
         cell.separatorInset = UIEdgeInsets.zero
 
         let bgView = UIView(frame: cell.bounds)
-        bgView.backgroundColor = UIColor(red: 0.933, green: 0.933, blue: 0.933, alpha: 1)
+        bgView.backgroundColor = Color.grey_bg2
         cell.selectedBackgroundView = bgView
         return cell
     }

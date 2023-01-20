@@ -19,7 +19,7 @@ class AccountActionCollectionCell: UICollectionViewCell {
         setupViews()
         setupContraints()
         self.layer.cornerRadius = 15
-        backgroundColor = UIColor(red: 0.933, green: 0.933, blue: 0.933, alpha: 1)
+        backgroundColor = Color.grey_bg2
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

@@ -60,7 +60,7 @@ class PastTripCell: UITableViewCell {
     let iconContainer: UIView = {
         let v = UIView()
         v.layer.cornerRadius = 10
-        v.backgroundColor = UIColor(red: 0.933, green: 0.933, blue: 0.933, alpha: 1)
+        v.backgroundColor = Color.grey_bg2
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()

@@ -31,7 +31,7 @@ class AccountHeaderView: UIView {
     }()
     let ratingView: UIView = {
         let sv = UIView()
-        sv.backgroundColor = UIColor(red: 0.933, green: 0.933, blue: 0.933, alpha: 1)
+        sv.backgroundColor = Color.grey_bg2
         sv.layer.cornerRadius = 30/2
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
