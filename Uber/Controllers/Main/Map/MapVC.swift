@@ -49,7 +49,8 @@ class MapVC: UIViewController {
         let authorizationStatus = locationManager?.authorizationStatus
         if authorizationStatus == .authorizedWhenInUse || authorizationStatus == .authorizedAlways {
             guard let location = locationManager?.location else { return }
-            region = .init(center: location.coordinate, span: .init(latitudeDelta: 0.09, longitudeDelta: 0.09))
+            region = .init(center: location.coordinate, latitudinalMeters: 0.01, longitudinalMeters: 0.01)
+            region.span = .init(latitudeDelta: 0.098, longitudeDelta: 0.098)
             mapView.setRegion(region, animated:true) // user region
             fetchDriverLocation() // fetch drivers location when user has access to location
         }
