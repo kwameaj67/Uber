@@ -49,6 +49,7 @@
 		98510F21296AE96700E18533 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98510F20296AE96700E18533 /* LocationManager.swift */; };
 		98510F23296B837F00E18533 /* DriverService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98510F22296B837F00E18533 /* DriverService.swift */; };
 		98510F25296B8D0B00E18533 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98510F24296B8D0B00E18533 /* Firebase.swift */; };
+		985283F0297C6F7D0050303A /* OverlayViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985283EF297C6F7D0050303A /* OverlayViewConfiguration.swift */; };
 		986A87B82963094E00A460AA /* OverlayLocationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986A87B72963094E00A460AA /* OverlayLocationInputView.swift */; };
 		986A87BA296313DE00A460AA /* LocationActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986A87B9296313DE00A460AA /* LocationActivationView.swift */; };
 		986A87BC29633D0700A460AA /* LocationIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986A87BB29633D0700A460AA /* LocationIndicatorView.swift */; };
@@ -128,6 +129,7 @@
 		98510F20296AE96700E18533 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		98510F22296B837F00E18533 /* DriverService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverService.swift; sourceTree = "<group>"; };
 		98510F24296B8D0B00E18533 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
+		985283EF297C6F7D0050303A /* OverlayViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewConfiguration.swift; sourceTree = "<group>"; };
 		986A87B72963094E00A460AA /* OverlayLocationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayLocationInputView.swift; sourceTree = "<group>"; };
 		986A87B9296313DE00A460AA /* LocationActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationActivationView.swift; sourceTree = "<group>"; };
 		986A87BB29633D0700A460AA /* LocationIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationIndicatorView.swift; sourceTree = "<group>"; };
@@ -478,6 +480,7 @@
 				98C97A1829253DB90078608A /* Color.swift */,
 				98450BBC292AEDE10065C260 /* Helpers.swift */,
 				98510F24296B8D0B00E18533 /* Firebase.swift */,
+				985283EF297C6F7D0050303A /* OverlayViewConfiguration.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				98450BAD2929303F0065C260 /* HomeVC.swift in Sources */,
 				984F850B2958D63D003D53C3 /* AccountOptionCell.swift in Sources */,
 				98450BAA2928FA4E0065C260 /* UIViewController+Ext.swift in Sources */,
+				985283F0297C6F7D0050303A /* OverlayViewConfiguration.swift in Sources */,
 				986A87B82963094E00A460AA /* OverlayLocationInputView.swift in Sources */,
 				984F85092958D503003D53C3 /* AccountVC+Delegates.swift in Sources */,
 				986A87BC29633D0700A460AA /* LocationIndicatorView.swift in Sources */,

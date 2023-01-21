@@ -40,10 +40,11 @@ struct FirebaseAuthManager {
             }
             guard let uid = results?.user.uid else { return }
             
+            guard let userType = self.resolveAccountType(index: accountType) else { return }
             let values:[String: Any] = [
                 "email": emailAddress,
                 "fullname": fullname,
-                "accountType": self.resolveAccountType(index: accountType)
+                "accountType": userType
             ]
             if accountType == 1 { // added locations for drivers to track them
                 let geofire = GeoFire(firebaseRef: FirebaseDatabase.ref_driver_locations)
@@ -73,7 +74,6 @@ struct FirebaseAuthManager {
                 completion(nil,err)
             }
             guard let user = results?.user else { return }
-//            self.userDefaultManager.setUserFullName(fullName: auth.currentUser. as! String)
             completion(user.uid,nil)
         }
     }
@@ -90,14 +90,14 @@ struct FirebaseAuthManager {
     }
     
     //resolve account type
-    func resolveAccountType(index: Int) -> String{
+    func resolveAccountType(index: Int) -> String? {
         switch index {
         case 0:
             return "rider"
         case 1:
             return "driver"
         default:
-            return "rider"
+            return nil
         }
     }
 }

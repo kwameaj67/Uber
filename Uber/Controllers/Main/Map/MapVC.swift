@@ -17,31 +17,45 @@ class MapVC: UIViewController {
     let selectedAnnotation = MKPointAnnotation()
     var region = MKCoordinateRegion()
     var placeMarkLocations = [MKPlacemark]()
+    var span = MKCoordinateSpan(latitudeDelta: 0.009, longitudeDelta: 0.009) // map zoom level for user location
     var showLocationView: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupContraints()
         configureLocationService()
-//        showUserLocation()
-        showOverlayView()
-        if showLocationView == false{
-            fetchDriverLocation()
+        hanldeOverlayViews()
+    }
+    // MARK: configureLocationService -
+    func configureLocationService(){
+        switch locationManager?.authorizationStatus {
+            case .notDetermined:
+                locationManager?.requestWhenInUseAuthorization()
+            case .restricted, .denied:
+                break
+            case .authorizedAlways:
+                locationManager?.startUpdatingLocation()
+                locationManager?.desiredAccuracy = kCLLocationAccuracyBest
+                showUserLocation() // pick user locaiton when authorized
+            case .authorizedWhenInUse:
+                locationManager?.requestAlwaysAuthorization()
+                showUserLocation() // pick user locaiton when authorized
+            default:
+                locationManager?.requestAlwaysAuthorization()
         }
     }
-    
     func showUserLocation(){
-        let annotation = MKPointAnnotation()
         let authorizationStatus = locationManager?.authorizationStatus
         if authorizationStatus == .authorizedWhenInUse || authorizationStatus == .authorizedAlways {
             guard let location = locationManager?.location else { return }
-            annotation.coordinate = location.coordinate
             region = .init(center: location.coordinate, latitudinalMeters: 0.5, longitudinalMeters: 0.5)
-            let span = MKCoordinateSpan(latitudeDelta: 0.09, longitudeDelta: 0.09) // zoom level
             region.span = span
-            mapView.setRegion(region, animated:true)
+            mapView.setRegion(region, animated:true) // user region
+            fetchDriverLocation() // fetch drivers location when user has access to location
         }
     }
+    
     // MARK: API's -
     func fetchDriverLocation(){
         guard let location = locationManager?.location else { return }
@@ -50,8 +64,6 @@ class MapVC: UIViewController {
             print("DEBUG: Driver location: \(coordinate)")
             // annotation
             let annotation = DriverAnnotation(uid: driver.uid, coordinate: coordinate)
-            // region
-            let region: MKCoordinateRegion = .init(center: coordinate, latitudinalMeters: 0.8, longitudinalMeters: 0.8)
             
             // prevents location changes to adjust creating duplicate annotations
             let driverLocation = self?.mapView.annotations.contains(where: { annotation -> Bool in
@@ -70,30 +82,10 @@ class MapVC: UIViewController {
             if !driverVisible{
                 self?.mapView.addAnnotation(annotation)
             }
-            let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1) // zoom level
-            self?.mapView.region.span = span
-            self?.mapView.setRegion(region, animated:true)
         }
     }
-  
-    // MARK: Location -
-    func configureLocationService(){
-        switch locationManager?.authorizationStatus {
-            case .notDetermined:
-                locationManager?.requestWhenInUseAuthorization()
-            case .restricted, .denied:
-                break
-            case .authorizedAlways:
-                locationManager?.startUpdatingLocation()
-                locationManager?.desiredAccuracy = kCLLocationAccuracyBest
-            case .authorizedWhenInUse:
-                locationManager?.requestAlwaysAuthorization()
-            default:
-                break
-        }
-    }
-
-    func showOverlayView(){
+    
+    func hanldeOverlayViews(){
         if showLocationView{ // shows "Where to?" view
             destinationView.isHidden = true
             destinationView.alpha = 0
