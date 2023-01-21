@@ -17,7 +17,7 @@ class MapVC: UIViewController {
     let selectedAnnotation = MKPointAnnotation()
     var region = MKCoordinateRegion()
     var placeMarkLocations = [MKPlacemark]()
-    var span = MKCoordinateSpan(latitudeDelta: 0.009, longitudeDelta: 0.009) // map zoom level for user location
+    var span = MKCoordinateSpan(latitudeDelta: 0.0098, longitudeDelta: 0.0098) // map zoom level for user location
     var showLocationView: Bool = false
     
     override func viewDidLoad() {
@@ -49,8 +49,7 @@ class MapVC: UIViewController {
         let authorizationStatus = locationManager?.authorizationStatus
         if authorizationStatus == .authorizedWhenInUse || authorizationStatus == .authorizedAlways {
             guard let location = locationManager?.location else { return }
-            region = .init(center: location.coordinate, latitudinalMeters: 0.5, longitudinalMeters: 0.5)
-            region.span = span
+            region = .init(center: location.coordinate, span: .init(latitudeDelta: 0.09, longitudeDelta: 0.09))
             mapView.setRegion(region, animated:true) // user region
             fetchDriverLocation() // fetch drivers location when user has access to location
         }

@@ -72,14 +72,13 @@ extension MapVC: OverLayLocationInputViewDelegate{
 // MARK: OverlayLocationTableViewDelegate -
 extension MapVC: OverlayLocationTableViewDelegate {
     func dismissLocationTableView(coordinate: CLLocationCoordinate2D) {
-        dismissLocationView { [weak self] _ in  // 
+        dismissLocationView { [weak self] _ in  //
+            print("\(coordinate)")
             guard let self = self else { return }
             self.selectedAnnotation.coordinate = coordinate
             self.mapView.addAnnotation(self.selectedAnnotation) // add annotation of the selected location coordinates
-            self.region = .init(center: coordinate, latitudinalMeters: 0.5, longitudinalMeters: 0.5) // region of selected location coordinates
+            self.region = .init(center: coordinate, span: .init(latitudeDelta: 0.065, longitudeDelta: 0.065)) // region of selected location coordinates
             self.mapView.setRegion(self.region, animated: true)
-            self.span = .init(latitudeDelta: 0.1, longitudeDelta: 0.1) //zoom out 
-            self.mapView.region.span = self.span
             self.mapView.selectAnnotation(self.selectedAnnotation, animated: true)
         }
     }
