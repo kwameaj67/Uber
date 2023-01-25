@@ -33,12 +33,13 @@ struct RecentLocation {
 struct UberFeatureOption {
     var name: String
     var icon: String
+    var promoActive: Bool
     
     
     static let data: [UberFeatureOption] = [
-        UberFeatureOption(name: "Ride", icon: "uber-car"),
-        UberFeatureOption(name: "Package", icon: "uber-package"),
-        UberFeatureOption(name: "Reserve", icon: "uber-reserve")
+        UberFeatureOption(name: "Ride", icon: "uber-car",promoActive: true),
+        UberFeatureOption(name: "Reserve", icon: "uber-reserve",promoActive: false),
+        UberFeatureOption(name: "Package", icon: "uber-package",promoActive: false)
     ]
 }
 

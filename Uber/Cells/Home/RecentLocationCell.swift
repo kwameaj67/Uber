@@ -30,7 +30,7 @@ class RecentLocationCell: UITableViewCell {
     let nameLbl: UILabel = {
         let lb = UILabel()
         lb.textColor = Color.black
-        lb.font = UIFont(name: Font.medium.rawValue, size: 18)
+        lb.font = UIFont(name: Font.medium.rawValue, size: 17)
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
@@ -38,7 +38,7 @@ class RecentLocationCell: UITableViewCell {
         let lb = UILabel()
         lb.numberOfLines = 0
         lb.textColor = Color.black.withAlphaComponent(0.9)
-        lb.font = UIFont(name: Font.light.rawValue, size: 16)
+        lb.font = UIFont(name: Font.regular.rawValue, size: 15)
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()

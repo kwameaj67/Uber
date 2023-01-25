@@ -87,12 +87,12 @@ extension HomeHeaderView: UICollectionViewDataSource, UICollectionViewDelegate, 
         cell.data = options[indexPath.row]
         
         let bgView = UIView(frame: cell.bounds)
-        bgView.backgroundColor = .systemGray4
-        bgView.layer.cornerRadius = 15
+        bgView.backgroundColor = .white
+        bgView.layer.cornerRadius = 10
         cell.selectedBackgroundView = bgView
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.size.width-30)/3, height: 95)
+        return CGSize(width: (collectionView.frame.size.width-30)/3, height: 105)
     }
 }
