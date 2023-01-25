@@ -30,13 +30,14 @@ class AccountOptionCell: UITableViewCell {
     let iconImage : UIImageView = {
         var iv = UIImageView(frame: .zero)
         iv.contentMode = .scaleAspectFill
+        iv.tintColor = .black
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
     let titleLabel: UILabel = {
         let lb = UILabel()
         lb.textColor = .black
-        lb.font = UIFont(name: Font.medium.rawValue, size: 17)
+        lb.font = UIFont(name: Font.medium.rawValue, size: 16)
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
@@ -67,7 +68,7 @@ class AccountOptionCell: UITableViewCell {
             case .earning:
                 iconImage.image = UIImage(named: "uber-gift")?.withRenderingMode(.alwaysOriginal)
             case .legal:
-                iconImage.image = UIImage(systemName: "info.circle.fill")?.withRenderingMode(.alwaysOriginal)
+                iconImage.image = UIImage(systemName: "info.circle.fill")?.withRenderingMode(.alwaysTemplate)
             case .refer:
                 iconImage.image = UIImage(systemName: "person.2.fill")?.withRenderingMode(.alwaysOriginal)
         }

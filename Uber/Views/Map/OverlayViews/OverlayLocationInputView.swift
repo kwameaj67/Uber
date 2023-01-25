@@ -50,6 +50,7 @@ class OverLayLocationInputView: UIView {
     lazy var pickupLocationField: UberTextField = {
         var tf = UberTextField()
         tf.attributedPlaceholder = NSAttributedString(string: "Pickup Location", attributes: [.foregroundColor: UIColor.gray,.font: UIFont(name: Font.regular.rawValue, size: 16)!])
+        tf.font = UIFont(name: Font.regular.rawValue, size: 15)
         tf.isEnabled = true
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
@@ -58,6 +59,7 @@ class OverLayLocationInputView: UIView {
     lazy var destinationLocationField: UberTextField = {
         var tf = UberTextField()
         tf.attributedPlaceholder = NSAttributedString(string: "Where to?", attributes: [.foregroundColor: UIColor.gray,.font: UIFont(name: Font.regular.rawValue, size: 16)!])
+        tf.font = UIFont(name: Font.regular.rawValue, size: 15)
         tf.returnKeyType = .search
         tf.delegate = self
         tf.translatesAutoresizingMaskIntoConstraints = false

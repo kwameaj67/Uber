@@ -104,8 +104,10 @@ extension OverlayLocationTableView: UITableViewDelegate, UITableViewDataSource{
          return UITableViewCell()
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedPlacemark = placeMarkData[indexPath.row]
-        print("Selected Item: \(selectedPlacemark.name), \(selectedPlacemark.title), \(selectedPlacemark.coordinate)")
-        delegate?.dismissLocationTableView(coordinate: selectedPlacemark.coordinate)
+        if indexPath.section == 1 {
+            let selectedPlacemark = placeMarkData[indexPath.row]
+            //print("Selected Item: \(selectedPlacemark.name), \(selectedPlacemark.title), \(selectedPlacemark.coordinate)")
+            delegate?.dismissLocationTableView(coordinate: selectedPlacemark.coordinate)
+        }
     }
 }

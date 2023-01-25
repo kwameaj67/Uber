@@ -71,9 +71,9 @@ class AccountVC: UIViewController {
             accountHeaderView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             accountHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             accountHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant:-15),
-            accountHeaderView.heightAnchor.constraint(equalToConstant: 95),
+            accountHeaderView.heightAnchor.constraint(equalToConstant: 90),
             
-            accountTableView.topAnchor.constraint(equalTo: accountHeaderView.bottomAnchor, constant: 5),
+            accountTableView.topAnchor.constraint(equalTo: accountHeaderView.bottomAnchor),
             accountTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             accountTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             accountTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),

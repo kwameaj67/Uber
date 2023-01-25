@@ -59,8 +59,8 @@ class LocationActivationView: UIView {
         NSLayoutConstraint.activate([
             searchIcon.centerYAnchor.constraint(equalTo: centerYAnchor),
             searchIcon.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-            searchIcon.widthAnchor.constraint(equalToConstant: 22),
-            searchIcon.heightAnchor.constraint(equalToConstant: 22),
+            searchIcon.widthAnchor.constraint(equalToConstant: 18),
+            searchIcon.heightAnchor.constraint(equalToConstant: 18),
             
             locationBtn.centerYAnchor.constraint(equalTo: centerYAnchor),
             locationBtn.leadingAnchor.constraint(equalTo: searchIcon.trailingAnchor, constant: 15),

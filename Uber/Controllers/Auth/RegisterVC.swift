@@ -169,11 +169,11 @@ class RegisterVC: UIViewController {
             container.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             container.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
             
-            userSegmentedContol.topAnchor.constraint(equalTo: container.topAnchor, constant: 40),
+            userSegmentedContol.topAnchor.constraint(equalTo: container.topAnchor, constant: 20),
             userSegmentedContol.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 30),
             userSegmentedContol.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -30),
             
-            stackView.topAnchor.constraint(equalTo: userSegmentedContol.bottomAnchor, constant: 40),
+            stackView.topAnchor.constraint(equalTo: userSegmentedContol.bottomAnchor, constant: 20),
             stackView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 30),
             stackView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -30),
           
@@ -182,7 +182,7 @@ class RegisterVC: UIViewController {
             passwordTextField.heightAnchor.constraint(equalToConstant: 58),
             
             loginButton.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-            loginButton.bottomAnchor.constraint(equalTo: registerButton.topAnchor, constant: -20),
+            loginButton.bottomAnchor.constraint(equalTo: registerButton.topAnchor, constant: -10),
             loginButton.heightAnchor.constraint(equalToConstant: 20),
             
             registerButton.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 30),

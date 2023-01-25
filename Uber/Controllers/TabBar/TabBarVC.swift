@@ -65,7 +65,7 @@ class TabBarVC: UITabBarController {
     override var selectedIndex: Int {
         didSet{
             guard let _ = viewControllers?[selectedIndex] else { return }
-            tabBarItemAppearance.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: Font.medium.rawValue, size: 14)!,NSAttributedString.Key.foregroundColor:UIColor.black], for: .normal)
+            tabBarItemAppearance.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: Font.medium.rawValue, size: 12)!,NSAttributedString.Key.foregroundColor:UIColor.black], for: .normal)
         }
     }
     override var selectedViewController: UIViewController?{
@@ -73,10 +73,10 @@ class TabBarVC: UITabBarController {
             guard let viewControllers = viewControllers else { return }
             for viewVC in viewControllers{
                 if viewVC == selectedViewController {
-                    tabBarItemAppearance.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: Font.medium.rawValue, size: 14)!,NSAttributedString.Key.foregroundColor:UIColor.black], for: .normal)
+                    tabBarItemAppearance.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: Font.medium.rawValue, size: 12)!,NSAttributedString.Key.foregroundColor:UIColor.black], for: .normal)
                     }
                 else {
-                    tabBarItemAppearance.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: Font.medium.rawValue, size: 14)!,NSAttributedString.Key.foregroundColor:UIColor.systemGray2], for: .normal)
+                    tabBarItemAppearance.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: Font.medium.rawValue, size: 12)!,NSAttributedString.Key.foregroundColor:UIColor.systemGray2], for: .normal)
                     }
             }
         }

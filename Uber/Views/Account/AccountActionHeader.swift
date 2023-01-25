@@ -27,8 +27,6 @@ class AccountActionHeader: UITableViewHeaderFooterView {
     lazy var imageCollectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.itemSize = CGSize(width: 115, height: 95)
         let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout.init())
         cv.setCollectionViewLayout(layout, animated: true)
         cv.delegate = self
@@ -56,19 +54,19 @@ class AccountActionHeader: UITableViewHeaderFooterView {
     }
     func setupContraints(){
         NSLayoutConstraint.activate([
-            imageCollectionView.topAnchor.constraint(equalTo: topAnchor, constant: 15),
+            imageCollectionView.topAnchor.constraint(equalTo: topAnchor,constant: 8),
             imageCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 20),
             imageCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -20),
-            imageCollectionView.heightAnchor.constraint(equalToConstant: 110),
+            imageCollectionView.heightAnchor.constraint(equalToConstant:90),
             
-            border.topAnchor.constraint(equalTo: bottomAnchor, constant: -5),
+            border.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
             border.leadingAnchor.constraint(equalTo: leadingAnchor),
             border.trailingAnchor.constraint(equalTo: trailingAnchor),
             border.heightAnchor.constraint(equalToConstant: 8),
         ])
     }
 }
-extension AccountActionHeader: UICollectionViewDataSource, UICollectionViewDelegate {
+extension AccountActionHeader: UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return options.count
     }
@@ -83,10 +81,6 @@ extension AccountActionHeader: UICollectionViewDataSource, UICollectionViewDeleg
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 115, height: 95)
+        return CGSize(width: (collectionView.frame.size.width-30)/3, height: 90)
         }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-              return 15
-      }
 }

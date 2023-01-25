@@ -94,7 +94,7 @@ struct AccountOption{
     static let data: [AccountOption] = [
         AccountOption(iconType: .messages, name: "Messages"),
         AccountOption(iconType: .settings, name: "Settings"),
-        AccountOption(iconType: .refer, name: "Refer frieds, unlock deals"),
+        AccountOption(iconType: .refer, name: "Refer friends, unlock deals"),
         AccountOption(iconType: .earning, name: "Earn by driving or delivering"),
         AccountOption(iconType: .legal, name: "Legal"),
     ]

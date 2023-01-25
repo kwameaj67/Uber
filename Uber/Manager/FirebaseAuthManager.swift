@@ -75,6 +75,7 @@ struct FirebaseAuthManager {
             }
             guard let user = results?.user else { return }
             completion(user.uid,nil)
+            self.userDefaultManager.setUserFullName(fullName: user.displayName!)
         }
     }
     // log out user

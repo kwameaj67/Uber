@@ -32,7 +32,7 @@ class AccountHeaderView: UIView {
     let ratingView: UIView = {
         let sv = UIView()
         sv.backgroundColor = Color.grey_bg2
-        sv.layer.cornerRadius = 30/2
+        sv.layer.cornerRadius = 25/2
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
@@ -57,7 +57,7 @@ class AccountHeaderView: UIView {
     let ratingLbl: UILabel = {
         let lb = UILabel()
         lb.text = "4.93"
-        lb.font = UIFont(name: Font.medium.rawValue, size: 16.0)
+        lb.font = UIFont(name: Font.medium.rawValue, size: 14.0)
         lb.textColor = Color.black
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
@@ -72,7 +72,7 @@ class AccountHeaderView: UIView {
     
     func setupContraints(){
         NSLayoutConstraint.activate([
-            profileLbl.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            profileLbl.topAnchor.constraint(equalTo: topAnchor),
             profileLbl.leadingAnchor.constraint(equalTo: leadingAnchor),
             
             profileImage.centerYAnchor.constraint(equalTo: profileLbl.centerYAnchor),
@@ -80,15 +80,15 @@ class AccountHeaderView: UIView {
             profileImage.heightAnchor.constraint(equalToConstant: 60),
             profileImage.widthAnchor.constraint(equalToConstant: 60),
 
-            ratingView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            ratingView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            ratingView.heightAnchor.constraint(equalToConstant: 30),
+            ratingView.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -10),
+            ratingView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
+            ratingView.heightAnchor.constraint(equalToConstant: 25),
             ratingView.widthAnchor.constraint(equalToConstant: 75),
 
             starImage.leadingAnchor.constraint(equalTo: ratingView.leadingAnchor, constant: 8),
             starImage.centerYAnchor.constraint(equalTo: ratingView.centerYAnchor),
-            starImage.heightAnchor.constraint(equalToConstant: 15),
-            starImage.widthAnchor.constraint(equalToConstant: 15),
+            starImage.heightAnchor.constraint(equalToConstant: 14),
+            starImage.widthAnchor.constraint(equalToConstant: 14),
 
             ratingLbl.trailingAnchor.constraint(equalTo: ratingView.trailingAnchor, constant: -8),
             ratingLbl.centerYAnchor.constraint(equalTo: ratingView.centerYAnchor),

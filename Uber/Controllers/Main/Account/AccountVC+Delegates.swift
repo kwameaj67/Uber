@@ -31,10 +31,10 @@ extension AccountVC: UITableViewDelegate,UITableViewDataSource{
         return cell
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 150
+        return CGFloat(128.0)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(70.0)
+        return CGFloat(62.0)
     }
     
 }

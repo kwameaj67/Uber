@@ -45,7 +45,7 @@ class RecentLocationCell: UITableViewCell {
     let stackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical
-        sv.spacing = 10
+        sv.spacing = 5
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()

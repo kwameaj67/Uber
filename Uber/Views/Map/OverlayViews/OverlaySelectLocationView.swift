@@ -37,7 +37,7 @@ class OverlaySelectLocationView: UIView {
     let nameLbl: UILabel = {
         let lb = UILabel()
         lb.text = "Where to?"
-        lb.font = UIFont(name: Font.medium.rawValue, size: 24)
+        lb.font = UIFont(name: Font.medium.rawValue, size: 20)
         lb.textColor = .black
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
@@ -56,7 +56,7 @@ class OverlaySelectLocationView: UIView {
             container.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             container.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             container.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            container.heightAnchor.constraint(equalToConstant: 55),
+            container.heightAnchor.constraint(equalToConstant: 52),
             
             nameLbl.centerYAnchor.constraint(equalTo: container.centerYAnchor),
             nameLbl.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 15)

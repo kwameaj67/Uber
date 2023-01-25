@@ -31,8 +31,6 @@ class HomeHeaderView: UITableViewHeaderFooterView {
     lazy var imageCollectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.itemSize = CGSize(width: 115, height: 95)
         let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout.init())
         cv.setCollectionViewLayout(layout, animated: true)
         cv.delegate = self
@@ -50,7 +48,7 @@ class HomeHeaderView: UITableViewHeaderFooterView {
     
     lazy var searchView: SearchLocationView = {
         let v = SearchLocationView()
-        v.layer.cornerRadius = 65/2
+        v.layer.cornerRadius = 60/2
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
@@ -74,13 +72,13 @@ class HomeHeaderView: UITableViewHeaderFooterView {
             searchView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
             searchView.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 20),
             searchView.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -20),
-            searchView.heightAnchor.constraint(equalToConstant: 65)
+            searchView.heightAnchor.constraint(equalToConstant: 60)
             
         ])
     }
 }
 
-extension HomeHeaderView: UICollectionViewDataSource, UICollectionViewDelegate {
+extension HomeHeaderView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return options.count
     }
@@ -95,10 +93,6 @@ extension HomeHeaderView: UICollectionViewDataSource, UICollectionViewDelegate {
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 115, height: 95)
-        }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-              return 15
-      }
+        return CGSize(width: (collectionView.frame.size.width-30)/3, height: 95)
+    }
 }

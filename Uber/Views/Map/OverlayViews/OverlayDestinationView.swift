@@ -60,9 +60,9 @@ class OverlayDestinationView: UIView {
         var btn = UIButton()
         btn.setTitle("Search", for: .normal)
         btn.setTitleColor(.black, for: .normal)
-        btn.titleLabel?.font = UIFont(name: Font.medium.rawValue, size: 16)
+        btn.titleLabel?.font = UIFont(name: Font.medium.rawValue, size: 14)
         btn.backgroundColor = Color.grey_bg
-        btn.layer.cornerRadius = 45/2
+        btn.layer.cornerRadius = 35/2
         btn.addTarget(self, action: #selector(hanldeSearchTapped), for: .primaryActionTriggered)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
@@ -98,12 +98,12 @@ class OverlayDestinationView: UIView {
             locationLbl.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 20),
             locationLbl.trailingAnchor.constraint(equalTo: searchBtn.leadingAnchor, constant: 10),
             
-            searchBtn.topAnchor.constraint(equalTo: border.bottomAnchor, constant: 18),
+            searchBtn.topAnchor.constraint(equalTo: border.bottomAnchor, constant: 15),
             searchBtn.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -20),
-            searchBtn.heightAnchor.constraint(equalToConstant: 45),
-            searchBtn.widthAnchor.constraint(equalToConstant: 85),
+            searchBtn.heightAnchor.constraint(equalToConstant: 35),
+            searchBtn.widthAnchor.constraint(equalToConstant: 80),
             
-            confirmBtn.topAnchor.constraint(equalTo: searchBtn.bottomAnchor, constant: 18),
+            confirmBtn.topAnchor.constraint(equalTo: searchBtn.bottomAnchor, constant: 15),
             confirmBtn.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 20),
             confirmBtn.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -20),
             confirmBtn.heightAnchor.constraint(equalToConstant: 60),

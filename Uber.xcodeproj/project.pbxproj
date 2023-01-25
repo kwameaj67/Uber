@@ -205,7 +205,6 @@
 		98395D16294F24650071D5DF /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				9850704229731CE900794DB9 /* MapView */,
 				98395D19294F25530071D5DF /* RecentLocationCell.swift */,
 				98395D1F294FDC6D0071D5DF /* UberOptionCollectionCell.swift */,
 			);
@@ -256,7 +255,6 @@
 				98395D252950FC360071D5DF /* HomeFooterView.swift */,
 				98395D232950F4120071D5DF /* ReserveRideView.swift */,
 				986A87B9296313DE00A460AA /* LocationActivationView.swift */,
-				986A87BB29633D0700A460AA /* LocationIndicatorView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -296,13 +294,13 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
-		9850704229731CE900794DB9 /* MapView */ = {
+		9850704229731CE900794DB9 /* Map */ = {
 			isa = PBXGroup;
 			children = (
 				986A87C029645E9300A460AA /* LocationInputCell.swift */,
 				985070452973304F00794DB9 /* SavedPlacesCell.swift */,
 			);
-			path = MapView;
+			path = Map;
 			sourceTree = "<group>";
 		};
 		986A87BF296457DE00A460AA /* OverlayViews */ = {
@@ -337,6 +335,7 @@
 		986A87D42969005E00A460AA /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				986A87BB29633D0700A460AA /* LocationIndicatorView.swift */,
 				986A87BF296457DE00A460AA /* OverlayViews */,
 			);
 			path = Map;
@@ -368,13 +367,6 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		98CAC43D293A0D8900B54E04 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		98E9014A2924E3A0003F8ABF = {
 			isa = PBXGroup;
 			children = (
@@ -397,7 +389,6 @@
 				986A87C229660BAF00A460AA /* Services */,
 				98395D11294CE73F0071D5DF /* Models */,
 				98395D0E2947AA530071D5DF /* Manager */,
-				98CAC43D293A0D8900B54E04 /* ViewModels */,
 				98E9016F2924E418003F8ABF /* Constants */,
 				98E9016E2924E412003F8ABF /* Fonts */,
 				98E9016D2924E3D4003F8ABF /* Cells */,
@@ -453,6 +444,7 @@
 		98E9016D2924E3D4003F8ABF /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				9850704229731CE900794DB9 /* Map */,
 				984F8507259EA32B003D53C3 /* Account */,
 				984D939C29547FF600225E0E /* Activity */,
 				98395D16294F24650071D5DF /* Home */,
