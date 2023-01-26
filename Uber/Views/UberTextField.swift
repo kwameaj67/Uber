@@ -15,7 +15,7 @@ class UberTextField: UITextField {
         backgroundColor = Color.textField_bg
         autocapitalizationType = .none
         autocorrectionType = .no
-        font = UIFont(name: Font.medium.rawValue, size: 18)
+        font = UIFont(name: Font.medium.rawValue, size: 15)
         attributedPlaceholder = NSAttributedString(string: "", attributes: [.foregroundColor: UIColor.systemGray3,.font: UIFont(name: Font.regular.rawValue, size: 16)!])
         borderStyle = .none
         textColor = .black

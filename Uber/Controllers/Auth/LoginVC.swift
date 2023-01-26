@@ -51,7 +51,7 @@ class LoginVC: UIViewController {
     let stackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical
-        sv.spacing = 20
+        sv.spacing = 10
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()

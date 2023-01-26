@@ -48,7 +48,7 @@ class OnboardVC: UIViewController {
         lb.text = "Move around safely"
         lb.textColor = .white
         lb.textAlignment = .center
-        lb.font = UIFont(name: Font.bold.rawValue, size: 30)
+        lb.font = UIFont(name: Font.medium.rawValue, size: 30)
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()

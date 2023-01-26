@@ -52,7 +52,7 @@ class RegisterVC: UIViewController {
     let stackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical
-        sv.spacing = 20
+        sv.spacing = 10
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
@@ -182,7 +182,7 @@ class RegisterVC: UIViewController {
             passwordTextField.heightAnchor.constraint(equalToConstant: 58),
             
             loginButton.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-            loginButton.bottomAnchor.constraint(equalTo: registerButton.topAnchor, constant: -10),
+            loginButton.bottomAnchor.constraint(equalTo: registerButton.topAnchor, constant: -20),
             loginButton.heightAnchor.constraint(equalToConstant: 20),
             
             registerButton.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 30),
