@@ -149,11 +149,11 @@ extension LoginVC: UITextFieldDelegate {
         isShowingKeyboard = true
     }
     @objc private func keyboardWillShow(notification: Notification){
-        if let _ = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+        if let keyboardRectangle = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             if isShowingKeyboard{
-                self.bottomButtonConstraint.constant = -280
+                self.bottomButtonConstraint.constant = -(keyboardRectangle.height) + 20
             }
-            UIView.animate(withDuration: 0.8) {
+            UIView.animate(withDuration: 0.2) {
                 self.view.layoutIfNeeded()
             }
         }
@@ -164,7 +164,7 @@ extension LoginVC: UITextFieldDelegate {
             if isShowingKeyboard{
                 self.bottomButtonConstraint.constant = 0
             }
-            UIView.animate(withDuration: 0.4) {
+            UIView.animate(withDuration: 0.2) {
                 self.view.layoutIfNeeded()
             }
         }
