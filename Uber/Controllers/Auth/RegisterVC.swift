@@ -23,16 +23,12 @@ class RegisterVC: UIViewController {
         setupContraints()
         configureNavBar()
         configureBackButton()
-        emailTextField.delegate = self
-        passwordTextField.delegate = self
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.largeContentTitle = "Sign up"
         self.navigationItem.title = "Sign up"
         
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard(gesture:))))
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        addToolBarToFields()
     }
     
     //MARK: Properties -
@@ -132,6 +128,42 @@ class RegisterVC: UIViewController {
            
         }
     }
+    func createToolBar() -> UIToolbar{
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let space1 = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let space2 = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let labelButton = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        labelButton.setTitle("Done", for: .normal)
+        labelButton.setTitleColor(.black, for: .normal)
+        labelButton.titleLabel?.font = UIFont(name: Font.medium.rawValue, size: 15)
+        labelButton.addTarget(self, action: #selector(onDone), for: .primaryActionTriggered)
+        let doneBarItem = UIBarButtonItem(customView: labelButton)
+        /// fix this layer - issue with constraints for doneBarItem
+//        let barWidth = doneBarItem.customView?.widthAnchor.constraint(equalToConstant: 40)
+//        barWidth?.isActive = true
+//        let barHeight = doneBarItem.customView?.heightAnchor.constraint(equalToConstant: 40)
+//        barHeight?.isActive = true
+        doneBarItem.tintColor = UIColor.black
+        toolbar.setItems([space1,space2,doneBarItem], animated: true)
+        return toolbar
+    }
+    @objc func onDone(){
+        if emailTextField.isFirstResponder{
+            emailTextField.resignFirstResponder()
+        }
+        else if passwordTextField.isFirstResponder{
+            passwordTextField.resignFirstResponder()
+        }
+        else if fullNameTextField.isFirstResponder{
+            fullNameTextField.resignFirstResponder()
+        }
+    }
+    func addToolBarToFields(){
+        [fullNameTextField,emailTextField,passwordTextField].forEach { item in
+            item?.inputAccessoryView = createToolBar()
+        }
+    }
     func didShowTabBar(){
         if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,
            let window = sceneDelegate.window {
@@ -139,16 +171,7 @@ class RegisterVC: UIViewController {
             UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: nil, completion: nil)
         }
     }
-    func resolveAccountType(index: Int) -> String{
-        switch index {
-        case 0:
-            return "rider"
-        case 1:
-            return "driver"
-        default:
-            return "rider"
-        }
-    }
+   
     func setupViews(){
         view.addSubview(scrollView)
         scrollView.addSubview(container)
@@ -163,8 +186,6 @@ class RegisterVC: UIViewController {
     func setupContraints(){
         scrollView.pinToSafeArea(to: view)
         container.pinToEdges(to: scrollView)
-        bottomButtonConstraint =  registerButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
-        bottomButtonConstraint.isActive = true
         NSLayoutConstraint.activate([
             container.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             container.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
@@ -187,35 +208,9 @@ class RegisterVC: UIViewController {
             
             registerButton.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 30),
             registerButton.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -30),
+            registerButton.bottomAnchor.constraint(equalTo: container.bottomAnchor,constant: -20),
             registerButton.heightAnchor.constraint(equalToConstant: 58),
+            
         ])
-    }
-}
-
-
-extension RegisterVC: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        isShowingKeyboard = true
-    }
-    @objc private func keyboardWillShow(notification: Notification){
-        if let _ = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            if isShowingKeyboard{
-                self.bottomButtonConstraint.constant = -280
-            }
-            UIView.animate(withDuration: 0.8) {
-                self.view.layoutIfNeeded()
-            }
-        }
-
-    }
-    @objc private func keyboardWillHide(notification: Notification){
-        if let _ = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            if isShowingKeyboard{
-                self.bottomButtonConstraint.constant = 0
-            }
-            UIView.animate(withDuration: 0.4) {
-                self.view.layoutIfNeeded()
-            }
-        }
     }
 }
