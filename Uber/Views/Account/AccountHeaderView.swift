@@ -8,7 +8,12 @@
 import UIKit
 
 class AccountHeaderView: UIView {
-
+    
+    var controller: AccountVC? {
+        didSet{
+            profileImage.addGestureRecognizer(UITapGestureRecognizer(target: controller, action: #selector(AccountVC.didTapProfileImage)))
+        }
+    }
     static let reuseableID = "AccountHeaderView"
     
     override init(frame: CGRect) {
@@ -36,11 +41,13 @@ class AccountHeaderView: UIView {
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
-    let profileImage : UIImageView = {
+    lazy var profileImage : UIImageView = {
         var iv = UIImageView()
-        iv.image = nil//UIImage(named: "profile")?.withRenderingMode(.alwaysOriginal)
+        iv.image = UIImage(named: "profile")?.withRenderingMode(.alwaysOriginal)
         iv.backgroundColor = .gray
+        iv.layer.masksToBounds = true
         iv.layer.cornerRadius = 60/2
+        iv.isUserInteractionEnabled = true
         iv.contentMode = .scaleAspectFill
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
