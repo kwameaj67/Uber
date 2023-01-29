@@ -43,6 +43,17 @@ extension MapVC {
             }
         }, completion: completion)
     }
+    
+    func removeAnnotationsOverlay(){
+        mapView.annotations.forEach { annotations in  // removes annotations
+            if let annotation = annotations as? MKPointAnnotation {
+                mapView.removeAnnotation(annotation)
+            }
+        }
+        if mapView.overlays.count > 0 { // removes polyline
+            mapView.removeOverlay(mapView.overlays[0])
+        }
+    }
 }
 // MARK: OverLayLocationInputViewDelegate -
 extension MapVC: OverLayLocationInputViewDelegate{
@@ -57,7 +68,6 @@ extension MapVC: OverLayLocationInputViewDelegate{
         searchByLocation(query: query) { [weak self] placemark in
             print("DEBUG: \(placemark)")
             self?.overlayLocationTableView.placeMarkData = placemark  // pass data to tableview
-            
            // print("DEBUG: Count: \(self?.overlayLocationTableView.placeMarkData.count)")
         }
     }
@@ -71,13 +81,15 @@ extension MapVC: OverLayLocationInputViewDelegate{
 }
 // MARK: OverlayLocationTableViewDelegate -
 extension MapVC: OverlayLocationTableViewDelegate {
-    func dismissLocationTableView(coordinate: CLLocationCoordinate2D) {
-        dismissLocationView { [weak self] _ in  //
-            print("\(coordinate)")
-            guard let self = self else { return }
-            self.selectedAnnotation.coordinate = coordinate
+    func dismissLocationTableView(selectedPlacemark: MKPlacemark) {
+        let destination = MKMapItem(placemark: selectedPlacemark)
+        print("DEBUG: destination: \(destination)")
+        generatePolyline(toDestination: destination)
+        
+        dismissLocationView { _ in
+            self.selectedAnnotation.coordinate = selectedPlacemark.coordinate
             self.mapView.addAnnotation(self.selectedAnnotation) // add annotation of the selected location coordinates
-            self.region = .init(center: coordinate, span: .init(latitudeDelta: 0.065, longitudeDelta: 0.065)) // region of selected location coordinates
+            self.region = .init(center: selectedPlacemark.coordinate, span: .init(latitudeDelta: 0.5, longitudeDelta: 0.5)) // region of selected location coordinates
             self.mapView.setRegion(self.region, animated: true)
             self.mapView.selectAnnotation(self.selectedAnnotation, animated: true)
         }
@@ -120,6 +132,17 @@ extension MapVC: MKMapViewDelegate {
         }
         return nil
     }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if let route = route {
+            let polyline = route.polyline
+            let lineRenderer = MKPolylineRenderer(overlay: polyline)
+            lineRenderer.strokeColor = .black
+            lineRenderer.lineWidth = 4
+            return lineRenderer
+        }
+        return MKOverlayRenderer()
+    }
 }
 
 private extension MapVC{
@@ -136,6 +159,29 @@ private extension MapVC{
                 completion(self.placeMarkLocations)
             }
         }
+        overlayLocationInputView.destinationLocationField.resignFirstResponder()
+    }
+    
+    func generatePolyline(toDestination destination: MKMapItem){
+        guard let location = locationManager?.location else { return }
+        let request = MKDirections.Request()
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: location.coordinate))
+        print("DEBUG: CurrentLocation: \(location.coordinate)")
+        request.destination = destination
+        request.requestsAlternateRoutes = true
+        request.transportType = .automobile
+        
+        let directionRequest = MKDirections(request: request)
+        directionRequest.calculate { [unowned self] response, error in
+            if let err = error {
+                print("DEBUG: Error: \(err.localizedDescription)")
+            }
+            guard let res = response else { return }
+            self.route = res.routes[0]
+            guard let polyline = self.route?.polyline else { return }
+            self.mapView.addOverlay(polyline)
+        }
+        
     }
 }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65CF5C8B2983E9F500F52CFA /* EditAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF5C8A2983E9F400F52CFA /* EditAccountVC.swift */; };
+		65CF5C8D2983EDAA00F52CFA /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF5C8C2983EDAA00F52CFA /* Notification.swift */; };
 		98395D0D2947A5BB0071D5DF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98395D0C2947A5BA0071D5DF /* GoogleService-Info.plist */; };
 		98395D102947AA630071D5DF /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98395D0F2947AA630071D5DF /* FirebaseAuthManager.swift */; };
 		98395D13294CE74D0071D5DF /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98395D12294CE74D0071D5DF /* MockData.swift */; };
@@ -88,6 +90,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		65CF5C8A2983E9F400F52CFA /* EditAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountVC.swift; sourceTree = "<group>"; };
+		65CF5C8C2983EDAA00F52CFA /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		98395D0C2947A5BA0071D5DF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		98395D0F2947AA630071D5DF /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		98395D12294CE74D0071D5DF /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
@@ -181,6 +185,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		65CF5C892983E9CD00F52CFA /* EditAccount */ = {
+			isa = PBXGroup;
+			children = (
+				65CF5C8A2983E9F400F52CFA /* EditAccountVC.swift */,
+			);
+			path = EditAccount;
+			sourceTree = "<group>";
+		};
 		98395D0E2947AA530071D5DF /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +252,7 @@
 		98450BB4292930870065C260 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				65CF5C892983E9CD00F52CFA /* EditAccount */,
 				98450BB0292930660065C260 /* AccountVC.swift */,
 				984F85082958D503003D53C3 /* AccountVC+Delegates.swift */,
 			);
@@ -422,6 +435,7 @@
 				98450BA92928FA4E0065C260 /* UIViewController+Ext.swift */,
 				9896EFD5292B7A3C00A7248D /* UILabel+Ext.swift */,
 				984D939F295484D200225E0E /* Types + Ext.swift */,
+				65CF5C8C2983EDAA00F52CFA /* Notification.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -587,6 +601,7 @@
 				98E9015B2924E3A0003F8ABF /* OnboardVC.swift in Sources */,
 				98C97A1729253D640078608A /* UIView+Ext.swift in Sources */,
 				98395D242950F4120071D5DF /* ReserveRideView.swift in Sources */,
+				65CF5C8D2983EDAA00F52CFA /* Notification.swift in Sources */,
 				984F146F296CDF020074E9AF /* DriverAnnotation.swift in Sources */,
 				98395D262950FC360071D5DF /* HomeFooterView.swift in Sources */,
 				98E901572924E3A0003F8ABF /* AppDelegate.swift in Sources */,
@@ -604,6 +619,7 @@
 				986A87C129645E9300A460AA /* LocationInputCell.swift in Sources */,
 				98C97A1E29255ECB0078608A /* UberImageButton.swift in Sources */,
 				9842F0332932BA7B00AD73D8 /* CodeVerificationVC.swift in Sources */,
+				65CF5C8B2983E9F500F52CFA /* EditAccountVC.swift in Sources */,
 				9896EFD6292B7A3C00A7248D /* UILabel+Ext.swift in Sources */,
 				986A87BE296457CE00A460AA /* OverlayLocationTableView.swift in Sources */,
 				98E901592924E3A0003F8ABF /* SceneDelegate.swift in Sources */,

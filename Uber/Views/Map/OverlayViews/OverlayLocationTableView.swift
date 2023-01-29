@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 
 protocol OverlayLocationTableViewDelegate: AnyObject {
-    func dismissLocationTableView(coordinate: CLLocationCoordinate2D)
+    func dismissLocationTableView(selectedPlacemark: MKPlacemark)
 }
 
 class OverlayLocationTableView: UIView {
@@ -77,9 +77,9 @@ extension OverlayLocationTableView: UITableViewDelegate, UITableViewDataSource{
             return CGFloat(0)
         }
         else if section == 1{
-            return CGFloat(5)
+            return CGFloat(0)
         }
-        return CGFloat()
+        return CGFloat(0)
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return section == 0 ? 1 : placeMarkData.count
@@ -107,7 +107,7 @@ extension OverlayLocationTableView: UITableViewDelegate, UITableViewDataSource{
         if indexPath.section == 1 {
             let selectedPlacemark = placeMarkData[indexPath.row]
             //print("Selected Item: \(selectedPlacemark.name), \(selectedPlacemark.title), \(selectedPlacemark.coordinate)")
-            delegate?.dismissLocationTableView(coordinate: selectedPlacemark.coordinate)
+            delegate?.dismissLocationTableView(selectedPlacemark: selectedPlacemark)
         }
     }
 }

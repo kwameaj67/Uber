@@ -26,10 +26,4 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
             locationManager.requestAlwaysAuthorization()
         }
     }
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        guard let location = locations.last else { return }
-//        region = .init(center: location.coordinate, latitudinalMeters: 0.01, longitudinalMeters: 0.01)
-//        annotation.coordinate = location.coordinate
-//    }
-    
 }

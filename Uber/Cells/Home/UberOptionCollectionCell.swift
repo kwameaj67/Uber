@@ -36,7 +36,7 @@ class UberOptionCollectionCell: UICollectionViewCell {
     let titleLabel: UILabel = {
         let lb = UILabel()
         lb.textColor = Color.black
-        lb.font = UIFont(name: Font.medium.rawValue, size: 14)
+        lb.font = UIFont(name: Font.medium.rawValue, size: 13)
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()

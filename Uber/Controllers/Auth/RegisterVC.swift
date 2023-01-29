@@ -23,12 +23,14 @@ class RegisterVC: UIViewController {
         setupContraints()
         configureNavBar()
         configureBackButton()
+        addToolBarToFields()
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.largeContentTitle = "Sign up"
         self.navigationItem.title = "Sign up"
-        
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard(gesture:))))
-        addToolBarToFields()
+        fullNameTextField.delegate = self
+        emailTextField.delegate = self
+        fullNameTextField.delegate = self
     }
     
     //MARK: Properties -
@@ -212,5 +214,23 @@ class RegisterVC: UIViewController {
             registerButton.heightAnchor.constraint(equalToConstant: 58),
             
         ])
+    }
+}
+
+
+extension RegisterVC: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switchBasedNextTextField(textField: textField)
+        return true
+    }
+    private func switchBasedNextTextField(textField: UITextField){
+        switch textField {
+        case fullNameTextField:
+            emailTextField.becomeFirstResponder()
+        case emailTextField:
+            passwordTextField.becomeFirstResponder()
+        default:
+            passwordTextField.resignFirstResponder()
+        }
     }
 }

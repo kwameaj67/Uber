@@ -19,6 +19,7 @@ class MapVC: UIViewController {
     var placeMarkLocations = [MKPlacemark]()
     var span = MKCoordinateSpan(latitudeDelta: 0.0098, longitudeDelta: 0.0098) // map zoom level for user location
     var showLocationView: Bool = false
+    var route: MKRoute?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +54,16 @@ class MapVC: UIViewController {
             region.span = .init(latitudeDelta: 0.098, longitudeDelta: 0.098)
             mapView.setRegion(region, animated:true) // user region
             fetchDriverLocation() // fetch drivers location when user has access to location
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = location.coordinate
+            annotation.title = "Here"
+            mapView.addAnnotation(annotation)
+            mapView.selectAnnotation(annotation, animated: true)
+            
+            if let _ = locationManager?.location {
+                overlayLocationInputView.pickupLocationField.text = "Current location"
+                overlayLocationInputView.pickupLocationField.textColor = Color.blue
+            }
         }
     }
     
@@ -61,7 +72,7 @@ class MapVC: UIViewController {
         guard let location = locationManager?.location else { return }
         driverService.fetchDriversLocations(location: location) { [weak self] driver in
             guard let coordinate = driver.location?.coordinate else { return }
-            print("DEBUG: Driver location: \(coordinate)")
+           // print("DEBUG: Driver location: \(coordinate)")
             // annotation
             let annotation = DriverAnnotation(uid: driver.uid, coordinate: coordinate)
             
@@ -158,6 +169,7 @@ class MapVC: UIViewController {
     
     // MARK: Selectors -
     @objc func didTapBackButton(){
+        removeAnnotationsOverlay()
         dismiss(animated: true, completion: nil)
     }
     func setupViews(){

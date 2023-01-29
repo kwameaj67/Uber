@@ -51,6 +51,8 @@ class OverLayLocationInputView: UIView {
         var tf = UberTextField()
         tf.attributedPlaceholder = NSAttributedString(string: "Pickup Location", attributes: [.foregroundColor: UIColor.gray,.font: UIFont(name: Font.regular.rawValue, size: 16)!])
         tf.font = UIFont(name: Font.regular.rawValue, size: 15)
+        tf.text = "Loading"
+        tf.textColor = UIColor.systemGray3
         tf.isEnabled = true
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf

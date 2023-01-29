@@ -75,14 +75,13 @@ struct FirebaseAuthManager {
             }
             guard let user = results?.user else { return }
             completion(user.uid,nil)
-            self.userDefaultManager.setUserFullName(fullName: user.displayName!)
+            self.userDefaultManager.setUserFullName(fullName: user.displayName ?? "")
         }
     }
     // log out user
     func logOutUser(completion: @escaping (Result<Void,Error>)-> Void){
         do {
             try auth.signOut()
-            userDefaultManager.removeFullName() //remove user name from userDefaults
             completion(.success(()))
         }
         catch let error {
@@ -100,5 +99,8 @@ struct FirebaseAuthManager {
         default:
             return nil
         }
+    }
+    func postUserInfoNotification(userObject: [String: Any] ){
+        NotificationCenter.default.post(name: .uerInfoNotification, object: self,userInfo: userObject)
     }
 }

@@ -61,6 +61,10 @@ class AccountVC: UIViewController {
             }
         }
     }
+    @objc func didTapProfileImage(){
+        print("DEBUG: Did tap profile image")
+        let _ = EditAccountVC()
+    }
     func setupViews(){
         view.addSubview(accountHeaderView)
         view.addSubview(accountTableView)
