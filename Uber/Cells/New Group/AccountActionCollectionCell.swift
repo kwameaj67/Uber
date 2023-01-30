@@ -13,6 +13,7 @@ class AccountActionCollectionCell: UICollectionViewCell {
             manageData()
         }
     }
+    
     static let reusableID = "AccountActionCollectionCell"
     override init(frame: CGRect) {
         super.init(frame: frame)

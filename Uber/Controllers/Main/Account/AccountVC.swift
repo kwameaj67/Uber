@@ -26,9 +26,9 @@ class AccountVC: UIViewController {
         accountHeaderView.profileLbl.text = name
     }
     // MARK: Properties -
-    let accountHeaderView: AccountHeaderView = {
+    lazy var accountHeaderView: AccountHeaderView = {
         let view = AccountHeaderView()
-        //view.controller = self
+        view.controller = self
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		65CF5C8B2983E9F500F52CFA /* EditAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF5C8A2983E9F400F52CFA /* EditAccountVC.swift */; };
 		65CF5C8D2983EDAA00F52CFA /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF5C8C2983EDAA00F52CFA /* Notification.swift */; };
+		65D50E4929885C6E00E67513 /* TripsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D50E4829885C6E00E67513 /* TripsVC.swift */; };
 		98395D0D2947A5BB0071D5DF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 98395D0C2947A5BA0071D5DF /* GoogleService-Info.plist */; };
 		98395D102947AA630071D5DF /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98395D0F2947AA630071D5DF /* FirebaseAuthManager.swift */; };
 		98395D13294CE74D0071D5DF /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98395D12294CE74D0071D5DF /* MockData.swift */; };
@@ -92,6 +93,7 @@
 /* Begin PBXFileReference section */
 		65CF5C8A2983E9F400F52CFA /* EditAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountVC.swift; sourceTree = "<group>"; };
 		65CF5C8C2983EDAA00F52CFA /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		65D50E4829885C6E00E67513 /* TripsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsVC.swift; sourceTree = "<group>"; };
 		98395D0C2947A5BA0071D5DF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		98395D0F2947AA630071D5DF /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		98395D12294CE74D0071D5DF /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
@@ -193,6 +195,14 @@
 			path = EditAccount;
 			sourceTree = "<group>";
 		};
+		65D50E4729885C5100E67513 /* Trips */ = {
+			isa = PBXGroup;
+			children = (
+				65D50E4829885C6E00E67513 /* TripsVC.swift */,
+			);
+			path = Trips;
+			sourceTree = "<group>";
+		};
 		98395D0E2947AA530071D5DF /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +262,7 @@
 		98450BB4292930870065C260 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				65D50E4729885C5100E67513 /* Trips */,
 				65CF5C892983E9CD00F52CFA /* EditAccount */,
 				98450BB0292930660065C260 /* AccountVC.swift */,
 				984F85082958D503003D53C3 /* AccountVC+Delegates.swift */,
@@ -606,6 +617,7 @@
 				98395D262950FC360071D5DF /* HomeFooterView.swift in Sources */,
 				98E901572924E3A0003F8ABF /* AppDelegate.swift in Sources */,
 				98510F23296B837F00E18533 /* DriverService.swift in Sources */,
+				65D50E4929885C6E00E67513 /* TripsVC.swift in Sources */,
 				98450BAF292930540065C260 /* ActivityVC.swift in Sources */,
 				98E145422926FB2D00B965F2 /* RegisterVC.swift in Sources */,
 				986A87D12968FB9000A460AA /* MapVC.swift in Sources */,

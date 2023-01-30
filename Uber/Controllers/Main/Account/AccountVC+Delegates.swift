@@ -15,6 +15,7 @@ extension AccountVC: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: AccountActionHeader.reuseableID) as! AccountActionHeader
+        view.delegate = self
         return view
     }
     
@@ -30,6 +31,9 @@ extension AccountVC: UITableViewDelegate,UITableViewDataSource{
     
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let _ = options[indexPath.row]
+    }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return CGFloat(128.0)
     }
@@ -37,4 +41,13 @@ extension AccountVC: UITableViewDelegate,UITableViewDataSource{
         return CGFloat(62.0)
     }
     
+}
+
+// MARK: AccountActionHeaderDelegate -
+extension AccountVC: AccountActionHeaderDelegate {
+    func didTapTripCell() {
+        let vc = TripsVC()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
+    }
 }
