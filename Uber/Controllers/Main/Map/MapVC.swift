@@ -14,6 +14,7 @@ class MapVC: UIViewController {
     let driverAnnotationIdentifier = "driverAnnotation"
     let locationManager = LocationManager.shared.locationManager
     let driverService = DriverService.shared
+    var annotations = [MKAnnotation]()
     let selectedAnnotation = MKPointAnnotation()
     var region = MKCoordinateRegion()
     var placeMarkLocations = [MKPlacemark]()

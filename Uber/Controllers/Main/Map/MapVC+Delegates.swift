@@ -88,11 +88,31 @@ extension MapVC: OverlayLocationTableViewDelegate {
         
         dismissLocationView { _ in
             self.selectedAnnotation.coordinate = selectedPlacemark.coordinate
-            self.mapView.addAnnotation(self.selectedAnnotation) // add annotation of the selected location coordinates
-            self.region = .init(center: selectedPlacemark.coordinate, span: .init(latitudeDelta: 0.5, longitudeDelta: 0.5)) // region of selected location coordinates
+            // add annotation of the selected location coordinates
+            self.mapView.addAnnotation(self.selectedAnnotation)
+            // region of selected location coordinates
+            self.region = .init(center: selectedPlacemark.coordinate, span: .init(latitudeDelta: 0.5, longitudeDelta: 0.5))
             self.mapView.setRegion(self.region, animated: true)
             self.mapView.selectAnnotation(self.selectedAnnotation, animated: true)
+            
+            // mapview fits annotation between user and destionation lcoations.
+//            let annotations = self.mapView.annotations.filter({
+//                $0.isKind(of: DriverAnnotation.self)
+//            })
+            self.mapView.annotations.forEach { annotation in
+                if let anno = annotation as? MKUserLocation {
+                    self.annotations.append(anno)
+                }
+
+                if let anno = annotation as? MKPointAnnotation {
+                    self.annotations.append(anno)
+                }
+            }
+            self.mapView.showAnnotations(self.annotations, animated: true)
         }
+        
+        
+       
     }
     
    

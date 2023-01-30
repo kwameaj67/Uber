@@ -27,9 +27,10 @@ class AccountVC: UIViewController {
     }
     // MARK: Properties -
     let accountHeaderView: AccountHeaderView = {
-        let v = AccountHeaderView()
-        v.translatesAutoresizingMaskIntoConstraints = false
-        return v
+        let view = AccountHeaderView()
+        //view.controller = self
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     lazy var accountTableView: UITableView = {
         let tv = UITableView(frame: .zero, style: .grouped)
