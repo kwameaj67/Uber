@@ -60,15 +60,15 @@ class ActivityHeaderView: UITableViewHeaderFooterView {
     }()
     let dateLabel: UILabel = {
         let lb = UILabel()
-        lb.textColor = Color.black
-        lb.font = UIFont(name: Font.light.rawValue, size: 19)
+        lb.textColor = Color.text_grey
+        lb.font = UIFont(name: Font.regular.rawValue, size: 16)
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
     let priceLabel: UILabel = {
         let lb = UILabel()
-        lb.textColor = Color.black
-        lb.font = UIFont(name: Font.light.rawValue, size: 19)
+        lb.textColor = Color.text_grey
+        lb.font = UIFont(name: Font.regular.rawValue, size: 16)
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
@@ -101,12 +101,12 @@ class ActivityHeaderView: UITableViewHeaderFooterView {
             tripContainer.topAnchor.constraint(equalTo: titleLbl.bottomAnchor, constant: 15),
             tripContainer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             tripContainer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
-            tripContainer.heightAnchor.constraint(equalToConstant: 330),
+            tripContainer.heightAnchor.constraint(equalToConstant: 300),
             
             mapView.topAnchor.constraint(equalTo: tripContainer.topAnchor, constant: 12),
             mapView.leadingAnchor.constraint(equalTo: tripContainer.leadingAnchor, constant: 12),
             mapView.trailingAnchor.constraint(equalTo: tripContainer.trailingAnchor, constant: -12),
-            mapView.heightAnchor.constraint(equalToConstant: 170),
+            mapView.heightAnchor.constraint(equalToConstant: 152),
             
             stackView.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: 15),
             stackView.leadingAnchor.constraint(equalTo: tripContainer.leadingAnchor, constant: 12),

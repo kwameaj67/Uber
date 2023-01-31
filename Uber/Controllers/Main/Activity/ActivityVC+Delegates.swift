@@ -19,21 +19,26 @@ extension ActivityVC: UITableViewDelegate, UITableViewDataSource {
         view.priceLabel.text = currentTrip.status == .cancelled ? "GH₵ \(currentTrip.price.twoDecimalPlaces()) · Canceled" :  "GH₵ \(currentTrip.price.twoDecimalPlaces())"
         return view
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PastTripCell.reusableID, for: indexPath) as!  PastTripCell
         cell.data = trips[indexPath.row]
         cell.layoutMargins = UIEdgeInsets.zero
         cell.separatorInset = UIEdgeInsets.zero
-
+        
         let bgView = UIView(frame: cell.bounds)
         bgView.backgroundColor = Color.grey_bg2
         cell.selectedBackgroundView = bgView
+        
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(100.0)
     }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return CGFloat(455.0)
+        return CGFloat(415.0)
     }
+    
 }

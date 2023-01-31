@@ -49,8 +49,8 @@ class AccountOptionCell: UITableViewCell {
         NSLayoutConstraint.activate([
             iconImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             iconImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            iconImage.heightAnchor.constraint(equalToConstant: 20),
-            iconImage.widthAnchor.constraint(equalToConstant: 20),
+            iconImage.heightAnchor.constraint(equalToConstant: 18),
+            iconImage.widthAnchor.constraint(equalToConstant: 18),
             
             titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: iconImage.trailingAnchor, constant: 22),

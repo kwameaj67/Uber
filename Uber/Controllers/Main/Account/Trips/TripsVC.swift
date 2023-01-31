@@ -20,7 +20,7 @@ class TripsVC: UIViewController {
     // MARK: Properties
     let cancelButton: UIButton = {
         let cb = UIButton()
-        let image = UIImage(named: "uber-exit")?.withRenderingMode(.alwaysOriginal).withConfiguration(UIImage.SymbolConfiguration(pointSize: 22, weight: .bold))
+        let image = UIImage(named: "uber-exit")?.withRenderingMode(.alwaysOriginal).withConfiguration(UIImage.SymbolConfiguration(weight: .heavy))
         cb.setBackgroundImage(image, for: .normal)
         cb.backgroundColor = .none
         cb.addTarget(self, action: #selector(didTapCancel), for: .touchUpInside)
@@ -33,10 +33,10 @@ class TripsVC: UIViewController {
         cb.setTitleColor(.black, for: .normal)
         cb.titleLabel?.font = UIFont(name: Font.medium.rawValue, size: 14)
         cb.setImage(UIImage(named: "uber-down")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        cb.imageEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
+        cb.imageEdgeInsets = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 0)
         cb.semanticContentAttribute = .forceRightToLeft
         cb.backgroundColor = Color.grey_bg
-        cb.layer.cornerRadius = 40/2
+        cb.layer.cornerRadius = 35/2
         cb.translatesAutoresizingMaskIntoConstraints = false
         return cb
     }()
@@ -62,14 +62,14 @@ class TripsVC: UIViewController {
     
     func setupContraints(){
         NSLayoutConstraint.activate([
-            cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 14),
             cancelButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            cancelButton.heightAnchor.constraint(equalToConstant: 20),
-            cancelButton.widthAnchor.constraint(equalToConstant: 20),
+            cancelButton.heightAnchor.constraint(equalToConstant: 18),
+            cancelButton.widthAnchor.constraint(equalToConstant: 18),
             
             filterButton.centerYAnchor.constraint(equalTo: cancelButton.centerYAnchor),
             filterButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-            filterButton.heightAnchor.constraint(equalToConstant: 40),
+            filterButton.heightAnchor.constraint(equalToConstant: 35),
             filterButton.widthAnchor.constraint(equalToConstant: 85),
             
             titleLbl.topAnchor.constraint(equalTo: cancelButton.bottomAnchor,constant: 15),

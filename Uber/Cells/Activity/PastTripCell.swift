@@ -32,21 +32,21 @@ class PastTripCell: UITableViewCell {
         let lb = UILabel()
         lb.numberOfLines = 0
         lb.textColor = Color.black
-        lb.font = UIFont(name: Font.medium.rawValue, size: 18)
+        lb.font = UIFont(name: Font.medium.rawValue, size: 16)
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
     let dateLabel: UILabel = {
         let lb = UILabel()
-        lb.textColor = Color.black
-        lb.font = UIFont(name: Font.light.rawValue, size: 16)
+        lb.textColor = Color.text_grey
+        lb.font = UIFont(name: Font.regular.rawValue, size: 14)
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
     let priceLabel: UILabel = {
         let lb = UILabel()
-        lb.textColor = Color.black
-        lb.font = UIFont(name: Font.light.rawValue, size: 16)
+        lb.textColor = Color.text_grey
+        lb.font = UIFont(name: Font.regular.rawValue, size: 14)
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
@@ -100,7 +100,7 @@ class PastTripCell: UITableViewCell {
         NSLayoutConstraint.activate([
             iconContainer.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 20),
             iconContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            iconContainer.heightAnchor.constraint(equalToConstant: 72),
+            iconContainer.heightAnchor.constraint(equalToConstant: 68),
             iconContainer.widthAnchor.constraint(equalToConstant: 72),
             
             carImage.centerYAnchor.constraint(equalTo: iconContainer.centerYAnchor),
@@ -108,10 +108,8 @@ class PastTripCell: UITableViewCell {
             carImage.heightAnchor.constraint(equalToConstant: 45),
             carImage.widthAnchor.constraint(equalToConstant: 60),
             
-//            stackView.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 20),
             stackView.centerYAnchor.constraint(equalTo: iconContainer.centerYAnchor),
             stackView.leadingAnchor.constraint(equalTo: iconContainer.trailingAnchor, constant: 20),
-//            stackView.heightAnchor.constraint(equalTo: carImage.heightAnchor),
             
             arrowImage.centerYAnchor.constraint(equalTo: stackView.centerYAnchor),
             arrowImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),

@@ -90,7 +90,7 @@ class AccountHeaderView: UIView {
             ratingView.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -10),
             ratingView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
             ratingView.heightAnchor.constraint(equalToConstant: 25),
-            ratingView.widthAnchor.constraint(equalToConstant: 75),
+            ratingView.widthAnchor.constraint(equalToConstant: 68),
 
             starImage.leadingAnchor.constraint(equalTo: ratingView.leadingAnchor, constant: 8),
             starImage.centerYAnchor.constraint(equalTo: ratingView.centerYAnchor),
