@@ -31,7 +31,6 @@ class TabBarVC: UITabBarController {
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-//        tabBar.frame.origin.y = view.frame.height - 100
     }
     func setupTabBar(){
         tabBar.barTintColor = UIColor.white

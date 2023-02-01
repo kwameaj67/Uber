@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6591E2E62989AF7F00B0EC15 /* TripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6591E2E52989AF7F00B0EC15 /* TripCell.swift */; };
+		6591E2E8298AEE5000B0EC15 /* OverlayRideActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6591E2E7298AEE5000B0EC15 /* OverlayRideActionView.swift */; };
 		65CF5C8B2983E9F500F52CFA /* EditAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF5C8A2983E9F400F52CFA /* EditAccountVC.swift */; };
 		65CF5C8D2983EDAA00F52CFA /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF5C8C2983EDAA00F52CFA /* Notification.swift */; };
 		65D50E4929885C6E00E67513 /* TripsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D50E4829885C6E00E67513 /* TripsVC.swift */; };
@@ -93,6 +94,7 @@
 
 /* Begin PBXFileReference section */
 		6591E2E52989AF7F00B0EC15 /* TripCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCell.swift; sourceTree = "<group>"; };
+		6591E2E7298AEE5000B0EC15 /* OverlayRideActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayRideActionView.swift; sourceTree = "<group>"; };
 		65CF5C8A2983E9F400F52CFA /* EditAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountVC.swift; sourceTree = "<group>"; };
 		65CF5C8C2983EDAA00F52CFA /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		65D50E4829885C6E00E67513 /* TripsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsVC.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				986A87BD296457CE00A460AA /* OverlayLocationTableView.swift */,
 				986A87B72963094E00A460AA /* OverlayLocationInputView.swift */,
 				988F5220297A12D600768128 /* OverlaySelectLocationView.swift */,
+				6591E2E7298AEE5000B0EC15 /* OverlayRideActionView.swift */,
 			);
 			path = OverlayViews;
 			sourceTree = "<group>";
@@ -633,6 +636,7 @@
 				98450BAF292930540065C260 /* ActivityVC.swift in Sources */,
 				98E145422926FB2D00B965F2 /* RegisterVC.swift in Sources */,
 				986A87D12968FB9000A460AA /* MapVC.swift in Sources */,
+				6591E2E8298AEE5000B0EC15 /* OverlayRideActionView.swift in Sources */,
 				98E145402926ED0500B965F2 /* LoginVC.swift in Sources */,
 				986A87D62969008500A460AA /* OverlayDestinationView.swift in Sources */,
 				984D939E2954801B00225E0E /* PastTripCell.swift in Sources */,
