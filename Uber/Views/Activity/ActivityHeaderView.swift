@@ -22,7 +22,7 @@ class ActivityHeaderView: UITableViewHeaderFooterView {
     }
     
     // MARK: Properties -
-    let headingLbl: UILabel = {
+    lazy var headingLbl: UILabel = {
         let lb = UILabel()
         lb.text = "Activity"
         lb.font = UIFont(name: Font.medium2.rawValue, size: 36.0)
@@ -30,7 +30,7 @@ class ActivityHeaderView: UITableViewHeaderFooterView {
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
-    let titleLbl: UILabel = {
+    lazy var titleLbl: UILabel = {
         let lb = UILabel()
         lb.text = "Past"
         lb.font = UIFont(name: Font.medium.rawValue, size: 20.0)
@@ -38,11 +38,11 @@ class ActivityHeaderView: UITableViewHeaderFooterView {
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
-    let mapView: UberMapView = {
+    lazy var mapView: UberMapView = {
         let mp = UberMapView()
         return mp
     }()
-    let tripContainer: UIView = {
+    lazy var tripContainer: UIView = {
         let v = UIView()
         v.layer.borderWidth = 2.0
         v.layer.cornerRadius = 10
@@ -50,7 +50,7 @@ class ActivityHeaderView: UITableViewHeaderFooterView {
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
-    let locationLabel: UILabel = {
+    lazy var locationLabel: UILabel = {
         let lb = UILabel()
         lb.numberOfLines = 0
         lb.textColor = Color.black
@@ -58,21 +58,21 @@ class ActivityHeaderView: UITableViewHeaderFooterView {
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
-    let dateLabel: UILabel = {
+    lazy var dateLabel: UILabel = {
         let lb = UILabel()
         lb.textColor = Color.text_grey
         lb.font = UIFont(name: Font.regular.rawValue, size: 16)
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
-    let priceLabel: UILabel = {
+    lazy var priceLabel: UILabel = {
         let lb = UILabel()
         lb.textColor = Color.text_grey
         lb.font = UIFont(name: Font.regular.rawValue, size: 16)
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
-    let stackView: UIStackView = {
+    lazy var stackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical
         sv.spacing = 5

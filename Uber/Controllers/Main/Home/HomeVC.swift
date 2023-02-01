@@ -19,7 +19,7 @@ class HomeVC: UIViewController {
     let annotation = MKPointAnnotation()
     var region = MKCoordinateRegion()
     var spanDelta = MKCoordinateSpan(latitudeDelta: 0.8, longitudeDelta: 0.8) // zoom level
-    var user: User?
+    weak var user: User?
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white

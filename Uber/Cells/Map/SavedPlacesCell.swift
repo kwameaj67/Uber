@@ -22,7 +22,7 @@ class SavedPlacesCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     // MARK: Properties -
-    let nameLbl: UILabel = {
+    lazy var nameLbl: UILabel = {
         let lb = UILabel()
         lb.text = "Saved Places"
         lb.font = UIFont(name: Font.medium.rawValue, size: 16)
@@ -30,14 +30,14 @@ class SavedPlacesCell: UITableViewCell {
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
-    let iconContainer: UIView = {
+    lazy var iconContainer: UIView = {
         let v = UIView()
         v.backgroundColor = .gray
         v.layer.cornerRadius = 42/2
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
-    let iconImage : UIImageView = {
+    lazy var iconImage : UIImageView = {
         var iv = UIImageView()
         iv.image = UIImage(systemName: "star.fill")?.withRenderingMode(.alwaysTemplate)
         iv.tintColor = .white
@@ -46,7 +46,7 @@ class SavedPlacesCell: UITableViewCell {
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
-    let arrowImage : UIImageView = {
+    lazy var arrowImage : UIImageView = {
         var iv = UIImageView()
         iv.image = UIImage(named: "uber-down")?.withRenderingMode(.alwaysTemplate)
         iv.tintColor = .systemGray3

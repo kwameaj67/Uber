@@ -29,7 +29,7 @@ class LocationActivationView: UIView {
     }
     
     // MARK: Properties -
-    let searchIcon : UIImageView = {
+    lazy var searchIcon : UIImageView = {
         var iv = UIImageView()
         iv.image =  UIImage(named: "uber-search")?.withRenderingMode(.alwaysOriginal)
         iv.contentMode = .scaleAspectFill
@@ -37,7 +37,7 @@ class LocationActivationView: UIView {
         return iv
     }()
    
-    let locationBtn: UILabel = {
+    lazy var locationBtn: UILabel = {
         var lb = UILabel()
         lb.text = "Where to?"
         lb.textColor = .gray

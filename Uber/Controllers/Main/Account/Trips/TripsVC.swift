@@ -28,7 +28,7 @@ class TripsVC: UIViewController {
         return cb
     }()
     let filterButton: UIButton = {
-        let cb = UIButton()
+        let cb = UIButton(frame: .zero)
         cb.setTitle("Past", for: .normal)
         cb.setTitleColor(.black, for: .normal)
         cb.titleLabel?.font = UIFont(name: Font.medium.rawValue, size: 14)

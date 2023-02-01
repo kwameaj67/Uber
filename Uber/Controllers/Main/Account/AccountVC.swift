@@ -12,7 +12,7 @@ class AccountVC: UIViewController {
     private let userDefaultManager = UserDefaultsManager.shared
     let authManager = FirebaseAuthManager.shared
     let options = AccountOption.data
-    private var user: User?
+    private weak var user: User?
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white

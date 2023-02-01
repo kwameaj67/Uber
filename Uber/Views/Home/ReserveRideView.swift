@@ -22,14 +22,15 @@ class ReserveRideView: UIView {
     }
     
     // MARK: Properties -
-    let timeIcon : UIImageView = {
+    lazy var timeIcon : UIImageView = {
         var iv = UIImageView()
         iv.image =  UIImage(systemName: "clock.fill")?.withRenderingMode(.alwaysOriginal)
         iv.contentMode = .scaleAspectFill
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
-    let uberDownIcon : UIImageView = {
+    
+    lazy var uberDownIcon : UIImageView = {
         var iv = UIImageView()
         iv.image =  UIImage(named: "uber-down")?.withRenderingMode(.alwaysTemplate)
         iv.tintColor = .black
@@ -38,7 +39,7 @@ class ReserveRideView: UIView {
         return iv
     }()
     
-    let timeLabel: UILabel = {
+    lazy var timeLabel: UILabel = {
         let lb = UILabel()
         lb.text = "Now"
         lb.textColor = Color.black
@@ -46,7 +47,8 @@ class ReserveRideView: UIView {
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
-    let stackView: UIStackView = {
+    
+    lazy var stackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .horizontal
         sv.spacing = 10

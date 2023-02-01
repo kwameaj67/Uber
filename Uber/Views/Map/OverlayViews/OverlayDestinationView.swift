@@ -34,7 +34,7 @@ class OverlayDestinationView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     // MARK: Properties -
-    let titleLbl: UILabel = {
+    lazy var titleLbl: UILabel = {
         let lb = UILabel()
         lb.text = "Set your destination"
         lb.font = UIFont(name: Font.medium.rawValue, size: 18)
@@ -42,13 +42,13 @@ class OverlayDestinationView: UIView {
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
-    let border: UIView = {
+    lazy var border: UIView = {
         let v = UIView()
         v.backgroundColor = Color.grey_bg
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
-    let locationLbl: UILabel = {
+    lazy var locationLbl: UILabel = {
         let lb = UILabel()
         lb.text = "Move the map"
         lb.font = UIFont(name: Font.medium.rawValue, size: 18)
@@ -56,7 +56,7 @@ class OverlayDestinationView: UIView {
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
-    let searchBtn: UIButton = {
+    lazy var searchBtn: UIButton = {
         var btn = UIButton()
         btn.setTitle("Search", for: .normal)
         btn.setTitleColor(.black, for: .normal)
@@ -67,7 +67,7 @@ class OverlayDestinationView: UIView {
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
-    let confirmBtn: UIButton = {
+    lazy var confirmBtn: UIButton = {
         var btn = UIButton()
         btn.setTitle("Confirm destination", for: .normal)
         btn.setTitleColor(.white, for: .normal)

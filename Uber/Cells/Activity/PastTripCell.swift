@@ -28,7 +28,7 @@ class PastTripCell: UITableViewCell {
     }
     
     // MARK: Properties
-    let locationLabel: UILabel = {
+    lazy var locationLabel: UILabel = {
         let lb = UILabel()
         lb.numberOfLines = 0
         lb.textColor = Color.black
@@ -36,42 +36,42 @@ class PastTripCell: UITableViewCell {
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
-    let dateLabel: UILabel = {
+    lazy var dateLabel: UILabel = {
         let lb = UILabel()
         lb.textColor = Color.text_grey
         lb.font = UIFont(name: Font.regular.rawValue, size: 14)
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
-    let priceLabel: UILabel = {
+    lazy var priceLabel: UILabel = {
         let lb = UILabel()
         lb.textColor = Color.text_grey
         lb.font = UIFont(name: Font.regular.rawValue, size: 14)
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
-    let stackView: UIStackView = {
+    lazy var stackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical
         sv.spacing = 5
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
-    let iconContainer: UIView = {
+    lazy var iconContainer: UIView = {
         let v = UIView()
         v.layer.cornerRadius = 10
         v.backgroundColor = Color.grey_bg2
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
-    let carImage : UIImageView = {
+    lazy var carImage : UIImageView = {
         var iv = UIImageView()
         iv.image = UIImage(named: "uber-car")?.withRenderingMode(.alwaysOriginal)
         iv.contentMode = .scaleAspectFit
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
-    let arrowImage : UIImageView = {
+    lazy var arrowImage : UIImageView = {
         var iv = UIImageView()
         iv.image = UIImage(named: "uber-down")?.withRenderingMode(.alwaysTemplate)
         iv.tintColor = .systemGray3
@@ -79,7 +79,7 @@ class PastTripCell: UITableViewCell {
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
-    let border: UIView = {
+    lazy var border: UIView = {
         let v = UIView()
         v.backgroundColor = UIColor.systemGray5
         v.translatesAutoresizingMaskIntoConstraints = false

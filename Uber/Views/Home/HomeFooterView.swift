@@ -29,7 +29,7 @@ class HomeFooterView: UITableViewHeaderFooterView {
     }
     
     // MARK:Properties -
-    let titleLabel: UILabel = {
+    lazy var titleLabel: UILabel = {
         let lb = UILabel()
         lb.text = "Around you"
         lb.textColor = .black

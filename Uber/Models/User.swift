@@ -8,7 +8,7 @@
 import MapKit
 
 
-struct User {
+class User {
     let fullname: String
     let email: String
     let accountType: AccountType?

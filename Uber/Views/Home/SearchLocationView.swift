@@ -28,7 +28,7 @@ class SearchLocationView: UIView {
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
-    let timerView: UIView = {
+    lazy var timerView: UIView = {
         let v = ReserveRideView()
         v.layer.cornerRadius = 40/2
         v.translatesAutoresizingMaskIntoConstraints = false

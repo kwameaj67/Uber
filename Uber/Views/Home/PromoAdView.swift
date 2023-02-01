@@ -25,7 +25,7 @@ class PromoAdView: UIView {
     
     
     // MARK: Properties
-    let bgImage : UIImageView = {
+    lazy var bgImage : UIImageView = {
         var iv = UIImageView()
         iv.image = UIImage(named: "uber-eats")?.withRenderingMode(.alwaysOriginal)
         iv.tintColor = .systemGray2
@@ -34,7 +34,7 @@ class PromoAdView: UIView {
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
-    let arrowImage : UIImageView = {
+    lazy var arrowImage : UIImageView = {
         var iv = UIImageView()
         iv.image = UIImage(named: "uber-forward")?.withRenderingMode(.alwaysTemplate)
         iv.tintColor = .white
@@ -42,7 +42,7 @@ class PromoAdView: UIView {
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
-    let headingLabel: UILabel = {
+    lazy var headingLabel: UILabel = {
         let lb = UILabel()
         lb.text = "Satisfy any carving"
         lb.textColor = .white
@@ -51,7 +51,7 @@ class PromoAdView: UIView {
         return lb
     }()
     
-    let subHeadingLabel: UILabel = {
+    lazy var subHeadingLabel: UILabel = {
         let lb = UILabel()
         lb.text = "Order on Eats"
         lb.textColor = .white
@@ -59,7 +59,7 @@ class PromoAdView: UIView {
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
-    let stackView: UIStackView = {
+    lazy var stackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .horizontal
         sv.spacing = 5

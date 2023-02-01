@@ -14,7 +14,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     static let shared = LocationManager()
     
     var locationManager: CLLocationManager!
-    var location: CLLocation?    
+    weak var location: CLLocation?
     override init(){
         super.init()
         locationManager = CLLocationManager()
@@ -23,7 +23,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         if  manager.authorizationStatus == .authorizedAlways{
-            locationManager.requestAlwaysAuthorization()
+            locationManager?.requestAlwaysAuthorization()
         }
     }
 }

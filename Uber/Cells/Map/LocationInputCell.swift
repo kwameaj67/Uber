@@ -28,21 +28,21 @@ class LocationInputCell: UITableViewCell {
     }
     
     // MARK: Properties
-    let stackView: UIStackView = {
+    lazy var stackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical
         sv.distribution = .fillEqually
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
-    let locationLbl: UILabel = {
+    lazy var locationLbl: UILabel = {
         let lb = UILabel()
         lb.font = UIFont(name: Font.medium.rawValue, size: 16)
         lb.textColor = .black
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
-    let addressLbl: UILabel = {
+    lazy var addressLbl: UILabel = {
         let lb = UILabel()
         lb.font = UIFont(name: Font.light.rawValue, size: 15)
         lb.textColor = .gray
