@@ -9,10 +9,8 @@ import UIKit
 
 class AccountHeaderView: UIView {
     
-    let hover = UIHoverGestureRecognizer(target: self, action: #selector(didHoverImage(_:)))
     var controller: AccountVC? {
         didSet{
-            profileImage.addGestureRecognizer(hover)
             profileImage.addGestureRecognizer(UITapGestureRecognizer(target: controller, action: #selector(AccountVC.didTapProfileImage)))
         }
     }
@@ -73,18 +71,7 @@ class AccountHeaderView: UIView {
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
-    
-    @objc func didHoverImage(_ hover: UIHoverGestureRecognizer){
-        switch hover.state{
-        case .began, .changed:
-            profileImage.alpha = 0.5
-        case .ended:
-            profileImage.alpha = 1
-        default:
-            break
-        }
-        
-    }
+ 
     func setupViews(){
         addSubview(profileLbl)
         addSubview(profileImage)
