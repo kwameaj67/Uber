@@ -16,7 +16,6 @@ class TripsVC: UIViewController {
         setupContraints()
         
     }
-    
     // MARK: Properties
     let cancelButton: UIButton = {
         let cb = UIButton()

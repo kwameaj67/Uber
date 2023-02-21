@@ -37,14 +37,14 @@ class LocationInputCell: UITableViewCell {
     }()
     lazy var locationLbl: UILabel = {
         let lb = UILabel()
-        lb.font = UIFont(name: Font.medium.rawValue, size: 16)
+        lb.font = UIFont(name: Font.medium.rawValue, size: 15)
         lb.textColor = .black
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
     lazy var addressLbl: UILabel = {
         let lb = UILabel()
-        lb.font = UIFont(name: Font.light.rawValue, size: 15)
+        lb.font = UIFont(name: Font.regular.rawValue, size: 15)
         lb.textColor = .gray
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
@@ -53,7 +53,7 @@ class LocationInputCell: UITableViewCell {
     let iconContainer: UIView = {
         let v = UIView()
         v.backgroundColor = .gray
-        v.layer.cornerRadius = 42/2
+        v.layer.cornerRadius = 38/2
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
@@ -85,13 +85,13 @@ class LocationInputCell: UITableViewCell {
         NSLayoutConstraint.activate([
             iconContainer.centerYAnchor.constraint(equalTo: stackView.centerYAnchor),
             iconContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            iconContainer.heightAnchor.constraint(equalToConstant: 42),
-            iconContainer.widthAnchor.constraint(equalToConstant: 42),
+            iconContainer.heightAnchor.constraint(equalToConstant: 38),
+            iconContainer.widthAnchor.constraint(equalToConstant: 38),
             
             iconImage.centerYAnchor.constraint(equalTo: iconContainer.centerYAnchor),
             iconImage.centerXAnchor.constraint(equalTo: iconContainer.centerXAnchor),
-            iconImage.heightAnchor.constraint(equalToConstant: 22),
-            iconImage.widthAnchor.constraint(equalToConstant: 22),
+            iconImage.heightAnchor.constraint(equalToConstant: 20),
+            iconImage.widthAnchor.constraint(equalToConstant: 20),
             
             stackView.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 10),
             stackView.leadingAnchor.constraint(equalTo: iconContainer.trailingAnchor, constant: 15),

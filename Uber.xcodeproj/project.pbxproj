@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6587B43F29A58508006F7E9C /* LeakedViewControllerDetector in Frameworks */ = {isa = PBXBuildFile; productRef = 6587B43E29A58508006F7E9C /* LeakedViewControllerDetector */; };
 		6591E2E62989AF7F00B0EC15 /* TripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6591E2E52989AF7F00B0EC15 /* TripCell.swift */; };
 		6591E2E8298AEE5000B0EC15 /* OverlayRideActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6591E2E7298AEE5000B0EC15 /* OverlayRideActionView.swift */; };
 		65CF5C8B2983E9F500F52CFA /* EditAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF5C8A2983E9F400F52CFA /* EditAccountVC.swift */; };
@@ -181,6 +182,7 @@
 				98FCCDCD29365444008AAF61 /* GeoFire in Frameworks */,
 				98E6D6692936228E0056F7DA /* FirebaseDatabase in Frameworks */,
 				98E6D6612936228E0056F7DA /* FirebaseAnalytics in Frameworks */,
+				6587B43F29A58508006F7E9C /* LeakedViewControllerDetector in Frameworks */,
 				9842F0362932C78000AD73D8 /* CHIOTPField in Frameworks */,
 				98E6D6632936228E0056F7DA /* FirebaseStorage in Frameworks */,
 				98E6D6672936228E0056F7DA /* FirebaseFirestore in Frameworks */,
@@ -540,6 +542,7 @@
 				98E6D6662936228E0056F7DA /* FirebaseFirestore */,
 				98E6D6682936228E0056F7DA /* FirebaseDatabase */,
 				98FCCDCC29365444008AAF61 /* GeoFire */,
+				6587B43E29A58508006F7E9C /* LeakedViewControllerDetector */,
 			);
 			productName = Uber;
 			productReference = 98E901532924E3A0003F8ABF /* Uber.app */;
@@ -572,6 +575,7 @@
 				9842F0342932C78000AD73D8 /* XCRemoteSwiftPackageReference "CHIOTPField" */,
 				98E6D65F2936228E0056F7DA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				98FCCDCB29365444008AAF61 /* XCRemoteSwiftPackageReference "geofire-objc" */,
+				6587B43D29A58507006F7E9C /* XCRemoteSwiftPackageReference "LeakedViewControllerDetector" */,
 			);
 			productRefGroup = 98E901542924E3A0003F8ABF /* Products */;
 			projectDirPath = "";
@@ -822,7 +826,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.project.uber;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Debug AND Release";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -842,7 +846,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.project.uber;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Debug AND Release";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -872,6 +876,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6587B43D29A58507006F7E9C /* XCRemoteSwiftPackageReference "LeakedViewControllerDetector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Janneman84/LeakedViewControllerDetector";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		9842F0342932C78000AD73D8 /* XCRemoteSwiftPackageReference "CHIOTPField" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ChiliLabs/CHIOTPField.git";
@@ -899,6 +911,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6587B43E29A58508006F7E9C /* LeakedViewControllerDetector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6587B43D29A58507006F7E9C /* XCRemoteSwiftPackageReference "LeakedViewControllerDetector" */;
+			productName = LeakedViewControllerDetector;
+		};
 		9842F0352932C78000AD73D8 /* CHIOTPField */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9842F0342932C78000AD73D8 /* XCRemoteSwiftPackageReference "CHIOTPField" */;

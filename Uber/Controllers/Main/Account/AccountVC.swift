@@ -64,7 +64,9 @@ class AccountVC: UIViewController {
     }
     @objc func didTapProfileImage(){
         print("DEBUG: Did tap profile image")
-        let _ = EditAccountVC()
+        let vc = EditAccountVC()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true)
     }
     func setupViews(){
         view.addSubview(accountHeaderView)

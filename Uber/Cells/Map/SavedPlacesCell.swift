@@ -25,7 +25,7 @@ class SavedPlacesCell: UITableViewCell {
     lazy var nameLbl: UILabel = {
         let lb = UILabel()
         lb.text = "Saved Places"
-        lb.font = UIFont(name: Font.medium.rawValue, size: 16)
+        lb.font = UIFont(name: Font.medium.rawValue, size: 14)
         lb.textColor = .black
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb

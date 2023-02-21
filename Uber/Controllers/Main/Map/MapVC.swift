@@ -166,7 +166,14 @@ class MapVC: UIViewController {
         v.alpha = 0
         return v
     }()
-    
+   
+    lazy var rideActionView: OverlayRideActionView = {
+        let v = OverlayRideActionView()
+//        v.delegate = self
+//        v.isHidden = true
+//        v.alpha = 0
+        return v
+    }()
     
     // MARK: Selectors -
     @objc func didTapBackButton(){
@@ -181,6 +188,7 @@ class MapVC: UIViewController {
         view.addSubview(selectLocationView)
         view.addSubview(overlayLocationInputView)
         view.addSubview(overlayLocationTableView)
+//        view.addSubview(rideActionView)
         overlayLocationInputView.bringSubviewToFront(backButton)
         overlayLocationTableView.bringSubviewToFront(destinationView)
         overlayLocationTableView.bringSubviewToFront(selectLocationView)
@@ -203,6 +211,11 @@ class MapVC: UIViewController {
             selectLocationView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             selectLocationView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15),
             selectLocationView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+//            rideActionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//            rideActionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//            rideActionView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.45),
+//            rideActionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             overlayLocationInputView.topAnchor.constraint(equalTo: view.topAnchor),
             overlayLocationInputView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
