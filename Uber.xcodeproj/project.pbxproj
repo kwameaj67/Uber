@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		650DA18629A67DE400065514 /* EditAccountInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DA18529A67DE400065514 /* EditAccountInfoCell.swift */; };
+		650DA18929A685CC00065514 /* EditAccountHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DA18829A685CC00065514 /* EditAccountHeaderView.swift */; };
 		6587B43F29A58508006F7E9C /* LeakedViewControllerDetector in Frameworks */ = {isa = PBXBuildFile; productRef = 6587B43E29A58508006F7E9C /* LeakedViewControllerDetector */; };
 		6591E2E62989AF7F00B0EC15 /* TripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6591E2E52989AF7F00B0EC15 /* TripCell.swift */; };
 		6591E2E8298AEE5000B0EC15 /* OverlayRideActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6591E2E7298AEE5000B0EC15 /* OverlayRideActionView.swift */; };
@@ -94,6 +96,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		650DA18529A67DE400065514 /* EditAccountInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountInfoCell.swift; sourceTree = "<group>"; };
+		650DA18829A685CC00065514 /* EditAccountHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountHeaderView.swift; sourceTree = "<group>"; };
 		6591E2E52989AF7F00B0EC15 /* TripCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCell.swift; sourceTree = "<group>"; };
 		6591E2E7298AEE5000B0EC15 /* OverlayRideActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayRideActionView.swift; sourceTree = "<group>"; };
 		65CF5C8A2983E9F400F52CFA /* EditAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountVC.swift; sourceTree = "<group>"; };
@@ -193,6 +197,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		650DA18429A67DAB00065514 /* EditAccount */ = {
+			isa = PBXGroup;
+			children = (
+				650DA18529A67DE400065514 /* EditAccountInfoCell.swift */,
+			);
+			path = EditAccount;
+			sourceTree = "<group>";
+		};
+		650DA18729A685A300065514 /* EditAccount */ = {
+			isa = PBXGroup;
+			children = (
+				650DA18829A685CC00065514 /* EditAccountHeaderView.swift */,
+			);
+			path = EditAccount;
+			sourceTree = "<group>";
+		};
 		6591E2E42989AF5E00B0EC15 /* Trips */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,6 +489,7 @@
 		98E9016C2924E3CE003F8ABF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				650DA18729A685A300065514 /* EditAccount */,
 				986A87D42969005E00A460AA /* Map */,
 				98450BB7292933040065C260 /* Account */,
 				98450BB6292932FB0065C260 /* Activity */,
@@ -484,6 +505,7 @@
 		98E9016D2924E3D4003F8ABF /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				650DA18429A67DAB00065514 /* EditAccount */,
 				6591E2E42989AF5E00B0EC15 /* Trips */,
 				9850704229731CE900794DB9 /* Map */,
 				984F8507259EA32B003D53C3 /* Account */,
@@ -618,6 +640,7 @@
 				98395D102947AA630071D5DF /* FirebaseAuthManager.swift in Sources */,
 				986A87BA296313DE00A460AA /* LocationActivationView.swift in Sources */,
 				98450BBD292AEDE10065C260 /* Helpers.swift in Sources */,
+				650DA18929A685CC00065514 /* EditAccountHeaderView.swift in Sources */,
 				98E9017D2924E9DF003F8ABF /* Font.swift in Sources */,
 				98450BAD2929303F0065C260 /* HomeVC.swift in Sources */,
 				984F850B2958D63D003D53C3 /* AccountOptionCell.swift in Sources */,
@@ -635,6 +658,7 @@
 				984F146F296CDF020074E9AF /* DriverAnnotation.swift in Sources */,
 				98395D262950FC360071D5DF /* HomeFooterView.swift in Sources */,
 				98E901572924E3A0003F8ABF /* AppDelegate.swift in Sources */,
+				650DA18629A67DE400065514 /* EditAccountInfoCell.swift in Sources */,
 				98510F23296B837F00E18533 /* DriverService.swift in Sources */,
 				65D50E4929885C6E00E67513 /* TripsVC.swift in Sources */,
 				98450BAF292930540065C260 /* ActivityVC.swift in Sources */,

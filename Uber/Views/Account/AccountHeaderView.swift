@@ -43,7 +43,6 @@ class AccountHeaderView: UIView {
     }()
     
     lazy var profileImage : UIImageView = {
-        
         var iv = UIImageView()
         iv.image = UIImage(named: "profile")?.withRenderingMode(.alwaysOriginal)
         iv.backgroundColor = .gray
