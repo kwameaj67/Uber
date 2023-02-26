@@ -21,6 +21,7 @@ class MapVC: UIViewController {
     var span = MKCoordinateSpan(latitudeDelta: 0.0098, longitudeDelta: 0.0098) // map zoom level for user location
     var showLocationView: Bool = false
     var route: MKRoute?
+    var destination: MKMapItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +55,7 @@ class MapVC: UIViewController {
             region = .init(center: location.coordinate, latitudinalMeters: 0.01, longitudinalMeters: 0.01)
             region.span = .init(latitudeDelta: 0.098, longitudeDelta: 0.098)
             mapView.setRegion(region, animated:true) // user region
-            fetchDriverLocation() // fetch drivers location when user has access to location
+           
             let annotation = MKPointAnnotation()
             annotation.coordinate = location.coordinate
             annotation.title = "Here"
@@ -62,6 +63,7 @@ class MapVC: UIViewController {
             mapView.selectAnnotation(annotation, animated: true)
             
             if let _ = locationManager?.location {
+                fetchDriverLocation() // fetch drivers location when user has access to location
                 overlayLocationInputView.pickupLocationField.text = "Current location"
                 overlayLocationInputView.pickupLocationField.textColor = Color.blue
             }
@@ -170,14 +172,21 @@ class MapVC: UIViewController {
     lazy var rideActionView: OverlayRideActionView = {
         let v = OverlayRideActionView()
 //        v.delegate = self
-//        v.isHidden = true
-//        v.alpha = 0
+        v.transform = CGAffineTransform(translationX: 0, y: 200)
+        v.isHidden = true
+        v.alpha = 0
         return v
     }()
     
     // MARK: Selectors -
     @objc func didTapBackButton(){
         removeAnnotationsOverlay()
+        destinationView.removeFromSuperview()
+        rideActionView.removeFromSuperview()
+        selectLocationView.removeFromSuperview()
+        overlayLocationInputView.removeFromSuperview()
+        overlayLocationTableView.removeFromSuperview()
+        rideActionView.removeFromSuperview()
         dismiss(animated: true, completion: nil)
     }
     func setupViews(){

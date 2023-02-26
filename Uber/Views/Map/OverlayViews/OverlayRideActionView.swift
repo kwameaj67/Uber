@@ -6,10 +6,15 @@
 //
 
 import UIKit
+import MapKit
 
 class OverlayRideActionView: UIView {
 
-   
+    var destination: MKPlacemark? {
+        didSet{
+            addresLbl.attributedText = setupAttributedText("\(destination?.name)", "\(destination?.address)")
+        }
+    }
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
@@ -94,11 +99,10 @@ class OverlayRideActionView: UIView {
     func setupContraints(){
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: topAnchor,constant: 10),
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 10),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -10),
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -30),
             
-            addresLbl.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
             
 //            uberXcontainer.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
 //            uberXcontainer.widthAnchor.constraint(
@@ -107,15 +111,12 @@ class OverlayRideActionView: UIView {
 //            uberXLbl.centerXAnchor.constraint(equalTo: uberXcontainer.centerXAnchor),
 //            uberXLbl.centerYAnchor.constraint(equalTo: uberXcontainer.centerYAnchor),
             
-            uberXLbl2.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
-            uberXLbl2.bottomAnchor.constraint(equalTo: border.topAnchor, constant: -10),
             
+            uberXLbl2.bottomAnchor.constraint(equalTo: border.topAnchor, constant: -10),
             border.heightAnchor.constraint(equalToConstant: 1.5),
             border.bottomAnchor.constraint(equalTo: confirmButton.topAnchor, constant: -30),
             
             confirmButton.heightAnchor.constraint(equalToConstant: 60),
-            confirmButton.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 10),
-            confirmButton.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -10),
             
         ])
     }

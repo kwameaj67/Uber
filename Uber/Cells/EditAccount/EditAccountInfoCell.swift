@@ -33,7 +33,7 @@ class EditAccountInfoCell: UITableViewCell {
     lazy var dataLbl: UILabel = {
         let lb = UILabel()
         lb.numberOfLines = 1
-        lb.font = UIFont(name: Font.regular.rawValue, size: 16)
+        lb.font = UIFont(name: Font.regular.rawValue, size: 17)
         lb.textColor = .black
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb

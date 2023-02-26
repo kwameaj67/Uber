@@ -33,7 +33,6 @@ class EditAccountVC: UIViewController {
         let lb = UILabel()
         lb.text = "Edit account"
         lb.textColor = .black
-        lb.isHidden = true
         lb.alpha = 0
         lb.font = UIFont(name: Font.medium.rawValue, size: 18)
         lb.translatesAutoresizingMaskIntoConstraints = false
@@ -175,17 +174,13 @@ extension EditAccountVC: UITableViewDelegate, UITableViewDataSource {
         let y = scrollView.contentOffset.y
         let v = y/210
         let value = Double(round(100*v)/100)
-        if value > 0.1 {
-            UIView.animate(withDuration: 0.4) {
+        if value > 0.15 {
+            UIView.animate(withDuration: 0.2) {
                 self.smallTitleLbl.alpha = 1
-            } completion: { _ in
-                self.smallTitleLbl.isHidden = false
             }
         } else {
-            UIView.animate(withDuration: 0.4) {
+            UIView.animate(withDuration: 0.2) {
                 self.smallTitleLbl.alpha = 0
-            } completion: { _ in
-                self.smallTitleLbl.isHidden = true
             }
         }
     }

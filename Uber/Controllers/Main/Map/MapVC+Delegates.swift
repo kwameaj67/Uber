@@ -8,6 +8,7 @@
 import UIKit
 import MapKit
 
+// MARK: Helper Functions -
 extension MapVC {
     func animateOverlayViews(){
         UIView.animate(withDuration: 0.5) {
@@ -45,13 +46,31 @@ extension MapVC {
     }
     
     func removeAnnotationsOverlay(){
-        mapView.annotations.forEach { annotations in  // removes annotations
+        mapView.annotations.forEach { [weak self] annotations in  // removes annotations
+            guard self != nil else { return }
             if let annotation = annotations as? MKPointAnnotation {
                 mapView.removeAnnotation(annotation)
             }
         }
         if mapView.overlays.count > 0 { // removes polyline
             mapView.removeOverlay(mapView.overlays[0])
+        }
+    }
+    
+    func presentRideActionView(){
+        if showLocationView {
+            selectLocationView.isHidden = true
+            selectLocationView.alpha = 0
+        }else{
+            destinationView.isHidden = true
+            destinationView.alpha = 0
+        }
+        UIView.animate(withDuration: 0.3) {
+            self.rideActionView.transform = .identity
+            self.rideActionView.isHidden = false
+            self.rideActionView.alpha = 1
+        } completion: { _ in
+            print("DEBUG: presents rideActionView...")
         }
     }
 }
@@ -73,8 +92,9 @@ extension MapVC: OverLayLocationInputViewDelegate{
     }
     
     func dismissLocationInputView() {
-        dismissLocationView { _ in
+        dismissLocationView { [weak self] _ in
             print("DEBUG: hides locationInputView & locationTableView...")
+            guard let _ = self else { return }
 //            self.dismiss(animated: true, completion: nil)
         }
     }
@@ -82,11 +102,13 @@ extension MapVC: OverLayLocationInputViewDelegate{
 // MARK: OverlayLocationTableViewDelegate -
 extension MapVC: OverlayLocationTableViewDelegate {
     func dismissLocationTableView(selectedPlacemark: MKPlacemark) {
-        let destination = MKMapItem(placemark: selectedPlacemark)
+        destination = MKMapItem(placemark: selectedPlacemark)
+        guard let destinationLocation = destination else { return }
         print("DEBUG: destination: \(destination)")
-        generatePolyline(toDestination: destination)
+        generatePolyline(toDestination: destinationLocation)
         
-        dismissLocationView { _ in
+        dismissLocationView { [weak self] _ in
+            guard let self = self else { return }
             self.selectedAnnotation.coordinate = selectedPlacemark.coordinate
             // add annotation of the selected location coordinates
             self.mapView.addAnnotation(self.selectedAnnotation)
@@ -109,6 +131,7 @@ extension MapVC: OverlayLocationTableViewDelegate {
                 }
             }
             self.mapView.showAnnotations(self.annotations, animated: true)
+            self.presentRideActionView()
         }
         
         
