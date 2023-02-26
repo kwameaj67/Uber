@@ -23,7 +23,7 @@ class DriverService {
             query.observe(.keyEntered, with: { uid, location in // gets driver uid location
                 self.userService.fetchUserData(uid: uid) { user in // gets driver user data
                     // assign location to user
-                    var driver = user
+                    let driver = user
                     driver.location = location
                     completion(driver)
                 }
