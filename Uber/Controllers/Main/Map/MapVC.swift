@@ -188,10 +188,11 @@ class MapVC: UIViewController {
         view.addSubview(selectLocationView)
         view.addSubview(overlayLocationInputView)
         view.addSubview(overlayLocationTableView)
-//        view.addSubview(rideActionView)
+        view.addSubview(rideActionView)
         overlayLocationInputView.bringSubviewToFront(backButton)
         overlayLocationTableView.bringSubviewToFront(destinationView)
         overlayLocationTableView.bringSubviewToFront(selectLocationView)
+        destinationView.bringSubviewToFront(destinationView)
     }
     
     func setupContraints(){
@@ -212,10 +213,10 @@ class MapVC: UIViewController {
             selectLocationView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15),
             selectLocationView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-//            rideActionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//            rideActionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//            rideActionView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.45),
-//            rideActionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            rideActionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            rideActionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            rideActionView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.4),
+            rideActionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             overlayLocationInputView.topAnchor.constraint(equalTo: view.topAnchor),
             overlayLocationInputView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
