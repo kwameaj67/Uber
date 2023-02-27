@@ -30,6 +30,7 @@ extension MapVC {
     }
     
     func dismissLocationView(completion: ((Bool)-> Void)? = nil){
+        overlayLocationInputView.pickupLocationField.resignFirstResponder()
         overlayLocationInputView.destinationLocationField.resignFirstResponder()
         UIView.animate(withDuration: 0.3, animations: {
             UIView.animate(withDuration: 0.5) {
@@ -113,14 +114,14 @@ extension MapVC: OverlayLocationTableViewDelegate {
             // add annotation of the selected location coordinates
             self.mapView.addAnnotation(self.selectedAnnotation)
             // region of selected location coordinates
-            self.region = .init(center: selectedPlacemark.coordinate, span: .init(latitudeDelta: 0.5, longitudeDelta: 0.5))
-            self.mapView.setRegion(self.region, animated: true)
+//            self.region = .init(center: selectedPlacemark.coordinate, span: .init(latitudeDelta: 0.2, longitudeDelta: 0.2))
+//            self.mapView.setRegion(self.region, animated: true)
             self.mapView.selectAnnotation(self.selectedAnnotation, animated: true)
             
-            // mapview fits annotation between user and destionation lcoations.
-//            let annotations = self.mapView.annotations.filter({
-//                $0.isKind(of: DriverAnnotation.self)
-//            })
+            // mapview fits annotation between user and destionation locations.
+            let annotations = self.mapView.annotations.filter({
+                $0.isKind(of: DriverAnnotation.self)
+            })
             self.mapView.annotations.forEach { annotation in
                 if let anno = annotation as? MKUserLocation {
                     self.annotations.append(anno)
@@ -130,7 +131,8 @@ extension MapVC: OverlayLocationTableViewDelegate {
                     self.annotations.append(anno)
                 }
             }
-            self.mapView.showAnnotations(self.annotations, animated: true)
+//            self.mapView.showAnnotations(self.annotations, animated: true)
+            self.mapView.zoomToFit(annotations: self.annotations)
             self.presentRideActionView()
             
             // pass selectedPlacemark details to rideActionView
