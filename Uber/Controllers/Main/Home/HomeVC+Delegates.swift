@@ -7,7 +7,7 @@
 
 import UIKit
 
-
+// MARK: UITableViewDelegate, UITableViewDataSource - 
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,9 +59,9 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: SearchLocationDelegate-
 extension HomeVC: SearchLocationDelegate {
-    func presentMapVC(showLocationView: Bool){
+    func presentMapVC(showDestinationView: Bool){
         let vc = MapVC()
-        vc.showLocationView = showLocationView
+        vc.showDestinationView = showDestinationView
         vc.modalPresentationStyle = .custom
         vc.modalTransitionStyle = .crossDissolve
         present(vc, animated: true, completion: nil)
@@ -69,7 +69,7 @@ extension HomeVC: SearchLocationDelegate {
     
     func didTapLocationActivationView() {
         print("DEBUG: Handling present map view...")
-        presentMapVC(showLocationView: false)
+        presentMapVC(showDestinationView: true)
     }
 }
 
@@ -77,6 +77,6 @@ extension HomeVC: SearchLocationDelegate {
 // MARK: HomeFooterViewDelegate-
 extension HomeVC: HomeFooterViewDelegate {
     func didTapMapView() {
-        presentMapVC(showLocationView: true)
+        presentMapVC(showDestinationView:false)
     }
 }

@@ -19,7 +19,7 @@ class MapVC: UIViewController {
     var region = MKCoordinateRegion()
     var placeMarkLocations = [MKPlacemark]()
     var span = MKCoordinateSpan(latitudeDelta: 0.0098, longitudeDelta: 0.0098) // map zoom level for user location
-    var showLocationView: Bool = false
+    var showDestinationView: Bool = false
     var route: MKRoute?
     var destination: MKMapItem?
     
@@ -100,18 +100,18 @@ class MapVC: UIViewController {
     }
     
     func hanldeOverlayViews(){
-        if showLocationView{ // shows "Where to?" view
-            destinationView.isHidden = true
-            destinationView.alpha = 0
-            
-            selectLocationView.isHidden = false
-            selectLocationView.alpha = 1
-        }else{
+        if showDestinationView{
             destinationView.isHidden = false
             destinationView.alpha = 1
             
             selectLocationView.isHidden = true
             selectLocationView.alpha = 0
+        }else{
+            destinationView.isHidden = true
+            destinationView.alpha = 0
+            
+            selectLocationView.isHidden = false
+            selectLocationView.alpha = 1
         }
     }
     // MARK: Properties -

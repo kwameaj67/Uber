@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import Inject
 
 class HomeVC: UIViewController {
     
@@ -28,8 +29,7 @@ class HomeVC: UIViewController {
         setupContraints()
         configureLocationService()
         showUserLocationOnMap()
-        fetchUserData()
-       
+//        fetchUserData()
     }
     
     func configureLocationService(){
@@ -51,6 +51,7 @@ class HomeVC: UIViewController {
         let authorizationStatus = locationManager?.authorizationStatus
         if authorizationStatus == .authorizedWhenInUse || authorizationStatus == .authorizedAlways {
             guard let location = locationManager?.location else { return }
+            print("DEBUG: My Location: \(location.coordinate)")
             annotation.coordinate = location.coordinate
             region = .init(center: location.coordinate, latitudinalMeters: 0.5, longitudinalMeters: 0.5)
         }

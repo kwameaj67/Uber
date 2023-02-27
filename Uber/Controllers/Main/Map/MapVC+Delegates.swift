@@ -58,12 +58,12 @@ extension MapVC {
     }
     
     func presentRideActionView(){
-        if showLocationView {
-            selectLocationView.isHidden = true
-            selectLocationView.alpha = 0
-        }else{
+        if showDestinationView {
             destinationView.isHidden = true
             destinationView.alpha = 0
+        }else{
+            selectLocationView.isHidden = true
+            selectLocationView.alpha = 0
         }
         UIView.animate(withDuration: 0.3) {
             self.rideActionView.transform = .identity
@@ -132,6 +132,9 @@ extension MapVC: OverlayLocationTableViewDelegate {
             }
             self.mapView.showAnnotations(self.annotations, animated: true)
             self.presentRideActionView()
+            
+            // pass selectedPlacemark details to rideActionView
+            self.rideActionView.destination = selectedPlacemark
         }
         
         

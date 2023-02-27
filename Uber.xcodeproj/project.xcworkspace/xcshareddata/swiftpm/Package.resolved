@@ -91,6 +91,15 @@
       }
     },
     {
+      "identity" : "inject",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/krzysztofzablocki/Inject",
+      "state" : {
+        "revision" : "abcc4b091fd384cfd09b149a60298b75dc87c5b9",
+        "version" : "1.2.3"
+      }
+    },
+    {
       "identity" : "leakedviewcontrollerdetector",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Janneman84/LeakedViewControllerDetector",

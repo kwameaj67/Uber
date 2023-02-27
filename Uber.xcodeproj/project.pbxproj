@@ -598,6 +598,7 @@
 				98E6D65F2936228E0056F7DA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				98FCCDCB29365444008AAF61 /* XCRemoteSwiftPackageReference "geofire-objc" */,
 				6587B43D29A58507006F7E9C /* XCRemoteSwiftPackageReference "LeakedViewControllerDetector" */,
+				655A48AF29ACCE9E00C71B72 /* XCRemoteSwiftPackageReference "Inject" */,
 			);
 			productRefGroup = 98E901542924E3A0003F8ABF /* Products */;
 			projectDirPath = "";
@@ -844,6 +845,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 445LZL99JS;
 				INFOPLIST_FILE = Uber/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Uber;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -864,6 +867,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 445LZL99JS;
 				INFOPLIST_FILE = Uber/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Uber;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -900,6 +905,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		655A48AF29ACCE9E00C71B72 /* XCRemoteSwiftPackageReference "Inject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzysztofzablocki/Inject";
+			requirement = {
+				kind = exactVersion;
+				version = 1.2.3;
+			};
+		};
 		6587B43D29A58507006F7E9C /* XCRemoteSwiftPackageReference "LeakedViewControllerDetector" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Janneman84/LeakedViewControllerDetector";

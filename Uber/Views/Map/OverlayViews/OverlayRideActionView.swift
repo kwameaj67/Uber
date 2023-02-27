@@ -12,7 +12,7 @@ class OverlayRideActionView: UIView {
 
     var destination: MKPlacemark? {
         didSet{
-            addresLbl.attributedText = setupAttributedText("\(destination?.name)", "\(destination?.address)")
+            addresLbl.attributedText = setupAttributedText(destination?.name ?? "No location", destination?.title ?? "No address")
         }
     }
     override init(frame: CGRect) {
@@ -31,8 +31,6 @@ class OverlayRideActionView: UIView {
         let lbl = UILabel(frame: .zero)
         lbl.textAlignment = .center
         lbl.numberOfLines = 0
-        lbl.textColor = Color.text_grey
-        lbl.font = UIFont(name: Font.medium.rawValue, size: 15)
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
@@ -121,8 +119,8 @@ class OverlayRideActionView: UIView {
         ])
     }
     func setupAttributedText (_ name: String,_ location: String) -> NSAttributedString {
-        let text = NSMutableAttributedString(attributedString: NSAttributedString(string: name, attributes: [.foregroundColor: UIColor.black,.font:UIFont(name: Font.medium.rawValue, size: 15)!]))
-        text.append( NSAttributedString(string: "\n\(location)", attributes: [.foregroundColor: Color.text_grey,.font:UIFont(name: Font.regular.rawValue, size: 15)!]))
+        let text = NSMutableAttributedString(attributedString: NSAttributedString(string: name, attributes: [.foregroundColor: UIColor.black,.font:UIFont(name: Font.medium.rawValue, size: 17)!]))
+        text.append( NSAttributedString(string: "\n\(location)", attributes: [.foregroundColor: Color.text_grey,.font:UIFont(name: Font.regular.rawValue, size: 17)!]))
         return text
     }
 }
