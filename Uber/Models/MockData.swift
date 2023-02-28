@@ -117,3 +117,71 @@ struct AccountActionOption {
         AccountActionOption(name: "Trips", icon: nil,type: .trips)
     ]
 }
+
+
+
+// MARK: Settings data
+enum DescriptionData: String {
+    case home = "Unnamed Road"
+    case work = "Petra Trust Company Limited"
+    case shortcut =  "Managed saved location"
+    case privacy = "Manage the data you share with us"
+    case security = "Control your account security with 2-setup verification"
+    case trusted_contacts = "Share your trip status with Family and friends in a single tap"
+    case verify_trip = "Use a PIN to make sure you get in the right car"
+    case ride_check = "Manage your RideCheck notifications"
+    case setup_family = "Pay for your loved ones and get trip notifications"
+    case signout = "Signout"
+}
+enum OptionType {
+    case home
+    case work
+    case shortcut
+    case privacy
+    case security
+    case trusted_contacts
+    case verify_trip
+    case ride_check
+    case setup_family
+    case signout
+}
+struct SectionOption{
+    var name: String
+    var icon: String?
+    var description: String
+    var type: OptionType
+}
+
+struct Section {
+    var sectionName: String
+    var sectionItems: [SectionOption]
+    
+    static var mainData:[SectionOption] = [
+        SectionOption(name: "Home", icon: nil, description: DescriptionData.home.rawValue, type: .home),
+        SectionOption(name: "Work",  icon: nil, description: DescriptionData.work.rawValue, type: .work),
+        SectionOption(name: "Shortcuts", icon: nil, description: DescriptionData.shortcut.rawValue, type:.shortcut),
+        SectionOption(name: "Privacy", icon: nil, description: DescriptionData.privacy.rawValue, type:.privacy),
+        SectionOption(name: "Security", icon: nil, description: DescriptionData.security.rawValue, type:.security)
+    ]
+
+    static var safetyData:[SectionOption] = [
+        SectionOption(name: "Managed Trusted contacts", icon: nil, description: DescriptionData.trusted_contacts.rawValue,type: .trusted_contacts),
+        SectionOption(name: "Verify your trip",  icon: nil, description: DescriptionData.verify_trip.rawValue, type: .verify_trip),
+        SectionOption(name: "RideCheck", icon: nil, description: DescriptionData.ride_check.rawValue, type:.ride_check),
+    ]
+    
+    static var familyData:[SectionOption] = [
+        SectionOption(name: "Set up your family", icon: nil, description: DescriptionData.setup_family.rawValue,type: .setup_family),
+    ]
+    static var signoutData:[SectionOption] = [
+        SectionOption(name: "Sign out", icon: nil, description:"",type: .signout),
+    ]
+    
+    static var sectionArray = [
+        Section(sectionName: "", sectionItems: mainData),
+        Section(sectionName: "Safety", sectionItems: safetyData),
+        Section(sectionName: "Family", sectionItems: familyData),
+//        Section(sectionName: "Signout", sectionItems: signoutData)
+    ]
+
+}
