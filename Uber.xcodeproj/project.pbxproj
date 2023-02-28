@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		650DA18629A67DE400065514 /* EditAccountInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DA18529A67DE400065514 /* EditAccountInfoCell.swift */; };
 		650DA18929A685CC00065514 /* EditAccountHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DA18829A685CC00065514 /* EditAccountHeaderView.swift */; };
+		655A48B429ADF83000C71B72 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655A48B329ADF83000C71B72 /* SettingsVC.swift */; };
+		655A48B729ADF91E00C71B72 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655A48B629ADF91E00C71B72 /* SettingCell.swift */; };
+		655A48BA29ADF9AE00C71B72 /* SettingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655A48B929ADF9AE00C71B72 /* SettingHeaderView.swift */; };
+		655A48BC29AE03F800C71B72 /* OptionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655A48BB29AE03F700C71B72 /* OptionHeaderView.swift */; };
+		655A48BE29AE10BC00C71B72 /* SettingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655A48BD29AE10BC00C71B72 /* SettingFooterView.swift */; };
 		6587B43F29A58508006F7E9C /* LeakedViewControllerDetector in Frameworks */ = {isa = PBXBuildFile; productRef = 6587B43E29A58508006F7E9C /* LeakedViewControllerDetector */; };
 		6591E2E62989AF7F00B0EC15 /* TripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6591E2E52989AF7F00B0EC15 /* TripCell.swift */; };
 		6591E2E8298AEE5000B0EC15 /* OverlayRideActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6591E2E7298AEE5000B0EC15 /* OverlayRideActionView.swift */; };
@@ -98,6 +103,11 @@
 /* Begin PBXFileReference section */
 		650DA18529A67DE400065514 /* EditAccountInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountInfoCell.swift; sourceTree = "<group>"; };
 		650DA18829A685CC00065514 /* EditAccountHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountHeaderView.swift; sourceTree = "<group>"; };
+		655A48B329ADF83000C71B72 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		655A48B629ADF91E00C71B72 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		655A48B929ADF9AE00C71B72 /* SettingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeaderView.swift; sourceTree = "<group>"; };
+		655A48BB29AE03F700C71B72 /* OptionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionHeaderView.swift; sourceTree = "<group>"; };
+		655A48BD29AE10BC00C71B72 /* SettingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingFooterView.swift; sourceTree = "<group>"; };
 		6591E2E52989AF7F00B0EC15 /* TripCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCell.swift; sourceTree = "<group>"; };
 		6591E2E7298AEE5000B0EC15 /* OverlayRideActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayRideActionView.swift; sourceTree = "<group>"; };
 		65CF5C8A2983E9F400F52CFA /* EditAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountVC.swift; sourceTree = "<group>"; };
@@ -213,6 +223,32 @@
 			path = EditAccount;
 			sourceTree = "<group>";
 		};
+		655A48B229ADF80A00C71B72 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				655A48B329ADF83000C71B72 /* SettingsVC.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		655A48B529ADF90500C71B72 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				655A48B629ADF91E00C71B72 /* SettingCell.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		655A48B829ADF98B00C71B72 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				655A48BD29AE10BC00C71B72 /* SettingFooterView.swift */,
+				655A48B929ADF9AE00C71B72 /* SettingHeaderView.swift */,
+				655A48BB29AE03F700C71B72 /* OptionHeaderView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		6591E2E42989AF5E00B0EC15 /* Trips */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,8 +332,6 @@
 		98450BB4292930870065C260 /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				65D50E4729885C5100E67513 /* Trips */,
-				65CF5C892983E9CD00F52CFA /* EditAccount */,
 				98450BB0292930660065C260 /* AccountVC.swift */,
 				984F85082958D503003D53C3 /* AccountVC+Delegates.swift */,
 			);
@@ -418,6 +452,9 @@
 		98C97A1529253D320078608A /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				655A48B229ADF80A00C71B72 /* Settings */,
+				65CF5C892983E9CD00F52CFA /* EditAccount */,
+				65D50E4729885C5100E67513 /* Trips */,
 				986A87CF2968FB6A00A460AA /* Map */,
 				98450BB22929306A0065C260 /* Home */,
 				98450BB4292930870065C260 /* Account */,
@@ -489,6 +526,7 @@
 		98E9016C2924E3CE003F8ABF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				655A48B829ADF98B00C71B72 /* Settings */,
 				650DA18729A685A300065514 /* EditAccount */,
 				986A87D42969005E00A460AA /* Map */,
 				98450BB7292933040065C260 /* Account */,
@@ -505,6 +543,7 @@
 		98E9016D2924E3D4003F8ABF /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				655A48B529ADF90500C71B72 /* Settings */,
 				650DA18429A67DAB00065514 /* EditAccount */,
 				6591E2E42989AF5E00B0EC15 /* Trips */,
 				9850704229731CE900794DB9 /* Map */,
@@ -635,6 +674,7 @@
 			files = (
 				98395D1C294F9F260071D5DF /* HomeHeaderView.swift in Sources */,
 				988F5221297A12D600768128 /* OverlaySelectLocationView.swift in Sources */,
+				655A48B729ADF91E00C71B72 /* SettingCell.swift in Sources */,
 				987236ED2955CD4A003364B8 /* UberMapView.swift in Sources */,
 				98450BB1292930660065C260 /* AccountVC.swift in Sources */,
 				98395D1A294F25530071D5DF /* RecentLocationCell.swift in Sources */,
@@ -655,6 +695,7 @@
 				98E9015B2924E3A0003F8ABF /* OnboardVC.swift in Sources */,
 				98C97A1729253D640078608A /* UIView+Ext.swift in Sources */,
 				98395D242950F4120071D5DF /* ReserveRideView.swift in Sources */,
+				655A48BE29AE10BC00C71B72 /* SettingFooterView.swift in Sources */,
 				65CF5C8D2983EDAA00F52CFA /* Notification.swift in Sources */,
 				984F146F296CDF020074E9AF /* DriverAnnotation.swift in Sources */,
 				98395D262950FC360071D5DF /* HomeFooterView.swift in Sources */,
@@ -676,6 +717,7 @@
 				986A87C129645E9300A460AA /* LocationInputCell.swift in Sources */,
 				98C97A1E29255ECB0078608A /* UberImageButton.swift in Sources */,
 				9842F0332932BA7B00AD73D8 /* CodeVerificationVC.swift in Sources */,
+				655A48BA29ADF9AE00C71B72 /* SettingHeaderView.swift in Sources */,
 				65CF5C8B2983E9F500F52CFA /* EditAccountVC.swift in Sources */,
 				9896EFD6292B7A3C00A7248D /* UILabel+Ext.swift in Sources */,
 				986A87BE296457CE00A460AA /* OverlayLocationTableView.swift in Sources */,
@@ -699,9 +741,11 @@
 				98E1453E2926EBA200B965F2 /* UberTextField.swift in Sources */,
 				98395D222950F21F0071D5DF /* SearchLocationView.swift in Sources */,
 				984F850F2958E823003D53C3 /* AccountActionHeader.swift in Sources */,
+				655A48BC29AE03F800C71B72 /* OptionHeaderView.swift in Sources */,
 				9842F0312932BA6A00AD73D8 /* PhoneVerificationVC.swift in Sources */,
 				98395D15294F15E90071D5DF /* LoadingVC.swift in Sources */,
 				984F146D296CDEE70074E9AF /* User.swift in Sources */,
+				655A48B429ADF83000C71B72 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
