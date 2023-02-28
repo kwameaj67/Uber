@@ -18,7 +18,6 @@ class EditAccountVC: UIViewController {
 
   
     // MARK: Properties
-   
     lazy var cancelButton: UIButton = {
         let cb = UIButton()
         let image = UIImage(named: "uber-exit")?.withRenderingMode(.alwaysOriginal).withConfiguration(UIImage.SymbolConfiguration(weight: .heavy))
@@ -82,8 +81,8 @@ class EditAccountVC: UIViewController {
             
             cancelButton.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
             cancelButton.leadingAnchor.constraint(equalTo: headerView.leadingAnchor,constant: 20),
-            cancelButton.heightAnchor.constraint(equalToConstant: 16),
-            cancelButton.widthAnchor.constraint(equalToConstant: 16),
+            cancelButton.heightAnchor.constraint(equalToConstant: 18),
+            cancelButton.widthAnchor.constraint(equalToConstant: 18),
             
             smallTitleLbl.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
             smallTitleLbl.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
@@ -97,7 +96,7 @@ class EditAccountVC: UIViewController {
     }
 }
 
-
+// MARK: UITableViewDelegate, UITableViewDataSource -
 extension EditAccountVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5

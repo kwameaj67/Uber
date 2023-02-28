@@ -75,8 +75,8 @@ class RecentLocationCell: UITableViewCell {
         NSLayoutConstraint.activate([
             iconImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             iconImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
-            iconImage.heightAnchor.constraint(equalToConstant: 26),
-            iconImage.widthAnchor.constraint(equalToConstant: 26),
+            iconImage.heightAnchor.constraint(equalToConstant: 22),
+            iconImage.widthAnchor.constraint(equalToConstant: 22),
             
             stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
             stackView.leadingAnchor.constraint(equalTo: iconImage.trailingAnchor, constant: 20),
@@ -96,7 +96,7 @@ class RecentLocationCell: UITableViewCell {
         locationLbl.text = item.location
         switch item.icon{
             case .work:
-                iconImage.image = UIImage(systemName: "star.fill")?.withRenderingMode(.alwaysTemplate)
+                iconImage.image = UIImage(named: "uber-message")?.withRenderingMode(.alwaysTemplate)
             case .random:
                 iconImage.image =  UIImage(systemName: "clock.fill")?.withRenderingMode(.alwaysTemplate)
         }

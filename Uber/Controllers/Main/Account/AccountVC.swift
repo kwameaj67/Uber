@@ -62,6 +62,7 @@ class AccountVC: UIViewController {
             }
         }
     }
+    
     @objc func didTapProfileImage(){
         print("DEBUG: Did tap profile image")
         let vc = EditAccountVC()
