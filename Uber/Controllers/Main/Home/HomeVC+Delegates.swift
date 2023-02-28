@@ -33,6 +33,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: RecentLocationCell.reusableID, for: indexPath) as!  RecentLocationCell
         cell.data = places[indexPath.row]
+        cell.selectionStyle = .none
         cell.layoutMargins = UIEdgeInsets.zero
         cell.separatorInset = UIEdgeInsets.zero
         
@@ -40,10 +41,6 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             cell.border.isHidden = true
             cell.border.alpha = 0
         }
-        let bgView = UIView(frame: cell.bounds)
-        bgView.backgroundColor = Color.textField_bg
-        cell.selectedBackgroundView = bgView
-        
         
         return cell
     }
@@ -54,6 +51,16 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 300.0
+    }
+    
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! RecentLocationCell
+        cell.backgroundColor = Color.grey_bg2
+    }
+    
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! RecentLocationCell
+        cell.backgroundColor = .white
     }
 }
 

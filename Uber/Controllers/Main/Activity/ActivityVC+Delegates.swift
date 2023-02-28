@@ -23,13 +23,9 @@ extension ActivityVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PastTripCell.reusableID, for: indexPath) as!  PastTripCell
         cell.data = trips[indexPath.row]
+        cell.selectionStyle = .none
         cell.layoutMargins = UIEdgeInsets.zero
         cell.separatorInset = UIEdgeInsets.zero
-        
-        let bgView = UIView(frame: cell.bounds)
-        bgView.backgroundColor = Color.grey_bg2
-        cell.selectedBackgroundView = bgView
-        
         return cell
     }
     
@@ -41,4 +37,13 @@ extension ActivityVC: UITableViewDelegate, UITableViewDataSource {
         return CGFloat(415.0)
     }
     
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! PastTripCell
+        cell.backgroundColor = Color.grey_bg2
+    }
+    
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! PastTripCell
+        cell.backgroundColor = .white
+    }
 }
