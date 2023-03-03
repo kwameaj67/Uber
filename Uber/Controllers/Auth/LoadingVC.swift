@@ -26,7 +26,7 @@ class LoadingVC: UIViewController {
             loadingIndicator.stopAnimating()
             smoothControllerTransition(for: TabBarVC())
         }else {
-            let onboardingVC = UINavigationController(rootViewController: WelcomeVC())
+            let onboardingVC = UINavigationController(rootViewController: OnboardVC())
             smoothControllerTransition(for: onboardingVC)
         }
     }
