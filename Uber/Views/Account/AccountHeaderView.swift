@@ -7,19 +7,20 @@
 
 import UIKit
 
+protocol DidTapProfileImageDelegate: AnyObject {
+    func didTapProfileImage()
+}
+
 class AccountHeaderView: UIView {
-    
-    var controller: AccountVC? {
-        didSet{
-            profileImage.addGestureRecognizer(UITapGestureRecognizer(target: controller, action: #selector(AccountVC.didTapProfileImage)))
-        }
-    }
+
     static let reuseableID = "AccountHeaderView"
+    weak var delegate: DidTapProfileImageDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
         setupContraints()
+        profileImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hanldeDidTap)))
     }
     
     required init?(coder: NSCoder) {
@@ -27,14 +28,14 @@ class AccountHeaderView: UIView {
     }
     
     // MARK: Properties -
-    let profileLbl: UILabel = {
+    lazy var profileLbl: UILabel = {
         let lb = UILabel()
         lb.font = UIFont(name: Font.medium2.rawValue, size: 36.0)
         lb.textColor = Color.black
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
-    let ratingView: UIView = {
+    lazy var ratingView: UIView = {
         let sv = UIView()
         sv.backgroundColor = Color.grey_bg2
         sv.layer.cornerRadius = 25/2
@@ -62,7 +63,7 @@ class AccountHeaderView: UIView {
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
-    let ratingLbl: UILabel = {
+    lazy var ratingLbl: UILabel = {
         let lb = UILabel()
         lb.text = "4.93"
         lb.font = UIFont(name: Font.medium.rawValue, size: 14.0)
@@ -70,6 +71,10 @@ class AccountHeaderView: UIView {
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
+    
+    @objc func hanldeDidTap(){
+        delegate?.didTapProfileImage()
+    }
  
     func setupViews(){
         addSubview(profileLbl)
@@ -81,10 +86,10 @@ class AccountHeaderView: UIView {
     
     func setupContraints(){
         NSLayoutConstraint.activate([
-            profileLbl.topAnchor.constraint(equalTo: topAnchor),
+            profileLbl.centerYAnchor.constraint(equalTo: profileImage.centerYAnchor),
             profileLbl.leadingAnchor.constraint(equalTo: leadingAnchor),
             
-            profileImage.centerYAnchor.constraint(equalTo: profileLbl.centerYAnchor),
+            profileImage.topAnchor.constraint(equalTo: topAnchor,constant: 5),
             profileImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             profileImage.heightAnchor.constraint(equalToConstant: 60),
             profileImage.widthAnchor.constraint(equalToConstant: 60),

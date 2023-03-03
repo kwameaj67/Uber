@@ -54,7 +54,6 @@ class SettingHeaderView: UITableViewHeaderFooterView {
     
     lazy var nameLbl: UILabel = {
         let lb = UILabel()
-        lb.text = "Kwame Boateng"
         lb.textColor = Color.black
         lb.font = UIFont(name: Font.medium.rawValue, size: 16)
         lb.translatesAutoresizingMaskIntoConstraints = false

@@ -52,9 +52,9 @@ class ActivityHeaderView: UITableViewHeaderFooterView {
     }()
     lazy var locationLabel: UILabel = {
         let lb = UILabel()
-        lb.numberOfLines = 0
+        lb.numberOfLines = 1
         lb.textColor = Color.black
-        lb.font = UIFont(name: Font.medium.rawValue, size: 25)
+        lb.font = UIFont(name: Font.bold2.rawValue, size: 25)
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()

@@ -48,12 +48,13 @@ class AccountActionHeader: UITableViewHeaderFooterView {
         return cv
     }()
     
-    let border: UIView = {
+    lazy var border: UIView = {
         let v = UIView()
         v.backgroundColor = Color.grey_bg2
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
+    
     func setupViews(){
         addSubview(imageCollectionView)
         addSubview(border)
@@ -93,12 +94,12 @@ extension AccountActionHeader: UICollectionViewDataSource, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        let cell = imageCollectionView.cellForItem(at: IndexPath(row: indexPath.row, section: 0)) as! AccountActionCollectionCell
+        let cell = collectionView.cellForItem(at: indexPath) as! AccountActionCollectionCell
         cell.backgroundColor = .systemGray4
     }
     
     func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-        let cell = imageCollectionView.cellForItem(at: IndexPath(row: indexPath.row, section: 0)) as! AccountActionCollectionCell
+        let cell = collectionView.cellForItem(at: indexPath) as! AccountActionCollectionCell
         cell.backgroundColor = Color.grey_bg2
     }
 }

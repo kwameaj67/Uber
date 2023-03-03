@@ -36,7 +36,6 @@
 		98395D2C2950FFCB0071D5DF /* UberMoveTextLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 98395D292950FF5E0071D5DF /* UberMoveTextLight.otf */; };
 		98395D2D2950FFCB0071D5DF /* UberMoveTextMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 98395D2A2950FF5F0071D5DF /* UberMoveTextMedium.otf */; };
 		98395D2E2950FFCB0071D5DF /* UberMoveTextRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 98395D272950FF5E0071D5DF /* UberMoveTextRegular.otf */; };
-		9842F0312932BA6A00AD73D8 /* PhoneVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9842F0302932BA6A00AD73D8 /* PhoneVerificationVC.swift */; };
 		9842F0332932BA7B00AD73D8 /* CodeVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9842F0322932BA7B00AD73D8 /* CodeVerificationVC.swift */; };
 		9842F0362932C78000AD73D8 /* CHIOTPField in Frameworks */ = {isa = PBXBuildFile; productRef = 9842F0352932C78000AD73D8 /* CHIOTPField */; };
 		98450BA82928230C0065C260 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98450BA72928230C0065C260 /* TabBarVC.swift */; };
@@ -129,7 +128,6 @@
 		98395D282950FF5E0071D5DF /* UberMoveTextBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UberMoveTextBold.otf; sourceTree = "<group>"; };
 		98395D292950FF5E0071D5DF /* UberMoveTextLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UberMoveTextLight.otf; sourceTree = "<group>"; };
 		98395D2A2950FF5F0071D5DF /* UberMoveTextMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UberMoveTextMedium.otf; sourceTree = "<group>"; };
-		9842F0302932BA6A00AD73D8 /* PhoneVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerificationVC.swift; sourceTree = "<group>"; };
 		9842F0322932BA7B00AD73D8 /* CodeVerificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerificationVC.swift; sourceTree = "<group>"; };
 		98450BA72928230C0065C260 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		98450BA92928FA4E0065C260 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
@@ -442,7 +440,6 @@
 				98E145412926FB2D00B965F2 /* RegisterVC.swift */,
 				98450BB8292935B70065C260 /* SafetyVC.swift */,
 				98450BBA292936510065C260 /* WelcomeVC.swift */,
-				9842F0302932BA6A00AD73D8 /* PhoneVerificationVC.swift */,
 				9842F0322932BA7B00AD73D8 /* CodeVerificationVC.swift */,
 				98395D14294F15E90071D5DF /* LoadingVC.swift */,
 			);
@@ -742,7 +739,6 @@
 				98395D222950F21F0071D5DF /* SearchLocationView.swift in Sources */,
 				984F850F2958E823003D53C3 /* AccountActionHeader.swift in Sources */,
 				655A48BC29AE03F800C71B72 /* OptionHeaderView.swift in Sources */,
-				9842F0312932BA6A00AD73D8 /* PhoneVerificationVC.swift in Sources */,
 				98395D15294F15E90071D5DF /* LoadingVC.swift in Sources */,
 				984F146D296CDEE70074E9AF /* User.swift in Sources */,
 				655A48B429ADF83000C71B72 /* SettingsVC.swift in Sources */,

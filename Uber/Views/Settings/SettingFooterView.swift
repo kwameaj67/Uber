@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol DidTapSignOutDelegate: AnyObject{
+    func didTapSignOut()
+}
 class SettingFooterView: UITableViewHeaderFooterView {
 
+    weak var delegate: DidTapSignOutDelegate?
+    
     static let reuseableID = "SettingFooterView"
+    
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: SettingFooterView.reuseableID)
         addSubview(border)
@@ -23,6 +29,8 @@ class SettingFooterView: UITableViewHeaderFooterView {
         
         titleLbl.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         titleLbl.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 20).isActive = true
+        
+        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hanldeSignOut)))
 
     }
     
@@ -31,7 +39,7 @@ class SettingFooterView: UITableViewHeaderFooterView {
     }
     
     // MARK: Properties -
-    let border: UIView = {
+    lazy var border: UIView = {
         let v = UIView(frame: .zero)
         v.backgroundColor = Color.grey_bg2
         v.translatesAutoresizingMaskIntoConstraints = false
@@ -47,6 +55,8 @@ class SettingFooterView: UITableViewHeaderFooterView {
         return lb
     }()
    
-
+    @objc func hanldeSignOut(){
+        delegate?.didTapSignOut()
+    }
     
 }

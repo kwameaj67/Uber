@@ -125,7 +125,10 @@ class RegisterVC: UIViewController {
             }
             if let _ = uid {
                 print("User Did Save")
-                self.smoothControllerTransition(for: TabBarVC())
+                let vc = WelcomeVC()
+                vc.modalPresentationStyle = .custom
+                vc.modalTransitionStyle = .crossDissolve
+                self.present(vc, animated: true, completion: nil)
             }
            
         }
@@ -166,13 +169,6 @@ class RegisterVC: UIViewController {
             item?.inputAccessoryView = createToolBar()
         }
     }
-    func didShowTabBar(){
-        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,
-           let window = sceneDelegate.window {
-            window.rootViewController = TabBarVC()
-            UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: nil, completion: nil)
-        }
-    }
    
     func setupViews(){
         view.addSubview(scrollView)
@@ -197,8 +193,8 @@ class RegisterVC: UIViewController {
             userSegmentedContol.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -30),
             
             stackView.topAnchor.constraint(equalTo: userSegmentedContol.bottomAnchor, constant: 20),
-            stackView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 30),
-            stackView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -30),
+            stackView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20),
           
             fullNameTextField.heightAnchor.constraint(equalToConstant: 58),
             emailTextField.heightAnchor.constraint(equalToConstant: 58),

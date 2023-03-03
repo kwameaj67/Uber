@@ -21,14 +21,19 @@ class AccountVC: UIViewController {
         navigationController?.navigationBar.isHidden = true
         fetchUserName()
     }
+    deinit {
+        print("deinit \(self)")
+    }
     func fetchUserName(){
         let name = userDefaultManager.getUserFullName()
         accountHeaderView.profileLbl.text = name
     }
+    
     // MARK: Properties -
     lazy var accountHeaderView: AccountHeaderView = {
         let view = AccountHeaderView()
-        view.controller = self
+//        view.controller = self
+        view.delegate = self
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -48,27 +53,7 @@ class AccountVC: UIViewController {
         tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
     }()
-    
-    func logOutUser(){
-        delay(duration: 1.0) {
-            self.authManager.logOutUser { results in
-                switch results{
-                case .success():
-                    let onboardingVC = UINavigationController(rootViewController: OnboardVC())
-                    self.smoothControllerTransition(for: onboardingVC)
-                case .failure(let error):
-                    print("DEBUG: \(error.localizedDescription)")
-                }
-            }
-        }
-    }
-    
-    @objc func didTapProfileImage(){
-        print("DEBUG: Did tap profile image")
-        let vc = EditAccountVC()
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
-    }
+        
     func setupViews(){
         view.addSubview(accountHeaderView)
         view.addSubview(accountTableView)

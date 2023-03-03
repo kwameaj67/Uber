@@ -84,6 +84,7 @@ class LoginVC: UIViewController {
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
+    
     @objc func didTapLoginButton(){
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         
@@ -99,14 +100,17 @@ class LoginVC: UIViewController {
             }
         }
     }
+    
     @objc func didTapSignup(){
         navigationController?.popViewController(animated: true)
     }
+    
     @objc func hideKeyboard(gesture : UITapGestureRecognizer){
         view.endEditing(true)
         emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
     }
+    
     func setupViews(){
         view.addSubview(scrollView)
         scrollView.addSubview(container)
@@ -116,6 +120,7 @@ class LoginVC: UIViewController {
         stackView.addArrangedSubview(passwordTextField)
         container.addSubview(signupButton)
     }
+    
     func setupContraints(){
         scrollView.pinToSafeArea(to: view)
         container.pinToEdges(to: scrollView)
@@ -126,8 +131,8 @@ class LoginVC: UIViewController {
             container.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
             
             stackView.topAnchor.constraint(equalTo: container.topAnchor, constant: 40),
-            stackView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 30),
-            stackView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -30),
+            stackView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20),
           
             emailTextField.heightAnchor.constraint(equalToConstant: 58),
             passwordTextField.heightAnchor.constraint(equalToConstant: 58),

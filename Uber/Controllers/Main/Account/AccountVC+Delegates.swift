@@ -65,3 +65,11 @@ extension AccountVC: AccountActionHeaderDelegate {
         self.present(vc, animated: true)
     }
 }
+
+extension AccountVC: DidTapProfileImageDelegate {
+    func didTapProfileImage(){
+        let vc = EditAccountVC()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+}

@@ -9,15 +9,21 @@ import UIKit
 
 class SettingsVC: UIViewController {
 
+    private let authManager = FirebaseAuthManager.shared
+    private let userDefaultManager = UserDefaultsManager.shared
     var sections = Section.sectionArray
+    var username: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupContraints()
         view.backgroundColor = .white
+        username = userDefaultManager.getUserFullName()
     }
-    
+    deinit {
+        print("deinit \(self)")
+    }
     // MARK: Properties
     lazy var cancelButton: UIButton = {
         let cb = UIButton()
@@ -68,6 +74,7 @@ class SettingsVC: UIViewController {
     // MARK: Selectors -
     @objc func didTapCancel(){
         dismiss(animated: true)
+        self.removeFromParent()
     }
     
     func setupViews(){
@@ -114,6 +121,7 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
         if section == 0 {
             let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: SettingHeaderView.reuseableID) as! SettingHeaderView
             view.contentView.backgroundColor = .white
+            view.nameLbl.text = username
             return view
         }
         else if (section == 1 || section == 2) {
@@ -153,6 +161,7 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
         else if section == 2 {
             let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: SettingFooterView.reuseableID) as! SettingFooterView
             view.contentView.backgroundColor = .white
+            view.delegate = self
             return view
         }
        return nil
@@ -185,6 +194,23 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
         } else {
             UIView.animate(withDuration: 0.2) {
                 self.smallTitleLbl.alpha = 0
+            }
+        }
+    }
+}
+
+
+extension SettingsVC: DidTapSignOutDelegate{
+    func didTapSignOut() {
+        dismiss(animated: true)
+        self.authManager.logOutUser { [weak self] results in
+            switch results{
+            case .success():
+                let onboardingVC = UINavigationController(rootViewController: OnboardVC())
+                self?.smoothControllerTransition(for: onboardingVC)
+            case .failure(_):
+                break
+                //print("DEBUG: \(error.localizedDescription)")
             }
         }
     }

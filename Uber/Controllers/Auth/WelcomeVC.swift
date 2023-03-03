@@ -16,30 +16,34 @@ class WelcomeVC: UIViewController {
         setupContraints()
         navigationController?.navigationBar.isHidden = true
         animateImage()
+        
+//        delay(duration: 4.0) {
+//            let tabBar = TabBarVC()
+//            self.smoothControllerTransition(for: tabBar)
+//        }
     }
     
     // MARK: Properties -
     
-    let textLabel: UILabel = {
+    lazy var textLabel: UILabel = {
         let lb = UILabel()
         lb.textAlignment = .center
         lb.numberOfLines = 0
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
-    let locationImage : UIImageView = {
+    lazy var iconImage : UIImageView = {
         var iv = UIImageView()
-        iv.image = UIImage(named: "gps")?.withRenderingMode(.alwaysTemplate)
-        iv.tintColor = .black.withAlphaComponent(0.8)
+        iv.image = UIImage(named: "gps")?.withRenderingMode(.alwaysOriginal)
         iv.backgroundColor = .clear
         iv.contentMode = .scaleAspectFill
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
-    
+
     func setupViews(){
         view.addSubview(textLabel)
-        view.addSubview(locationImage)
+        view.addSubview(iconImage)
         
         textLabel.attributedText = setupAttributedText("Welcome to \nUber", "Customising your experience...")
     }
@@ -51,32 +55,31 @@ class WelcomeVC: UIViewController {
             textLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             textLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             
-//            locationImage.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 90),
-            locationImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            locationImage.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            locationImage.heightAnchor.constraint(equalToConstant: 140),
-            locationImage.widthAnchor.constraint(equalToConstant: 140),
+            iconImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            iconImage.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            iconImage.heightAnchor.constraint(equalToConstant: 60),
+            iconImage.widthAnchor.constraint(equalToConstant: 60),
             
         ])
     }
     
     func animateImage(){
         UIView.animate(withDuration: 0.2) {
-            self.locationImage.transform = CGAffineTransform(rotationAngle: .pi)
+            self.iconImage.transform = CGAffineTransform(rotationAngle: .pi)
         } completion: { _ in
             UIView.animate(
                 withDuration: 1.2,
                 delay: 0,
                 options: [.repeat, .curveLinear]
             ) {
-                self.locationImage.transform = CGAffineTransform(rotationAngle: 2 * .pi)
+                self.iconImage.transform = CGAffineTransform(rotationAngle: 2 * .pi)
             }
         }
     }
     
     func setupAttributedText(_ title: String, _ subTitle: String) -> NSAttributedString {
         let text = NSMutableAttributedString(attributedString: NSAttributedString(string: title, attributes: [.foregroundColor: UIColor.black,.font: UIFont(name: Font.medium2.rawValue, size: 40)!]))
-        text.append(NSAttributedString(string: "\n\n\(subTitle)", attributes: [.foregroundColor: UIColor.black,.font: UIFont(name: Font.regular.rawValue, size: 20)!]))
+        text.append(NSAttributedString(string: "\n\n\n\(subTitle)", attributes: [.foregroundColor: UIColor.black,.font: UIFont(name: Font.regular.rawValue, size: 20)!]))
         return text
     }
    
