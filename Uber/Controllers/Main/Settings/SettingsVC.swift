@@ -138,7 +138,7 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
             return CGFloat(165)
         }
         else if (section == 1 || section == 2 || section == 3) {
-            return CGFloat(65)
+            return CGFloat(45)
         }
         return CGFloat()
     }
@@ -170,7 +170,10 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
         if section == 0 || section == 1{
             return CGFloat()
         }
-        return CGFloat(75)
+        if section == 1 || section == 2{
+            return CGFloat(70)
+        }
+        return CGFloat()
     }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {

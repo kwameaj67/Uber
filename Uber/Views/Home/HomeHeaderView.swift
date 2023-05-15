@@ -82,6 +82,7 @@ extension HomeHeaderView: UICollectionViewDataSource, UICollectionViewDelegate, 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return options.count
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UberOptionCollectionCell.reusableID, for: indexPath) as! UberOptionCollectionCell
         cell.data = options[indexPath.row]
@@ -92,7 +93,9 @@ extension HomeHeaderView: UICollectionViewDataSource, UICollectionViewDelegate, 
         cell.selectedBackgroundView = bgView
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (collectionView.frame.size.width-30)/3, height: 105)
     }
+    
 }

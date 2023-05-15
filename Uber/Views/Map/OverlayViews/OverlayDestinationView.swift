@@ -71,7 +71,7 @@ class OverlayDestinationView: UIView {
         var btn = UIButton()
         btn.setTitle("Confirm destination", for: .normal)
         btn.setTitleColor(.white, for: .normal)
-        btn.titleLabel?.font = UIFont(name: Font.medium.rawValue, size: 20)
+        btn.titleLabel?.font = UIFont(name: Font.medium.rawValue, size: 18)
         btn.backgroundColor = .black
         btn.addTarget(self, action: #selector(handleConfirmTapped), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false
@@ -101,13 +101,12 @@ class OverlayDestinationView: UIView {
             searchBtn.topAnchor.constraint(equalTo: border.bottomAnchor, constant: 15),
             searchBtn.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -20),
             searchBtn.heightAnchor.constraint(equalToConstant: 35),
-            searchBtn.widthAnchor.constraint(equalToConstant: 80),
+            searchBtn.widthAnchor.constraint(equalToConstant: 72),
             
-            confirmBtn.topAnchor.constraint(equalTo: searchBtn.bottomAnchor, constant: 15),
+            confirmBtn.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -25),
             confirmBtn.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 20),
             confirmBtn.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -20),
-            confirmBtn.heightAnchor.constraint(equalToConstant: 60),
-            
+            confirmBtn.heightAnchor.constraint(equalToConstant: 52),
         ])
     }
     

@@ -40,18 +40,19 @@ class CodeVerificationVC: UIViewController, UITextFieldDelegate {
         return lb
     }()
     let codeField: UITextField = {
-        let cf = CHIOTPFieldTwo(frame: .init(x: 0, y: 0, width: 250, height: 55))
+        let cf = CHIOTPFieldFour(frame: .init(x: 0, y: 0, width: 250, height: 55))
         cf.numberOfDigits = 4
         cf.spacing = 10
         cf.cornerRadius = 8
         cf.boxBackgroundColor = Color.grey_bg
-        cf.activeBoxBackgroundColor = Color.grey_bg
-        cf.filledBoxBackgroundColor = Color.grey_bg
+//        cf.activeBoxBackgroundColor = Color.grey_bg2
+//        cf.filledBoxBackgroundColor = Color.grey_bg
         cf.borderColor = .clear
-        cf.activeBorderColor = .black
-        cf.filledBorderColor = .clear
-        cf.boxPlaceholder = nil
-        cf.boxPlaceholderColor = nil
+//        cf.activeBorderColor = .black
+//        cf.filledBorderColor = .clear
+//        cf.boxPlaceholder = nil
+//        cf.boxPlaceholderColor = nil
+        cf.text = ""
         cf.translatesAutoresizingMaskIntoConstraints = false
         return cf
     }()
@@ -80,7 +81,7 @@ class CodeVerificationVC: UIViewController, UITextFieldDelegate {
     }()
     let nextButton: UIButton = {
         var btn = UIButton()
-        let image = UIImage(named: "uber-forward")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 22)).withRenderingMode(.alwaysTemplate)
+        let image = UIImage(named: "uber-forward")?.withConfiguration(UIImage.SymbolConfiguration(pointSize:    18)).withRenderingMode(.alwaysTemplate)
         btn.setImage(image, for: .normal)
         btn.setTitle("Next", for: .normal)
         btn.setTitleColor(.black, for: .normal)
@@ -127,7 +128,7 @@ class CodeVerificationVC: UIViewController, UITextFieldDelegate {
             noCodeButton.topAnchor.constraint(equalTo: codeField.bottomAnchor, constant: 30),
             noCodeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             noCodeButton.heightAnchor.constraint(equalToConstant: 45),
-            noCodeButton.widthAnchor.constraint(equalToConstant: 200),
+            noCodeButton.widthAnchor.constraint(equalToConstant: 220),
             
             backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 20),
             backButton.heightAnchor.constraint(equalToConstant: 60),
@@ -155,10 +156,10 @@ extension CodeVerificationVC {
     }
     
     @objc private func keyboardWillShow(notification: Notification){
-        if let _ = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+        if let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             if isShowingKeyboard{
-                self.backButtonbottomConstraint.constant = -280
-                self.nextButtonbottomConstraint.constant = -280
+                self.backButtonbottomConstraint.constant = -keyboardRect.height + 10
+                self.nextButtonbottomConstraint.constant = -keyboardRect.height + 10
             }
             UIView.animate(withDuration: 0.8) {
                 self.view.layoutIfNeeded()

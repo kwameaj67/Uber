@@ -72,6 +72,7 @@ extension OverlayLocationTableView: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return section == 0 ? "Saved Places" : " "
     }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0{
             return CGFloat(0)
@@ -81,6 +82,7 @@ extension OverlayLocationTableView: UITableViewDelegate, UITableViewDataSource{
         }
         return CGFloat(0)
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return section == 0 ? 1 : placeMarkData.count
     }
@@ -103,6 +105,7 @@ extension OverlayLocationTableView: UITableViewDelegate, UITableViewDataSource{
         }
          return UITableViewCell()
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
             let selectedPlacemark = placeMarkData[indexPath.row]

@@ -25,7 +25,7 @@ class TabBarVC: UITabBarController {
         // tabs
         setupTabItem("home-bold", "home-outline", 0, "Home")
         setupTabItem("activity-bold", "activity-outline", 1, "Activity")
-        setupTabItem("account-bold", "account-outline", 2, "Account")
+        setupTabItem("user-bold", "user-outline", 2, "Account")
         
         tabBar.standardAppearance.shadowColor = nil
     }
@@ -94,6 +94,8 @@ class TabBarVC: UITabBarController {
             return
         }
         performSpringAnimation(for: subview)
+        let haptic = UIImpactFeedbackGenerator(style: .medium)
+        haptic.impactOccurred()
     }
     func performSpringAnimation(for view: UIView) {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {

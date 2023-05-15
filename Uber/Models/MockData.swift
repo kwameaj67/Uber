@@ -83,6 +83,7 @@ class UserLocation {
 enum ActionOptionIconType{
     case messages
     case settings
+    case business
     case earning
     case legal
     case refer
@@ -93,8 +94,9 @@ struct AccountOption{
     
     
     static let data: [AccountOption] = [
-        AccountOption(iconType: .messages, name: "Messages"),
         AccountOption(iconType: .settings, name: "Settings"),
+        AccountOption(iconType: .messages, name: "Messages"),
+        AccountOption(iconType: .business, name: "Business hub"),
         AccountOption(iconType: .refer, name: "Refer friends, unlock deals"),
         AccountOption(iconType: .earning, name: "Earn by driving or delivering"),
         AccountOption(iconType: .legal, name: "Legal"),

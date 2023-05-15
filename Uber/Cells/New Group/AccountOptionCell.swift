@@ -71,6 +71,8 @@ class AccountOptionCell: UITableViewCell {
                 iconImage.image = UIImage(systemName: "info.circle.fill")?.withRenderingMode(.alwaysTemplate)
             case .refer:
                 iconImage.image = UIImage(systemName: "person.2.fill")?.withRenderingMode(.alwaysOriginal)
+            case .business:
+                iconImage.image = UIImage(named: "uber-wallet")?.withRenderingMode(.alwaysOriginal)
         }
         
         titleLabel.text = data.name

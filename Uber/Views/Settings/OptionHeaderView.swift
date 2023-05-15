@@ -28,7 +28,7 @@ class OptionHeaderView: UITableViewHeaderFooterView {
     lazy var titleLbl: UILabel = {
         let lb = UILabel()
         lb.textColor = .black
-        lb.font = UIFont(name: Font.bold2.rawValue, size: 24)
+        lb.font = UIFont(name: Font.bold2.rawValue, size: 20)
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()

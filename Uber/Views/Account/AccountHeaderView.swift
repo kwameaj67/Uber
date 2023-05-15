@@ -89,7 +89,7 @@ class AccountHeaderView: UIView {
             profileLbl.centerYAnchor.constraint(equalTo: profileImage.centerYAnchor),
             profileLbl.leadingAnchor.constraint(equalTo: leadingAnchor),
             
-            profileImage.topAnchor.constraint(equalTo: topAnchor,constant: 5),
+            profileImage.topAnchor.constraint(equalTo: topAnchor),
             profileImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             profileImage.heightAnchor.constraint(equalToConstant: 60),
             profileImage.widthAnchor.constraint(equalToConstant: 60),

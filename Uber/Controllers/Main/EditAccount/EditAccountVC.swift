@@ -9,11 +9,20 @@ import UIKit
 
 class EditAccountVC: UIViewController {
 
+    private let userDefaultManager = UserDefaultsManager.shared
+    var firstname = ""
+    var lastname = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupContraints()
         view.backgroundColor = .white
+        
+        let fullname = userDefaultManager.getUserFullName().split(separator: " ")
+        
+        firstname = String(fullname[0])
+        lastname = String(fullname[1])
     }
 
   
@@ -134,11 +143,11 @@ extension EditAccountVC: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row{
         case 0:
             cell.headingLbl.text = "First name"
-            cell.dataLbl.text = "Kwame"
+            cell.dataLbl.text = firstname
             toggleVerifiedLbl(isHidden: true, alpha: 0, cell: cell)
         case 1:
             cell.headingLbl.text = "Surname"
-            cell.dataLbl.text = "Boateng"
+            cell.dataLbl.text = lastname
             toggleVerifiedLbl(isHidden: true, alpha: 0, cell: cell)
         case 2:
             cell.headingLbl.text = "Phone number"

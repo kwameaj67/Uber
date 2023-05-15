@@ -7,7 +7,7 @@
 
 import UIKit
 import MapKit
-import Inject
+
 
 class HomeVC: UIViewController {
     

@@ -13,9 +13,10 @@ class UberOptionCollectionCell: UICollectionViewCell {
             manageData()
         }
     }
-    override var isSelected: Bool{
+    
+    override var isHighlighted: Bool{
         didSet{
-            container.backgroundColor = isSelected ? .systemGray4 : Color.grey_bg2
+            container.backgroundColor = isHighlighted ? .systemGray4 : Color.grey_bg2
         }
     }
     static let reusableID = "UberOptionCollectionCell"

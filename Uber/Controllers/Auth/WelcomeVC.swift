@@ -17,7 +17,7 @@ class WelcomeVC: UIViewController {
         navigationController?.navigationBar.isHidden = true
         animateImage()
         
-        delay(duration: 4.0) {
+        delay(duration: 3.0) {
             let tabBar = TabBarVC()
             self.smoothControllerTransition(for: tabBar)
         }

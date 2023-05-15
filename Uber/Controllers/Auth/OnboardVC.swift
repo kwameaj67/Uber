@@ -18,7 +18,7 @@ class OnboardVC: UIViewController {
     }
    
     // MARK: Properties -
-    let stackView: UIStackView = {
+    lazy var stackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical
         sv.alignment = .center
@@ -26,7 +26,7 @@ class OnboardVC: UIViewController {
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
-    let logoImage : UIImageView = {
+    lazy var logoImage : UIImageView = {
         var iv = UIImageView()
         let img = UIImage(named: "uber-logo")?.withRenderingMode(.alwaysOriginal)
         iv.image = img
@@ -34,7 +34,7 @@ class OnboardVC: UIViewController {
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
-    let driveSafelyImage : UIImageView = {
+    lazy var driveSafelyImage : UIImageView = {
         var iv = UIImageView()
         let img = UIImage(named: "drive")?.withRenderingMode(.alwaysOriginal)
         iv.image = img
@@ -43,7 +43,7 @@ class OnboardVC: UIViewController {
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
-    let sloganLabel: UILabel = {
+    lazy var sloganLabel: UILabel = {
         let lb = UILabel()
         lb.text = "Move around safely"
         lb.textColor = .white
