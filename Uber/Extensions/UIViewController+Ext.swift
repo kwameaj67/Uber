@@ -7,12 +7,36 @@
 
 import UIKit
 
-extension UIViewController{
+extension UIViewController {
+    
     func presentAlertError(title: String, message: String ){
-           let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-           alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-           self.present(alert, animated: true, completion: nil)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
+    
+    func presentLoading(isOpen: Bool){
+        let indicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 80, height: 80))
+        indicator.center = self.view.center
+        indicator.color = .gray
+        indicator.layer.cornerRadius = 10
+        indicator.backgroundColor = .black.withAlphaComponent(0.4)
+        indicator.hidesWhenStopped = true
+        indicator.style = UIActivityIndicatorView.Style.medium
+        
+        if !isOpen {
+            indicator.alpha = 0
+            indicator.isHidden = true
+            indicator.stopAnimating()
+            indicator.removeFromSuperview()
+            print("removed")
+        }
+        else {
+            self.view.addSubview(indicator)
+            indicator.startAnimating()
+        }
+    }
+    
     // navbar edits
     func configureNavBar(){
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: Font.bold2.rawValue, size: 15.0)!,NSAttributedString.Key.foregroundColor: UIColor.black]
@@ -24,6 +48,7 @@ extension UIViewController{
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
     }
+    
     func configureBackButton(){
         let backImage =  UIImage(named: "uber-back")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 20, weight: .medium))
         navigationController?.navigationBar.backIndicatorImage = backImage
@@ -40,6 +65,7 @@ extension UIViewController{
             UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: nil, completion: nil)
         }
     }
+    
     func logoutSmoothControllerTransition(for vc: UIViewController){
         if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,
            let window = sceneDelegate.window {
@@ -47,4 +73,5 @@ extension UIViewController{
             UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: nil, completion: nil)
         }
     }
+    
 }
