@@ -50,7 +50,7 @@ extension MapVC {
         mapView.annotations.forEach { [weak self] annotations in  // removes annotations
             guard self != nil else { return }
             if let annotation = annotations as? MKPointAnnotation {
-                mapView.removeAnnotation(annotation)
+                self?.mapView.removeAnnotation(annotation)
             }
         }
         if mapView.overlays.count > 0 { // removes polyline
