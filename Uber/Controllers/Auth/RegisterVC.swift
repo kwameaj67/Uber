@@ -98,21 +98,28 @@ class RegisterVC: UIViewController {
         sc.translatesAutoresizingMaskIntoConstraints = false
         return sc
     }()
+    lazy var loaderView: UberLoaderOverlay = {
+        let v = UberLoaderOverlay(frame: .zero)
+        return v
+    }()
     
     // MARK: Selectors -
     @objc func didTapLogin(){
         navigationController?.pushViewController(LoginVC(), animated: true)
     }
+    
     @objc func hideKeyboard(gesture : UITapGestureRecognizer){
         view.endEditing(true)
         fullNameTextField.resignFirstResponder()
         emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
     }
+    
     @objc func didTapRegisterButton(){
         guard let fullname = fullNameTextField.text, let email = emailTextField.text, let password = passwordTextField.text else { return }
         let accountTypeIndex = userSegmentedContol.selectedSegmentIndex
        
+        loaderView.isOpen = true
         authManager.createUserAccount(
             emailAddress: email,
             password: password,
@@ -120,17 +127,18 @@ class RegisterVC: UIViewController {
             accountType: accountTypeIndex) { [weak self] uid, error in
             guard let self = self else { return }
             if let err = error {
+                loaderView.isOpen = false
                 self.presentAlertError(title: "Error", message: err.localizedDescription)
                 return
             }
             if let _ = uid {
+                loaderView.isOpen = false
                 print("User Did Save")
                 let vc = WelcomeVC()
                 vc.modalPresentationStyle = .custom
                 vc.modalTransitionStyle = .crossDissolve
                 self.present(vc, animated: true, completion: nil)
             }
-           
         }
     }
     func createToolBar() -> UIToolbar{
@@ -172,6 +180,7 @@ class RegisterVC: UIViewController {
    
     func setupViews(){
         view.addSubview(scrollView)
+        view.addSubview(loaderView)
         scrollView.addSubview(container)
         container.addSubview(userSegmentedContol)
         container.addSubview(stackView)
@@ -183,6 +192,7 @@ class RegisterVC: UIViewController {
     }
     func setupContraints(){
         scrollView.pinToSafeArea(to: view)
+        loaderView.pinToEdges(to: view)
         container.pinToEdges(to: scrollView)
         NSLayoutConstraint.activate([
             container.widthAnchor.constraint(equalTo: scrollView.widthAnchor),

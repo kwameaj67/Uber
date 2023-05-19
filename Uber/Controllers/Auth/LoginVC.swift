@@ -63,18 +63,18 @@ class LoginVC: UIViewController {
         v.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapLoginButton)))
         return v
     }()
-    let emailTextField: UberTextField = {
+    lazy var emailTextField: UberTextField = {
         var tf = UberTextField()
         tf.placeholder = "Email"
         return tf
     }()
-    let passwordTextField: UberTextField = {
+    lazy var passwordTextField: UberTextField = {
         var tf = UberTextField()
         tf.placeholder = "Password"
         tf.isSecureTextEntry = true
         return tf
     }()
-    let signupButton: UIButton = {
+    lazy var signupButton: UIButton = {
         var btn = UIButton()
         btn.setTitle("Don't have an account? Sign up", for: .normal)
         btn.setTitleColor(Color.text_grey, for: .normal)
@@ -85,16 +85,24 @@ class LoginVC: UIViewController {
         return btn
     }()
     
+    lazy var loaderView: UberLoaderOverlay = {
+        let v = UberLoaderOverlay(frame: .zero)
+        return v
+    }()
+    
     @objc func didTapLoginButton(){
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
-        
+        loaderView.isOpen = true
         authManager.signInUserAccount(emailAddress: email, password: password) { [weak self] uid, error in
             guard let self = self else { return }
+            
             if let err = error {
+                loaderView.isOpen = false
                 self.presentAlertError(title: "Error", message: err.localizedDescription)
                 return
             }
             if let _ = uid {
+                loaderView.isOpen = false
                 print("Successfully Logged User")
                 self.smoothControllerTransition(for: TabBarVC())
             }
@@ -113,16 +121,19 @@ class LoginVC: UIViewController {
     
     func setupViews(){
         view.addSubview(scrollView)
+        view.addSubview(loaderView)
         scrollView.addSubview(container)
         container.addSubview(stackView)
         container.addSubview(loginButton)
         stackView.addArrangedSubview(emailTextField)
         stackView.addArrangedSubview(passwordTextField)
         container.addSubview(signupButton)
+        
     }
     
     func setupContraints(){
         scrollView.pinToSafeArea(to: view)
+        loaderView.pinToEdges(to: view)
         container.pinToEdges(to: scrollView)
         bottomButtonConstraint =  loginButton.bottomAnchor.constraint(equalTo: container.bottomAnchor)
         bottomButtonConstraint.isActive = true
