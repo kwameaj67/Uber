@@ -45,6 +45,12 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = places[indexPath.row]
+        navigateToMapVC(locationQuery: item.location, showDestinationView: false)
+    }
+    
+    // header & footer height
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 365.0
     }
@@ -53,6 +59,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         return 300.0
     }
     
+    // highlights
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! RecentLocationCell
         cell.backgroundColor = Color.grey_bg2
@@ -68,11 +75,8 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
 extension HomeVC: SearchLocationDelegate {
     func presentMapVC(showDestinationView: Bool){
         playHaptic(style: .medium)
-        let vc = MapVC()
-        vc.showDestinationView = showDestinationView
-        vc.modalPresentationStyle = .custom
-        vc.modalTransitionStyle = .crossDissolve
-        present(vc, animated: true, completion: nil)
+        print(showDestinationView)
+        navigateToMapVC(locationQuery: nil, showDestinationView: showDestinationView)
     }
     
     func didTapLocationActivationView() {
@@ -87,6 +91,6 @@ extension HomeVC: SearchLocationDelegate {
 extension HomeVC: HomeFooterViewDelegate {
     func didTapMapView() {
         playHaptic(style: .medium)
-        presentMapVC(showDestinationView:false)
+        presentMapVC(showDestinationView: false)
     }
 }

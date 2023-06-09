@@ -21,6 +21,7 @@ class HomeVC: UIViewController {
     var region = MKCoordinateRegion()
     var spanDelta = MKCoordinateSpan(latitudeDelta: 0.8, longitudeDelta: 0.8) // zoom level
     weak var user: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -94,5 +95,14 @@ class HomeVC: UIViewController {
     
     func setupContraints(){
         recentLocationTableView.pinToSafeArea(to: view)
+    }
+    
+    func navigateToMapVC(locationQuery: String?, showDestinationView: Bool){
+        let mapVC = MapVC()
+        mapVC.locationQuery = locationQuery
+        mapVC.showDestinationView  = showDestinationView
+        mapVC.modalPresentationStyle = .custom
+        mapVC.modalTransitionStyle = .crossDissolve
+        present(mapVC, animated: true, completion: nil)
     }
 }

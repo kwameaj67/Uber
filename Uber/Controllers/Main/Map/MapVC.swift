@@ -23,6 +23,7 @@ class MapVC: UIViewController {
     var showDestinationView: Bool = false
     var route: MKRoute?
     var destination: MKMapItem?
+    var locationQuery: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,14 @@ class MapVC: UIViewController {
         setupContraints()
         configureLocationService()
         hanldeOverlayViews()
+        
+        if locationQuery != nil{
+            animateOverlayViews()
+            overlayLocationInputView.destinationLocationField.text = locationQuery
+        }
+    }
+    deinit {
+        print("deinit \(self)")
     }
     // MARK: configureLocationService -
     func configureLocationService(){
