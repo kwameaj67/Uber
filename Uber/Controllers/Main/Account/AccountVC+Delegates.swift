@@ -31,6 +31,7 @@ extension AccountVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = options[indexPath.row]
         if item.iconType == .settings {
+            playHaptic(style: .medium)
             let vc = SettingsVC()
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true)
@@ -68,6 +69,7 @@ extension AccountVC: AccountActionHeaderDelegate {
 
 extension AccountVC: DidTapProfileImageDelegate {
     func didTapProfileImage(){
+        playHaptic(style: .medium)
         let vc = EditAccountVC()
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)

@@ -97,6 +97,7 @@ extension MapVC: OverLayLocationInputViewDelegate{
         dismissLocationView { [weak self] _ in
             print("DEBUG: hides locationInputView & locationTableView...")
             guard let _ = self else { return }
+            playHaptic(style: .medium)
 //            self.dismiss(animated: true, completion: nil)
         }
     }
@@ -104,6 +105,7 @@ extension MapVC: OverLayLocationInputViewDelegate{
 // MARK: OverlayLocationTableViewDelegate -
 extension MapVC: OverlayLocationTableViewDelegate {
     func dismissLocationTableView(selectedPlacemark: MKPlacemark) {
+        playHaptic(style: .medium)
         destination = MKMapItem(placemark: selectedPlacemark)
         guard let destinationLocation = destination else { return }
         print("DEBUG: destination: \(destination)")

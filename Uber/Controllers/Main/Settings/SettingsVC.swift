@@ -11,8 +11,9 @@ class SettingsVC: UIViewController {
 
     private let authManager = FirebaseAuthManager.shared
     private let userDefaultManager = UserDefaultsManager.shared
-    var sections = Section.sectionArray
-    var username: String = ""
+    lazy var sections = Section.sectionArray
+    lazy var username: String = ""
+    lazy var email: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,7 @@ class SettingsVC: UIViewController {
         setupContraints()
         view.backgroundColor = .white
         username = userDefaultManager.getUserFullName()
+        email = userDefaultManager.getUserEmail()
     }
     deinit {
         print("deinit \(self)")
@@ -75,6 +77,7 @@ class SettingsVC: UIViewController {
     @objc func didTapCancel(){
         dismiss(animated: true)
         self.removeFromParent()
+        playHaptic(style: .medium)
     }
     
     func setupViews(){
@@ -122,6 +125,7 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
             let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: SettingHeaderView.reuseableID) as! SettingHeaderView
             view.contentView.backgroundColor = .white
             view.nameLbl.text = username
+            view.emailLbl.text = email
             return view
         }
         else if (section == 1 || section == 2) {
@@ -206,11 +210,13 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
 extension SettingsVC: DidTapSignOutDelegate{
     func didTapSignOut() {
         dismiss(animated: true)
+        playHaptic(style: .medium)
         self.authManager.logOutUser { [weak self] results in
+            guard let self = self else { return }
             switch results{
             case .success():
                 let onboardingVC = UINavigationController(rootViewController: OnboardVC())
-                self?.smoothControllerTransition(for: onboardingVC)
+                self.smoothControllerTransition(for: onboardingVC)
             case .failure(_):
                 break
                 //print("DEBUG: \(error.localizedDescription)")

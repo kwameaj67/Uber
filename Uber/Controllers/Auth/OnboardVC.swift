@@ -94,6 +94,7 @@ class OnboardVC: UIViewController {
 
 extension OnboardVC{
     @objc func didTapGetStarted(){
+        playHaptic(style: .medium)
         navigationController?.pushViewController(RegisterVC(), animated: true)
     }
 }

@@ -223,6 +223,14 @@
 			path = EditAccount;
 			sourceTree = "<group>";
 		};
+		651162342A33350B0065E2E7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				98450BBC292AEDE10065C260 /* Helpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		655A48B229ADF80A00C71B72 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,6 +501,7 @@
 		98E901552924E3A0003F8ABF /* Uber */ = {
 			isa = PBXGroup;
 			children = (
+				651162342A33350B0065E2E7 /* Helpers */,
 				986A87C229660BAF00A460AA /* Services */,
 				98395D11294CE73F0071D5DF /* Models */,
 				98395D0E2947AA530071D5DF /* Manager */,
@@ -580,7 +589,6 @@
 			children = (
 				98E9017C2924E9DF003F8ABF /* Font.swift */,
 				98C97A1829253DB90078608A /* Color.swift */,
-				98450BBC292AEDE10065C260 /* Helpers.swift */,
 				98510F24296B8D0B00E18533 /* Firebase.swift */,
 				985283EF297C6F7D0050303A /* OverlayViewConfiguration.swift */,
 			);

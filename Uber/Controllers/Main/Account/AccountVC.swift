@@ -32,11 +32,11 @@ class AccountVC: UIViewController {
     // MARK: Properties -
     lazy var accountHeaderView: AccountHeaderView = {
         let view = AccountHeaderView()
-//        view.controller = self
         view.delegate = self
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
     lazy var accountTableView: UITableView = {
         let tv = UITableView(frame: .zero, style: .grouped)
         tv.register(AccountOptionCell.self, forCellReuseIdentifier: AccountOptionCell.reusableID)

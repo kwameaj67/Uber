@@ -30,6 +30,7 @@ class AccountHeaderView: UIView {
     // MARK: Properties -
     lazy var profileLbl: UILabel = {
         let lb = UILabel()
+        lb.text = "Kojo Nkrumah"
         lb.font = UIFont(name: Font.medium2.rawValue, size: 36.0)
         lb.textColor = Color.black
         lb.translatesAutoresizingMaskIntoConstraints = false

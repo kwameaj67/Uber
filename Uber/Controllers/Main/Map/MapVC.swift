@@ -15,6 +15,7 @@ class MapVC: UIViewController {
     let locationManager = LocationManager.shared.locationManager
     let driverService = DriverService.shared
     var annotations = [MKAnnotation]()
+    lazy var userAnnotation = MKPointAnnotation()
     let selectedAnnotation = MKPointAnnotation()
     var region = MKCoordinateRegion()
     var placeMarkLocations = [MKPlacemark]()
@@ -56,11 +57,10 @@ class MapVC: UIViewController {
             region.span = .init(latitudeDelta: 0.098, longitudeDelta: 0.098)
             mapView.setRegion(region, animated:true) // user region
            
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = location.coordinate
-            annotation.title = "Here"
-            mapView.addAnnotation(annotation)
-            mapView.selectAnnotation(annotation, animated: true)
+            userAnnotation.coordinate = location.coordinate
+            userAnnotation.title = "Here"
+            mapView.addAnnotation(userAnnotation)
+            mapView.selectAnnotation(userAnnotation, animated: true)
             
             if let _ = locationManager?.location {
                 fetchDriverLocation() // fetch drivers location when user has access to location
@@ -180,14 +180,45 @@ class MapVC: UIViewController {
     
     // MARK: Selectors -
     @objc func didTapBackButton(){
-        removeAnnotationsOverlay()
-        destinationView.removeFromSuperview()
-        rideActionView.removeFromSuperview()
-        selectLocationView.removeFromSuperview()
-        overlayLocationInputView.removeFromSuperview()
-        overlayLocationTableView.removeFromSuperview()
-        rideActionView.removeFromSuperview()
-        dismiss(animated: true, completion: nil)
+        playHaptic(style: .medium)
+        
+        if (rideActionView.destination != nil) { // if we selected a destination, and we tap back button
+            if self.showDestinationView {
+                destinationView.isHidden = false
+                destinationView.alpha = 1
+            }else{
+                selectLocationView.isHidden = false
+                selectLocationView.alpha = 1
+            }
+            UIView.animate(withDuration: 0.3) {
+                self.rideActionView.transform = CGAffineTransform(translationX: 0, y: 320)
+            } completion: { _ in
+                self.rideActionView.isHidden = true
+                self.rideActionView.alpha = 0
+            }
+            self.rideActionView.destination = nil
+            removeAnnotationsOverlay()
+            
+            // zoom into user location
+            guard let location = locationManager?.location else { return }
+            region = .init(center: location.coordinate, latitudinalMeters: 0.01, longitudinalMeters: 0.01)
+            region.span = .init(latitudeDelta: 0.098, longitudeDelta: 0.098)
+            mapView.setRegion(region, animated:true) // user region
+           
+            userAnnotation.coordinate = location.coordinate
+            userAnnotation.title = "Here"
+            mapView.addAnnotation(userAnnotation)
+            mapView.selectAnnotation(userAnnotation, animated: true)
+        }
+        else {
+            removeAnnotationsOverlay()
+            destinationView.removeFromSuperview()
+            selectLocationView.removeFromSuperview()
+            overlayLocationInputView.removeFromSuperview()
+            overlayLocationTableView.removeFromSuperview()
+            rideActionView.removeFromSuperview()
+            dismiss(animated: true, completion: nil)
+        }
     }
     func setupViews(){
         view.addSubview(mapView)

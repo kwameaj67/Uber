@@ -85,6 +85,7 @@ extension AccountActionHeader: UICollectionViewDataSource, UICollectionViewDeleg
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = options[indexPath.row]
+        playHaptic(style: .medium)
         if cell.type == .trips {
             delegate?.didTapTripCell()
         }

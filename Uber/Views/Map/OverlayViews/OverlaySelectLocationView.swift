@@ -45,6 +45,7 @@ class OverlaySelectLocationView: UIView {
     
     // MARK: Selectors-
     @objc func didTapContainer(){
+        playHaptic(style: .medium)
         delegate?.didTapLocationButton()
     }
     func setupViews(){

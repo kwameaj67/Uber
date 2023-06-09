@@ -94,8 +94,7 @@ class TabBarVC: UITabBarController {
             return
         }
         performSpringAnimation(for: subview)
-        let haptic = UIImpactFeedbackGenerator(style: .medium)
-        haptic.impactOccurred()
+        playHaptic(style: .medium)
     }
     func performSpringAnimation(for view: UIView) {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {

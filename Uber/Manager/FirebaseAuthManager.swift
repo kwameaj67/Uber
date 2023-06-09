@@ -74,6 +74,7 @@ struct FirebaseAuthManager {
                 completion(nil,err)
             }
             guard let user = results?.user else { return }
+            print(user.displayName as Any)
             completion(user.uid,nil)
         }
     }

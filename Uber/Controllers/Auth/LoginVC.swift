@@ -35,7 +35,7 @@ class LoginVC: UIViewController {
     }
     
     //MARK: Properties -
-    var scrollView : UIScrollView = {
+    lazy var scrollView : UIScrollView = {
         var sb = UIScrollView()
         sb.showsVerticalScrollIndicator = false
         sb.bounces = true
@@ -43,18 +43,21 @@ class LoginVC: UIViewController {
         sb.translatesAutoresizingMaskIntoConstraints = false
         return sb
     }()
-    let container: UIView = {
+    
+    lazy var container: UIView = {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
-    let stackView: UIStackView = {
+    
+    lazy var stackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical
         sv.spacing = 10
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
+    
     lazy var loginButton: UberImageButton = {
         let v = UberImageButton(frame: .zero)
         v.forwardIcon.isHidden = true
@@ -63,17 +66,20 @@ class LoginVC: UIViewController {
         v.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapLoginButton)))
         return v
     }()
+    
     lazy var emailTextField: UberTextField = {
         var tf = UberTextField()
         tf.placeholder = "Email"
         return tf
     }()
+    
     lazy var passwordTextField: UberTextField = {
         var tf = UberTextField()
         tf.placeholder = "Password"
         tf.isSecureTextEntry = true
         return tf
     }()
+    
     lazy var signupButton: UIButton = {
         var btn = UIButton()
         btn.setTitle("Don't have an account? Sign up", for: .normal)
@@ -91,6 +97,7 @@ class LoginVC: UIViewController {
     }()
     
     @objc func didTapLoginButton(){
+        playHaptic(style: .medium)
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         loaderView.isOpen = true
         authManager.signInUserAccount(emailAddress: email, password: password) { [weak self] uid, error in
@@ -110,6 +117,7 @@ class LoginVC: UIViewController {
     }
     
     @objc func didTapSignup(){
+        playHaptic(style: .light)
         navigationController?.popViewController(animated: true)
     }
     

@@ -105,6 +105,7 @@ class RegisterVC: UIViewController {
     
     // MARK: Selectors -
     @objc func didTapLogin(){
+        playHaptic(style: .light)
         navigationController?.pushViewController(LoginVC(), animated: true)
     }
     
@@ -116,6 +117,7 @@ class RegisterVC: UIViewController {
     }
     
     @objc func didTapRegisterButton(){
+        playHaptic(style: .medium)
         guard let fullname = fullNameTextField.text, let email = emailTextField.text, let password = passwordTextField.text else { return }
         let accountTypeIndex = userSegmentedContol.selectedSegmentIndex
        
@@ -162,6 +164,7 @@ class RegisterVC: UIViewController {
         return toolbar
     }
     @objc func onDone(){
+        playHaptic(style: .medium)
         if emailTextField.isFirstResponder{
             emailTextField.resignFirstResponder()
         }

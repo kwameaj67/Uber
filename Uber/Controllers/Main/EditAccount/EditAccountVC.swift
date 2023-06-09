@@ -72,6 +72,7 @@ class EditAccountVC: UIViewController {
     // MARK: Selectors -
     @objc func didTapCancel(){
         dismiss(animated: true)
+        playHaptic(style: .medium)
     }
     
     func setupViews(){

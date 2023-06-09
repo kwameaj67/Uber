@@ -112,6 +112,7 @@ class OverlayDestinationView: UIView {
     
     // MARK: Selectors -
     @objc func hanldeSearchTapped(){
+        playHaptic(style: .medium)
         delegate?.didTapSearchButton()
     }
     @objc func handleConfirmTapped(){

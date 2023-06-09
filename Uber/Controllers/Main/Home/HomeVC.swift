@@ -29,7 +29,7 @@ class HomeVC: UIViewController {
         setupContraints()
         configureLocationService()
         showUserLocationOnMap()
-//        fetchUserData()
+        fetchUserData()
     }
     
     func configureLocationService(){
@@ -61,6 +61,9 @@ class HomeVC: UIViewController {
         guard let uid = firebaseManager.currentUser else { return }
         userService.fetchUserData(uid: uid) { [weak self] user in
             self?.user = user
+            //print(user.fullname,user.email)
+            self?.userDefaultManager.setUserFullName(fullName: user.fullname)
+            self?.userDefaultManager.setUserEmail(email: user.email)
         }
     }
     
