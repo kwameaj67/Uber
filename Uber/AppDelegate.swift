@@ -18,9 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure() // configure firebase
         
-        LeakedViewControllerDetector.onDetect() { leakedViewController, leakedView, message in
-           return true
-        }
+//        LeakedViewControllerDetector.onDetect() { leakedViewController, leakedView, message in
+//           return true
+//        }
         return true
     }
 
