@@ -130,8 +130,8 @@ class MapVC: UIViewController {
         map.delegate = self
         return map
     }()
-    lazy var backButton: UIButton = {
-        var btn = UIButton()
+    lazy var backButton: UberButton = {
+        var btn = UberButton()
         let image = UIImage(named: "uber-back")?.withRenderingMode(.alwaysOriginal).withConfiguration(UIImage.SymbolConfiguration(pointSize: 20))
         btn.setImage(image, for: .normal)
         btn.backgroundColor = .white

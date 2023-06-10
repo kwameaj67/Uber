@@ -56,8 +56,8 @@ class OverlayDestinationView: UIView {
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
-    lazy var searchBtn: UIButton = {
-        var btn = UIButton()
+    lazy var searchBtn: UberButton = {
+        var btn = UberButton()
         btn.setTitle("Search", for: .normal)
         btn.setTitleColor(.black, for: .normal)
         btn.titleLabel?.font = UIFont(name: Font.medium.rawValue, size: 14)
@@ -67,8 +67,8 @@ class OverlayDestinationView: UIView {
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
-    lazy var confirmBtn: UIButton = {
-        var btn = UIButton()
+    lazy var confirmBtn: UberButton = {
+        var btn = UberButton()
         btn.setTitle("Confirm destination", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: Font.medium.rawValue, size: 18)

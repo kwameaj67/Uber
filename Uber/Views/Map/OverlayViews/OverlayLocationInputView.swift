@@ -28,8 +28,8 @@ class OverLayLocationInputView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     // MARK: Properties -
-    let backButton: UIButton = {
-        var btn = UIButton()
+    let backButton: UberButton = {
+        var btn = UberButton()
         let image = UIImage(named: "uber-back")?.withRenderingMode(.alwaysOriginal)
         btn.setImage(image, for: .normal)
         btn.backgroundColor = .none

@@ -29,8 +29,8 @@ class EditAccountVC: UIViewController {
 
   
     // MARK: Properties
-    lazy var cancelButton: UIButton = {
-        let cb = UIButton()
+    lazy var cancelButton: UberButton = {
+        let cb = UberButton()
         let image = UIImage(named: "uber-exit")?.withRenderingMode(.alwaysOriginal).withConfiguration(UIImage.SymbolConfiguration(weight: .heavy))
         cb.setBackgroundImage(image, for: .normal)
         cb.backgroundColor = .none

@@ -54,12 +54,12 @@ class RegisterVC: UIViewController {
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
-    lazy var registerButton: UberImageButton = {
-        let ub = UberImageButton(frame: .zero)
-        ub.forwardIcon.isHidden = true
-        ub.forwardIcon.alpha = 0
-        ub.textLabel.text = "Sign up"
-        ub.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapRegisterButton)))
+    lazy var registerButton: UberButton = {
+        let ub = UberButton(frame: .zero)
+        ub.backgroundColor = Color.black
+        ub.setTitle("Sign up", for: .normal)
+        ub.titleLabel?.font = UIFont(name: Font.medium.rawValue, size: 18)
+        ub.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
         return ub
     }()
     let fullNameTextField: UberTextField = {
@@ -78,8 +78,8 @@ class RegisterVC: UIViewController {
         tf.isSecureTextEntry = true
         return tf
     }()
-    let loginButton: UIButton = {
-        var btn = UIButton()
+    let loginButton: UberButton = {
+        var btn = UberButton()
         btn.setTitle("Already have an account? Login", for: .normal)
         btn.setTitleColor(Color.text_grey, for: .normal)
         btn.titleLabel?.font = UIFont(name: Font.medium.rawValue, size: 16)

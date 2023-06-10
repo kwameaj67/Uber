@@ -35,8 +35,8 @@ class OverlayRideActionView: UIView {
         return lbl
     }()
     
-    let confirmButton: UIButton = {
-        let btn = UIButton()
+    let confirmButton: UberButton = {
+        let btn = UberButton()
         btn.setTitle("Choose UberX", for: .normal)
         btn.setTitleColor(.white, for: .normal)
         btn.titleLabel?.font = UIFont(name: Font.medium.rawValue, size: 18)

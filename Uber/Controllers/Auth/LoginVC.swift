@@ -58,13 +58,13 @@ class LoginVC: UIViewController {
         return sv
     }()
     
-    lazy var loginButton: UberImageButton = {
-        let v = UberImageButton(frame: .zero)
-        v.forwardIcon.isHidden = true
-        v.forwardIcon.alpha = 0
-        v.textLabel.text = "Login"
-        v.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapLoginButton)))
-        return v
+    lazy var loginButton: UberButton = {
+        let ub = UberButton(frame: .zero)
+        ub.backgroundColor = Color.black
+        ub.setTitle("Login", for: .normal)
+        ub.titleLabel?.font = UIFont(name: Font.medium.rawValue, size: 18)
+        ub.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
+        return ub
     }()
     
     lazy var emailTextField: UberTextField = {
@@ -80,8 +80,8 @@ class LoginVC: UIViewController {
         return tf
     }()
     
-    lazy var signupButton: UIButton = {
-        var btn = UIButton()
+    lazy var signupButton: UberButton = {
+        var btn = UberButton()
         btn.setTitle("Don't have an account? Sign up", for: .normal)
         btn.setTitleColor(Color.text_grey, for: .normal)
         btn.titleLabel?.font = UIFont(name: Font.medium.rawValue, size: 16)

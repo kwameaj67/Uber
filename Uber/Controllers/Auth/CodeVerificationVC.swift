@@ -56,8 +56,8 @@ class CodeVerificationVC: UIViewController, UITextFieldDelegate {
         cf.translatesAutoresizingMaskIntoConstraints = false
         return cf
     }()
-    let noCodeButton: UIButton = {
-        var btn = UIButton()
+    let noCodeButton: UberButton = {
+        var btn = UberButton()
         btn.setTitle("I haven't received a code", for: .normal)
         btn.setTitleColor(.black, for: .normal)
         btn.titleLabel?.font = UIFont(name: Font.medium.rawValue, size: 16)
@@ -67,8 +67,8 @@ class CodeVerificationVC: UIViewController, UITextFieldDelegate {
         return btn
     }()
   
-    let backButton: UIButton = {
-        var btn = UIButton()
+    let backButton: UberButton = {
+        var btn = UberButton()
         let image = UIImage(named: "uber-back")?.withConfiguration(UIImage.SymbolConfiguration(pointSize: 24))
         btn.setImage(image, for: .normal)
         btn.tintColor = .black
@@ -79,8 +79,8 @@ class CodeVerificationVC: UIViewController, UITextFieldDelegate {
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
-    let nextButton: UIButton = {
-        var btn = UIButton()
+    let nextButton: UberButton = {
+        var btn = UberButton()
         let image = UIImage(named: "uber-forward")?.withConfiguration(UIImage.SymbolConfiguration(pointSize:    18)).withRenderingMode(.alwaysTemplate)
         btn.setImage(image, for: .normal)
         btn.setTitle("Next", for: .normal)

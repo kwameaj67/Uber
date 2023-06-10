@@ -50,8 +50,8 @@ class EditAccountHeaderView: UITableViewHeaderFooterView {
         return iv
     }()
     
-    lazy var editBtn: UIButton = {
-        let btn = UIButton()
+    lazy var editBtn: UberButton = {
+        let btn = UberButton()
         btn.setImage(UIImage(systemName: "pencil")?.withRenderingMode(.alwaysTemplate), for: .normal)
         btn.tintColor = .white
         btn.isUserInteractionEnabled = false
