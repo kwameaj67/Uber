@@ -61,6 +61,7 @@ class LocationInputCell: UITableViewCell {
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
+    
     lazy var border: UIView = {
         let v = UIView()
         v.backgroundColor = UIColor.systemGray5
