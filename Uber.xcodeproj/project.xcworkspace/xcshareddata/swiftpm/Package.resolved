@@ -28,6 +28,15 @@
       }
     },
     {
+      "identity" : "cosmos",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/evgenyneu/Cosmos",
+      "state" : {
+        "revision" : "cce521e734d0090494bd4afab5fd2e2f2465c1af",
+        "version" : "23.0.0"
+      }
+    },
+    {
       "identity" : "firebase-ios-sdk",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/firebase-ios-sdk",

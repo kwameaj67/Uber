@@ -120,7 +120,7 @@ class SettingCell: UITableViewCell {
         case .work:
             iconImage.image = UIImage(named: "uber-message")?.withRenderingMode(.alwaysOriginal)
         case .shortcut:
-            iconImage.image = UIImage(named: "uber-shortcut")?.withRenderingMode(.alwaysOriginal)
+            iconImage.image = UIImage(named: "uber-mappin")?.withRenderingMode(.alwaysOriginal)
         case .privacy:
             iconImage.image = UIImage(named: "uber-privacy")?.withRenderingMode(.alwaysOriginal)
         case .security:
@@ -133,6 +133,8 @@ class SettingCell: UITableViewCell {
             iconImage.image = UIImage(named: "uber-ridecheck")?.withRenderingMode(.alwaysOriginal)
         case .setup_family:
             iconImage.image = UIImage(named: "uber-family")?.withRenderingMode(.alwaysOriginal)
+        case .appearance:
+            iconImage.image = UIImage(systemName: "moon.fill")?.withRenderingMode(.alwaysTemplate)
         default:
             break
         }

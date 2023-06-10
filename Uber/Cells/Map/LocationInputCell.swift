@@ -35,6 +35,7 @@ class LocationInputCell: UITableViewCell {
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
+    
     lazy var locationLbl: UILabel = {
         let lb = UILabel()
         lb.font = UIFont(name: Font.medium.rawValue, size: 15)
@@ -42,6 +43,7 @@ class LocationInputCell: UITableViewCell {
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
+    
     lazy var addressLbl: UILabel = {
         let lb = UILabel()
         lb.font = UIFont(name: Font.regular.rawValue, size: 15)
@@ -50,23 +52,16 @@ class LocationInputCell: UITableViewCell {
         return lb
     }()
     
-    let iconContainer: UIView = {
-        let v = UIView()
-        v.backgroundColor = .gray
-        v.layer.cornerRadius = 38/2
-        v.translatesAutoresizingMaskIntoConstraints = false
-        return v
-    }()
-    let iconImage : UIImageView = {
+    lazy var iconImage : UIImageView = {
         var iv = UIImageView()
-        iv.image = UIImage(systemName: "clock.fill")?.withRenderingMode(.alwaysTemplate)
-        iv.tintColor = .white
-        iv.contentMode = .scaleAspectFill
+        iv.image = UIImage(named: "uber-mappin")?.withRenderingMode(.alwaysTemplate)
+        iv.tintColor = .black
+        iv.contentMode = .scaleAspectFit
         iv.clipsToBounds = true
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
-    let border: UIView = {
+    lazy var border: UIView = {
         let v = UIView()
         v.backgroundColor = UIColor.systemGray5
         v.translatesAutoresizingMaskIntoConstraints = false
@@ -74,27 +69,22 @@ class LocationInputCell: UITableViewCell {
     }()
     
     func setupViews(){
-        contentView.addSubview(iconContainer)
-        iconContainer.addSubview(iconImage)
         contentView.addSubview(stackView)
+        contentView.addSubview(iconImage)
         stackView.addArrangedSubview(locationLbl)
         stackView.addArrangedSubview(addressLbl)
         contentView.addSubview(border)
     }
+    
     func setupContraints(){
         NSLayoutConstraint.activate([
-            iconContainer.centerYAnchor.constraint(equalTo: stackView.centerYAnchor),
-            iconContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            iconContainer.heightAnchor.constraint(equalToConstant: 38),
-            iconContainer.widthAnchor.constraint(equalToConstant: 38),
-            
-            iconImage.centerYAnchor.constraint(equalTo: iconContainer.centerYAnchor),
-            iconImage.centerXAnchor.constraint(equalTo: iconContainer.centerXAnchor),
-            iconImage.heightAnchor.constraint(equalToConstant: 20),
-            iconImage.widthAnchor.constraint(equalToConstant: 20),
+            iconImage.centerYAnchor.constraint(equalTo: stackView.centerYAnchor),
+            iconImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            iconImage.heightAnchor.constraint(equalToConstant: 18),
+            iconImage.widthAnchor.constraint(equalToConstant: 18),
             
             stackView.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 10),
-            stackView.leadingAnchor.constraint(equalTo: iconContainer.trailingAnchor, constant: 15),
+            stackView.leadingAnchor.constraint(equalTo: iconImage.trailingAnchor, constant: 15),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             
@@ -104,6 +94,7 @@ class LocationInputCell: UITableViewCell {
             border.heightAnchor.constraint(equalToConstant: 0.6),
         ])
     }
+    
     func manageData(){
         guard let item = placemark else { return }
         locationLbl.text = item.name ?? "n/a"

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		650563642A34416000440912 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 650563632A34416000440912 /* Cosmos */; };
 		650DA18629A67DE400065514 /* EditAccountInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DA18529A67DE400065514 /* EditAccountInfoCell.swift */; };
 		650DA18929A685CC00065514 /* EditAccountHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DA18829A685CC00065514 /* EditAccountHeaderView.swift */; };
 		6549585B2A17B07D005AB860 /* UberLoaderOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6549585A2A17B07D005AB860 /* UberLoaderOverlay.swift */; };
@@ -196,6 +197,7 @@
 				98FCCDCD29365444008AAF61 /* GeoFire in Frameworks */,
 				98E6D6692936228E0056F7DA /* FirebaseDatabase in Frameworks */,
 				98E6D6612936228E0056F7DA /* FirebaseAnalytics in Frameworks */,
+				650563642A34416000440912 /* Cosmos in Frameworks */,
 				6587B43F29A58508006F7E9C /* LeakedViewControllerDetector in Frameworks */,
 				9842F0362932C78000AD73D8 /* CHIOTPField in Frameworks */,
 				98E6D6632936228E0056F7DA /* FirebaseStorage in Frameworks */,
@@ -620,6 +622,7 @@
 				98E6D6682936228E0056F7DA /* FirebaseDatabase */,
 				98FCCDCC29365444008AAF61 /* GeoFire */,
 				6587B43E29A58508006F7E9C /* LeakedViewControllerDetector */,
+				650563632A34416000440912 /* Cosmos */,
 			);
 			productName = Uber;
 			productReference = 98E901532924E3A0003F8ABF /* Uber.app */;
@@ -655,6 +658,7 @@
 				98FCCDCB29365444008AAF61 /* XCRemoteSwiftPackageReference "geofire-objc" */,
 				6587B43D29A58507006F7E9C /* XCRemoteSwiftPackageReference "LeakedViewControllerDetector" */,
 				655A48AF29ACCE9E00C71B72 /* XCRemoteSwiftPackageReference "Inject" */,
+				650563622A34415F00440912 /* XCRemoteSwiftPackageReference "Cosmos" */,
 			);
 			productRefGroup = 98E901542924E3A0003F8ABF /* Products */;
 			projectDirPath = "";
@@ -965,6 +969,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		650563622A34415F00440912 /* XCRemoteSwiftPackageReference "Cosmos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/Cosmos";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 23.0.0;
+			};
+		};
 		655A48AF29ACCE9E00C71B72 /* XCRemoteSwiftPackageReference "Inject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/krzysztofzablocki/Inject";
@@ -1008,6 +1020,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		650563632A34416000440912 /* Cosmos */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 650563622A34415F00440912 /* XCRemoteSwiftPackageReference "Cosmos" */;
+			productName = Cosmos;
+		};
 		6587B43E29A58508006F7E9C /* LeakedViewControllerDetector */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6587B43D29A58507006F7E9C /* XCRemoteSwiftPackageReference "LeakedViewControllerDetector" */;

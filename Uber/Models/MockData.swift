@@ -129,6 +129,7 @@ enum DescriptionData: String {
     case shortcut =  "Managed saved location"
     case privacy = "Manage the data you share with us"
     case security = "Control your account security with 2-setup verification"
+    case appearance = "Use device settings"
     case trusted_contacts = "Share your trip status with Family and friends in a single tap"
     case verify_trip = "Use a PIN to make sure you get in the right car"
     case ride_check = "Manage your RideCheck notifications"
@@ -141,6 +142,7 @@ enum OptionType {
     case shortcut
     case privacy
     case security
+    case appearance
     case trusted_contacts
     case verify_trip
     case ride_check
@@ -163,7 +165,8 @@ struct Section {
         SectionOption(name: "Work",  icon: nil, description: DescriptionData.work.rawValue, type: .work),
         SectionOption(name: "Shortcuts", icon: nil, description: DescriptionData.shortcut.rawValue, type:.shortcut),
         SectionOption(name: "Privacy", icon: nil, description: DescriptionData.privacy.rawValue, type:.privacy),
-        SectionOption(name: "Security", icon: nil, description: DescriptionData.security.rawValue, type:.security)
+        SectionOption(name: "Security", icon: nil, description: DescriptionData.security.rawValue, type:.security),
+        SectionOption(name: "Appearance", description: DescriptionData.appearance.rawValue, type: .appearance)
     ]
 
     static var safetyData:[SectionOption] = [
@@ -187,3 +190,4 @@ struct Section {
     ]
 
 }
+

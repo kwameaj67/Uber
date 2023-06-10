@@ -74,8 +74,6 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
 // MARK: SearchLocationDelegate-
 extension HomeVC: SearchLocationDelegate {
     func presentMapVC(showDestinationView: Bool){
-        playHaptic(style: .medium)
-        print(showDestinationView)
         navigateToMapVC(locationQuery: nil, showDestinationView: showDestinationView)
     }
     

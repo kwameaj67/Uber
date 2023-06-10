@@ -106,7 +106,7 @@ class ActivityHeaderView: UITableViewHeaderFooterView {
             mapView.topAnchor.constraint(equalTo: tripContainer.topAnchor, constant: 12),
             mapView.leadingAnchor.constraint(equalTo: tripContainer.leadingAnchor, constant: 12),
             mapView.trailingAnchor.constraint(equalTo: tripContainer.trailingAnchor, constant: -12),
-            mapView.heightAnchor.constraint(equalToConstant: 152),
+            mapView.heightAnchor.constraint(equalToConstant: 160),
             
             stackView.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: 15),
             stackView.leadingAnchor.constraint(equalTo: tripContainer.leadingAnchor, constant: 12),

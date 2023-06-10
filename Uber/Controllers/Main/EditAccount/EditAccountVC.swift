@@ -12,6 +12,7 @@ class EditAccountVC: UIViewController {
     private let userDefaultManager = UserDefaultsManager.shared
     var firstname = ""
     var lastname = ""
+    var email = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,7 @@ class EditAccountVC: UIViewController {
         
         firstname = String(fullname[0])
         lastname = String(fullname[1])
+        email = userDefaultManager.getUserEmail()
     }
 
   
@@ -156,7 +158,7 @@ extension EditAccountVC: UITableViewDelegate, UITableViewDataSource {
             toggleVerifiedLbl(isHidden: false, alpha: 1, cell: cell)
         case 3:
             cell.headingLbl.text = "Email address"
-            cell.dataLbl.text = "kagyenimboateng65@gmail.com"
+            cell.dataLbl.text = email
             toggleVerifiedLbl(isHidden: false, alpha: 1, cell: cell)
         case 4:
             cell.headingLbl.text = "Password"

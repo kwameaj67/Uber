@@ -98,6 +98,7 @@ class HomeVC: UIViewController {
     }
     
     func navigateToMapVC(locationQuery: String?, showDestinationView: Bool){
+        playHaptic(style: .medium)
         let mapVC = MapVC()
         mapVC.locationQuery = locationQuery
         mapVC.showDestinationView  = showDestinationView
