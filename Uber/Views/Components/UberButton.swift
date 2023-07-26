@@ -52,7 +52,7 @@ class UberButton: UIButton {
     private func animateButton(scaleX: CGFloat, scaleY: CGFloat){
         animator?.stopAnimation(true)
         
-        animator = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 0.8,animations: {
+        animator = UIViewPropertyAnimator(duration: 0.3, dampingRatio: 1,animations: {
             self.transform = CGAffineTransform(scaleX: scaleX, y: scaleY)
         })
         
