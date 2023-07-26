@@ -10,6 +10,8 @@
 		650563642A34416000440912 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 650563632A34416000440912 /* Cosmos */; };
 		650DA18629A67DE400065514 /* EditAccountInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DA18529A67DE400065514 /* EditAccountInfoCell.swift */; };
 		650DA18929A685CC00065514 /* EditAccountHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DA18829A685CC00065514 /* EditAccountHeaderView.swift */; };
+		65164FE62A7144DB00E93F09 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65164FE52A7144DB00E93F09 /* Enums.swift */; };
+		65164FE82A71669600E93F09 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65164FE72A71669600E93F09 /* UIImage+Ext.swift */; };
 		6549585B2A17B07D005AB860 /* UberLoaderOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6549585A2A17B07D005AB860 /* UberLoaderOverlay.swift */; };
 		655A48B429ADF83000C71B72 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655A48B329ADF83000C71B72 /* SettingsVC.swift */; };
 		655A48B729ADF91E00C71B72 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655A48B629ADF91E00C71B72 /* SettingCell.swift */; };
@@ -104,6 +106,8 @@
 /* Begin PBXFileReference section */
 		650DA18529A67DE400065514 /* EditAccountInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountInfoCell.swift; sourceTree = "<group>"; };
 		650DA18829A685CC00065514 /* EditAccountHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountHeaderView.swift; sourceTree = "<group>"; };
+		65164FE52A7144DB00E93F09 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		65164FE72A71669600E93F09 /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		6549585A2A17B07D005AB860 /* UberLoaderOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberLoaderOverlay.swift; sourceTree = "<group>"; };
 		655A48B329ADF83000C71B72 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		655A48B629ADF91E00C71B72 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
@@ -312,6 +316,7 @@
 				984F146C296CDEE70074E9AF /* User.swift */,
 				984F146E296CDF020074E9AF /* DriverAnnotation.swift */,
 				9850704329731E1D00794DB9 /* PlaceMark.swift */,
+				65164FE52A7144DB00E93F09 /* Enums.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -541,6 +546,7 @@
 				9896EFD5292B7A3C00A7248D /* UILabel+Ext.swift */,
 				984D939F295484D200225E0E /* Types + Ext.swift */,
 				65CF5C8C2983EDAA00F52CFA /* Notification.swift */,
+				65164FE72A71669600E93F09 /* UIImage+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -745,6 +751,7 @@
 				986A87BE296457CE00A460AA /* OverlayLocationTableView.swift in Sources */,
 				98E901592924E3A0003F8ABF /* SceneDelegate.swift in Sources */,
 				98C97A1929253DB90078608A /* Color.swift in Sources */,
+				65164FE62A7144DB00E93F09 /* Enums.swift in Sources */,
 				985070462973304F00794DB9 /* SavedPlacesCell.swift in Sources */,
 				984D93A0295484D200225E0E /* Types + Ext.swift in Sources */,
 				986A87C429660BC700A460AA /* UserService.swift in Sources */,
@@ -757,6 +764,7 @@
 				984F85112958E911003D53C3 /* AccountActionCollectionCell.swift in Sources */,
 				984F850D2958D7D4003D53C3 /* AccountHeaderView.swift in Sources */,
 				98450BBB292936510065C260 /* WelcomeVC.swift in Sources */,
+				65164FE82A71669600E93F09 /* UIImage+Ext.swift in Sources */,
 				98395D18294F24D40071D5DF /* HomeVC+Delegates.swift in Sources */,
 				98395D13294CE74D0071D5DF /* MockData.swift in Sources */,
 				98450BA82928230C0065C260 /* TabBarVC.swift in Sources */,
@@ -836,7 +844,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -892,7 +900,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -911,6 +919,7 @@
 				INFOPLIST_FILE = Uber/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Uber;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -933,6 +942,7 @@
 				INFOPLIST_FILE = Uber/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Uber;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
