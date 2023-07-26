@@ -19,19 +19,20 @@ struct FirebaseAuthManager {
    
     private init() {}
     
-    // check user is logged in
+    // MARK: check user is logged in-
     var isLoggedIn: Bool {
         return auth.currentUser != nil
     }
     
-    // get current user signed in
+    // MARK:  get current user signed in -
     var currentUser : String? {
         if let uid = auth.currentUser?.uid {
             return uid
         }
         return nil
     }
-    // create user
+    
+    // MARK: create user -
     func createUserAccount(emailAddress: String, password: String, fullname: String, accountType: Int, completion: @escaping (String?,Error?) -> Void){
         auth.createUser(withEmail: emailAddress, password: password) { results, error in
             if let err = error {
@@ -67,7 +68,7 @@ struct FirebaseAuthManager {
             completion(uid,nil)
         }
     }
-    // login user
+    // MARK: login user -
     func signInUserAccount(emailAddress: String, password: String, completion: @escaping (String?,Error?) -> Void){
         auth.signIn(withEmail: emailAddress, password: password) { results, error in
             if let err = error {
@@ -78,7 +79,7 @@ struct FirebaseAuthManager {
             completion(user.uid,nil)
         }
     }
-    // log out user
+    // MARK: log out user -
     func logOutUser(completion: @escaping (Result<Void,Error>)-> Void){
         do {
             try auth.signOut()
