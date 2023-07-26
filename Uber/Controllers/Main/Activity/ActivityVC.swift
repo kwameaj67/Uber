@@ -13,7 +13,6 @@ class ActivityVC: UIViewController {
    
     let currentTrip: Trip = Trip.data.remove(at: 0)
     let trips = Trip.data
-    //let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +32,8 @@ class ActivityVC: UIViewController {
         tv.showsVerticalScrollIndicator = false
         tv.backgroundColor = .clear
         tv.separatorColor = .clear
+        tv.rowHeight = 110.0
+        tv.estimatedRowHeight = UITableView.automaticDimension
         tv.tableHeaderView = UIView()
         tv.tableFooterView = UIView()
         tv.allowsMultipleSelection = false

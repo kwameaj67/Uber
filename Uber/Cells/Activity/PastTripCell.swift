@@ -20,7 +20,6 @@ class PastTripCell: UITableViewCell {
         setupViews()
         setupContraints()
         backgroundColor = .white
-        arrowImage.transform = CGAffineTransform(rotationAngle: CGFloat.pi * 3/2) // transform image to the right
     }
     
     required init?(coder: NSCoder) {
@@ -30,7 +29,7 @@ class PastTripCell: UITableViewCell {
     // MARK: Properties
     lazy var locationLabel: UILabel = {
         let lb = UILabel()
-        lb.numberOfLines = 0
+        lb.numberOfLines = 2
         lb.textColor = Color.black
         lb.font = UIFont(name: Font.medium.rawValue, size: 16)
         lb.translatesAutoresizingMaskIntoConstraints = false
@@ -71,14 +70,25 @@ class PastTripCell: UITableViewCell {
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
-    lazy var arrowImage : UIImageView = {
-        var iv = UIImageView()
-        iv.image = UIImage(named: "uber-down")?.withRenderingMode(.alwaysTemplate)
-        iv.tintColor = .systemGray3
-        iv.contentMode = .scaleAspectFill
-        iv.translatesAutoresizingMaskIntoConstraints = false
-        return iv
+  
+    lazy var rebookBtn: UberButton = {
+        let btn = UberButton(frame: .zero)
+        let image = UIImage(systemName: "arrow.uturn.right")?.withRenderingMode(.alwaysTemplate).withConfiguration(UIImage.SymbolConfiguration(weight: .bold))
+        let resizedImage = image?.resize(to: CGSize(width: 16, height: 16))
+        btn.setTitle("Rebook", for: .normal)
+        btn.setTitleColor(.black, for: .normal)
+        btn.titleLabel?.font = UIFont(name: Font.medium.rawValue, size: 14)
+        btn.setImage(resizedImage, for: .normal)
+        btn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 15)
+        btn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        btn.semanticContentAttribute = .forceLeftToRight
+        btn.backgroundColor = Color.grey_bg
+        btn.tintColor = .black
+        btn.layer.cornerRadius = 35/2
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
     }()
+
     lazy var border: UIView = {
         let v = UIView()
         v.backgroundColor = UIColor.systemGray5
@@ -92,14 +102,14 @@ class PastTripCell: UITableViewCell {
         stackView.addArrangedSubview(locationLabel)
         stackView.addArrangedSubview(dateLabel)
         stackView.addArrangedSubview(priceLabel)
-        contentView.addSubview(arrowImage)
+        contentView.addSubview(rebookBtn)
         contentView.addSubview(border)
     }
     
     func setupContraints(){
         NSLayoutConstraint.activate([
-            iconContainer.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 20),
-            iconContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            iconContainer.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),//topAnchor.constraint(equalTo: contentView.topAnchor,constant: 20),
+            iconContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
             iconContainer.heightAnchor.constraint(equalToConstant: 68),
             iconContainer.widthAnchor.constraint(equalToConstant: 72),
             
@@ -108,18 +118,19 @@ class PastTripCell: UITableViewCell {
             carImage.heightAnchor.constraint(equalToConstant: 45),
             carImage.widthAnchor.constraint(equalToConstant: 60),
             
-            stackView.centerYAnchor.constraint(equalTo: iconContainer.centerYAnchor),
-            stackView.leadingAnchor.constraint(equalTo: iconContainer.trailingAnchor, constant: 20),
+            stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            stackView.leadingAnchor.constraint(equalTo: iconContainer.trailingAnchor, constant: 10),
+            stackView.trailingAnchor.constraint(equalTo: rebookBtn.leadingAnchor, constant: -20),
             
-            arrowImage.centerYAnchor.constraint(equalTo: stackView.centerYAnchor),
-            arrowImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            arrowImage.heightAnchor.constraint(equalToConstant: 10),
-            arrowImage.widthAnchor.constraint(equalToConstant: 10),
+            rebookBtn.centerYAnchor.constraint(equalTo: stackView.centerYAnchor),
+            rebookBtn.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+            rebookBtn.heightAnchor.constraint(equalToConstant: 35),
+            rebookBtn.widthAnchor.constraint(equalToConstant: 92),
             
-            border.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            border.leadingAnchor.constraint(equalTo: iconContainer.trailingAnchor, constant: 20),
+            border.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 12),
+            border.leadingAnchor.constraint(equalTo: iconContainer.trailingAnchor, constant: 10),
             border.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            border.heightAnchor.constraint(equalToConstant: 0.6),
+            border.heightAnchor.constraint(equalToConstant: 0.8),
         ])
     }
     

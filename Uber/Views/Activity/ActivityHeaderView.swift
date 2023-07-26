@@ -79,6 +79,25 @@ class ActivityHeaderView: UITableViewHeaderFooterView {
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
+    
+    lazy var rebookBtn: UberButton = {
+        let btn = UberButton(type: .system)
+        let image = UIImage(systemName: "arrow.uturn.right")?.withRenderingMode(.alwaysTemplate).withConfiguration(UIImage.SymbolConfiguration(weight: .bold))
+        let resizedImage = image?.resize(to: CGSize(width: 16, height: 16))
+        btn.setTitle("Rebook", for: .normal)
+        btn.setTitleColor(.black, for: .normal)
+        btn.titleLabel?.font = UIFont(name: Font.medium.rawValue, size: 14)
+        btn.setImage(resizedImage, for: .normal)
+        btn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 15)
+        btn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        btn.semanticContentAttribute = .forceLeftToRight
+        btn.backgroundColor = Color.grey_bg
+        btn.tintColor = .black
+        btn.layer.cornerRadius = 35/2
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
     func setupViews(){
         addSubview(headingLbl)
         addSubview(titleLbl)
@@ -88,6 +107,7 @@ class ActivityHeaderView: UITableViewHeaderFooterView {
         }
         tripContainer.addSubview(mapView)
         tripContainer.addSubview(stackView)
+        tripContainer.addSubview(rebookBtn)
     }
     
     func setupContraints(){
@@ -101,7 +121,7 @@ class ActivityHeaderView: UITableViewHeaderFooterView {
             tripContainer.topAnchor.constraint(equalTo: titleLbl.bottomAnchor, constant: 15),
             tripContainer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             tripContainer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
-            tripContainer.heightAnchor.constraint(equalToConstant: 300),
+            tripContainer.heightAnchor.constraint(equalToConstant: 330),
             
             mapView.topAnchor.constraint(equalTo: tripContainer.topAnchor, constant: 12),
             mapView.leadingAnchor.constraint(equalTo: tripContainer.leadingAnchor, constant: 12),
@@ -112,6 +132,10 @@ class ActivityHeaderView: UITableViewHeaderFooterView {
             stackView.leadingAnchor.constraint(equalTo: tripContainer.leadingAnchor, constant: 12),
             stackView.trailingAnchor.constraint(equalTo: tripContainer.trailingAnchor, constant: -12),
             
+            rebookBtn.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 20),
+            rebookBtn.leadingAnchor.constraint(equalTo: tripContainer.leadingAnchor, constant: 12),
+            rebookBtn.heightAnchor.constraint(equalToConstant: 35),
+            rebookBtn.widthAnchor.constraint(equalToConstant: 92),
         ])
     }
 
