@@ -14,6 +14,8 @@ class EditAccountVC: UIViewController {
     var lastname = ""
     var email = ""
     
+    let editAccountData = EditAccountData.data
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -28,7 +30,7 @@ class EditAccountVC: UIViewController {
     }
 
   
-    // MARK: Properties
+    // MARK: Properties -
     lazy var cancelButton: UberButton = {
         let cb = UberButton()
         let image = UIImage(named: "uber-exit")?.withRenderingMode(.alwaysOriginal).withConfiguration(UIImage.SymbolConfiguration(weight: .heavy))
@@ -111,7 +113,7 @@ class EditAccountVC: UIViewController {
 // MARK: UITableViewDelegate, UITableViewDataSource -
 extension EditAccountVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return editAccountData.count
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -143,29 +145,24 @@ extension EditAccountVC: UITableViewDelegate, UITableViewDataSource {
         bgView.backgroundColor = Color.grey_bg2
         cell.selectedBackgroundView = bgView
         
-        switch indexPath.row{
-        case 0:
-            cell.headingLbl.text = "First name"
-            cell.dataLbl.text = firstname
-            toggleVerifiedLbl(isHidden: true, alpha: 0, cell: cell)
-        case 1:
-            cell.headingLbl.text = "Surname"
-            cell.dataLbl.text = lastname
-            toggleVerifiedLbl(isHidden: true, alpha: 0, cell: cell)
-        case 2:
-            cell.headingLbl.text = "Phone number"
-            cell.dataLbl.text = "+233 24 755 3965"
-            toggleVerifiedLbl(isHidden: false, alpha: 1, cell: cell)
-        case 3:
-            cell.headingLbl.text = "Email address"
-            cell.dataLbl.text = email
-            toggleVerifiedLbl(isHidden: false, alpha: 1, cell: cell)
-        case 4:
-            cell.headingLbl.text = "Password"
-            cell.dataLbl.text = "******"
-            toggleVerifiedLbl(isHidden: true, alpha: 0, cell: cell)
-        default:
-            break
+        let item = editAccountData[indexPath.row]
+        
+        switch item.dataType{
+            case .firstname:
+                renderData(cell: cell, headingLabel: "First name", data: firstname)
+                toggleVerifiedLbl(isHidden: true, alpha: 0, cell: cell)
+            case .lastname:
+                renderData(cell: cell, headingLabel: "Surname", data: lastname)
+                toggleVerifiedLbl(isHidden: true, alpha: 0, cell: cell)
+            case .phone:
+                renderData(cell: cell, headingLabel: "Phone number", data: "+233 24 755 3965")
+                toggleVerifiedLbl(isHidden: false, alpha: 1, cell: cell)
+            case .email:
+                renderData(cell: cell, headingLabel: "Email address", data: email)
+                toggleVerifiedLbl(isHidden: false, alpha: 1, cell: cell)
+            case .password:
+                renderData(cell: cell, headingLabel: "Password", data: "******")
+                toggleVerifiedLbl(isHidden: true, alpha: 0, cell: cell)
         }
         
         return cell
@@ -174,6 +171,11 @@ extension EditAccountVC: UITableViewDelegate, UITableViewDataSource {
         func toggleVerifiedLbl(isHidden: Bool,alpha: CGFloat,cell: EditAccountInfoCell){
             cell.verifiedLbl.isHidden = isHidden
             cell.verifiedLbl.alpha = alpha
+        }
+        
+        func renderData(cell: EditAccountInfoCell, headingLabel: String, data: String){
+            cell.headingLbl.text = headingLabel
+            cell.dataLbl.text = data
         }
     }
     
