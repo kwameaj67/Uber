@@ -104,11 +104,11 @@ extension MapVC: OverLayLocationInputViewDelegate{
 }
 // MARK: OverlayLocationTableViewDelegate -
 extension MapVC: OverlayLocationTableViewDelegate {
-    func dismissLocationTableView(selectedPlacemark: MKPlacemark) {
+    func didSelectLocationPlacemark(selectedPlacemark: MKPlacemark) {
         playHaptic(style: .medium)
         destination = MKMapItem(placemark: selectedPlacemark)
         guard let destinationLocation = destination else { return }
-        print("DEBUG: destination: \(destination)")
+        //print("DEBUG: destination: \(destination)")
         generatePolyline(toDestination: destinationLocation)
         
         dismissLocationView { [weak self] _ in
@@ -138,6 +138,16 @@ extension MapVC: OverlayLocationTableViewDelegate {
             
             // pass selectedPlacemark details to rideActionView
             self.rideActionView.destination = selectedPlacemark
+            
+            // pass selectedPlacemark destination to destinationField
+            let destinationField = self.overlayLocationInputView.destinationLocationField
+            destinationField.text = selectedPlacemark.name ?? ""
+            
+            // if no destination selected
+            if rideActionView.destination == nil {
+                destinationField.becomeFirstResponder()
+                destinationField.selectedTextRange = destinationField.textRange(from: destinationField.beginningOfDocument, to: destinationField.endOfDocument)      
+            }
         }
         
         

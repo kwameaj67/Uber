@@ -115,6 +115,7 @@ class OverlayDestinationView: UIView {
         playHaptic(style: .medium)
         delegate?.didTapSearchButton()
     }
+    
     @objc func handleConfirmTapped(){
         
     }

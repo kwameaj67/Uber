@@ -18,6 +18,7 @@ class OverlayRideActionView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
+        layer.cornerRadius = 20
         setupViews()
         setupContraints()
         translatesAutoresizingMaskIntoConstraints = false
@@ -96,7 +97,7 @@ class OverlayRideActionView: UIView {
     
     func setupContraints(){
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: topAnchor,constant: 10),
+            stackView.topAnchor.constraint(equalTo: topAnchor,constant: 30),
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 10),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -10),
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -30),

@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 
 protocol OverlayLocationTableViewDelegate: AnyObject {
-    func dismissLocationTableView(selectedPlacemark: MKPlacemark)
+    func didSelectLocationPlacemark(selectedPlacemark: MKPlacemark)
 }
 
 class OverlayLocationTableView: UIView {
@@ -110,7 +110,7 @@ extension OverlayLocationTableView: UITableViewDelegate, UITableViewDataSource{
         if indexPath.section == 1 {
             let selectedPlacemark = placeMarkData[indexPath.row]
             //print("Selected Item: \(selectedPlacemark.name), \(selectedPlacemark.title), \(selectedPlacemark.coordinate)")
-            delegate?.dismissLocationTableView(selectedPlacemark: selectedPlacemark)
+            delegate?.didSelectLocationPlacemark(selectedPlacemark: selectedPlacemark)
         }
     }
 }
