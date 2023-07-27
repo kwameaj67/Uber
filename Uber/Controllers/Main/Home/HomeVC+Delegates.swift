@@ -17,6 +17,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: HomeHeaderView.reuseableID) as! HomeHeaderView
         header.searchView.locationActivationView.delegate = self
+        header.delegate = self
         return header
     }
     
@@ -41,7 +42,6 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             cell.border.isHidden = true
             cell.border.alpha = 0
         }
-        
         return cell
     }
     
@@ -52,7 +52,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
     // header & footer height
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 365.0
+        return 440.0
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -71,7 +71,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-// MARK: SearchLocationDelegate-
+// MARK: SearchLocationDelegate -
 extension HomeVC: SearchLocationDelegate {
     func presentMapVC(showDestinationView: Bool){
         navigateToMapVC(locationQuery: nil, showDestinationView: showDestinationView)
@@ -84,8 +84,16 @@ extension HomeVC: SearchLocationDelegate {
     }
 }
 
+// MARK: HomeHeaderViewDelegate -
+extension HomeVC: HomeHeaderViewDelegate {
+    func didTapFeatureOption(featureType: UberFeatureType) {
+        if featureType == .ride {
+            navigateToMapVC(locationQuery: nil, showDestinationView: true)
+        }
+    }
+}
 
-// MARK: HomeFooterViewDelegate-
+// MARK: HomeFooterViewDelegate -
 extension HomeVC: HomeFooterViewDelegate {
     func didTapMapView() {
         playHaptic(style: .medium)

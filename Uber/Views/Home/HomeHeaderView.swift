@@ -7,15 +7,22 @@
 
 import UIKit
 
+
+protocol HomeHeaderViewDelegate: AnyObject {
+    func didTapFeatureOption(featureType: UberFeatureType)
+}
 class HomeHeaderView: UITableViewHeaderFooterView {
     
     private let options = UberFeatureOption.data
     static let reuseableID = "HomeHeaderView"
     
+    weak var delegate: HomeHeaderViewDelegate?
+    
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: HomeHeaderView.reuseableID)
         setupViews()
         setupContraints()
+        backgroundColor = .red
     }
     
     required init?(coder: NSCoder) {
@@ -27,15 +34,17 @@ class HomeHeaderView: UITableViewHeaderFooterView {
         let v = PromoAdView()
         return v
     }()
+    
     // shortcut buttons
     lazy var imageCollectionView : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 2
         let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout.init())
         cv.setCollectionViewLayout(layout, animated: true)
         cv.delegate = self
         cv.dataSource = self
-        cv.backgroundColor = .red
+        cv.backgroundColor = .none
         cv.register(UberOptionCollectionCell.self, forCellWithReuseIdentifier: UberOptionCollectionCell.reusableID)
         cv.allowsSelection = true
         cv.isScrollEnabled = false
@@ -62,17 +71,17 @@ class HomeHeaderView: UITableViewHeaderFooterView {
             promoView.topAnchor.constraint(equalTo: topAnchor),
             promoView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             promoView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            promoView.heightAnchor.constraint(equalToConstant: 148),
+            promoView.heightAnchor.constraint(equalToConstant: 138),
             
-            imageCollectionView.topAnchor.constraint(equalTo: promoView.bottomAnchor, constant: 25),
-            imageCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 20),
-            imageCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -20),
-            imageCollectionView.heightAnchor.constraint(equalToConstant: 140),
+            imageCollectionView.topAnchor.constraint(equalTo: promoView.bottomAnchor, constant: 18),
+            imageCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            imageCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            imageCollectionView.heightAnchor.constraint(equalToConstant: 210),
             
-            searchView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
+            searchView.topAnchor.constraint(equalTo: imageCollectionView.bottomAnchor, constant: 20),
             searchView.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 20),
             searchView.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -20),
-            searchView.heightAnchor.constraint(equalToConstant: 60)
+            searchView.heightAnchor.constraint(equalToConstant: 55)
             
         ])
     }
@@ -95,7 +104,13 @@ extension HomeHeaderView: UICollectionViewDataSource, UICollectionViewDelegate, 
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.size.width-30)/3, height: 105)
+        return CGSize(width: (collectionView.frame.size.width-30)/4, height: 102)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = options[indexPath.row]
+        playHaptic(style: .medium)
+        delegate?.didTapFeatureOption(featureType: item.type)
     }
     
 }

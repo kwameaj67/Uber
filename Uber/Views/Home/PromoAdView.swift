@@ -13,8 +13,8 @@ class PromoAdView: UIView {
         super.init(frame: frame)
         setupViews()
         setupContraints()
-        self.layer.cornerRadius = 12
-        self.backgroundColor = Color.green
+        layer.cornerRadius = 12
+        backgroundColor = Color.green
         translatesAutoresizingMaskIntoConstraints = false
         layer.masksToBounds = true
     }

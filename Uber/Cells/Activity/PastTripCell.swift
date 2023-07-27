@@ -65,7 +65,7 @@ class PastTripCell: UITableViewCell {
     }()
     lazy var carImage : UIImageView = {
         var iv = UIImageView()
-        iv.image = UIImage(named: "uber-car")?.withRenderingMode(.alwaysOriginal)
+        iv.image = UIImage(named: "uber-ride")?.withRenderingMode(.alwaysOriginal)
         iv.contentMode = .scaleAspectFit
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
@@ -108,7 +108,7 @@ class PastTripCell: UITableViewCell {
     
     func setupContraints(){
         NSLayoutConstraint.activate([
-            iconContainer.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),//topAnchor.constraint(equalTo: contentView.topAnchor,constant: 20),
+            iconContainer.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             iconContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
             iconContainer.heightAnchor.constraint(equalToConstant: 68),
             iconContainer.widthAnchor.constraint(equalToConstant: 72),
@@ -127,7 +127,7 @@ class PastTripCell: UITableViewCell {
             rebookBtn.heightAnchor.constraint(equalToConstant: 35),
             rebookBtn.widthAnchor.constraint(equalToConstant: 92),
             
-            border.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 12),
+            border.bottomAnchor.constraint(equalTo: bottomAnchor),
             border.leadingAnchor.constraint(equalTo: iconContainer.trailingAnchor, constant: 10),
             border.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             border.heightAnchor.constraint(equalToConstant: 0.8),

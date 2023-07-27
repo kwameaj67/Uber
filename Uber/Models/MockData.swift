@@ -6,7 +6,7 @@
 //
 
 import CoreLocation
-
+import UIKit
 
 struct RecentLocation {
     var name: String
@@ -22,15 +22,38 @@ struct RecentLocation {
 }
 
 struct UberFeatureOption {
-    var name: String
-    var icon: String
+    var type: UberFeatureType = .food
     var promoActive: Bool
-    
+    var icon: UIImage? {
+        switch type{
+        case .food:
+            return UIImage(named: "uber-food")
+        case .ride:
+            return UIImage(named: "uber-ride")
+        case .package:
+            return UIImage(named: "uber-package")
+        case .reserve:
+            return UIImage(named: "uber-reserve")
+        case .grocery:
+            return UIImage(named: "uber-grocery")
+        case .transit:
+            return UIImage(named: "uber-transit")
+        case .rent:
+            return UIImage(named: "uber-rent")
+        case .more:
+            return UIImage(systemName: "ellipsis")
+        }
+    }
     
     static let data: [UberFeatureOption] = [
-        UberFeatureOption(name: "Ride", icon: "uber-car",promoActive: true),
-        UberFeatureOption(name: "Reserve", icon: "uber-reserve",promoActive: false),
-        UberFeatureOption(name: "Package", icon: "uber-package",promoActive: false)
+        UberFeatureOption(type: .ride, promoActive: true),
+        UberFeatureOption(type: .food, promoActive: false),
+        UberFeatureOption(type: .package, promoActive: false),
+        UberFeatureOption(type: .reserve, promoActive: false),
+        UberFeatureOption(type: .grocery, promoActive: false),
+        UberFeatureOption(type: .transit, promoActive: false),
+        UberFeatureOption(type: .rent, promoActive: false),
+        UberFeatureOption(type: .more, promoActive: false),
     ]
 }
 

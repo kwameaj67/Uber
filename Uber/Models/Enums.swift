@@ -21,6 +21,16 @@ enum RecentLocationType{
     case random
 }
 
+enum UberFeatureType: String, CaseIterable{
+    case ride = "Ride"
+    case food = "Food"
+    case package = "Package"
+    case reserve = "Reserve"
+    case grocery = "Grocery"
+    case transit = "Transit"
+    case rent = "Rent"
+    case more = "More"
+}
 
 enum TripStatus{
     case cancelled

@@ -50,7 +50,7 @@ class SearchLocationView: UIView {
             timerView.centerYAnchor.constraint(equalTo: centerYAnchor),
             timerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             timerView.heightAnchor.constraint(equalToConstant: 40),
-            timerView.widthAnchor.constraint(equalToConstant: 125),
+            timerView.widthAnchor.constraint(equalToConstant: 115),
         ])
     }
 

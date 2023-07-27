@@ -82,7 +82,7 @@ class HomeVC: UIViewController {
         tv.tableHeaderView = UIView()
         tv.tableFooterView = UIView()
         tv.rowHeight = UITableView.automaticDimension
-        tv.estimatedRowHeight = 65
+        tv.estimatedRowHeight = 60
         tv.allowsMultipleSelection = false
         tv.allowsSelection = true
         tv.translatesAutoresizingMaskIntoConstraints = false
