@@ -26,8 +26,7 @@ class AccountVC: UIViewController {
         print("deinit \(self)")
     }
     func fetchUserName(){
-        let name = userDefaultManager.getUserFullName()
-        accountHeaderView.profileLbl.text = name
+        accountHeaderView.profileLbl.text = userDefaultManager.getUserFullname()
     }
     
     // MARK: Properties -

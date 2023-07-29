@@ -22,7 +22,7 @@ class EditAccountVC: UIViewController {
         setupContraints()
         view.backgroundColor = .white
         
-        let fullname = userDefaultManager.getUserFullName().split(separator: " ")
+        let fullname = userDefaultManager.getUserFullname().split(separator: " ")
         
         firstname = String(fullname[0])
         lastname = String(fullname[1])
