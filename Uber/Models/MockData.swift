@@ -99,9 +99,9 @@ struct AccountOption{
     static let data: [AccountOption] = [
         AccountOption(iconType: .settings, name: "Settings"),
         AccountOption(iconType: .messages, name: "Messages"),
+        AccountOption(iconType: .earning, name: "Earn by driving or delivering"),
         AccountOption(iconType: .business, name: "Business hub"),
         AccountOption(iconType: .refer, name: "Refer friends, unlock deals"),
-        AccountOption(iconType: .earning, name: "Earn by driving or delivering"),
         AccountOption(iconType: .legal, name: "Legal"),
     ]
 }
@@ -119,9 +119,6 @@ struct AccountActionOption {
     ]
 }
 
-
-
-
 struct SectionOption{
     var name: String
     var icon: String?
@@ -133,33 +130,29 @@ struct Section {
     var sectionName: String
     var sectionItems: [SectionOption]
     
-    static var mainData:[SectionOption] = [
-        SectionOption(name: "Home", icon: nil, description: DescriptionData.home.rawValue, type: .home),
-        SectionOption(name: "Work",  icon: nil, description: DescriptionData.work.rawValue, type: .work),
-        SectionOption(name: "Shortcuts", icon: nil, description: DescriptionData.shortcut.rawValue, type:.shortcut),
-        SectionOption(name: "Privacy", icon: nil, description: DescriptionData.privacy.rawValue, type:.privacy),
-        SectionOption(name: "Security", icon: nil, description: DescriptionData.security.rawValue, type:.security),
-        SectionOption(name: "Appearance", description: DescriptionData.appearance.rawValue, type: .appearance)
+    static var mainData: [SectionOption] = [
+        SectionOption(name: "Home", icon: nil, description: SettingDescription.home.rawValue, type: .home),
+        SectionOption(name: "Work",  icon: nil, description: SettingDescription.work.rawValue, type: .work),
+        SectionOption(name: "Shortcuts", icon: nil, description: SettingDescription.shortcut.rawValue, type:.shortcut),
+        SectionOption(name: "Privacy", icon: nil, description: SettingDescription.privacy.rawValue, type:.privacy),
+        SectionOption(name: "Security", icon: nil, description: SettingDescription.security.rawValue, type:.security),
+        SectionOption(name: "Appearance", description: SettingDescription.appearance.rawValue, type: .appearance)
     ]
 
-    static var safetyData:[SectionOption] = [
-        SectionOption(name: "Managed Trusted contacts", icon: nil, description: DescriptionData.trusted_contacts.rawValue,type: .trusted_contacts),
-        SectionOption(name: "Verify your trip",  icon: nil, description: DescriptionData.verify_trip.rawValue, type: .verify_trip),
-        SectionOption(name: "RideCheck", icon: nil, description: DescriptionData.ride_check.rawValue, type:.ride_check),
+    static var safetyData: [SectionOption] = [
+        SectionOption(name: "Managed Trusted contacts", icon: nil, description: SettingDescription.trusted_contacts.rawValue,type: .trusted_contacts),
+        SectionOption(name: "Verify your trip",  icon: nil, description: SettingDescription.verify_trip.rawValue, type: .verify_trip),
+        SectionOption(name: "RideCheck", icon: nil, description: SettingDescription.ride_check.rawValue, type:.ride_check),
     ]
     
-    static var familyData:[SectionOption] = [
-        SectionOption(name: "Set up your family", icon: nil, description: DescriptionData.setup_family.rawValue,type: .setup_family),
-    ]
-    static var signoutData:[SectionOption] = [
-        SectionOption(name: "Sign out", icon: nil, description:"",type: .signout),
+    static var familyData: [SectionOption] = [
+        SectionOption(name: "Set up your family", icon: nil, description: SettingDescription.setup_family.rawValue,type: .setup_family)
     ]
     
     static var sectionArray = [
         Section(sectionName: "", sectionItems: mainData),
         Section(sectionName: "Safety", sectionItems: safetyData),
-        Section(sectionName: "Family", sectionItems: familyData),
-//        Section(sectionName: "Signout", sectionItems: signoutData)
+        Section(sectionName: "Family", sectionItems: familyData)
     ]
 
 }
@@ -167,7 +160,6 @@ struct Section {
 // MARK: EditAccountData -
 struct EditAccountData{
     var dataType: EditAccountDataType
-    
     
     static let data: [EditAccountData] = [
         EditAccountData(dataType: .firstname),

@@ -15,7 +15,6 @@ enum AccountType: String {
     case driver = "driver"
 }
 
-
 enum RecentLocationType{
     case work
     case random
@@ -52,8 +51,8 @@ enum AccountActionType{
     case trips
 }
 
-// MARK: Settings data
-enum DescriptionData: String {
+// MARK: Settings data -
+enum SettingDescription: String {
     case home = "Unnamed Road"
     case work = "Petra Trust Company Limited"
     case shortcut =  "Managed saved location"
@@ -80,7 +79,7 @@ enum OptionType {
     case signout
 }
 
-// MARK: EditAccount data
+// MARK: EditAccount data -
 enum EditAccountDataType{
     case firstname
     case lastname

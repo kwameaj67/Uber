@@ -11,14 +11,14 @@ import MapKit
 class User {
     let fullname: String
     let email: String
-    let accountType: AccountType?
+    let accountType: String
     var location: CLLocation?
     let uid: String
     
-    init(uid: String, dictionary:[String: Any]) {
+    init(uid: String, dictionary: [String: Any]) {
         self.uid = uid
         self.fullname = dictionary["fullname"] as? String ?? ""
         self.email = dictionary["email"] as? String ?? ""
-        self.accountType = dictionary["accountType"] as? AccountType
+        self.accountType = dictionary["accountType"] as? String ?? ""
     }
 }
