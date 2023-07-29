@@ -20,7 +20,6 @@ class HomeVC: UIViewController {
     let annotation = MKPointAnnotation()
     var region = MKCoordinateRegion()
     var spanDelta = MKCoordinateSpan(latitudeDelta: 0.8, longitudeDelta: 0.8) // zoom level
-    weak var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,10 +60,13 @@ class HomeVC: UIViewController {
     func fetchUserData(){
         guard let uid = firebaseManager.currentUser else { return }
         userService.fetchUserData(uid: uid) { [weak self] user in
-            self?.user = user
-            //print(user.fullname,user.email)
-            self?.userDefaultManager.setUserFullName(fullName: user.fullname)
-            self?.userDefaultManager.setUserEmail(email: user.email)
+            let me = [
+                "uid": uid,
+                "email": user.email,
+                "fullname": user.fullname,
+                "accountType": user.accountType,
+            ]
+            self?.userDefaultManager.saveUserInfo(user: me)
         }
     }
     
