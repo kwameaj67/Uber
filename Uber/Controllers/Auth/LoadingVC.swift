@@ -9,7 +9,7 @@ import UIKit
 
 class LoadingVC: UIViewController {
     
-    let authManager = FirebaseAuthManager.shared
+    let firebaseManager = FirebaseAuthManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +21,8 @@ class LoadingVC: UIViewController {
     }
     
     func checkIfUserIsLoggedIn(){
-        print("DEBUG: Current UserID: \(authManager.currentUser ?? "no id/user")")
-        if authManager.isLoggedIn {
+        print("DEBUG: Current UserID: \(firebaseManager.currentUser ?? "no id/user")")
+        if firebaseManager.isLoggedIn {
             loadingIndicator.stopAnimating()
             smoothControllerTransition(for: TabBarVC())
         }else {
