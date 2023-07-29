@@ -166,6 +166,6 @@ struct EditAccountData{
         EditAccountData(dataType: .lastname),
         EditAccountData(dataType: .phone),
         EditAccountData(dataType: .email),
-        EditAccountData(dataType: .phone),
+        EditAccountData(dataType: .password),
     ]
 }
