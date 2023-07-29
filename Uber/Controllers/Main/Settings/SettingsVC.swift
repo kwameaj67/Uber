@@ -20,7 +20,7 @@ class SettingsVC: UIViewController {
         setupViews()
         setupContraints()
         view.backgroundColor = .white
-        username = userDefaultManager.getUserFullName()
+        username = userDefaultManager.getUserFullname()
         email = userDefaultManager.getUserEmail()
     }
     deinit {
@@ -211,15 +211,15 @@ extension SettingsVC: DidTapSignOutDelegate{
     func didTapSignOut() {
         dismiss(animated: true)
         playHaptic(style: .medium)
+        userDefaultManager.removeUserInfo()
         self.authManager.logOutUser { [weak self] results in
             guard let self = self else { return }
             switch results{
             case .success():
                 let onboardingVC = UINavigationController(rootViewController: OnboardVC())
                 self.smoothControllerTransition(for: onboardingVC)
-            case .failure(_):
-                break
-                //print("DEBUG: \(error.localizedDescription)")
+            case .failure(let error):
+                print("DEBUG: \(error.localizedDescription)")
             }
         }
     }

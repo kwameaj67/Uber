@@ -86,9 +86,9 @@ extension MapVC: OverLayLocationInputViewDelegate{
     
     func executeLocationSearch(query: String) {
         print("DEBUG:Query is: \(query)")
-        searchByLocation(query: query) { [weak self] placemark in
-            print("DEBUG: \(placemark)")
-            self?.overlayLocationTableView.placeMarkData = placemark  // pass data to tableview
+        searchByLocation(query: query) { [weak self] placemarks in
+            print("DEBUG: \(placemarks)")
+            self?.overlayLocationTableView.placeMarkData = placemarks // pass data to tableview
            // print("DEBUG: Count: \(self?.overlayLocationTableView.placeMarkData.count)")
         }
     }

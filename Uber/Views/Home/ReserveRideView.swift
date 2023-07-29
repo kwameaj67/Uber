@@ -53,7 +53,6 @@ class ReserveRideView: UIView {
         sv.axis = .horizontal
         sv.spacing = 10
         sv.alignment = .center
-//        sv.backgroundColor = .red
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
@@ -64,17 +63,16 @@ class ReserveRideView: UIView {
         stackView.addArrangedSubview(timeIcon)
         stackView.addArrangedSubview(timeLabel)
         stackView.addArrangedSubview(uberDownIcon)
-        
     }
     
     func setupContraints(){
         NSLayoutConstraint.activate([
             stackView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 18),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -18),
             
-            timeIcon.widthAnchor.constraint(equalToConstant: 20),
-            timeIcon.heightAnchor.constraint(equalToConstant: 20),
+            timeIcon.widthAnchor.constraint(equalToConstant: 18),
+            timeIcon.heightAnchor.constraint(equalToConstant: 18),
             
             uberDownIcon.widthAnchor.constraint(equalToConstant: 7),
             uberDownIcon.heightAnchor.constraint(equalToConstant: 7),

@@ -64,7 +64,6 @@ struct FirebaseAuthManager {
                 return
             }
             print("User Successfully created!")
-            self.userDefaultManager.setUserFullName(fullName: values["fullname"] as! String)
             completion(uid,nil)
         }
     }

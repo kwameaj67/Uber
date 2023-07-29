@@ -19,7 +19,9 @@ class UberOptionCollectionCell: UICollectionViewCell {
             container.backgroundColor = isHighlighted ? .systemGray4 : Color.grey_bg2
         }
     }
+    
     static let reusableID = "UberOptionCollectionCell"
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -29,27 +31,28 @@ class UberOptionCollectionCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         promoView.isHidden = true
     }
+    
     // MARK: Properties -
-    let titleLabel: UILabel = {
+    lazy var titleLabel: UILabel = {
         let lb = UILabel()
         lb.textColor = Color.black
         lb.font = UIFont(name: Font.medium.rawValue, size: 13)
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
-    let iconImage : UIImageView = {
+    lazy var iconImage : UIImageView = {
         var iv = UIImageView()
         iv.contentMode = .scaleAspectFit
         iv.clipsToBounds = true
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
-    
-    let promoView: UIView = {
+    lazy var promoView: UIView = {
         let v = UIView()
         v.isHidden = true
         v.alpha = 0
@@ -58,15 +61,15 @@ class UberOptionCollectionCell: UICollectionViewCell {
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
-    let promoLbl: UILabel = {
+    lazy var promoLbl: UILabel = {
         let lb = UILabel()
         lb.text = "Promo"
         lb.textColor = .white
-        lb.font = UIFont(name: Font.medium.rawValue, size: 13)
+        lb.font = UIFont(name: Font.medium.rawValue, size: 12)
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
-    let container: UIView = {
+    lazy var container: UIView = {
         let v = UIView()
         v.backgroundColor = Color.grey_bg2
         v.layer.cornerRadius = 10
@@ -76,17 +79,17 @@ class UberOptionCollectionCell: UICollectionViewCell {
     
     func setupViews(){
         addSubview(container)
-        container.addSubview(titleLabel)
         container.addSubview(iconImage)
         addSubview(promoView)
         promoView.bringSubviewToFront(container)
         promoView.addSubview(promoLbl)
+        addSubview(titleLabel)
     }
     
     func setupContraints(){
         NSLayoutConstraint.activate([
             promoView.topAnchor.constraint(equalTo: topAnchor),
-            promoView.widthAnchor.constraint(equalToConstant: 60),
+            promoView.widthAnchor.constraint(equalToConstant: 55),
             promoView.heightAnchor.constraint(equalToConstant: 20),
             promoView.centerXAnchor.constraint(equalTo: centerXAnchor),
             
@@ -96,14 +99,15 @@ class UberOptionCollectionCell: UICollectionViewCell {
             container.topAnchor.constraint(equalTo: promoView.bottomAnchor, constant: -12),
             container.leadingAnchor.constraint(equalTo: leadingAnchor),
             container.trailingAnchor.constraint(equalTo: trailingAnchor),
-            container.heightAnchor.constraint(equalToConstant: 95),
+            container.heightAnchor.constraint(equalToConstant: 72),
+            container.widthAnchor.constraint(equalTo: widthAnchor),
             
-            iconImage.topAnchor.constraint(equalTo: container.topAnchor,constant: 10),
+            iconImage.centerYAnchor.constraint(equalTo: container.centerYAnchor),
             iconImage.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-            iconImage.heightAnchor.constraint(equalToConstant: 45),
-            iconImage.widthAnchor.constraint(equalToConstant: 60),
+            iconImage.heightAnchor.constraint(equalToConstant: 42),
+            iconImage.widthAnchor.constraint(equalToConstant: 42),
             
-            titleLabel.bottomAnchor.constraint(equalTo: container.bottomAnchor,constant: -10),
+            titleLabel.topAnchor.constraint(equalTo: container.bottomAnchor,constant: 5),
             titleLabel.centerXAnchor.constraint(equalTo: container.centerXAnchor),
             
             
@@ -112,10 +116,16 @@ class UberOptionCollectionCell: UICollectionViewCell {
     
     func manageData(){
         guard let item = data else { return }
-        titleLabel.text = item.name
-        iconImage.image = UIImage(named: item.icon)?.withRenderingMode(.alwaysOriginal)
+        titleLabel.text = item.type.rawValue
+        if item.type == .more {
+            iconImage.image = item.icon?.withRenderingMode(.alwaysTemplate).withConfiguration(UIImage.SymbolConfiguration(pointSize: 5))
+            iconImage.tintColor = .black
+        }
+        else {
+            iconImage.image = item.icon
+        }
         
-        if item.promoActive{
+        if item.promoActive {
             promoView.isHidden = false
             promoView.alpha = 1
         }

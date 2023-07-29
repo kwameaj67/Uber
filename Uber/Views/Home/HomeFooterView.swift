@@ -54,7 +54,7 @@ class HomeFooterView: UITableViewHeaderFooterView {
     
     func setupContraints(){
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             
             mapView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),

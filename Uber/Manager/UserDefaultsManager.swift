@@ -16,25 +16,29 @@ class UserDefaultsManager{
     
     private var manager = UserDefaults.standard
     
-    func setUserFullName(fullName: String){
-        manager.setValue(fullName, forKey: "fullname")
+    private let USER_OBJECT_KEY: String = "userInfo"
+    
+    func saveUserInfo(user: [String: Any]) {
+        manager.set(user, forKey: USER_OBJECT_KEY)
     }
     
-    func setUserEmail(email: String){
-        manager.setValue(email, forKey: "email")
+    func getUserInfo() -> User? {
+        guard let info = manager.object(forKey: USER_OBJECT_KEY) as? [String: Any] else { return nil}
+        let user = User(uid: info["uid"] as! String, dictionary: info)
+        return user
     }
     
-    func getUserFullName() -> String{
-        let name = manager.string(forKey: "fullname")
-        return name ?? "No Name"
+    func getUserFullname() -> String {
+        guard let info = getUserInfo() else { return " " }
+        return info.fullname
     }
     
-    func getUserEmail() -> String{
-        let name = manager.string(forKey: "email")
-        return name ?? "No Email"
+    func getUserEmail() -> String {
+        guard let info = getUserInfo() else { return " " }
+        return info.email
     }
     
-    func removeFullName(){
-        manager.removeObject(forKey: "fullname")
+    func removeUserInfo(){
+        manager.removeObject(forKey: USER_OBJECT_KEY)
     }
 }

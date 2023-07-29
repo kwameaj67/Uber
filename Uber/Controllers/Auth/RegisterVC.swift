@@ -232,6 +232,7 @@ extension RegisterVC: UITextFieldDelegate{
         switchBasedNextTextField(textField: textField)
         return true
     }
+    
     private func switchBasedNextTextField(textField: UITextField){
         switch textField {
         case fullNameTextField:
