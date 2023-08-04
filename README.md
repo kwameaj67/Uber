@@ -1,5 +1,5 @@
 # Uber
-Decided to build a few screens of one of my favourite apps Uber.
+An entire rebuild, and implementation of ride flow and some screens of Uber.
 
 ### Note ⚙️
 The application was built using: 
@@ -33,12 +33,14 @@ The application was built using:
 
 <img align='left' src="Uber/Assets.xcassets/screenshots/overlay2.imageset/overlay2.png"  width="250">
 <img align='left' src="Uber/Assets.xcassets/screenshots/trip.imageset/trip.png"  width="250">
-<img src="Uber/Assets.xcassets/screenshots/activity.imageset/activity.png"  width="250">
+<img src="Uber/Assets.xcassets/screenshots/overlay3.imageset/overlay3.png"  width="250">
 
+<img align='left' src="Uber/Assets.xcassets/screenshots/activity.imageset/activity.png"  width="250">
 <img align='left' src="Uber/Assets.xcassets/screenshots/activity2.imageset/activity2.png"  width="250">
-<img align='left' src="Uber/Assets.xcassets/screenshots/account.imageset/account.png"  width="250">
-<img src="Uber/Assets.xcassets/screenshots/settings.imageset/settings.png"  width="250">
+<img src="Uber/Assets.xcassets/screenshots/account.imageset/account.png"  width="250">
 
+<img align='left' src="Uber/Assets.xcassets/screenshots/settings.imageset/settings.png"  width="250">
 <img align='left' src="Uber/Assets.xcassets/screenshots/settings2.imageset/settings2.png"  width="250">
-<img align='left' src="Uber/Assets.xcassets/screenshots/edit.imageset/edit.png"  width="250">
-<img src="Uber/Assets.xcassets/screenshots/trips.imageset/trips.png"  width="250">
+<img src="Uber/Assets.xcassets/screenshots/edit.imageset/edit.png"  width="250">
+
+<img align='left' src="Uber/Assets.xcassets/screenshots/trips.imageset/trips.png"  width="250">
