@@ -63,7 +63,7 @@ class MapVC: UIViewController {
         if authorizationStatus == .authorizedWhenInUse || authorizationStatus == .authorizedAlways {
             guard let location = locationManager?.location else { return }
             region = .init(center: location.coordinate, latitudinalMeters: 0.01, longitudinalMeters: 0.01)
-            region.span = .init(latitudeDelta: 0.098, longitudeDelta: 0.098)
+            region.span = .init(latitudeDelta: 0.01, longitudeDelta: 0.01)
             mapView.setRegion(region, animated:true) // user region
            
             userAnnotation.coordinate = location.coordinate
@@ -71,8 +71,9 @@ class MapVC: UIViewController {
             mapView.addAnnotation(userAnnotation)
             mapView.selectAnnotation(userAnnotation, animated: true)
             
+            // fetch drivers location when user location is known
             if let _ = locationManager?.location {
-                fetchDriverLocation() // fetch drivers location when user has access to location
+                fetchDriverLocation()
                 overlayLocationInputView.pickupLocationField.text = "Current location"
                 overlayLocationInputView.pickupLocationField.textColor = Color.blue
             }
@@ -180,7 +181,6 @@ class MapVC: UIViewController {
    
     lazy var rideActionView: OverlayRideActionView = {
         let v = OverlayRideActionView()
-//        v.delegate = self
         v.transform = CGAffineTransform(translationX: 0, y: 200)
         v.isHidden = true
         v.alpha = 0
@@ -191,7 +191,8 @@ class MapVC: UIViewController {
     @objc func didTapBackButton(){
         playHaptic(style: .medium)
         
-        if (rideActionView.destination != nil) { // if we selected a destination, and we tap back button
+        // if we selected a destination, and we tap back button
+        if (rideActionView.destination != nil) {
             if self.showDestinationView {
                 destinationView.isHidden = false
                 destinationView.alpha = 1
@@ -200,7 +201,7 @@ class MapVC: UIViewController {
                 selectLocationView.alpha = 1
             }
             UIView.animate(withDuration: 0.3) {
-                self.rideActionView.transform = CGAffineTransform(translationX: 0, y: 320)
+                self.rideActionView.transform = CGAffineTransform(translationX: 0, y: 600)
             } completion: { _ in
                 self.rideActionView.isHidden = true
                 self.rideActionView.alpha = 0
@@ -212,7 +213,9 @@ class MapVC: UIViewController {
             guard let location = locationManager?.location else { return }
             region = .init(center: location.coordinate, latitudinalMeters: 0.01, longitudinalMeters: 0.01)
             region.span = .init(latitudeDelta: 0.098, longitudeDelta: 0.098)
-            mapView.setRegion(region, animated:true) // user region
+            
+            // set user region
+            mapView.setRegion(region, animated:true)
            
             userAnnotation.coordinate = location.coordinate
             userAnnotation.title = "Here"
@@ -264,7 +267,7 @@ class MapVC: UIViewController {
             
             rideActionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             rideActionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            rideActionView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.4),
+            rideActionView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.55),
             rideActionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             overlayLocationInputView.topAnchor.constraint(equalTo: view.topAnchor),

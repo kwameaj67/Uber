@@ -225,6 +225,15 @@ private extension MapVC{
     func generatePolyline(toDestination destination: MKMapItem){
         guard let location = locationManager?.location else { return }
         let request = MKDirections.Request()
+        
+        //  MKDirections is allowed for specific countries hence we need to test location directions using custom coordinates
+//        #if DEBUG
+//        let customAnnotation = MKPointAnnotation()
+//        let coordinates = CLLocationCoordinate2D(latitude: 51.4072, longitude: 0.1276)
+//        customAnnotation.coordinate = coordinates
+//        request.source = MKMapItem(placemark: MKPlacemark(coordinate: coordinates))
+//        #endif
+        
         request.source = MKMapItem(placemark: MKPlacemark(coordinate: location.coordinate))
         print("DEBUG: CurrentLocation: \(location.coordinate)")
         request.destination = destination

@@ -9,12 +9,15 @@ import UIKit
 import MapKit
 
 class OverlayRideActionView: UIView {
-
+    var rides:[Ride] = Ride.data
+    
     var destination: MKPlacemark? {
         didSet{
-            addresLbl.attributedText = setupAttributedText(destination?.name ?? "No location", destination?.title ?? "No address")
+            // we could show the destination label 
+            //addresLbl.attributedText = setupAttributedText(destination?.name ?? "No location", destination?.title ?? "No address")
         }
     }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
@@ -22,106 +25,146 @@ class OverlayRideActionView: UIView {
         setupViews()
         setupContraints()
         translatesAutoresizingMaskIntoConstraints = false
+        
+        let lbl = rides[0].name
+        confirmBtn.setTitle("Choose \(lbl)", for: .normal)
+        
+        ridesTableView.selectRow(at: IndexPath(item: 0, section: 0), animated: true, scrollPosition: .none)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let addresLbl: UILabel = {
-        let lbl = UILabel(frame: .zero)
-        lbl.textAlignment = .center
-        lbl.numberOfLines = 0
-        lbl.translatesAutoresizingMaskIntoConstraints = false
-        return lbl
-    }()
-    
-    let confirmButton: UberButton = {
-        let btn = UberButton()
-        btn.setTitle("Choose UberX", for: .normal)
-        btn.setTitleColor(.white, for: .normal)
-        btn.titleLabel?.font = UIFont(name: Font.medium.rawValue, size: 18)
-        btn.backgroundColor = .black
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        return btn
-    }()
-    let uberXcontainer: UIView = {
+    lazy var border: UIView = {
         let v = UIView(frame: .zero)
-        v.backgroundColor = .black
-        v.layer.cornerRadius = 30/2
-        v.translatesAutoresizingMaskIntoConstraints = false
-        return v
-    }()
-    let uberXLbl: UILabel = {
-        let lbl = UILabel(frame: .zero)
-        lbl.text = "X"
-        lbl.textAlignment = .center
-        lbl.textColor = .white
-        lbl.font = UIFont(name: Font.medium.rawValue, size: 24)
-        lbl.translatesAutoresizingMaskIntoConstraints = false
-        return lbl
-    }()
-    let uberXLbl2: UILabel = {
-        let lbl = UILabel(frame: .zero)
-        lbl.text = "UberX"
-        lbl.textAlignment = .center
-        lbl.textColor = .black
-        lbl.font = UIFont(name: Font.medium.rawValue, size: 18)
-        lbl.translatesAutoresizingMaskIntoConstraints = false
-        return lbl
-    }()
-    let border: UIView = {
-        let v = UIView(frame: .zero)
-        v.backgroundColor = .systemGray4
+        v.backgroundColor = Color.grey_bg
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
 
+    lazy var headingLbl: UILabel = {
+        let lbl = UILabel(frame: .zero)
+        lbl.text = "Choose a ride"
+        lbl.textColor = .black
+        lbl.font = UIFont(name: Font.medium.rawValue, size: 17)
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        return lbl
+    }()
+    
+    lazy var confirmBtn: UberButton = {
+        let btn = UberButton()
+        btn.setTitleColor(.white, for: .normal)
+        btn.titleLabel?.font = UIFont(name: Font.medium.rawValue, size: 16)
+        btn.backgroundColor = .black
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    lazy var reserveBtn: UberButton = {
+        let btn = UberButton()
+        let image = UIImage(named: "uber-calender")?.withRenderingMode(.alwaysTemplate).withConfiguration(UIImage.SymbolConfiguration(weight: .bold))
+        let resizedImage = image?.resize(to: CGSize(width: 16, height: 16))
+        btn.setImage(resizedImage, for: .normal)
+        btn.backgroundColor = Color.grey_bg
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }()
+    
+    lazy var ridesTableView: UITableView = {
+        let tv = UITableView(frame: .zero, style: .plain)
+        tv.register(RideCell.self, forCellReuseIdentifier: RideCell.reusableID)
+        tv.delegate = self
+        tv.dataSource = self
+        tv.showsVerticalScrollIndicator = false
+        tv.backgroundColor = .clear
+        tv.separatorColor = .clear
+        tv.rowHeight = 98.0
+        tv.estimatedRowHeight = UITableView.automaticDimension
+        tv.tableHeaderView = UIView()
+        tv.tableFooterView = UIView()
+        tv.allowsMultipleSelection = false
+        tv.allowsSelection = true
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        return tv
+    }()
+    
     let stackView: UIStackView = {
         let sv = UIStackView(frame: .zero)
-        sv.axis = .vertical
-        sv.distribution = .equalCentering
+        sv.spacing = 10
+        sv.axis = .horizontal
+        sv.distribution = .fill
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
 
     
     func setupViews(){
+        addSubview(headingLbl)
+        addSubview(border)
+        addSubview(ridesTableView)
         addSubview(stackView)
-        [addresLbl,uberXLbl2,border,confirmButton].forEach { item in
-            stackView.addArrangedSubview(item)
-        }
-
-        addresLbl.attributedText = setupAttributedText("Borbon Carbon", "Madina Zongo Junction")
+        
+        stackView.addArrangedSubview(confirmBtn)
+        stackView.addArrangedSubview(reserveBtn)
     }
     
     func setupContraints(){
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: topAnchor,constant: 30),
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 10),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -10),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -30),
+            headingLbl.topAnchor.constraint(equalTo: topAnchor, constant: 15),
+            headingLbl.centerXAnchor.constraint(equalTo: centerXAnchor),
             
+            border.topAnchor.constraint(equalTo: headingLbl.bottomAnchor, constant: 12),
+            border.leadingAnchor.constraint(equalTo: leadingAnchor),
+            border.trailingAnchor.constraint(equalTo: trailingAnchor),
+            border.heightAnchor.constraint(equalToConstant: 2),
             
-//            uberXcontainer.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
-//            uberXcontainer.widthAnchor.constraint(
-//            uberXcontainer.heightAnchor.constraint(equalToConstant: 50),
+            ridesTableView.topAnchor.constraint(equalTo: border.bottomAnchor, constant: 8),
+            ridesTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            ridesTableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            ridesTableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12),
             
-//            uberXLbl.centerXAnchor.constraint(equalTo: uberXcontainer.centerXAnchor),
-//            uberXLbl.centerYAnchor.constraint(equalTo: uberXcontainer.centerYAnchor),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -25),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 12),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -12),
+            stackView.heightAnchor.constraint(equalToConstant: 52),
             
-            
-            uberXLbl2.bottomAnchor.constraint(equalTo: border.topAnchor, constant: -10),
-            border.heightAnchor.constraint(equalToConstant: 1.5),
-            border.bottomAnchor.constraint(equalTo: confirmButton.topAnchor, constant: -30),
-            
-            confirmButton.heightAnchor.constraint(equalToConstant: 60),
-            
+            confirmBtn.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.74),
         ])
     }
+    
     func setupAttributedText (_ name: String,_ location: String) -> NSAttributedString {
         let text = NSMutableAttributedString(attributedString: NSAttributedString(string: name, attributes: [.foregroundColor: UIColor.black,.font:UIFont(name: Font.medium.rawValue, size: 17)!]))
         text.append( NSAttributedString(string: "\n\(location)", attributes: [.foregroundColor: Color.text_grey,.font:UIFont(name: Font.regular.rawValue, size: 17)!]))
         return text
     }
+}
+
+
+extension OverlayRideActionView: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return rides.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: RideCell.reusableID, for: indexPath) as? RideCell else {
+            fatalError("Cannot dequeue cell")
+        }
+        cell.data = rides[indexPath.row]
+        cell.selectionStyle = .none
+        cell.layoutMargins = UIEdgeInsets.zero
+        cell.separatorInset = UIEdgeInsets.zero
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = rides[indexPath.row]
+        playHaptic(style: .medium)
+        confirmBtn.setTitle("Choose \(item.name)", for: .normal)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(98)
+    }
+    
 }

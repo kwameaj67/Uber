@@ -53,6 +53,7 @@ class PastTripCell: UITableViewCell {
         let sv = UIStackView()
         sv.axis = .vertical
         sv.spacing = 5
+        sv.backgroundColor = .clear
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
     }()
@@ -120,7 +121,7 @@ class PastTripCell: UITableViewCell {
             
             stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             stackView.leadingAnchor.constraint(equalTo: iconContainer.trailingAnchor, constant: 10),
-            stackView.trailingAnchor.constraint(equalTo: rebookBtn.leadingAnchor, constant: -20),
+            stackView.trailingAnchor.constraint(equalTo: rebookBtn.leadingAnchor, constant: -12),
             
             rebookBtn.centerYAnchor.constraint(equalTo: stackView.centerYAnchor),
             rebookBtn.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
@@ -130,7 +131,7 @@ class PastTripCell: UITableViewCell {
             border.bottomAnchor.constraint(equalTo: bottomAnchor),
             border.leadingAnchor.constraint(equalTo: iconContainer.trailingAnchor, constant: 10),
             border.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            border.heightAnchor.constraint(equalToConstant: 0.8),
+            border.heightAnchor.constraint(equalToConstant: 0.65),
         ])
     }
     

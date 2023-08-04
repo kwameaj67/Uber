@@ -169,3 +169,34 @@ struct EditAccountData{
         EditAccountData(dataType: .password),
     ]
 }
+
+
+// MARK: Rides -
+struct Ride {
+    var name: String
+    var type: RideType
+    var price: Double
+    var duration: String
+    var distance: String?
+    var seats: Int?
+    var icon: UIImage? {
+        switch type {
+        case .uberX:
+            return UIImage(named: "uber-ride")
+        case .uberBlack:
+            return UIImage(named: "uber-black")
+        case .uberShare:
+            return UIImage(named: "uber-ride")
+        case .uberSUV:
+            return UIImage(named: "uber-black-suv")
+        case .package:
+            return UIImage(named: "uber-ride")
+        }
+    }
+    
+    static let data: [Ride] = [
+        Ride(name:"UberX", type: .uberX, price: 10.99, duration: "12:53pm", distance: "2 min away", seats: 4),
+        Ride(name:"Black SUV", type: .uberSUV, price: 32.86, duration: "12:54pm", distance: nil, seats: nil),
+        Ride(name:"Black", type: .uberBlack, price: 24.98, duration: "12:53pm", distance: nil, seats: nil),
+    ]
+}

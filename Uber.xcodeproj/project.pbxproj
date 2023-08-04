@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		650563642A34416000440912 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 650563632A34416000440912 /* Cosmos */; };
+		650598A42A7D36F4007D70C1 /* RideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650598A32A7D36F4007D70C1 /* RideCell.swift */; };
 		650DA18629A67DE400065514 /* EditAccountInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DA18529A67DE400065514 /* EditAccountInfoCell.swift */; };
 		650DA18929A685CC00065514 /* EditAccountHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650DA18829A685CC00065514 /* EditAccountHeaderView.swift */; };
 		65164FE62A7144DB00E93F09 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65164FE52A7144DB00E93F09 /* Enums.swift */; };
@@ -104,6 +105,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		650598A32A7D36F4007D70C1 /* RideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideCell.swift; sourceTree = "<group>"; };
 		650DA18529A67DE400065514 /* EditAccountInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountInfoCell.swift; sourceTree = "<group>"; };
 		650DA18829A685CC00065514 /* EditAccountHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountHeaderView.swift; sourceTree = "<group>"; };
 		65164FE52A7144DB00E93F09 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -213,6 +215,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		650598A52A7D3F6C007D70C1 /* Ride */ = {
+			isa = PBXGroup;
+			children = (
+				650598A32A7D36F4007D70C1 /* RideCell.swift */,
+			);
+			path = Ride;
+			sourceTree = "<group>";
+		};
 		650DA18429A67DAB00065514 /* EditAccount */ = {
 			isa = PBXGroup;
 			children = (
@@ -568,6 +578,7 @@
 		98E9016D2924E3D4003F8ABF /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				650598A52A7D3F6C007D70C1 /* Ride */,
 				655A48B529ADF90500C71B72 /* Settings */,
 				650DA18429A67DAB00065514 /* EditAccount */,
 				6591E2E42989AF5E00B0EC15 /* Trips */,
@@ -749,6 +760,7 @@
 				65CF5C8B2983E9F500F52CFA /* EditAccountVC.swift in Sources */,
 				9896EFD6292B7A3C00A7248D /* UILabel+Ext.swift in Sources */,
 				986A87BE296457CE00A460AA /* OverlayLocationTableView.swift in Sources */,
+				650598A42A7D36F4007D70C1 /* RideCell.swift in Sources */,
 				98E901592924E3A0003F8ABF /* SceneDelegate.swift in Sources */,
 				98C97A1929253DB90078608A /* Color.swift in Sources */,
 				65164FE62A7144DB00E93F09 /* Enums.swift in Sources */,

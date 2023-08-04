@@ -87,3 +87,14 @@ enum EditAccountDataType{
     case email
     case password
 }
+
+
+// MARK: Rides -
+
+enum RideType{
+    case uberX
+    case uberBlack
+    case uberShare
+    case uberSUV
+    case package
+}
