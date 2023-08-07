@@ -35,7 +35,6 @@ class MapVC: UIViewController {
         if locationQuery != nil{  // if user is requesting trip for recent location
             animateOverlayViews()
             overlayLocationInputView.destinationLocationField.text = locationQuery
-            overlayLocationInputView.destinationLocationField.isEnabled = false
         }
     }
     deinit {
@@ -57,6 +56,7 @@ class MapVC: UIViewController {
             mapView.selectAnnotation(userAnnotation, animated: true)
             
             overlayLocationInputView.pickupLocationField.text = "Current location"
+            overlayLocationInputView.pickupLocationField.isEnabled = false
             overlayLocationInputView.pickupLocationField.textColor = Color.blue
         }
     }
@@ -248,7 +248,7 @@ class MapVC: UIViewController {
             
             rideActionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             rideActionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            rideActionView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.55),
+            rideActionView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.52),
             rideActionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             overlayLocationInputView.topAnchor.constraint(equalTo: view.topAnchor),

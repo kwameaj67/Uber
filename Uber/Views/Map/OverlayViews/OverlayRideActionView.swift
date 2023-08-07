@@ -79,7 +79,7 @@ class OverlayRideActionView: UIView {
         tv.showsVerticalScrollIndicator = false
         tv.backgroundColor = .clear
         tv.separatorColor = .clear
-        tv.rowHeight = 98.0
+        tv.rowHeight = 94.0
         tv.estimatedRowHeight = UITableView.automaticDimension
         tv.tableHeaderView = UIView()
         tv.tableFooterView = UIView()
@@ -164,7 +164,7 @@ extension OverlayRideActionView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(98)
+        return CGFloat(94)
     }
     
 }
