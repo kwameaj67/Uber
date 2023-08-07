@@ -10,8 +10,8 @@ import MapKit
 
 
 struct PlaceMark{
-    var name: String?
-    var subTitle: String?
+    var location: String?
+    var address: String?
     
-    static let placeMarkData: [MKPlacemark] = []
+    static let placeMarkData: [PlaceMark] = []
 }

@@ -79,9 +79,8 @@ extension MapVC {
 extension MapVC: OverLayLocationInputViewDelegate{
    
     func textFieldShouldClearSearchResults() {
-        self.overlayLocationTableView.placeMarkData =  [MKPlacemark]()
-        self.overlayLocationTableView.locationTableView.reloadData()
-        print("DEBUG: \(overlayLocationTableView.placeMarkData.count)")
+        self.overlayLocationTableView.placeMarkData.removeAll()
+        print("DEBUG: placeMarkData:  \(overlayLocationTableView.placeMarkData.count)")
     }
     
     func executeLocationSearch(query: String) {
@@ -98,7 +97,6 @@ extension MapVC: OverLayLocationInputViewDelegate{
             print("DEBUG: hides locationInputView & locationTableView...")
             guard let _ = self else { return }
             playHaptic(style: .medium)
-//            self.dismiss(animated: true, completion: nil)
         }
     }
 }
@@ -149,12 +147,7 @@ extension MapVC: OverlayLocationTableViewDelegate {
                 destinationField.selectedTextRange = destinationField.textRange(from: destinationField.beginningOfDocument, to: destinationField.endOfDocument)      
             }
         }
-        
-        
-       
     }
-    
-   
 }
 // MARK: OverlayDestinationViewDelegate -
 extension MapVC: OverlayDestinationViewDelegate{
@@ -214,7 +207,7 @@ private extension MapVC{
         let search = MKLocalSearch(request: request)
         search.start { response, error in
             guard let res = response else { return }
-            res.mapItems.forEach { item in
+            _ = res.mapItems.map { item in
                 self.placeMarkLocations.append(item.placemark)
                 completion(self.placeMarkLocations)
             }

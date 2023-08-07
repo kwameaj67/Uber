@@ -29,39 +29,24 @@ class MapVC: UIViewController {
         super.viewDidLoad()
         setupViews()
         setupContraints()
-        configureLocationService()
-        hanldeOverlayViews()
+        showUserLocation()
+        handleOverlayViews()
         
-        if locationQuery != nil{
+        if locationQuery != nil{  // if user is requesting trip for recent location
             animateOverlayViews()
             overlayLocationInputView.destinationLocationField.text = locationQuery
+            overlayLocationInputView.destinationLocationField.isEnabled = false
         }
     }
     deinit {
         print("deinit \(self)")
     }
+    
     // MARK: configureLocationService -
-    func configureLocationService(){
-        switch locationManager?.authorizationStatus {
-            case .notDetermined:
-                locationManager?.requestWhenInUseAuthorization()
-            case .restricted, .denied:
-                break
-            case .authorizedAlways:
-                locationManager?.startUpdatingLocation()
-                locationManager?.desiredAccuracy = kCLLocationAccuracyBest
-                showUserLocation() // pick user locaiton when authorized
-            case .authorizedWhenInUse:
-                locationManager?.requestAlwaysAuthorization()
-                showUserLocation() // pick user locaiton when authorized
-            default:
-                locationManager?.requestAlwaysAuthorization()
-        }
-    }
     func showUserLocation(){
-        let authorizationStatus = locationManager?.authorizationStatus
-        if authorizationStatus == .authorizedWhenInUse || authorizationStatus == .authorizedAlways {
-            guard let location = locationManager?.location else { return }
+        if let location = locationManager?.location {
+            fetchDriverLocations()
+            
             region = .init(center: location.coordinate, latitudinalMeters: 0.01, longitudinalMeters: 0.01)
             region.span = .init(latitudeDelta: 0.01, longitudeDelta: 0.01)
             mapView.setRegion(region, animated:true) // user region
@@ -71,17 +56,13 @@ class MapVC: UIViewController {
             mapView.addAnnotation(userAnnotation)
             mapView.selectAnnotation(userAnnotation, animated: true)
             
-            // fetch drivers location when user location is known
-            if let _ = locationManager?.location {
-                fetchDriverLocation()
-                overlayLocationInputView.pickupLocationField.text = "Current location"
-                overlayLocationInputView.pickupLocationField.textColor = Color.blue
-            }
+            overlayLocationInputView.pickupLocationField.text = "Current location"
+            overlayLocationInputView.pickupLocationField.textColor = Color.blue
         }
     }
     
     // MARK: API's -
-    func fetchDriverLocation(){
+    func fetchDriverLocations(){
         guard let location = locationManager?.location else { return }
         driverService.fetchDriversLocations(location: location) { [weak self] driver in
             guard let coordinate = driver.location?.coordinate else { return }
@@ -109,7 +90,7 @@ class MapVC: UIViewController {
         }
     }
     
-    func hanldeOverlayViews(){
+    func handleOverlayViews(){
         if showDestinationView{
             destinationView.isHidden = false
             destinationView.alpha = 1

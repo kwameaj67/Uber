@@ -128,12 +128,13 @@ extension OverLayLocationInputView: UITextFieldDelegate {
         delegate?.executeLocationSearch(query: query)
         return true
     }
-//    func textFieldDidChangeSelection(_ textField: UITextField) {
-//        guard let text = textField.text else { return }
-//        if text.isEmpty {
-//            delegate?.textFieldShouldClearSearchResults()
-//        }
-//    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let text = textField.text else { return }
+        if !text.isEmpty {
+            
+        }
+    }
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         delegate?.textFieldShouldClearSearchResults()
         return true
