@@ -22,7 +22,6 @@ class HomeHeaderView: UITableViewHeaderFooterView {
         super.init(reuseIdentifier: HomeHeaderView.reuseableID)
         setupViews()
         setupContraints()
-        backgroundColor = .red
     }
     
     required init?(coder: NSCoder) {

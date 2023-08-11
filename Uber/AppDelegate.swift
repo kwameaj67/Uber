@@ -19,7 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure() // configure firebase
         
 //        LeakedViewControllerDetector.onDetect() { leakedViewController, leakedView, message in
-//           return true
+//            #if DEBUG
+//            return true //show warning alert dialog
+//            #else
+//            //log warning message to a server, e.g. Crashlytics
+//            return false //don't show warning to user
+//            #endif
 //        }
         return true
     }

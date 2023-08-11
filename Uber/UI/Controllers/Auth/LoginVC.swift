@@ -135,8 +135,7 @@ class LoginVC: UIViewController {
         container.addSubview(loginButton)
         stackView.addArrangedSubview(emailTextField)
         stackView.addArrangedSubview(passwordTextField)
-        container.addSubview(signupButton)
-        
+        container.addSubview(signupButton) 
     }
     
     func setupContraints(){

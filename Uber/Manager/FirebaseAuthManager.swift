@@ -57,6 +57,7 @@ struct FirebaseAuthManager {
             self.uploadUserToDb(uid: uid, values: values, completion: completion)
         }
     }
+    
     func uploadUserToDb(uid: String,values: [String: Any],completion: @escaping (String?,Error?) -> Void){
         FirebaseDatabase.ref_users.child(uid).updateChildValues(values) { error, ref in    // store user in db
             if let err = error {
@@ -67,6 +68,7 @@ struct FirebaseAuthManager {
             completion(uid,nil)
         }
     }
+    
     // MARK: login user -
     func signInUserAccount(emailAddress: String, password: String, completion: @escaping (String?,Error?) -> Void){
         auth.signIn(withEmail: emailAddress, password: password) { results, error in
@@ -78,6 +80,7 @@ struct FirebaseAuthManager {
             completion(user.uid,nil)
         }
     }
+    
     // MARK: log out user -
     func logOutUser(completion: @escaping (Result<Void,Error>)-> Void){
         do {
