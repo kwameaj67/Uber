@@ -293,6 +293,45 @@
 			path = Trips;
 			sourceTree = "<group>";
 		};
+		659784512A85B41800B531AF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				98E9016E2924E412003F8ABF /* Fonts */,
+				98E9016F2924E418003F8ABF /* Constants */,
+				651162342A33350B0065E2E7 /* Helpers */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		659784522A85B43000B531AF /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				98E9016B2924E3C8003F8ABF /* Extensions */,
+				98E9016A2924E3C1003F8ABF /* Controllers */,
+				98E9016C2924E3CE003F8ABF /* Views */,
+				98E9016D2924E3D4003F8ABF /* Cells */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		659784532A85B45700B531AF /* API */ = {
+			isa = PBXGroup;
+			children = (
+				986A87C229660BAF00A460AA /* Services */,
+				98395D11294CE73F0071D5DF /* Models */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		659784542A85B49200B531AF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				98E901612924E3A5003F8ABF /* LaunchScreen.storyboard */,
+				98E9015F2924E3A5003F8ABF /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		65CF5C892983E9CD00F52CFA /* EditAccount */ = {
 			isa = PBXGroup;
 			children = (
@@ -518,21 +557,14 @@
 		98E901552924E3A0003F8ABF /* Uber */ = {
 			isa = PBXGroup;
 			children = (
-				651162342A33350B0065E2E7 /* Helpers */,
-				986A87C229660BAF00A460AA /* Services */,
-				98395D11294CE73F0071D5DF /* Models */,
+				659784542A85B49200B531AF /* Resources */,
+				659784532A85B45700B531AF /* API */,
+				659784522A85B43000B531AF /* UI */,
+				659784512A85B41800B531AF /* Utils */,
 				98395D0E2947AA530071D5DF /* Manager */,
-				98E9016F2924E418003F8ABF /* Constants */,
-				98E9016E2924E412003F8ABF /* Fonts */,
-				98E9016D2924E3D4003F8ABF /* Cells */,
-				98E9016C2924E3CE003F8ABF /* Views */,
-				98E9016B2924E3C8003F8ABF /* Extensions */,
-				98E9016A2924E3C1003F8ABF /* Controllers */,
 				98E901562924E3A0003F8ABF /* AppDelegate.swift */,
 				98395D0C2947A5BA0071D5DF /* GoogleService-Info.plist */,
 				98E901582924E3A0003F8ABF /* SceneDelegate.swift */,
-				98E9015F2924E3A5003F8ABF /* Assets.xcassets */,
-				98E901612924E3A5003F8ABF /* LaunchScreen.storyboard */,
 				98E901642924E3A5003F8ABF /* Info.plist */,
 			);
 			path = Uber;
