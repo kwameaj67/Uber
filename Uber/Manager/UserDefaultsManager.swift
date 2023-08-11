@@ -23,19 +23,22 @@ class UserDefaultsManager{
     }
     
     func getUserInfo() -> User? {
-        guard let info = manager.object(forKey: USER_OBJECT_KEY) as? [String: Any] else { return nil}
+        guard let info = manager.object(forKey: USER_OBJECT_KEY) as? [String: Any] else { return nil }
         let user = User(uid: info["uid"] as! String, dictionary: info)
         return user
     }
     
+    private func getUserProperty<T>(_ key: String) -> T? {
+        guard let info = getUserInfo() else { return nil }
+        return info[key] as? T
+    }
+    
     func getUserFullname() -> String {
-        guard let info = getUserInfo() else { return " " }
-        return info.fullname
+       return getUserProperty("fullname") ?? ""
     }
     
     func getUserEmail() -> String {
-        guard let info = getUserInfo() else { return " " }
-        return info.email
+        return getUserProperty("email") ?? ""
     }
     
     func removeUserInfo(){

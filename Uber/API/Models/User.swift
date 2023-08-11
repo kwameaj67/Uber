@@ -15,10 +15,19 @@ class User {
     var location: CLLocation?
     let uid: String
     
+    private var userData: [String: Any] = [:]
+    
+    subscript(key: String) -> Any? {
+        return userData[key]
+    }
+    
     init(uid: String, dictionary: [String: Any]) {
         self.uid = uid
         self.fullname = dictionary["fullname"] as? String ?? ""
         self.email = dictionary["email"] as? String ?? ""
         self.accountType = dictionary["accountType"] as? String ?? ""
+        
+        self.userData = dictionary
     }
+    
 }
