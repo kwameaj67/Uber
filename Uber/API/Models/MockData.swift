@@ -92,17 +92,40 @@ class UserLocation {
 
 
 struct AccountOption{
-    var iconType: ActionOptionIconType
-    var name: String
+    var type: ActionOptionIconType
+    var image: UIImage? {
+        switch type {
+            case .messages:
+                return  UIImage(named: "uber-message")?.withRenderingMode(.alwaysOriginal)
+            case .settings:
+                return UIImage(systemName: "gearshape.fill")?.withRenderingMode(.alwaysOriginal)
+            case .earning:
+                return UIImage(named: "uber-gift")?.withRenderingMode(.alwaysOriginal)
+            case .legal:
+                return UIImage(systemName: "info.circle.fill")?.withRenderingMode(.alwaysTemplate)
+            case .refer:
+                return UIImage(systemName: "person.2.fill")?.withRenderingMode(.alwaysOriginal)
+            case .business:
+                return UIImage(named: "uber-wallet")?.withRenderingMode(.alwaysOriginal)
+            case .family:
+                return UIImage(systemName: "person.3.fill")?.withRenderingMode(.alwaysOriginal)
+            case .account:
+                return UIImage(systemName: "person.fill")?.withRenderingMode(.alwaysOriginal)
+        }
+    }
+    var title: String
+    var subTitle: String?
     
     
     static let data: [AccountOption] = [
-        AccountOption(iconType: .settings, name: "Settings"),
-        AccountOption(iconType: .messages, name: "Messages"),
-        AccountOption(iconType: .earning, name: "Earn by driving or delivering"),
-        AccountOption(iconType: .business, name: "Business hub"),
-        AccountOption(iconType: .refer, name: "Refer friends, unlock deals"),
-        AccountOption(iconType: .legal, name: "Legal"),
+        AccountOption(type: .settings, title: "Settings"),
+        AccountOption(type: .messages, title: "Messages"),
+        AccountOption(type: .family, title: "Family", subTitle: "Manage a family profile"),
+        AccountOption(type: .earning, title: "Earn by driving or delivering"),
+        AccountOption(type: .business, title: "Business hub"),
+        AccountOption(type: .refer, title: "Refer friends, unlock deals"),
+        AccountOption(type: .account, title: "Manage Uber account"),
+        AccountOption(type: .legal, title: "Legal"),
     ]
 }
 

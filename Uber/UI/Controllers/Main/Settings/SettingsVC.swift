@@ -26,6 +26,7 @@ class SettingsVC: UIViewController {
     deinit {
         print("deinit \(self)")
     }
+    
     // MARK: Properties
     lazy var cancelButton: UberButton = {
         let cb = UberButton()
@@ -61,7 +62,7 @@ class SettingsVC: UIViewController {
         tv.register(OptionHeaderView.self, forHeaderFooterViewReuseIdentifier: OptionHeaderView.reuseableID)
         tv.delegate = self
         tv.dataSource = self
-        tv.showsVerticalScrollIndicator = true
+        tv.showsVerticalScrollIndicator = false
         tv.separatorStyle = .none
         tv.backgroundColor = .white
         tv.tableHeaderView = UIView()
@@ -159,16 +160,19 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        if section == 0 || section == 1{
-            return nil
+        switch section {
+            case 0, 1:
+                return nil
+            case 2:
+                let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SettingFooterView.reuseableID) as! SettingFooterView
+                let bg_view = UIView(frame: footerView.bounds)
+                bg_view.backgroundColor = .white
+                footerView.backgroundView = bg_view
+                footerView.delegate = self
+                return footerView
+            default:
+                return nil
         }
-        else if section == 2 {
-            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: SettingFooterView.reuseableID) as! SettingFooterView
-            view.contentView.backgroundColor = .white
-            view.delegate = self
-            return view
-        }
-       return nil
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if section == 0 || section == 1{
@@ -209,10 +213,9 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
 
 extension SettingsVC: DidTapSignOutDelegate{
     func didTapSignOut() {
-        dismiss(animated: true)
         playHaptic(style: .medium)
         userDefaultManager.removeUserInfo()
-        self.authManager.logOutUser { [weak self] results in
+        authManager.logOutUser { [weak self] results in
             guard let self = self else { return }
             switch results{
             case .success():

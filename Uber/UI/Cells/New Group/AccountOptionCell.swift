@@ -27,23 +27,44 @@ class AccountOptionCell: UITableViewCell {
     }
     
     // MARK: Properties -
-    let iconImage : UIImageView = {
+    lazy var iconImage : UIImageView = {
         var iv = UIImageView(frame: .zero)
         iv.contentMode = .scaleAspectFill
         iv.tintColor = .black
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
-    let titleLabel: UILabel = {
+    
+    lazy var titleLbl: UILabel = {
         let lb = UILabel()
         lb.textColor = .black
         lb.font = UIFont(name: Font.medium.rawValue, size: 16)
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
+    
+    lazy var subTitleLbl: UILabel = {
+        let lb = UILabel()
+        lb.textColor = Color.text_grey.withAlphaComponent(0.9)
+        lb.font = UIFont(name: Font.regular.rawValue, size: 11)
+        lb.translatesAutoresizingMaskIntoConstraints = false
+        return lb
+    }()
+    
+    lazy var stackView: UIStackView = {
+        let sv = UIStackView(frame: .zero)
+        sv.spacing = 4
+        sv.axis = .vertical
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        return sv
+    }()
+
+    
     func setupViews(){
         contentView.addSubview(iconImage)
-        contentView.addSubview(titleLabel)
+        contentView.addSubview(stackView)
+        stackView.addArrangedSubview(titleLbl)
+        stackView.addArrangedSubview(subTitleLbl)
     }
     func setupContraints(){
         NSLayoutConstraint.activate([
@@ -52,29 +73,29 @@ class AccountOptionCell: UITableViewCell {
             iconImage.heightAnchor.constraint(equalToConstant: 18),
             iconImage.widthAnchor.constraint(equalToConstant: 18),
             
-            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: iconImage.trailingAnchor, constant: 22),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            stackView.leadingAnchor.constraint(equalTo: iconImage.trailingAnchor, constant: 22),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
         ])
     }
+    
     func manageData(){
         guard let data = data else { return }
         
-        switch data.iconType {
-            case .messages:
-                iconImage.image = UIImage(named: "uber-message")?.withRenderingMode(.alwaysOriginal)
-            case .settings:
-                iconImage.image = UIImage(named: "uber-setting")?.withRenderingMode(.alwaysOriginal)
-            case .earning:
-                iconImage.image = UIImage(named: "uber-gift")?.withRenderingMode(.alwaysOriginal)
-            case .legal:
-                iconImage.image = UIImage(systemName: "info.circle.fill")?.withRenderingMode(.alwaysTemplate)
-            case .refer:
-                iconImage.image = UIImage(systemName: "person.2.fill")?.withRenderingMode(.alwaysOriginal)
-            case .business:
-                iconImage.image = UIImage(named: "uber-wallet")?.withRenderingMode(.alwaysOriginal)
+        if data.type == .messages,
+           data.type == .earning,
+           data.type == .business {
+            let resizedImage = data.image?.resize(to: CGSize(width: 16, height: 14))
+            iconImage.image = resizedImage
+        }
+        else {
+            iconImage.image = data.image
         }
         
-        titleLabel.text = data.name
+        titleLbl.text = data.title
+        
+//        if option has subTitle
+        guard let subTitle =  data.subTitle else { return }
+        subTitleLbl.text = subTitle
     }
 }

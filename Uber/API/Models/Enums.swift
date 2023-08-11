@@ -38,11 +38,13 @@ enum TripStatus{
 
 enum ActionOptionIconType{
     case messages
+    case family
     case settings
     case business
     case earning
     case legal
     case refer
+    case account
 }
 
 enum AccountActionType{
@@ -65,6 +67,7 @@ enum SettingDescription: String {
     case setup_family = "Pay for your loved ones and get trip notifications"
     case signout = "Signout"
 }
+
 enum OptionType {
     case home
     case work
@@ -90,7 +93,6 @@ enum EditAccountDataType{
 
 
 // MARK: Rides -
-
 enum RideType{
     case uberX
     case uberBlack

@@ -30,11 +30,12 @@ extension AccountVC: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = options[indexPath.row]
-        if item.iconType == .settings {
-            playHaptic(style: .medium)
-            let vc = SettingsVC()
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true)
+        if item.type == .settings {
+            navigateToScreen(controller: SettingsVC())
+        }
+        
+        if item.type == .account {
+            navigateToScreen(controller: EditAccountVC())
         }
     }
     
@@ -61,17 +62,20 @@ extension AccountVC: UITableViewDelegate,UITableViewDataSource{
 // MARK: AccountActionHeaderDelegate -
 extension AccountVC: AccountActionHeaderDelegate {
     func didTapTripCell() {
-        let vc = TripsVC()
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+        navigateToScreen(controller: TripsVC())
     }
 }
 
 extension AccountVC: DidTapProfileImageDelegate {
     func didTapProfileImage(){
+        navigateToScreen(controller: EditAccountVC())
+    }
+}
+
+extension AccountVC {
+    func navigateToScreen( controller: UIViewController){
         playHaptic(style: .medium)
-        let vc = EditAccountVC()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+        controller.modalPresentationStyle = .fullScreen
+        present(controller, animated: true)
     }
 }
