@@ -167,4 +167,8 @@ extension OverlayRideActionView: UITableViewDelegate, UITableViewDataSource {
         return CGFloat(94)
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        TripAnimator.animate(cell: cell, indexPath: indexPath)
+    }
+    
 }

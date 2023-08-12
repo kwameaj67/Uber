@@ -22,6 +22,8 @@
 		6587B43F29A58508006F7E9C /* LeakedViewControllerDetector in Frameworks */ = {isa = PBXBuildFile; productRef = 6587B43E29A58508006F7E9C /* LeakedViewControllerDetector */; };
 		6591E2E62989AF7F00B0EC15 /* TripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6591E2E52989AF7F00B0EC15 /* TripCell.swift */; };
 		6591E2E8298AEE5000B0EC15 /* OverlayRideActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6591E2E7298AEE5000B0EC15 /* OverlayRideActionView.swift */; };
+		659784572A86D47A00B531AF /* TripAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659784562A86D47A00B531AF /* TripAnimator.swift */; };
+		659784592A86DD9F00B531AF /* SettingsVC+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659784582A86DD9F00B531AF /* SettingsVC+Delegates.swift */; };
 		65CF5C8B2983E9F500F52CFA /* EditAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF5C8A2983E9F400F52CFA /* EditAccountVC.swift */; };
 		65CF5C8D2983EDAA00F52CFA /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CF5C8C2983EDAA00F52CFA /* Notification.swift */; };
 		65D50E4929885C6E00E67513 /* TripsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D50E4829885C6E00E67513 /* TripsVC.swift */; };
@@ -118,6 +120,8 @@
 		655A48BD29AE10BC00C71B72 /* SettingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingFooterView.swift; sourceTree = "<group>"; };
 		6591E2E52989AF7F00B0EC15 /* TripCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCell.swift; sourceTree = "<group>"; };
 		6591E2E7298AEE5000B0EC15 /* OverlayRideActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayRideActionView.swift; sourceTree = "<group>"; };
+		659784562A86D47A00B531AF /* TripAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripAnimator.swift; sourceTree = "<group>"; };
+		659784582A86DD9F00B531AF /* SettingsVC+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsVC+Delegates.swift"; sourceTree = "<group>"; };
 		65CF5C8A2983E9F400F52CFA /* EditAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountVC.swift; sourceTree = "<group>"; };
 		65CF5C8C2983EDAA00F52CFA /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		65D50E4829885C6E00E67513 /* TripsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsVC.swift; sourceTree = "<group>"; };
@@ -251,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				655A48B329ADF83000C71B72 /* SettingsVC.swift */,
+				659784582A86DD9F00B531AF /* SettingsVC+Delegates.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 		659784522A85B43000B531AF /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				659784552A86D44D00B531AF /* Animations */,
 				98E9016B2924E3C8003F8ABF /* Extensions */,
 				98E9016A2924E3C1003F8ABF /* Controllers */,
 				98E9016C2924E3CE003F8ABF /* Views */,
@@ -330,6 +336,14 @@
 				98E9015F2924E3A5003F8ABF /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		659784552A86D44D00B531AF /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				659784562A86D47A00B531AF /* TripAnimator.swift */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		65CF5C892983E9CD00F52CFA /* EditAccount */ = {
@@ -744,6 +758,7 @@
 			files = (
 				98395D1C294F9F260071D5DF /* HomeHeaderView.swift in Sources */,
 				988F5221297A12D600768128 /* OverlaySelectLocationView.swift in Sources */,
+				659784592A86DD9F00B531AF /* SettingsVC+Delegates.swift in Sources */,
 				655A48B729ADF91E00C71B72 /* SettingCell.swift in Sources */,
 				987236ED2955CD4A003364B8 /* UberMapView.swift in Sources */,
 				98450BB1292930660065C260 /* AccountVC.swift in Sources */,
@@ -803,6 +818,7 @@
 				98395D1E294FA28C0071D5DF /* PromoAdView.swift in Sources */,
 				98510F25296B8D0B00E18533 /* Firebase.swift in Sources */,
 				9850704429731E1D00794DB9 /* PlaceMark.swift in Sources */,
+				659784572A86D47A00B531AF /* TripAnimator.swift in Sources */,
 				986A87D32968FEDC00A460AA /* MapVC+Delegates.swift in Sources */,
 				98395D20294FDC6D0071D5DF /* UberOptionCollectionCell.swift in Sources */,
 				984F85112958E911003D53C3 /* AccountActionCollectionCell.swift in Sources */,

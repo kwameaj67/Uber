@@ -160,11 +160,6 @@ extension MapVC: OverlayDestinationViewDelegate{
 extension MapVC: OverlaySelectLocationViewDelegate{
     func didTapLocationButton() {
         animateOverlayViews()
-        let destinationField = overlayLocationInputView.destinationLocationField
-        destinationField.becomeFirstResponder()
-        if let _ = destinationField.selectedTextRange {
-            destinationField.textRange(from: destinationField.beginningOfDocument, to: destinationField.endOfDocument)
-        }
     }
 }
 

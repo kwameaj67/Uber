@@ -7,11 +7,27 @@
 
 import UIKit
 
+enum AlertAction{
+    case yes
+    case no
+}
+
 extension UIViewController {
     
     func presentAlertError(title: String, message: String ){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func presentAlertDialog(title: String, message: String, completion: @escaping ( (AlertAction)-> Void? )){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { _ in
+            completion(.no)
+        }))
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { _ in
+            completion(.yes)
+        }))
         self.present(alert, animated: true, completion: nil)
     }
     
