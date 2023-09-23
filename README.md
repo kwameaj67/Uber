@@ -1,5 +1,5 @@
 # Uber
-An entire rebuild, and implementation of ride flow and some screens of Uber.
+An entire rebuild, and implementation of booking ride flow and some other screens of Uber.
 
 ### Note ⚙️
 The application was built using: 
