@@ -98,6 +98,7 @@ class LoginVC: UIViewController {
     
     @objc func didTapLoginButton(){
         playHaptic(style: .medium)
+        resignTextFields(fields: [emailTextField, passwordTextField])
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         loaderView.isOpen = true
         authManager.signInUserAccount(emailAddress: email, password: password) { [weak self] uid, error in

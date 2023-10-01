@@ -23,7 +23,6 @@ class RegisterVC: UIViewController {
         setupContraints()
         configureNavBar()
         configureBackButton()
-        addToolBarToFields()
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.largeContentTitle = "Sign up"
         self.navigationItem.title = "Sign up"
@@ -34,7 +33,7 @@ class RegisterVC: UIViewController {
     }
     
     //MARK: Properties -
-    var scrollView : UIScrollView = {
+    lazy var scrollView : UIScrollView = {
         var sb = UIScrollView()
         sb.showsVerticalScrollIndicator = false
         sb.bounces = true
@@ -42,12 +41,12 @@ class RegisterVC: UIViewController {
         sb.translatesAutoresizingMaskIntoConstraints = false
         return sb
     }()
-    let container: UIView = {
+    lazy var container: UIView = {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
-    let stackView: UIStackView = {
+    lazy var stackView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical
         sv.spacing = 10
@@ -62,23 +61,25 @@ class RegisterVC: UIViewController {
         ub.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
         return ub
     }()
-    let fullNameTextField: UberTextField = {
+    lazy var fullNameTextField: UberTextField = {
         var tf = UberTextField()
         tf.placeholder = "Fullname"
+        tf.returnKeyType = .next
         return tf
     }()
-    let emailTextField: UberTextField = {
+    lazy var emailTextField: UberTextField = {
         var tf = UberTextField()
         tf.placeholder = "Email"
+        tf.returnKeyType = .next
         return tf
     }()
-    let passwordTextField: UberTextField = {
+    lazy var passwordTextField: UberTextField = {
         var tf = UberTextField()
         tf.placeholder = "Password"
         tf.isSecureTextEntry = true
         return tf
     }()
-    let loginButton: UberButton = {
+    lazy var loginButton: UberButton = {
         var btn = UberButton()
         btn.setTitle("Already have an account? Login", for: .normal)
         btn.setTitleColor(Color.text_grey, for: .normal)
@@ -88,14 +89,8 @@ class RegisterVC: UIViewController {
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
-    let userSegmentedContol: UISegmentedControl = {
-        let sc = UISegmentedControl(items: ["Rider","Driver"])
-        sc.isSelected = true
-        sc.backgroundColor = Color.textField_bg
-        sc.selectedSegmentIndex = 0
-        sc.selectedSegmentTintColor = .white
-        sc.setTitleTextAttributes([.font: UIFont(name: Font.medium.rawValue, size: 15)!], for: .normal)
-        sc.translatesAutoresizingMaskIntoConstraints = false
+    lazy var userSegmentedContol: UberSegmentedControl = {
+        let sc = UberSegmentedControl(items: ["Rider","Driver"])
         return sc
     }()
     lazy var loaderView: UberLoaderOverlay = {
@@ -111,13 +106,13 @@ class RegisterVC: UIViewController {
     
     @objc func hideKeyboard(gesture : UITapGestureRecognizer){
         view.endEditing(true)
-        fullNameTextField.resignFirstResponder()
-        emailTextField.resignFirstResponder()
-        passwordTextField.resignFirstResponder()
+        resignTextFields(fields: [fullNameTextField, emailTextField, passwordTextField])
     }
     
     @objc func didTapRegisterButton(){
         playHaptic(style: .medium)
+        view.endEditing(true)
+        
         guard let fullname = fullNameTextField.text, let email = emailTextField.text, let password = passwordTextField.text else { return }
         let accountTypeIndex = userSegmentedContol.selectedSegmentIndex
        
@@ -135,7 +130,6 @@ class RegisterVC: UIViewController {
             }
             if let _ = uid {
                 loaderView.isOpen = false
-                print("User Did Save")
                 let vc = WelcomeVC()
                 vc.modalPresentationStyle = .custom
                 vc.modalTransitionStyle = .crossDissolve
@@ -143,6 +137,89 @@ class RegisterVC: UIViewController {
             }
         }
     }
+    
+   
+    @objc func onDone(){
+        playHaptic(style: .medium)
+        if emailTextField.isFirstResponder{
+            emailTextField.resignFirstResponder()
+        }
+        else if passwordTextField.isFirstResponder{
+            passwordTextField.resignFirstResponder()
+        }
+        else if fullNameTextField.isFirstResponder{
+            fullNameTextField.resignFirstResponder()
+        }
+    }
+    
+    func addToolBarToFields(){
+        passwordTextField.inputAccessoryView = createToolBar()
+    }
+   
+    func setupViews(){
+        view.addSubview(scrollView)
+        view.addSubview(loaderView)
+        scrollView.addSubview(container)
+        container.addSubview(userSegmentedContol)
+        container.addSubview(stackView)
+        container.addSubview(registerButton)
+        stackView.addArrangedSubview(fullNameTextField)
+        stackView.addArrangedSubview(emailTextField)
+        stackView.addArrangedSubview(passwordTextField)
+        container.addSubview(loginButton)
+    }
+    
+    func setupContraints(){
+        scrollView.pinToSafeArea(to: view)
+        loaderView.pinToEdges(to: view)
+        container.pinToEdges(to: scrollView)
+        NSLayoutConstraint.activate([
+            container.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            container.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
+            
+            userSegmentedContol.topAnchor.constraint(equalTo: container.topAnchor, constant: 20),
+            userSegmentedContol.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 30),
+            userSegmentedContol.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -30),
+            userSegmentedContol.heightAnchor.constraint(equalToConstant: 45),
+            
+            stackView.topAnchor.constraint(equalTo: userSegmentedContol.bottomAnchor, constant: 25),
+            stackView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20),
+          
+            fullNameTextField.heightAnchor.constraint(equalToConstant: 58),
+            emailTextField.heightAnchor.constraint(equalToConstant: 58),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 58),
+            
+            loginButton.centerXAnchor.constraint(equalTo: container.centerXAnchor),
+            loginButton.bottomAnchor.constraint(equalTo: registerButton.topAnchor, constant: -20),
+            loginButton.heightAnchor.constraint(equalToConstant: 20),
+            
+            registerButton.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 30),
+            registerButton.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -30),
+            registerButton.bottomAnchor.constraint(equalTo: container.bottomAnchor,constant: -20),
+            registerButton.heightAnchor.constraint(equalToConstant: 58),
+        ])
+    }
+}
+
+
+extension RegisterVC: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switchBasedNextTextField(textField: textField)
+        return true
+    }
+    
+    private func switchBasedNextTextField(textField: UITextField){
+        switch textField {
+            case fullNameTextField:
+                emailTextField.becomeFirstResponder()
+            case emailTextField:
+                passwordTextField.becomeFirstResponder()
+            default:
+                passwordTextField.resignFirstResponder()
+        }
+    }
+    
     func createToolBar() -> UIToolbar{
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
@@ -162,85 +239,5 @@ class RegisterVC: UIViewController {
         doneBarItem.tintColor = UIColor.black
         toolbar.setItems([space1,space2,doneBarItem], animated: true)
         return toolbar
-    }
-    @objc func onDone(){
-        playHaptic(style: .medium)
-        if emailTextField.isFirstResponder{
-            emailTextField.resignFirstResponder()
-        }
-        else if passwordTextField.isFirstResponder{
-            passwordTextField.resignFirstResponder()
-        }
-        else if fullNameTextField.isFirstResponder{
-            fullNameTextField.resignFirstResponder()
-        }
-    }
-    func addToolBarToFields(){
-        [fullNameTextField,emailTextField,passwordTextField].forEach { item in
-            item?.inputAccessoryView = createToolBar()
-        }
-    }
-   
-    func setupViews(){
-        view.addSubview(scrollView)
-        view.addSubview(loaderView)
-        scrollView.addSubview(container)
-        container.addSubview(userSegmentedContol)
-        container.addSubview(stackView)
-        container.addSubview(registerButton)
-        stackView.addArrangedSubview(fullNameTextField)
-        stackView.addArrangedSubview(emailTextField)
-        stackView.addArrangedSubview(passwordTextField)
-        container.addSubview(loginButton)
-    }
-    func setupContraints(){
-        scrollView.pinToSafeArea(to: view)
-        loaderView.pinToEdges(to: view)
-        container.pinToEdges(to: scrollView)
-        NSLayoutConstraint.activate([
-            container.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            container.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
-            
-            userSegmentedContol.topAnchor.constraint(equalTo: container.topAnchor, constant: 20),
-            userSegmentedContol.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 30),
-            userSegmentedContol.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -30),
-            
-            stackView.topAnchor.constraint(equalTo: userSegmentedContol.bottomAnchor, constant: 20),
-            stackView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 20),
-            stackView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -20),
-          
-            fullNameTextField.heightAnchor.constraint(equalToConstant: 58),
-            emailTextField.heightAnchor.constraint(equalToConstant: 58),
-            passwordTextField.heightAnchor.constraint(equalToConstant: 58),
-            
-            loginButton.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-            loginButton.bottomAnchor.constraint(equalTo: registerButton.topAnchor, constant: -20),
-            loginButton.heightAnchor.constraint(equalToConstant: 20),
-            
-            registerButton.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 30),
-            registerButton.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -30),
-            registerButton.bottomAnchor.constraint(equalTo: container.bottomAnchor,constant: -20),
-            registerButton.heightAnchor.constraint(equalToConstant: 58),
-            
-        ])
-    }
-}
-
-
-extension RegisterVC: UITextFieldDelegate{
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        switchBasedNextTextField(textField: textField)
-        return true
-    }
-    
-    private func switchBasedNextTextField(textField: UITextField){
-        switch textField {
-        case fullNameTextField:
-            emailTextField.becomeFirstResponder()
-        case emailTextField:
-            passwordTextField.becomeFirstResponder()
-        default:
-            passwordTextField.resignFirstResponder()
-        }
     }
 }
