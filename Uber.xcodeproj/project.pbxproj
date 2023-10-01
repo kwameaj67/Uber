@@ -19,6 +19,7 @@
 		655A48BA29ADF9AE00C71B72 /* SettingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655A48B929ADF9AE00C71B72 /* SettingHeaderView.swift */; };
 		655A48BC29AE03F800C71B72 /* OptionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655A48BB29AE03F700C71B72 /* OptionHeaderView.swift */; };
 		655A48BE29AE10BC00C71B72 /* SettingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655A48BD29AE10BC00C71B72 /* SettingFooterView.swift */; };
+		657869C82AB27E91003D45DE /* UberSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657869C72AB27E91003D45DE /* UberSegmentedControl.swift */; };
 		6587B43F29A58508006F7E9C /* LeakedViewControllerDetector in Frameworks */ = {isa = PBXBuildFile; productRef = 6587B43E29A58508006F7E9C /* LeakedViewControllerDetector */; };
 		6591E2E62989AF7F00B0EC15 /* TripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6591E2E52989AF7F00B0EC15 /* TripCell.swift */; };
 		6591E2E8298AEE5000B0EC15 /* OverlayRideActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6591E2E7298AEE5000B0EC15 /* OverlayRideActionView.swift */; };
@@ -118,6 +119,7 @@
 		655A48B929ADF9AE00C71B72 /* SettingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingHeaderView.swift; sourceTree = "<group>"; };
 		655A48BB29AE03F700C71B72 /* OptionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionHeaderView.swift; sourceTree = "<group>"; };
 		655A48BD29AE10BC00C71B72 /* SettingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingFooterView.swift; sourceTree = "<group>"; };
+		657869C72AB27E91003D45DE /* UberSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberSegmentedControl.swift; sourceTree = "<group>"; };
 		6591E2E52989AF7F00B0EC15 /* TripCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCell.swift; sourceTree = "<group>"; };
 		6591E2E7298AEE5000B0EC15 /* OverlayRideActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayRideActionView.swift; sourceTree = "<group>"; };
 		659784562A86D47A00B531AF /* TripAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripAnimator.swift; sourceTree = "<group>"; };
@@ -278,6 +280,15 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		657869C62AB27C83003D45DE /* App */ = {
+			isa = PBXGroup;
+			children = (
+				98E901582924E3A0003F8ABF /* SceneDelegate.swift */,
+				98E901562924E3A0003F8ABF /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		657994BF2A12E36A0043D2A6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +297,7 @@
 				98E1453D2926EBA200B965F2 /* UberTextField.swift */,
 				987236EC2955CD4A003364B8 /* UberMapView.swift */,
 				6549585A2A17B07D005AB860 /* UberLoaderOverlay.swift */,
+				657869C72AB27E91003D45DE /* UberSegmentedControl.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -332,6 +344,7 @@
 		659784542A85B49200B531AF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				98E901642924E3A5003F8ABF /* Info.plist */,
 				98E901612924E3A5003F8ABF /* LaunchScreen.storyboard */,
 				98E9015F2924E3A5003F8ABF /* Assets.xcassets */,
 			);
@@ -571,15 +584,13 @@
 		98E901552924E3A0003F8ABF /* Uber */ = {
 			isa = PBXGroup;
 			children = (
+				657869C62AB27C83003D45DE /* App */,
 				659784542A85B49200B531AF /* Resources */,
 				659784532A85B45700B531AF /* API */,
 				659784522A85B43000B531AF /* UI */,
 				659784512A85B41800B531AF /* Utils */,
 				98395D0E2947AA530071D5DF /* Manager */,
-				98E901562924E3A0003F8ABF /* AppDelegate.swift */,
 				98395D0C2947A5BA0071D5DF /* GoogleService-Info.plist */,
-				98E901582924E3A0003F8ABF /* SceneDelegate.swift */,
-				98E901642924E3A5003F8ABF /* Info.plist */,
 			);
 			path = Uber;
 			sourceTree = "<group>";
@@ -788,6 +799,7 @@
 				650DA18629A67DE400065514 /* EditAccountInfoCell.swift in Sources */,
 				98510F23296B837F00E18533 /* DriverService.swift in Sources */,
 				65D50E4929885C6E00E67513 /* TripsVC.swift in Sources */,
+				657869C82AB27E91003D45DE /* UberSegmentedControl.swift in Sources */,
 				98450BAF292930540065C260 /* ActivityVC.swift in Sources */,
 				98E145422926FB2D00B965F2 /* RegisterVC.swift in Sources */,
 				986A87D12968FB9000A460AA /* MapVC.swift in Sources */,
@@ -976,7 +988,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 445LZL99JS;
-				INFOPLIST_FILE = Uber/Info.plist;
+				INFOPLIST_FILE = Uber/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Uber;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
@@ -999,7 +1011,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 445LZL99JS;
-				INFOPLIST_FILE = Uber/Info.plist;
+				INFOPLIST_FILE = Uber/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Uber;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;

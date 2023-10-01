@@ -30,10 +30,11 @@ class UberTextField: UITextField {
 }
 
 extension UberTextField {
-        override func editingRect(forBounds bounds: CGRect) -> CGRect {
-            return bounds.insetBy(dx: 20, dy: 0)
-        }
-        override func textRect(forBounds bounds: CGRect) -> CGRect {
-            return bounds.insetBy(dx: 20, dy: 0)
-        }
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.insetBy(dx: 20, dy: 0)
+    }
+    
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.insetBy(dx: 20, dy: 0)
+    }
 }
