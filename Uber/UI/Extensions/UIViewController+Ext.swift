@@ -90,4 +90,9 @@ extension UIViewController {
         }
     }
     
+    func resignTextFields(fields: [UITextField]){
+        fields.forEach { item in
+            item.resignFirstResponder()
+        }
+    }
 }
