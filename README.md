@@ -1,14 +1,15 @@
 # Uber
-An entire rebuild, and implementation of booking ride flow and some other screens of Uber.
+This is a rebuild of the booking rides flow of Uber.
+In this project, we take a deep dive into implementing Uber's complex UI, authenticating users & riders with Firebase and utilizing MapKit to show driver locations.
+
+![platform](https://img.shields.io/badge/platform-iOS-orange?style=flat-square)
 
 ### Note ⚙️
 The application was built using: 
 * Xcode 14.3
 * Swift 5.8
-* macOS Ventura 13.2
 
 ### Core Technologies 📲
-* Swift
 * UIKit (Programmatic approach)
 * Protocol Delegation
 * Firebase Authentication
