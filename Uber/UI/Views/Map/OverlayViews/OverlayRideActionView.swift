@@ -100,11 +100,7 @@ class OverlayRideActionView: UIView {
 
     
     func setupViews(){
-        addSubview(headingLbl)
-        addSubview(border)
-        addSubview(ridesTableView)
-        addSubview(stackView)
-        
+        addConstrainedSubviews(headingLbl, border, ridesTableView, stackView)
         stackView.addArrangedSubview(confirmBtn)
         stackView.addArrangedSubview(reserveBtn)
     }

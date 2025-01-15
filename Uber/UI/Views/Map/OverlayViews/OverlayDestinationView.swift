@@ -77,13 +77,11 @@ class OverlayDestinationView: UIView {
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
+    
     func setupViews(){
-        addSubview(titleLbl)
-        addSubview(border)
-        addSubview(locationLbl)
-        addSubview(searchBtn)
-        addSubview(confirmBtn)
+        addConstrainedSubviews(titleLbl, border, locationLbl, searchBtn, confirmBtn)
     }
+    
     func setupContraints(){
         NSLayoutConstraint.activate([
             titleLbl.centerXAnchor.constraint(equalTo: centerXAnchor),

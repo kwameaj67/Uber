@@ -80,9 +80,7 @@ class SettingCell: UITableViewCell {
         contentView.addSubview(stackView)
         stackView.addArrangedSubview(titleLbl)
         stackView.addArrangedSubview(descriptionLbl)
-        contentView.addSubview(iconImage)
-        contentView.addSubview(arrowImage)
-        contentView.addSubview(border)
+        contentView.addConstrainedSubviews(iconImage, arrowImage, border)
     }
 
     func setupContraints(){

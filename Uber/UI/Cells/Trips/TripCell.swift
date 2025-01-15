@@ -90,12 +90,7 @@ class TripCell: UITableViewCell {
     }()
     
     func setupViews(){
-        contentView.addSubview(dateLbl)
-        contentView.addSubview(priceLbl)
-        contentView.addSubview(arrowImage)
-        contentView.addSubview(mapView)
-        contentView.addSubview(ratingsView)
-        contentView.addSubview(cancelledLbl)
+        contentView.addConstrainedSubviews(dateLbl, priceLbl, arrowImage, mapView, ratingsView, cancelledLbl)
     }
     
     func setupContraints(){
@@ -132,18 +127,12 @@ class TripCell: UITableViewCell {
         dateLbl.text = item.date
         priceLbl.text = "GH₵\(item.price.twoDecimalPlaces())"
         if item.status == .cancelled {
-            ratingsView.isHidden = true
-            ratingsView.alpha = 0
-            
-            cancelledLbl.isHidden = false
-            cancelledLbl.alpha = 1
+            ratingsView.hide()
+            cancelledLbl.show()
         }
         else {
-            ratingsView.isHidden = false
-            ratingsView.alpha = 1
-            
-            cancelledLbl.isHidden  = true
-            cancelledLbl.alpha = 0
+            ratingsView.show()
+            cancelledLbl.hide()
         }
     }
 }

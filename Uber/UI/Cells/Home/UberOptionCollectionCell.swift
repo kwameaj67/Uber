@@ -126,8 +126,7 @@ class UberOptionCollectionCell: UICollectionViewCell {
         }
         
         if item.promoActive {
-            promoView.isHidden = false
-            promoView.alpha = 1
+            promoView.show()
         }
     }
     

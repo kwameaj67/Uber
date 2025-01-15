@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 53;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,7 +20,6 @@
 		655A48BC29AE03F800C71B72 /* OptionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655A48BB29AE03F700C71B72 /* OptionHeaderView.swift */; };
 		655A48BE29AE10BC00C71B72 /* SettingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655A48BD29AE10BC00C71B72 /* SettingFooterView.swift */; };
 		657869C82AB27E91003D45DE /* UberSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657869C72AB27E91003D45DE /* UberSegmentedControl.swift */; };
-		6587B43F29A58508006F7E9C /* LeakedViewControllerDetector in Frameworks */ = {isa = PBXBuildFile; productRef = 6587B43E29A58508006F7E9C /* LeakedViewControllerDetector */; };
 		6591E2E62989AF7F00B0EC15 /* TripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6591E2E52989AF7F00B0EC15 /* TripCell.swift */; };
 		6591E2E8298AEE5000B0EC15 /* OverlayRideActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6591E2E7298AEE5000B0EC15 /* OverlayRideActionView.swift */; };
 		659784572A86D47A00B531AF /* TripAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659784562A86D47A00B531AF /* TripAnimator.swift */; };
@@ -210,7 +209,6 @@
 				98E6D6692936228E0056F7DA /* FirebaseDatabase in Frameworks */,
 				98E6D6612936228E0056F7DA /* FirebaseAnalytics in Frameworks */,
 				650563642A34416000440912 /* Cosmos in Frameworks */,
-				6587B43F29A58508006F7E9C /* LeakedViewControllerDetector in Frameworks */,
 				9842F0362932C78000AD73D8 /* CHIOTPField in Frameworks */,
 				98E6D6632936228E0056F7DA /* FirebaseStorage in Frameworks */,
 				98E6D6672936228E0056F7DA /* FirebaseFirestore in Frameworks */,
@@ -695,7 +693,6 @@
 				98E6D6662936228E0056F7DA /* FirebaseFirestore */,
 				98E6D6682936228E0056F7DA /* FirebaseDatabase */,
 				98FCCDCC29365444008AAF61 /* GeoFire */,
-				6587B43E29A58508006F7E9C /* LeakedViewControllerDetector */,
 				650563632A34416000440912 /* Cosmos */,
 			);
 			productName = Uber;
@@ -709,6 +706,9 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
@@ -730,8 +730,6 @@
 				9842F0342932C78000AD73D8 /* XCRemoteSwiftPackageReference "CHIOTPField" */,
 				98E6D65F2936228E0056F7DA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				98FCCDCB29365444008AAF61 /* XCRemoteSwiftPackageReference "geofire-objc" */,
-				6587B43D29A58507006F7E9C /* XCRemoteSwiftPackageReference "LeakedViewControllerDetector" */,
-				655A48AF29ACCE9E00C71B72 /* XCRemoteSwiftPackageReference "Inject" */,
 				650563622A34415F00440912 /* XCRemoteSwiftPackageReference "Cosmos" */,
 			);
 			productRefGroup = 98E901542924E3A0003F8ABF /* Products */;
@@ -999,6 +997,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.project.uber;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1022,6 +1024,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.project.uber;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1059,22 +1065,6 @@
 				minimumVersion = 23.0.0;
 			};
 		};
-		655A48AF29ACCE9E00C71B72 /* XCRemoteSwiftPackageReference "Inject" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/krzysztofzablocki/Inject";
-			requirement = {
-				kind = exactVersion;
-				version = 1.2.3;
-			};
-		};
-		6587B43D29A58507006F7E9C /* XCRemoteSwiftPackageReference "LeakedViewControllerDetector" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Janneman84/LeakedViewControllerDetector";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		9842F0342932C78000AD73D8 /* XCRemoteSwiftPackageReference "CHIOTPField" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ChiliLabs/CHIOTPField.git";
@@ -1088,7 +1078,7 @@
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 7.0.0;
+				minimumVersion = 11.3.0;
 			};
 		};
 		98FCCDCB29365444008AAF61 /* XCRemoteSwiftPackageReference "geofire-objc" */ = {
@@ -1106,11 +1096,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 650563622A34415F00440912 /* XCRemoteSwiftPackageReference "Cosmos" */;
 			productName = Cosmos;
-		};
-		6587B43E29A58508006F7E9C /* LeakedViewControllerDetector */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6587B43D29A58507006F7E9C /* XCRemoteSwiftPackageReference "LeakedViewControllerDetector" */;
-			productName = LeakedViewControllerDetector;
 		};
 		9842F0352932C78000AD73D8 /* CHIOTPField */ = {
 			isa = XCSwiftPackageProductDependency;

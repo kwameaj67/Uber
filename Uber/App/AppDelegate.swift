@@ -7,7 +7,6 @@
 
 import UIKit
 import FirebaseCore
-import LeakedViewControllerDetector
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,15 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure() // configure firebase
-        
-//        LeakedViewControllerDetector.onDetect() { leakedViewController, leakedView, message in
-//            #if DEBUG
-//            return true //show warning alert dialog
-//            #else
-//            //log warning message to a server, e.g. Crashlytics
-//            return false //don't show warning to user
-//            #endif
-//        }
         return true
     }
 

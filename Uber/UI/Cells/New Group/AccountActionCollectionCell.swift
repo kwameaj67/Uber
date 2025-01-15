@@ -63,29 +63,21 @@ class AccountActionCollectionCell: UICollectionViewCell {
             stackView.heightAnchor.constraint(equalToConstant: 60),
             stackView.widthAnchor.constraint(equalTo: widthAnchor),
             
-            
-//            iconImage.topAnchor.constraint(equalTo: topAnchor,constant: 20),
-//            iconImage.centerXAnchor.constraint(equalTo: centerXAnchor),
             iconImage.heightAnchor.constraint(equalToConstant: 30),
             iconImage.widthAnchor.constraint(equalToConstant: 30),
-            
-//            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -10),
-//            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            
-           
         ])
     }
     
     func manageData(){
         guard let item = data else { return }
         titleLabel.text = item.name
-        if item.type  == .trips {
+        
+        switch item.type {
+        case .trips:
             iconImage.image = UIImage(systemName: "clock.fill")?.withRenderingMode(.alwaysOriginal)
-        }else{
+        case .help, .wallet:
             guard let icon = item.icon else { return }
             iconImage.image = UIImage(named: icon)?.withRenderingMode(.alwaysOriginal)
         }
-        
     }
-    
 }

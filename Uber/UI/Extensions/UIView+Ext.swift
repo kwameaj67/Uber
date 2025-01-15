@@ -61,14 +61,35 @@ extension UIView {
     func centerX(in view: UIView){
         centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
+    
     func centerY(in view: UIView){
         centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
+    
     func addBottomShadowsToView(){
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowRadius = 3.0
         layer.shadowOffset =  CGSize(width: 0, height: 3)
         layer.shadowOpacity = 0.8
         layer.masksToBounds = false
+    }
+    
+    func addConstrainedSubview(_ view: UIView) {
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+    }
+
+    func addConstrainedSubviews(_ views: UIView...) {
+        views.forEach { view in addConstrainedSubview(view) }
+    }
+    
+    func hide(){
+        ratingsView.isHidden = true
+        ratingsView.alpha = 0
+    }
+    
+    func show(){
+        ratingsView.isHidden = false
+        ratingsView.alpha = 1
     }
 }

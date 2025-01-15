@@ -59,10 +59,7 @@ class EditAccountInfoCell: UITableViewCell {
     }()
 
     func setupViews(){
-        contentView.addSubview(headingLbl)
-        contentView.addSubview(dataLbl)
-        contentView.addSubview(arrowImage)
-        contentView.addSubview(verifiedLbl)
+        contentView.addConstrainedSubviews(headingLbl, dataLbl, arrowImage, verifiedLbl)
     }
     
     func setupContraints(){

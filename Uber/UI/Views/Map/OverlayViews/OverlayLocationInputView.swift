@@ -89,10 +89,7 @@ class OverLayLocationInputView: UIView {
     }
     
     func setupViews(){
-        addSubview(backButton)
-        addSubview(headingLbl)
-        addSubview(locationIndicatorView)
-        addSubview(inputStackView)
+        addConstrainedSubviews(backButton, headingLbl, locationIndicatorView, inputStackView)
         inputStackView.addArrangedSubview(pickupLocationField)
         inputStackView.addArrangedSubview(destinationLocationField)
     }

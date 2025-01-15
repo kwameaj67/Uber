@@ -187,8 +187,7 @@ class RideCell: UITableViewCell {
         }
         
         if item.type == .uberX {
-            cheapStackView.isHidden = false
-            cheapStackView.alpha = 1
+            cheapStackView.show()
         }
     }
 }

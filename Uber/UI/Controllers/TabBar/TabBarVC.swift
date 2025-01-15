@@ -57,7 +57,6 @@ class TabBarVC: UITabBarController {
         tabItem.selectedImage = selectedImage
         tabItem.title = tabTitle
         tabItem.imageInsets.bottom = -10
-//        tabItem.imageInsets = UIEdgeInsets(top: -2, left: -10, bottom: -2, right: -10)
         tabItem.titlePositionAdjustment = .init(horizontal: 0, vertical: 6)
     }
     

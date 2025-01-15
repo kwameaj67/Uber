@@ -41,10 +41,9 @@ class LocationIndicatorView: UIView {
     }()
     
     func setupViews(){
-        addSubview(pickupIndicator)
-        addSubview(line)
-        addSubview(destinationIndicator)
+        addConstrainedSubviews(pickupIndicator, line, destinationIndicator)
     }
+    
     func setupContraints(){
         NSLayoutConstraint.activate([
             pickupIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),

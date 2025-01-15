@@ -75,8 +75,7 @@ class SavedPlacesCell: UITableViewCell {
             
             nameLbl.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             nameLbl.leadingAnchor.constraint(equalTo: iconContainer.trailingAnchor, constant: 15),
-            //nameLbl.trailingAnchor.constraint(equalTo: arrowImage.leadingAnchor, constant: -20),
-            
+           
             arrowImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             arrowImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             arrowImage.heightAnchor.constraint(equalToConstant: 10),
